@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://daisaa7phswmh"]
-
-[ext_resource type="Script" uid="uid://dty0brfak6q01" path="res://src/modules/Child.cs" id="1_hut7y"]
-
-[node name="child" type="Node2D"]
-script = ExtResource("1_hut7y")

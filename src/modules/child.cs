@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Child : Node2D {
+public partial class child : Node2D {
 	public struct Foo {
 		public string bar;
 	}

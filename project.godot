@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Babel"
 config/description="Sandbox for working with various programming languages in Godot."
-run/main_scene="uid://csi0chysy0w6"
+run/main_scene="uid://bva8pog1bu7ru"
 run/print_header=false
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://assets/icons/icon.svg"
 
 [autoload]
