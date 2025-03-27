@@ -6,11 +6,6 @@ declare module "godot" {
                     child: Node2D<{}>,
                 }
             >,
-            ts: Node2D<
-                {
-                    child: Node2D<{}>,
-                }
-            >,
         },
     }
 }
