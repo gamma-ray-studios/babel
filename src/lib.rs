@@ -1,5 +1,7 @@
 use godot::prelude::*;
 
+mod modules;
+
 struct Extension;
 
 #[gdextension]
