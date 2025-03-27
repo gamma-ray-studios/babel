@@ -10,3 +10,5 @@ script = ExtResource("1_rr2wm")
 
 [node name="child" type="Node2D" parent="c#"]
 script = ExtResource("2_32aa5")
+
+[node name="swift" type="ParentSwift" parent="."]

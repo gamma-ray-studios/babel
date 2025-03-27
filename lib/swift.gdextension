@@ -1,0 +1,9 @@
+[configuration]
+entry_symbol = "swift_entry_point"
+compatibility_minimum = 4.2
+
+[libraries]
+linux.debug.x86_64 = "res://lib/libBabel.so"
+
+[dependencies]
+linux.debug.x86_64 = {"res://lib/libSwiftGodot.so" : ""}

@@ -6,6 +6,7 @@ declare module "godot" {
                     child: Node2D<{}>,
                 }
             >,
+            swift: ParentSwift<{}>,
         },
     }
 }
