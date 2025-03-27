@@ -1,0 +1,14 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.4
+reloadable = true
+
+[libraries]
+linux.debug.x86_64 =     "res://target/debug/libmain.so"
+linux.release.x86_64 =   "res://target/release/libmain.so"
+windows.debug.x86_64 =   "res://target/debug/main.dll"
+windows.release.x86_64 = "res://target/release/main.dll"
+macos.debug =            "res://target/debug/libmain.dylib"
+macos.release =          "res://target/release/libmain.dylib"
+macos.debug.arm64 =      "res://target/debug/libmain.dylib"
+macos.release.arm64 =    "res://target/release/libmain.dylib"

@@ -2,6 +2,11 @@
 .godot/
 /android/
 
+# rust
+/debug/
+/target/
+Cargo.lock
+
 # js
 /node_modules/
 
