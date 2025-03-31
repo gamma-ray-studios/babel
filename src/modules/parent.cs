@@ -5,6 +5,6 @@ public partial class parent : Node2D {
 		GD.PrintS("ready:", Name);
 
 		var child = GetNode<child>("child");
-		child.Setup(new child.Foo { bar = "hello" });
+		child.Setup(new child.Foo { bar = "see sharp?" });
 	}
 }

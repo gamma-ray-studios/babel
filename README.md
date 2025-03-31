@@ -2,6 +2,7 @@
 
 Languages within:
 
+- GDScript
 - C#
 - Rust
 - Nim
