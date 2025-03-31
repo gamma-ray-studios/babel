@@ -5,6 +5,6 @@ class_name ParentGD extends Node2D
 func _ready() -> void:
 	prints("ready:", name)
 
-	var foo := ChildGD.Foo.new()
-	foo.bar = "gdscript KEKW"
-	child.setup(foo)
+	var idk := ChildGD.Idk.new()
+	idk.wat = "gdscript KEKW"
+	child.setup(idk)
