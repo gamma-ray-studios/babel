@@ -4,7 +4,7 @@ compatibility_minimum = 4.4
 reloadable = true
 
 [libraries]
-linux.debug.x86_64 = "res://lib/libBabel.so"
+linux.debug.x86_64 = "res://.build/debug/libSwiftGame.so"
 
 [dependencies]
-linux.debug.x86_64 = {"res://lib/libSwiftGodot.so" : ""}
+linux.debug.x86_64 = {"res://.build/debug/libSwiftGodot.so" : ""}
