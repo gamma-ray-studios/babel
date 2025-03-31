@@ -14,3 +14,5 @@ script = ExtResource("2_32aa5")
 [node name="swift" type="ParentSwift" parent="."]
 
 [node name="rust" type="ParentRust" parent="."]
+
+[node name="nim" type="ParentNim" parent="."]

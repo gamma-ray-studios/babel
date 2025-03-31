@@ -1,0 +1,12 @@
+[configuration]
+entry_symbol = "init_library"
+compatibility_minimum = 4.4
+reloadable = true
+
+[libraries]
+linux.debug = "res://lib/linux/debug/libbootstrap.so"
+linux.release = "res://lib/linux/release/libbootstrap.so"
+macos.debug = "res://lib/macos/debug/libbootstrap.dylib"
+macos.release = "res://lib/macos/release/libbootstrap.dylib"
+windows.debug = "res://lib/windows/debug/bootstrap.dll"
+windows.release = "res://lib/windows/release/bootstrap.dll"
