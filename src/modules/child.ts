@@ -1,8 +1,11 @@
-import { Node2D } from "godot";
+import { Node2D, print } from "godot";
+
+export interface Idk {
+	wat: string;
+}
 
 export default class Child extends Node2D {
-	// Called when the node enters the scene tree for the first time.
-	_ready(): void {
-		console.log("ready:", this.get_name());
+	setup(idk: Idk): void {
+		print(`\t${this.get_parent().get_name()}/${this.get_name()}: ${idk.wat}`);
 	}
 }

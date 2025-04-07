@@ -1,10 +1,16 @@
-import { Node2D } from "godot";
+import { Node2D, prints } from "godot";
+import Child, { Idk } from "./child";
 
 export default class Parent extends Node2D {
-	test: string = "testing";
+	child: Child;
 
-	// Called when the node enters the scene tree for the first time.
 	_ready(): void {
-		console.log("ready:", this.test);
+		prints("ready:", this.get_name());
+
+		this.child = <Child>this.get_node("child");
+		const idk: Idk = {
+			wat: "type _this_ 🖕",
+		};
+		this.child.setup(idk);
 	}
 }
