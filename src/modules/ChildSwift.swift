@@ -7,6 +7,6 @@ struct Idk {
 @Godot
 class ChildSwift: Node2D {
 	func setup(idk: Idk) {
-		GD.print("\t", getParent()?.name, "/", name, ":", idk.wat)
+		GD.print("\t", getParent()!.name, "/", name, ":", idk.wat)
 	}
 }
