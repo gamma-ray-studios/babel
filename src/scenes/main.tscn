@@ -1,25 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bva8pog1bu7ru"]
+[gd_scene load_steps=3 format=3 uid="uid://bva8pog1bu7ru"]
 
-[ext_resource type="Script" uid="uid://bafe8kfbbvwvw" path="res://src/modules/parent.gd" id="1_32aa5"]
-[ext_resource type="Script" uid="uid://dty0brfak6q01" path="res://src/modules/child.cs" id="2_32aa5"]
-[ext_resource type="Script" uid="uid://bpxypus4pkod4" path="res://src/modules/parent.cs" id="5_o81g6"]
-[ext_resource type="Script" uid="uid://2kf18oc0lstw" path="res://src/modules/child.gd" id="6_dbro3"]
+[ext_resource type="Script" uid="uid://2kf18oc0lstw" path="res://src/modules/child.gd" id="2_32aa5"]
+[ext_resource type="Script" uid="uid://bafe8kfbbvwvw" path="res://src/modules/parent.gd" id="5_o81g6"]
 
 [node name="main" type="Node2D"]
 
 [node name="gd" type="Node2D" parent="."]
-script = ExtResource("1_32aa5")
+script = ExtResource("5_o81g6")
 metadata/_custom_type_script = "uid://bafe8kfbbvwvw"
 
 [node name="child" type="Node2D" parent="gd"]
-script = ExtResource("6_dbro3")
+script = ExtResource("2_32aa5")
 metadata/_custom_type_script = "uid://2kf18oc0lstw"
 
 [node name="c#" type="Node2D" parent="."]
-script = ExtResource("5_o81g6")
 
 [node name="child" type="Node2D" parent="c#"]
-script = ExtResource("2_32aa5")
 
 [node name="swift" type="ParentSwift" parent="."]
 
