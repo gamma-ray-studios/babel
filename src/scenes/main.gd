@@ -1,5 +1,5 @@
 extends Node2D
 
 func _ready():
-	prints("kbye")
-	get_tree().quit()
+	if DisplayServer.get_name() == "headless":
+		get_tree().quit()
