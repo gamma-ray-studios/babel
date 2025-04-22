@@ -1,4 +1,4 @@
-module services
+module mods
 
 import gd
 
