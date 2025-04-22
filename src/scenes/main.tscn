@@ -32,3 +32,5 @@ metadata/_custom_type_script = "uid://2kf18oc0lstw"
 [node name="child" type="ChildNim" parent="nim"]
 
 [node name="v" type="ParentV" parent="."]
+
+[node name="child" type="ChildV" parent="v"]

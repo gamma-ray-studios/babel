@@ -1,15 +1,16 @@
 module main
 
-import log
 import gd
+import log
 
 import mods
 
 pub fn init_gd(v voidptr, l gd.GDExtensionInitializationLevel) {
 	// Register classes at scene initialization
 	if l == .initialization_level_scene {
-		gd.register_class_with_name[mods.ParentV]('Node2D', 'ParentV')
 		// gd.register_class[mods.ParentV]('Node2D')
+		gd.register_class_with_name[mods.ParentV]('Node2D', 'ParentV')
+		gd.register_class_with_name[mods.ChildV]('Node2D', 'ChildV')
 	}
 }
 

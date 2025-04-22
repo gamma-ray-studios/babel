@@ -1,19 +1,20 @@
 module mods
 
 import gd
+import log
 
 pub struct ParentV {
 	gd.Node2D
+mut:
+	child ?&ChildV
 }
 
-fn (mut p ParentV) init() {
-	println('V: init')
-}
+fn (mut self ParentV) ready_() {
+	log.info('ready: ${self.get_name()}')
 
-fn (mut p ParentV) ready_() {
-	println('V: ready')
-}
-
-fn (mut p ParentV) enter_tree_() {
-	println('V: enter_tree')
+	if mut child := self.get_node_v('child').cast_to_v[ChildV]('ChildV') {
+		self.child = child
+		idk := Idk{'vvvvvv'}
+		child.setup(idk)
+	}
 }
