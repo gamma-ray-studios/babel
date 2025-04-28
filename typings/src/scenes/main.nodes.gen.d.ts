@@ -19,6 +19,9 @@ declare module "godot" {
             v: ParentV<{
                 child: ChildV<{}>;
             }>;
+            ts: Node2D<{
+                child: Node2D<{}>;
+            }>;
         };
     }
 }

@@ -1,10 +1,10 @@
 import { Node2D, prints } from "godot";
-import Child, { Idk } from "./child";
+import ChildTS, { Idk } from "./child";
 import { onready } from "godot.annotations";
 
-export default class Parent extends Node2D {
+export default class ParentTS extends Node2D {
 	@onready("child")
-	child!: Child;
+	child!: ChildTS;
 
 	_ready(): void {
 		prints("ready:", this.get_name());
