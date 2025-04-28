@@ -1,267 +1,6 @@
 // AUTO-GENERATED
 /// <reference no-default-lib="true"/>
 declare module "godot" {
-    namespace RigidBody2D {
-        enum FreezeMode {
-            /** Static body freeze mode (default). The body is not affected by gravity and forces. It can be only moved by user code and doesn't collide with other bodies along its path. */
-            FREEZE_MODE_STATIC = 0,
-            
-            /** Kinematic body freeze mode. Similar to [constant FREEZE_MODE_STATIC], but collides with other bodies along its path when moved. Useful for a frozen body that needs to be animated. */
-            FREEZE_MODE_KINEMATIC = 1,
-        }
-        enum CenterOfMassMode {
-            /** In this mode, the body's center of mass is calculated automatically based on its shapes. This assumes that the shapes' origins are also their center of mass. */
-            CENTER_OF_MASS_MODE_AUTO = 0,
-            
-            /** In this mode, the body's center of mass is set through [member center_of_mass]. Defaults to the body's origin position. */
-            CENTER_OF_MASS_MODE_CUSTOM = 1,
-        }
-        enum DampMode {
-            /** In this mode, the body's damping value is added to any value set in areas or the default value. */
-            DAMP_MODE_COMBINE = 0,
-            
-            /** In this mode, the body's damping value replaces any value set in areas or the default value. */
-            DAMP_MODE_REPLACE = 1,
-        }
-        enum CCDMode {
-            /** Continuous collision detection disabled. This is the fastest way to detect body collisions, but can miss small, fast-moving objects. */
-            CCD_MODE_DISABLED = 0,
-            
-            /** Continuous collision detection enabled using raycasting. This is faster than shapecasting but less precise. */
-            CCD_MODE_CAST_RAY = 1,
-            
-            /** Continuous collision detection enabled using shapecasting. This is the slowest CCD method and the most precise. */
-            CCD_MODE_CAST_SHAPE = 2,
-        }
-    }
-    /** A 2D physics body that is moved by a physics simulation.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rigidbody2d.html  
-     */
-    class RigidBody2D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody2D<Map> {
-        constructor(identifier?: any)
-        /** Called during physics processing, allowing you to read and safely modify the simulation state for the object. By default, it is called before the standard force integration, but the [member custom_integrator] property allows you to disable the standard force integration and do fully custom force integration for a body. */
-        /* gdvirtual */ _integrate_forces(state: PhysicsDirectBodyState2D): void
-        
-        /** Returns the number of contacts this body has with other bodies. By default, this returns 0 unless bodies are configured to monitor contacts (see [member contact_monitor]).  
-         *      
-         *  **Note:** To retrieve the colliding bodies, use [method get_colliding_bodies].  
-         */
-        get_contact_count(): int64
-        
-        /** Sets the body's velocity on the given axis. The velocity in the given vector axis will be set as the given vector length. This is useful for jumping behavior. */
-        set_axis_velocity(axis_velocity: Vector2): void
-        
-        /** Applies a directional impulse without affecting rotation.  
-         *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
-         *  This is equivalent to using [method apply_impulse] at the body's center of mass.  
-         */
-        apply_central_impulse(impulse: Vector2 = Vector2.ZERO): void
-        
-        /** Applies a positioned impulse to the body.  
-         *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
-         *  [param position] is the offset from the body origin in global coordinates.  
-         */
-        apply_impulse(impulse: Vector2, position: Vector2 = Vector2.ZERO): void
-        
-        /** Applies a rotational impulse to the body without affecting the position.  
-         *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
-         *      
-         *  **Note:** [member inertia] is required for this to work. To have [member inertia], an active [CollisionShape2D] must be a child of the node, or you can manually set [member inertia].  
-         */
-        apply_torque_impulse(torque: float64): void
-        
-        /** Applies a directional force without affecting rotation. A force is time dependent and meant to be applied every physics update.  
-         *  This is equivalent to using [method apply_force] at the body's center of mass.  
-         */
-        apply_central_force(force: Vector2): void
-        
-        /** Applies a positioned force to the body. A force is time dependent and meant to be applied every physics update.  
-         *  [param position] is the offset from the body origin in global coordinates.  
-         */
-        apply_force(force: Vector2, position: Vector2 = Vector2.ZERO): void
-        
-        /** Applies a rotational force without affecting position. A force is time dependent and meant to be applied every physics update.  
-         *      
-         *  **Note:** [member inertia] is required for this to work. To have [member inertia], an active [CollisionShape2D] must be a child of the node, or you can manually set [member inertia].  
-         */
-        apply_torque(torque: float64): void
-        
-        /** Adds a constant directional force without affecting rotation that keeps being applied over time until cleared with `constant_force = Vector2(0, 0)`.  
-         *  This is equivalent to using [method add_constant_force] at the body's center of mass.  
-         */
-        add_constant_central_force(force: Vector2): void
-        
-        /** Adds a constant positioned force to the body that keeps being applied over time until cleared with `constant_force = Vector2(0, 0)`.  
-         *  [param position] is the offset from the body origin in global coordinates.  
-         */
-        add_constant_force(force: Vector2, position: Vector2 = Vector2.ZERO): void
-        
-        /** Adds a constant rotational force without affecting position that keeps being applied over time until cleared with `constant_torque = 0`. */
-        add_constant_torque(torque: float64): void
-        
-        /** Returns a list of the bodies colliding with this one. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions.  
-         *      
-         *  **Note:** The result of this test is not immediate after moving objects. For performance, list of collisions is updated once per frame and before the physics step. Consider using signals instead.  
-         */
-        get_colliding_bodies(): GArray
-        
-        /** The body's mass. */
-        get mass(): float64
-        set mass(value: float64)
-        
-        /** The physics material override for the body.  
-         *  If a material is assigned to this property, it will be used instead of any other physics material, such as an inherited one.  
-         */
-        get physics_material_override(): PhysicsMaterial
-        set physics_material_override(value: PhysicsMaterial)
-        
-        /** Multiplies the gravity applied to the body. The body's gravity is calculated from the [member ProjectSettings.physics/2d/default_gravity] project setting and/or any additional gravity vector applied by [Area2D]s. */
-        get gravity_scale(): float64
-        set gravity_scale(value: float64)
-        
-        /** Defines the way the body's center of mass is set. See [enum CenterOfMassMode] for possible values. */
-        get center_of_mass_mode(): int64
-        set center_of_mass_mode(value: int64)
-        
-        /** The body's custom center of mass, relative to the body's origin position, when [member center_of_mass_mode] is set to [constant CENTER_OF_MASS_MODE_CUSTOM]. This is the balanced point of the body, where applied forces only cause linear acceleration. Applying forces outside of the center of mass causes angular acceleration.  
-         *  When [member center_of_mass_mode] is set to [constant CENTER_OF_MASS_MODE_AUTO] (default value), the center of mass is automatically computed.  
-         */
-        get center_of_mass(): Vector2
-        set center_of_mass(value: Vector2)
-        
-        /** The body's moment of inertia. This is like mass, but for rotation: it determines how much torque it takes to rotate the body. The moment of inertia is usually computed automatically from the mass and the shapes, but this property allows you to set a custom value.  
-         *  If set to `0`, inertia is automatically computed (default value).  
-         *      
-         *  **Note:** This value does not change when inertia is automatically computed. Use [PhysicsServer2D] to get the computed inertia.  
-         *    
-         */
-        get inertia(): float64
-        set inertia(value: float64)
-        
-        /** If `true`, the body will not move and will not calculate forces until woken up by another body through, for example, a collision, or by using the [method apply_impulse] or [method apply_force] methods. */
-        get sleeping(): boolean
-        set sleeping(value: boolean)
-        
-        /** If `true`, the body can enter sleep mode when there is no movement. See [member sleeping]. */
-        get can_sleep(): boolean
-        set can_sleep(value: boolean)
-        
-        /** If `true`, the body cannot rotate. Gravity and forces only apply linear movement. */
-        get lock_rotation(): boolean
-        set lock_rotation(value: boolean)
-        
-        /** If `true`, the body is frozen. Gravity and forces are not applied anymore.  
-         *  See [member freeze_mode] to set the body's behavior when frozen.  
-         *  For a body that is always frozen, use [StaticBody2D] or [AnimatableBody2D] instead.  
-         */
-        get freeze(): boolean
-        set freeze(value: boolean)
-        
-        /** The body's freeze mode. Can be used to set the body's behavior when [member freeze] is enabled. See [enum FreezeMode] for possible values.  
-         *  For a body that is always frozen, use [StaticBody2D] or [AnimatableBody2D] instead.  
-         */
-        get freeze_mode(): int64
-        set freeze_mode(value: int64)
-        
-        /** If `true`, the standard force integration (like gravity or damping) will be disabled for this body. Other than collision response, the body will only move as determined by the [method _integrate_forces] method, if that virtual method is overridden.  
-         *  Setting this property will call the method [method PhysicsServer2D.body_set_omit_force_integration] internally.  
-         */
-        get custom_integrator(): boolean
-        set custom_integrator(value: boolean)
-        
-        /** Continuous collision detection mode.  
-         *  Continuous collision detection tries to predict where a moving body will collide instead of moving it and correcting its movement after collision. Continuous collision detection is slower, but more precise and misses fewer collisions with small, fast-moving objects. Raycasting and shapecasting methods are available. See [enum CCDMode] for details.  
-         */
-        get continuous_cd(): int64
-        set continuous_cd(value: int64)
-        
-        /** If `true`, the RigidBody2D will emit signals when it collides with another body.  
-         *      
-         *  **Note:** By default the maximum contacts reported is set to 0, meaning nothing will be recorded, see [member max_contacts_reported].  
-         */
-        get contact_monitor(): boolean
-        set contact_monitor(value: boolean)
-        
-        /** The maximum number of contacts that will be recorded. Requires a value greater than 0 and [member contact_monitor] to be set to `true` to start to register contacts. Use [method get_contact_count] to retrieve the count or [method get_colliding_bodies] to retrieve bodies that have been collided with.  
-         *      
-         *  **Note:** The number of contacts is different from the number of collisions. Collisions between parallel edges will result in two contacts (one at each end), and collisions between parallel faces will result in four contacts (one at each corner).  
-         */
-        get max_contacts_reported(): int64
-        set max_contacts_reported(value: int64)
-        
-        /** The body's linear velocity in pixels per second. Can be used sporadically, but **don't set this every frame**, because physics may run in another thread and runs at a different granularity. Use [method _integrate_forces] as your process loop for precise control of the body state. */
-        get linear_velocity(): Vector2
-        set linear_velocity(value: Vector2)
-        
-        /** Defines how [member linear_damp] is applied. See [enum DampMode] for possible values. */
-        get linear_damp_mode(): int64
-        set linear_damp_mode(value: int64)
-        
-        /** Damps the body's movement. By default, the body will use the [member ProjectSettings.physics/2d/default_linear_damp] setting or any value override set by an [Area2D] the body is in. Depending on [member linear_damp_mode], you can set [member linear_damp] to be added to or to replace the body's damping value.  
-         *  See [member ProjectSettings.physics/2d/default_linear_damp] for more details about damping.  
-         */
-        get linear_damp(): float64
-        set linear_damp(value: float64)
-        
-        /** The body's rotational velocity in  *radians*  per second. */
-        get angular_velocity(): float64
-        set angular_velocity(value: float64)
-        
-        /** Defines how [member angular_damp] is applied. See [enum DampMode] for possible values. */
-        get angular_damp_mode(): int64
-        set angular_damp_mode(value: int64)
-        
-        /** Damps the body's rotation. By default, the body will use the [member ProjectSettings.physics/2d/default_angular_damp] setting or any value override set by an [Area2D] the body is in. Depending on [member angular_damp_mode], you can set [member angular_damp] to be added to or to replace the body's damping value.  
-         *  See [member ProjectSettings.physics/2d/default_angular_damp] for more details about damping.  
-         */
-        get angular_damp(): float64
-        set angular_damp(value: float64)
-        
-        /** The body's total constant positional forces applied during each physics update.  
-         *  See [method add_constant_force] and [method add_constant_central_force].  
-         */
-        get constant_force(): Vector2
-        set constant_force(value: Vector2)
-        
-        /** The body's total constant rotational forces applied during each physics update.  
-         *  See [method add_constant_torque].  
-         */
-        get constant_torque(): float64
-        set constant_torque(value: float64)
-        
-        /** Emitted when one of this RigidBody2D's [Shape2D]s collides with another [PhysicsBody2D] or [TileMap]'s [Shape2D]s. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
-         *  [param body_rid] the [RID] of the other [PhysicsBody2D] or [TileSet]'s [CollisionObject2D] used by the [PhysicsServer2D].  
-         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
-         *  [param body_shape_index] the index of the [Shape2D] of the other [PhysicsBody2D] or [TileMap] used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))`.  
-         *  [param local_shape_index] the index of the [Shape2D] of this RigidBody2D used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `self.shape_owner_get_owner(self.shape_find_owner(local_shape_index))`.  
-         */
-        readonly body_shape_entered: Signal4<RID, Node, int64, int64>
-        
-        /** Emitted when the collision between one of this RigidBody2D's [Shape2D]s and another [PhysicsBody2D] or [TileMap]'s [Shape2D]s ends. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
-         *  [param body_rid] the [RID] of the other [PhysicsBody2D] or [TileSet]'s [CollisionObject2D] used by the [PhysicsServer2D].  
-         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
-         *  [param body_shape_index] the index of the [Shape2D] of the other [PhysicsBody2D] or [TileMap] used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))`.  
-         *  [param local_shape_index] the index of the [Shape2D] of this RigidBody2D used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `self.shape_owner_get_owner(self.shape_find_owner(local_shape_index))`.  
-         */
-        readonly body_shape_exited: Signal4<RID, Node, int64, int64>
-        
-        /** Emitted when a collision with another [PhysicsBody2D] or [TileMap] occurs. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
-         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
-         */
-        readonly body_entered: Signal1<Node>
-        
-        /** Emitted when the collision with another [PhysicsBody2D] or [TileMap] ends. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
-         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
-         */
-        readonly body_exited: Signal1<Node>
-        
-        /** Emitted when the physics engine changes the body's sleeping state.  
-         *      
-         *  **Note:** Changing the value [member sleeping] will not trigger this signal. It is only emitted if the sleeping state is changed by the physics engine or `emit_signal("sleeping_state_changed")` is used.  
-         */
-        readonly sleeping_state_changed: Signal0
-    }
     namespace RigidBody3D {
         enum FreezeMode {
             /** Static body freeze mode (default). The body is not affected by gravity and forces. It can be only moved by user code and doesn't collide with other bodies along its path. */
@@ -287,9 +26,9 @@ declare module "godot" {
     }
     /** A 3D physics body that is moved by a physics simulation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rigidbody3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rigidbody3d.html  
      */
-    class RigidBody3D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody3D<Map> {
+    class RigidBody3D<Map extends Record<string, Node> = {}> extends PhysicsBody3D<Map> {
         constructor(identifier?: any)
         /** Called during physics processing, allowing you to read and safely modify the simulation state for the object. By default, it is called before the standard force integration, but the [member custom_integrator] property allows you to disable the standard force integration and do fully custom force integration for a body. */
         /* gdvirtual */ _integrate_forces(state: PhysicsDirectBodyState3D): void
@@ -316,7 +55,7 @@ declare module "godot" {
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        apply_impulse(impulse: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        apply_impulse(impulse: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Applies a rotational impulse to the body without affecting the position.  
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
@@ -333,7 +72,7 @@ declare module "godot" {
         /** Applies a positioned force to the body. A force is time dependent and meant to be applied every physics update.  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        apply_force(force: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        apply_force(force: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Applies a rotational force without affecting position. A force is time dependent and meant to be applied every physics update.  
          *      
@@ -349,7 +88,7 @@ declare module "godot" {
         /** Adds a constant positioned force to the body that keeps being applied over time until cleared with `constant_force = Vector3(0, 0, 0)`.  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        add_constant_force(force: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        add_constant_force(force: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Adds a constant rotational force without affecting position that keeps being applied over time until cleared with `constant_torque = Vector3(0, 0, 0)`. */
         add_constant_torque(torque: Vector3): void
@@ -490,7 +229,7 @@ declare module "godot" {
          *  [param body_shape_index] the index of the [Shape3D] of the other [PhysicsBody3D] or [GridMap] used by the [PhysicsServer3D]. Get the [CollisionShape3D] node with `body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))`.  
          *  [param local_shape_index] the index of the [Shape3D] of this RigidBody3D used by the [PhysicsServer3D]. Get the [CollisionShape3D] node with `self.shape_owner_get_owner(self.shape_find_owner(local_shape_index))`.  
          */
-        readonly body_shape_entered: Signal4<RID, Node, int64, int64>
+        readonly body_shape_entered: Signal<(body_rid: RID, body: Node, body_shape_index: int64, local_shape_index: int64) => void>
         
         /** Emitted when the collision between one of this RigidBody3D's [Shape3D]s and another [PhysicsBody3D] or [GridMap]'s [Shape3D]s ends. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [GridMap]s are detected if the [MeshLibrary] has Collision [Shape3D]s.  
          *  [param body_rid] the [RID] of the other [PhysicsBody3D] or [MeshLibrary]'s [CollisionObject3D] used by the [PhysicsServer3D]. [GridMap]s are detected if the Meshes have [Shape3D]s.  
@@ -498,29 +237,29 @@ declare module "godot" {
          *  [param body_shape_index] the index of the [Shape3D] of the other [PhysicsBody3D] or [GridMap] used by the [PhysicsServer3D]. Get the [CollisionShape3D] node with `body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))`.  
          *  [param local_shape_index] the index of the [Shape3D] of this RigidBody3D used by the [PhysicsServer3D]. Get the [CollisionShape3D] node with `self.shape_owner_get_owner(self.shape_find_owner(local_shape_index))`.  
          */
-        readonly body_shape_exited: Signal4<RID, Node, int64, int64>
+        readonly body_shape_exited: Signal<(body_rid: RID, body: Node, body_shape_index: int64, local_shape_index: int64) => void>
         
         /** Emitted when a collision with another [PhysicsBody3D] or [GridMap] occurs. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [GridMap]s are detected if the [MeshLibrary] has Collision [Shape3D]s.  
          *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody3D] or [GridMap].  
          */
-        readonly body_entered: Signal1<Node>
+        readonly body_entered: Signal<(body: Node) => void>
         
         /** Emitted when the collision with another [PhysicsBody3D] or [GridMap] ends. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [GridMap]s are detected if the [MeshLibrary] has Collision [Shape3D]s.  
          *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody3D] or [GridMap].  
          */
-        readonly body_exited: Signal1<Node>
+        readonly body_exited: Signal<(body: Node) => void>
         
         /** Emitted when the physics engine changes the body's sleeping state.  
          *      
          *  **Note:** Changing the value [member sleeping] will not trigger this signal. It is only emitted if the sleeping state is changed by the physics engine or `emit_signal("sleeping_state_changed")` is used.  
          */
-        readonly sleeping_state_changed: Signal0
+        readonly sleeping_state_changed: Signal<() => void>
     }
     /** Editor-only helper for setting up root motion in [AnimationMixer].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rootmotionview.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rootmotionview.html  
      */
-    class RootMotionView<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class RootMotionView<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Path to an [AnimationMixer] node to use as a basis for root motion. */
         get animation_path(): NodePath
@@ -542,27 +281,9 @@ declare module "godot" {
         get zero_y(): boolean
         set zero_y(value: boolean)
     }
-    class RunInstancesDialog<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class SceneCacheInterface extends RefCounted {
-        constructor(identifier?: any)
-    }
-    class SceneCreateDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class SceneExporterGLTFPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class SceneImportSettingsData extends Object {
-        constructor(identifier?: any)
-    }
-    class SceneImportSettingsDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
     /** High-level multiplayer API implementation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scenemultiplayer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scenemultiplayer.html  
      */
     class SceneMultiplayer extends MultiplayerAPI {
         constructor(identifier?: any)
@@ -576,15 +297,15 @@ declare module "godot" {
         get_authenticating_peers(): PackedInt32Array
         
         /** Sends the specified [param data] to the remote peer identified by [param id] as part of an authentication message. This can be used to authenticate peers, and control when [signal MultiplayerAPI.peer_connected] is emitted (and the remote peer accepted as one of the connected peers). */
-        send_auth(id: int64, data: PackedByteArray | byte[] | ArrayBuffer): GError
+        send_auth(id: int64, data: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Mark the authentication step as completed for the remote peer identified by [param id]. The [signal MultiplayerAPI.peer_connected] signal will be emitted for this peer once the remote side also completes the authentication. No further authentication messages are expected to be received from this peer.  
          *  If a peer disconnects before completing authentication, either due to a network issue, the [member auth_timeout] expiring, or manually calling [method disconnect_peer], the [signal peer_authentication_failed] signal will be emitted instead of [signal MultiplayerAPI.peer_disconnected].  
          */
-        complete_auth(id: int64): GError
+        complete_auth(id: int64): Error
         
         /** Sends the given raw [param bytes] to a specific peer identified by [param id] (see [method MultiplayerPeer.set_target_peer]). Default ID is `0`, i.e. broadcast to all peers. */
-        send_bytes(bytes: PackedByteArray | byte[] | ArrayBuffer, id: int64 = 0, mode: MultiplayerPeer.TransferMode = 2, channel: int64 = 0): GError
+        send_bytes(bytes: PackedByteArray | byte[] | ArrayBuffer, id?: int64 /* = 0 */, mode?: MultiplayerPeer.TransferMode /* = 2 */, channel?: int64 /* = 0 */): Error
         
         /** The root path to use for RPCs and replication. Instead of an absolute path, a relative path will be used to find the node upon which the RPC should be executed.  
          *  This effectively allows to have different branches of the scene tree to be managed by different MultiplayerAPI, allowing for example to run both client and server in the same scene.  
@@ -628,16 +349,13 @@ declare module "godot" {
         set max_delta_packet_size(value: int64)
         
         /** Emitted when this MultiplayerAPI's [member MultiplayerAPI.multiplayer_peer] connects to a new peer and a valid [member auth_callback] is set. In this case, the [signal MultiplayerAPI.peer_connected] will not be emitted until [method complete_auth] is called with given peer [param id]. While in this state, the peer will not be included in the list returned by [method MultiplayerAPI.get_peers] (but in the one returned by [method get_authenticating_peers]), and only authentication data will be sent or received. See [method send_auth] for sending authentication data. */
-        readonly peer_authenticating: Signal1<int64>
+        readonly peer_authenticating: Signal<(id: int64) => void>
         
         /** Emitted when this MultiplayerAPI's [member MultiplayerAPI.multiplayer_peer] disconnects from a peer for which authentication had not yet completed. See [signal peer_authenticating]. */
-        readonly peer_authentication_failed: Signal1<int64>
+        readonly peer_authentication_failed: Signal<(id: int64) => void>
         
         /** Emitted when this MultiplayerAPI's [member MultiplayerAPI.multiplayer_peer] receives a [param packet] with custom data (see [method send_bytes]). ID is the peer ID of the peer that sent the packet. */
-        readonly peer_packet: Signal2<int64, PackedByteArray | byte[] | ArrayBuffer>
-    }
-    class SceneRPCInterface extends RefCounted {
-        constructor(identifier?: any)
+        readonly peer_packet: Signal<(id: int64, packet: PackedByteArray | byte[] | ArrayBuffer) => void>
     }
     namespace SceneReplicationConfig {
         enum ReplicationMode {
@@ -653,7 +371,7 @@ declare module "godot" {
     }
     /** Configuration for properties to synchronize with a [MultiplayerSynchronizer].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scenereplicationconfig.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scenereplicationconfig.html  
      */
     class SceneReplicationConfig extends Resource {
         constructor(identifier?: any)
@@ -664,7 +382,7 @@ declare module "godot" {
          *      
          *  **Note:** For details on restrictions and limitations on property synchronization, see [MultiplayerSynchronizer].  
          */
-        add_property(path: NodePath | string, index: int64 = -1): void
+        add_property(path: NodePath | string, index?: int64 /* = -1 */): void
         
         /** Returns `true` if the given [param path] is configured for synchronization. */
         has_property(path: NodePath | string): boolean
@@ -699,9 +417,6 @@ declare module "godot" {
         /** Sets whether the property identified by the given [param path] is configured to be reliably synchronized when changes are detected on process. */
         property_set_watch(path: NodePath | string, enabled: boolean): void
     }
-    class SceneReplicationInterface extends RefCounted {
-        constructor(identifier?: any)
-    }
     namespace SceneState {
         enum GenEditState {
             /** If passed to [method PackedScene.instantiate], blocks edits to the scene state. */
@@ -728,10 +443,16 @@ declare module "godot" {
     }
     /** Provides access to a scene file's information.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scenestate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scenestate.html  
      */
     class SceneState extends RefCounted {
         constructor(identifier?: any)
+        /** Returns the resource path to the represented [PackedScene]. */
+        get_path(): string
+        
+        /** Returns the [SceneState] of the scene that this scene inherits from, or `null` if it doesn't inherit from any scene. */
+        get_base_scene_state(): SceneState
+        
         /** Returns the number of nodes in the scene.  
          *  The `idx` argument used to query node data in other `get_node_*` methods in the interval `[0, get_node_count() - 1]`.  
          */
@@ -746,7 +467,7 @@ declare module "godot" {
         /** Returns the path to the node at [param idx].  
          *  If [param for_parent] is `true`, returns the path of the [param idx] node's parent instead.  
          */
-        get_node_path(idx: int64, for_parent: boolean = false): NodePath
+        get_node_path(idx: int64, for_parent?: boolean /* = false */): NodePath
         
         /** Returns the path to the owner of the node at [param idx], relative to the root node. */
         get_node_owner_path(idx: int64): NodePath
@@ -803,10 +524,6 @@ declare module "godot" {
         /** Returns the number of unbound parameters for the signal at [param idx]. */
         get_connection_unbinds(idx: int64): int64
     }
-    class SceneTileProxyObject extends Object {
-        constructor(identifier?: any)
-        readonly changed: Signal1<string>
-    }
     namespace SceneTree {
         enum GroupCallFlags {
             /** Call nodes within a group with no special behavior (default). */
@@ -827,7 +544,7 @@ declare module "godot" {
     }
     /** Manages the game loop via a hierarchy of nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scenetree.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scenetree.html  
      */
     class SceneTree extends MainLoop {
         constructor(identifier?: any)
@@ -843,7 +560,7 @@ declare module "godot" {
          *      
          *  **Note:** The timer is always updated  *after*  all of the nodes in the tree. A node's [method Node._process] method would be called before the timer updates (or [method Node._physics_process] if [param process_in_physics] is set to `true`).  
          */
-        create_timer(time_sec: float64, process_always: boolean = true, process_in_physics: boolean = false, ignore_time_scale: boolean = false): SceneTreeTimer
+        create_timer(time_sec: float64, process_always?: boolean /* = true */, process_in_physics?: boolean /* = false */, ignore_time_scale?: boolean /* = false */): SceneTreeTimer
         
         /** Creates and returns a new [Tween] processed in this tree. The Tween will start automatically on the next process frame or physics frame (depending on its [enum Tween.TweenProcessMode]).  
          *      
@@ -865,7 +582,7 @@ declare module "godot" {
          *      
          *  **Note:** On iOS this method doesn't work. Instead, as recommended by the [url=https://developer.apple.com/library/archive/qa/qa1561/_index.html]iOS Human Interface Guidelines[/url], the user is expected to close apps via the Home button.  
          */
-        quit(exit_code: int64 = 0): void
+        quit(exit_code?: int64 /* = 0 */): void
         
         /** Queues the given [param obj] to be deleted, calling its [method Object.free] at the end of the current frame. This method is similar to [method Node.queue_free]. */
         queue_delete(obj: Object): void
@@ -875,7 +592,7 @@ declare module "godot" {
          *      
          *  **Note:** In C#, [param method] must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the `MethodName` class to avoid allocating a new [StringName] on each call.  
          */
-        call_group_flags(flags: int64, group: StringName, method: StringName, ...vargargs: any[]): void
+        call_group_flags(flags: int64, group: StringName, method: StringName, ...varargs: any[]): void
         
         /** Calls [method Object.notification] with the given [param notification] to all nodes inside this tree added to the [param group]. Use [param call_flags] to customize this method's behavior (see [enum GroupCallFlags]). */
         notify_group_flags(call_flags: int64, group: StringName, notification: int64): void
@@ -892,9 +609,9 @@ declare module "godot" {
          *      
          *  **Note:** In C#, [param method] must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the `MethodName` class to avoid allocating a new [StringName] on each call.  
          */
-        call_group(group: StringName, method: StringName, ...vargargs: any[]): void
+        call_group(group: StringName, method: StringName, ...varargs: any[]): void
         
-        /** Calls [method Object.notification] with the given [param notification] to all nodes inside this tree added to the [param group]. See also [url=https://docs.godotengine.org/en/4.4/tutorials/best_practices/godot_notifications.html]Godot notifications[/url] and [method call_group] and [method set_group].  
+        /** Calls [method Object.notification] with the given [param notification] to all nodes inside this tree added to the [param group]. See also [url=https://docs.godotengine.org/en/latest/tutorials/best_practices/godot_notifications.html]Godot notifications[/url] and [method call_group] and [method set_group].  
          *      
          *  **Note:** This method acts immediately on all selected nodes at once, which may cause stuttering in some performance-intensive situations.  
          */
@@ -922,7 +639,7 @@ declare module "godot" {
          *      
          *  **Note:** See [method change_scene_to_packed] for details on the order of operations.  
          */
-        change_scene_to_file(path: string): GError
+        change_scene_to_file(path: string): Error
         
         /** Changes the running scene to a new instance of the given [PackedScene] (which must be valid).  
          *  Returns [constant OK] on success, [constant ERR_CANT_CREATE] if the scene cannot be instantiated, or [constant ERR_INVALID_PARAMETER] if the scene is invalid.  
@@ -931,13 +648,14 @@ declare module "godot" {
          *  1. The current scene node is immediately removed from the tree. From that point, [method Node.get_tree] called on the current (outgoing) scene will return `null`. [member current_scene] will be `null`, too, because the new scene is not available yet.  
          *  2. At the end of the frame, the formerly current scene, already removed from the tree, will be deleted (freed from memory) and then the new scene will be instantiated and added to the tree. [method Node.get_tree] and [member current_scene] will be back to working as usual.  
          *  This ensures that both scenes aren't running at the same time, while still freeing the previous scene in a safe way similar to [method Node.queue_free].  
+         *  If you want to reliably access the new scene, await the [signal scene_changed] signal.  
          */
-        change_scene_to_packed(packed_scene: PackedScene): GError
+        change_scene_to_packed(packed_scene: PackedScene): Error
         
         /** Reloads the currently active scene, replacing [member current_scene] with a new instance of its original [PackedScene].  
          *  Returns [constant OK] on success, [constant ERR_UNCONFIGURED] if no [member current_scene] is defined, [constant ERR_CANT_OPEN] if [member current_scene] cannot be loaded into a [PackedScene], or [constant ERR_CANT_CREATE] if the scene cannot be instantiated.  
          */
-        reload_current_scene(): GError
+        reload_current_scene(): Error
         
         /** If a current scene is loaded, calling this method will unload it. */
         unload_current_scene(): void
@@ -946,10 +664,10 @@ declare module "godot" {
          *      
          *  **Note:** No [MultiplayerAPI] must be configured for the subpath containing [param root_path], nested custom multiplayers are not allowed. I.e. if one is configured for `"/root/Foo"` setting one for `"/root/Foo/Bar"` will cause an error.  
          */
-        set_multiplayer(multiplayer: MultiplayerAPI, root_path: NodePath | string = ''): void
+        set_multiplayer(multiplayer: MultiplayerAPI, root_path?: NodePath | string /* = '' */): void
         
         /** Searches for the [MultiplayerAPI] configured for the given path, if one does not exist it searches the parent paths until one is found. If the path is empty, or none is found, the default one is returned. See [method set_multiplayer]. */
-        get_multiplayer(for_path: NodePath | string = ''): MultiplayerAPI
+        get_multiplayer(for_path?: NodePath | string /* = '' */): MultiplayerAPI
         
         /** If `true`, the application automatically accepts quitting requests.  
          *  For mobile platforms, see [member quit_on_go_back].  
@@ -1004,7 +722,7 @@ declare module "godot" {
         get current_scene(): Node
         set current_scene(value: Node)
         
-        /** The tree's root [Window]. This is top-most [Node] of the scene tree, and is always present. An absolute [NodePath] always starts from this node. Children of the root node may include the loaded [member current_scene], as well as any [url=https://docs.godotengine.org/en/4.4/tutorials/scripting/singletons_autoload.html]AutoLoad[/url] configured in the Project Settings.  
+        /** The tree's root [Window]. This is top-most [Node] of the scene tree, and is always present. An absolute [NodePath] always starts from this node. Children of the root node may include the loaded [member current_scene], as well as any [url=https://docs.godotengine.org/en/latest/tutorials/scripting/singletons_autoload.html]AutoLoad[/url] configured in the Project Settings.  
          *  **Warning:** Do not delete this node. This will result in unstable behavior, followed by a crash.  
          */
         get root(): Node
@@ -1015,74 +733,46 @@ declare module "godot" {
         get multiplayer_poll(): boolean
         set multiplayer_poll(value: boolean)
         
-        /** If `true`, the renderer will interpolate the transforms of physics objects between the last two transforms, so that smooth motion is seen even when physics ticks do not coincide with rendered frames.  
+        /** If `true`, the renderer will interpolate the transforms of objects (both physics and non-physics) between the last two transforms, so that smooth motion is seen even when physics ticks do not coincide with rendered frames.  
          *  The default value of this property is controlled by [member ProjectSettings.physics/common/physics_interpolation].  
+         *      
+         *  **Note:** Although this is a global setting, finer control of individual branches of the [SceneTree] is possible using [member Node.physics_interpolation_mode].  
          */
         get physics_interpolation(): boolean
         set physics_interpolation(value: boolean)
         
         /** Emitted any time the tree's hierarchy changes (nodes being moved, renamed, etc.). */
-        readonly tree_changed: Signal0
+        readonly tree_changed: Signal<() => void>
+        
+        /** Emitted after the new scene is added to scene tree and initialized. Can be used to reliably access [member current_scene] when changing scenes.  
+         *    
+         */
+        readonly scene_changed: Signal<() => void>
         
         /** Emitted when the [member Node.process_mode] of any node inside the tree is changed. Only emitted in the editor, to update the visibility of disabled nodes. */
-        readonly tree_process_mode_changed: Signal0
+        readonly tree_process_mode_changed: Signal<() => void>
         
         /** Emitted when the [param node] enters this tree. */
-        readonly node_added: Signal1<Node>
+        readonly node_added: Signal<(node: Node) => void>
         
         /** Emitted when the [param node] exits this tree. */
-        readonly node_removed: Signal1<Node>
+        readonly node_removed: Signal<(node: Node) => void>
         
         /** Emitted when the [param node]'s [member Node.name] is changed. */
-        readonly node_renamed: Signal1<Node>
+        readonly node_renamed: Signal<(node: Node) => void>
         
         /** Emitted when the [param node]'s [method Node.update_configuration_warnings] is called. Only emitted in the editor. */
-        readonly node_configuration_warning_changed: Signal1<Node>
+        readonly node_configuration_warning_changed: Signal<(node: Node) => void>
         
         /** Emitted immediately before [method Node._process] is called on every node in this tree. */
-        readonly process_frame: Signal0
+        readonly process_frame: Signal<() => void>
         
         /** Emitted immediately before [method Node._physics_process] is called on every node in this tree. */
-        readonly physics_frame: Signal0
-    }
-    class SceneTreeDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        _cancel(): void
-        readonly selected: Signal1<NodePath | string>
-    }
-    class SceneTreeDock<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _post_do_create(_unnamed_arg0: Node): void
-        _set_owners(_unnamed_arg0: Node, _unnamed_arg1: GArray): void
-        _reparent_nodes_to_root(_unnamed_arg0: Node, _unnamed_arg1: GArray, _unnamed_arg2: Node): void
-        _reparent_nodes_to_paths_with_transform_and_name(_unnamed_arg0: Node, _unnamed_arg1: GArray, _unnamed_arg2: GArray, _unnamed_arg3: GArray, _unnamed_arg4: GArray, _unnamed_arg5: Node): void
-        _update_script_button(): void
-        instantiate(_unnamed_arg0: string): void
-        get_tree_editor(): SceneTreeEditor
-        replace_node(_unnamed_arg0: Node, _unnamed_arg1: Node, _unnamed_arg2: boolean, _unnamed_arg3: boolean): void
-        readonly remote_tree_selected: Signal0
-        readonly add_node_used: Signal0
-        readonly node_created: Signal1<Node>
-    }
-    class SceneTreeEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-        _update_tree(_unnamed_arg0: boolean = false): void
-        update_tree(): void
-        readonly node_selected: Signal0
-        readonly node_renamed: Signal0
-        readonly node_prerename: Signal0
-        readonly node_changed: Signal0
-        readonly nodes_dragged: Signal0
-        readonly nodes_rearranged: Signal3<GArray, NodePath | string, int64>
-        readonly files_dropped: Signal3<PackedStringArray | string[], NodePath | string, int64>
-        readonly script_dropped: Signal2<string, NodePath | string>
-        readonly rmb_pressed: Signal1<Vector2>
-        readonly open: Signal0
-        readonly open_script: Signal0
+        readonly physics_frame: Signal<() => void>
     }
     /** One-shot timer.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scenetreetimer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scenetreetimer.html  
      */
     class SceneTreeTimer extends RefCounted {
         constructor(identifier?: any)
@@ -1091,15 +781,11 @@ declare module "godot" {
         set time_left(value: float64)
         
         /** Emitted when the timer reaches 0. */
-        readonly timeout: Signal0
-    }
-    class ScreenSelect<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
-        constructor(identifier?: any)
-        readonly request_open_in_screen: Signal1<int64>
+        readonly timeout: Signal<() => void>
     }
     /** A class stored as a resource.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_script.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_script.html  
      */
     class Script extends Resource {
         constructor(identifier?: any)
@@ -1116,7 +802,7 @@ declare module "godot" {
         has_source_code(): boolean
         
         /** Reloads the script's class implementation. Returns an error code. */
-        reload(keep_state: boolean = false): GError
+        reload(keep_state?: boolean /* = false */): Error
         
         /** Returns the script directly inherited by this script. */
         get_base_script(): Script
@@ -1163,21 +849,21 @@ declare module "godot" {
     }
     /** Godot editor's popup dialog for creating new [Script] files.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scriptcreatedialog.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scriptcreatedialog.html  
      */
-    class ScriptCreateDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
+    class ScriptCreateDialog<Map extends Record<string, Node> = {}> extends ConfirmationDialog<Map> {
         constructor(identifier?: any)
         /** Prefills required fields to configure the ScriptCreateDialog for use. */
-        config(inherits: string, path: string, built_in_enabled: boolean = true, load_enabled: boolean = true): void
+        config(inherits: string, path: string, built_in_enabled?: boolean /* = true */, load_enabled?: boolean /* = true */): void
         
         /** Emitted when the user clicks the OK button. */
-        readonly script_created: Signal1<Script>
+        readonly script_created: Signal<(script: Script) => void>
     }
     /** Godot editor's script editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scripteditor.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scripteditor.html  
      */
-    class ScriptEditor<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
+    class ScriptEditor<Map extends Record<string, Node> = {}> extends PanelContainer<Map> {
         constructor(identifier?: any)
         _help_tab_goto(_unnamed_arg0: string, _unnamed_arg1: string): boolean
         
@@ -1227,16 +913,16 @@ declare module "godot" {
         update_docs_from_script(script: Script): void
         
         /** Emitted when user changed active script. Argument is a freshly activated [Script]. */
-        readonly editor_script_changed: Signal1<Script>
+        readonly editor_script_changed: Signal<(script: Script) => void>
         
         /** Emitted when editor is about to close the active script. Argument is a [Script] that is going to be closed. */
-        readonly script_close: Signal1<Script>
+        readonly script_close: Signal<(script: Script) => void>
     }
     /** Base editor for editing scripts in the [ScriptEditor].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scripteditorbase.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scripteditorbase.html  
      */
-    class ScriptEditorBase<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
+    class ScriptEditorBase<Map extends Record<string, Node> = {}> extends VBoxContainer<Map> {
         constructor(identifier?: any)
         /** Returns the underlying [Control] used for editing scripts. For text scripts, this is a [CodeEdit]. */
         get_base_editor(): Control
@@ -1245,39 +931,36 @@ declare module "godot" {
         add_syntax_highlighter(highlighter: EditorSyntaxHighlighter): void
         
         /** Emitted after script validation or when the edited resource has changed. */
-        readonly name_changed: Signal0
+        readonly name_changed: Signal<() => void>
         
         /** Emitted after script validation. */
-        readonly edited_script_changed: Signal0
+        readonly edited_script_changed: Signal<() => void>
         
         /** Emitted when the user requests contextual help. */
-        readonly request_help: Signal1<string>
+        readonly request_help: Signal<(topic: string) => void>
         
         /** Emitted when the user requests to view a specific line of a script, similar to [signal go_to_method]. */
-        readonly request_open_script_at_line: Signal2<Object, int64>
+        readonly request_open_script_at_line: Signal<(script: Object, line: int64) => void>
         
         /** Emitted when the user contextual goto and the item is in the same script. */
-        readonly request_save_history: Signal0
+        readonly request_save_history: Signal<() => void>
         
         /** Emitted when the user changes current script or moves caret by 10 or more columns within the same script. */
-        readonly request_save_previous_state: Signal1<GDictionary>
+        readonly request_save_previous_state: Signal<(state: GDictionary) => void>
         
         /** Emitted when the user requests a specific documentation page. */
-        readonly go_to_help: Signal1<string>
+        readonly go_to_help: Signal<(what: string) => void>
         
         /** Emitted when the user request to search text in the file system. */
-        readonly search_in_files_requested: Signal1<string>
+        readonly search_in_files_requested: Signal<(text: string) => void>
         
         /** Emitted when the user request to find and replace text in the file system. */
-        readonly replace_in_files_requested: Signal1<string>
+        readonly replace_in_files_requested: Signal<(text: string) => void>
         
         /** Emitted when the user requests to view a specific method of a script, similar to [signal request_open_script_at_line]. */
-        readonly go_to_method: Signal2<Object, string>
+        readonly go_to_method: Signal<(script: Object, method: string) => void>
     }
-    class ScriptEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_scriptextension.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_scriptextension.html */
     class ScriptExtension extends Script {
         constructor(identifier?: any)
         /* gdvirtual */ _editor_can_reload_from_file(): boolean
@@ -1293,7 +976,7 @@ declare module "godot" {
         /* gdvirtual */ _has_source_code(): boolean
         /* gdvirtual */ _get_source_code(): string
         /* gdvirtual */ _set_source_code(code: string): void
-        /* gdvirtual */ _reload(keep_state: boolean): GError
+        /* gdvirtual */ _reload(keep_state: boolean): Error
         /* gdvirtual */ _get_doc_class_name(): StringName
         /* gdvirtual */ _get_documentation(): GArray
         /* gdvirtual */ _get_class_icon_path(): string
@@ -1330,7 +1013,7 @@ declare module "godot" {
             SCRIPT_NAME_CASING_KEBAB_CASE = 3,
         }
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_scriptlanguage.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_scriptlanguage.html */
     class ScriptLanguage extends Object {
         constructor(identifier?: any)
     }
@@ -1376,7 +1059,7 @@ declare module "godot" {
             CODE_COMPLETION_KIND_MAX = 10,
         }
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_scriptlanguageextension.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_scriptlanguageextension.html */
     class ScriptLanguageExtension extends ScriptLanguage {
         constructor(identifier?: any)
         /* gdvirtual */ _get_name(): string
@@ -1404,7 +1087,7 @@ declare module "godot" {
         /* gdvirtual */ _find_function(function_: string, code: string): int64
         /* gdvirtual */ _make_function(class_name: string, function_name: string, function_args: PackedStringArray | string[]): string
         /* gdvirtual */ _can_make_function(): boolean
-        /* gdvirtual */ _open_in_external_editor(script: Script, line: int64, column: int64): GError
+        /* gdvirtual */ _open_in_external_editor(script: Script, line: int64, column: int64): Error
         /* gdvirtual */ _overrides_external_editor(): boolean
         /* gdvirtual */ _preferred_file_name_casing(): ScriptLanguage.ScriptNameCasing
         /* gdvirtual */ _complete_code(code: string, path: string, owner: Object): GDictionary
@@ -1446,16 +1129,16 @@ declare module "godot" {
     }
     /** Abstract base class for scrollbars.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scrollbar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scrollbar.html  
      */
-    class ScrollBar<Map extends Record<string, Node> = Record<string, Node>> extends Range<Map> {
+    class ScrollBar<Map extends Record<string, Node> = {}> extends Range<Map> {
         constructor(identifier?: any)
         /** Overrides the step used when clicking increment and decrement buttons or when using arrow keys when the [ScrollBar] is focused. */
         get custom_step(): float64
         set custom_step(value: float64)
         
         /** Emitted when the scrollbar is being scrolled. */
-        readonly scrolling: Signal0
+        readonly scrolling: Signal<() => void>
     }
     namespace ScrollContainer {
         enum ScrollMode {
@@ -1477,9 +1160,9 @@ declare module "godot" {
     }
     /** A container used to provide scrollbars to a child control when needed.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_scrollcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_scrollcontainer.html  
      */
-    class ScrollContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class ScrollContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
         /** Returns the horizontal scrollbar [HScrollBar] of this [ScrollContainer].  
          *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to disable or hide a scrollbar, you can use [member horizontal_scroll_mode].  
@@ -1546,24 +1229,17 @@ declare module "godot" {
          *      
          *  **Note:** This signal is only emitted on Android or iOS, or on desktop/web platforms when [member ProjectSettings.input_devices/pointing/emulate_touch_from_mouse] is enabled.  
          */
-        readonly scroll_started: Signal0
+        readonly scroll_started: Signal<() => void>
         
         /** Emitted when scrolling stops when dragging the scrollable area  *with a touch event* . This signal is  *not*  emitted when scrolling by dragging the scrollbar, scrolling with the mouse wheel or scrolling with keyboard/gamepad events.  
          *      
          *  **Note:** This signal is only emitted on Android or iOS, or on desktop/web platforms when [member ProjectSettings.input_devices/pointing/emulate_touch_from_mouse] is enabled.  
          */
-        readonly scroll_ended: Signal0
-    }
-    class SectionedInspector<Map extends Record<string, Node> = Record<string, Node>> extends HSplitContainer<Map> {
-        constructor(identifier?: any)
-        update_category_list(): void
-    }
-    class SectionedInspectorFilter extends Object {
-        constructor(identifier?: any)
+        readonly scroll_ended: Signal<() => void>
     }
     /** A 2D line segment shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_segmentshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_segmentshape2d.html  
      */
     class SegmentShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -1577,7 +1253,7 @@ declare module "godot" {
     }
     /** A 2D ray shape used for physics collision that tries to separate itself from any collider.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_separationrayshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_separationrayshape2d.html  
      */
     class SeparationRayShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -1593,7 +1269,7 @@ declare module "godot" {
     }
     /** A 3D ray shape used for physics collision that tries to separate itself from any collider.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_separationrayshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_separationrayshape3d.html  
      */
     class SeparationRayShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -1609,9 +1285,9 @@ declare module "godot" {
     }
     /** Abstract base class for separators.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_separator.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_separator.html  
      */
-    class Separator<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class Separator<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
     }
     namespace Shader {
@@ -1634,7 +1310,7 @@ declare module "godot" {
     }
     /** A shader implemented in the Godot shading language.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shader.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shader.html  
      */
     class Shader extends Resource {
         constructor(identifier?: any)
@@ -1647,7 +1323,7 @@ declare module "godot" {
          *      
          *  **Note:** If the sampler array is used use [param index] to access the specified texture.  
          */
-        set_default_texture_parameter(name: StringName, texture: Texture, index: int64 = 0): void
+        set_default_texture_parameter(name: StringName, texture: Texture, index?: int64 /* = 0 */): void
         
         /** Returns the texture that is set as default for the specified parameter.  
          *      
@@ -1655,12 +1331,12 @@ declare module "godot" {
          *      
          *  **Note:** If the sampler array is used use [param index] to access the specified texture.  
          */
-        get_default_texture_parameter(name: StringName, index: int64 = 0): Texture
+        get_default_texture_parameter(name: StringName, index?: int64 /* = 0 */): Texture
         
         /** Returns the list of shader uniforms that can be assigned to a [ShaderMaterial], for use with [method ShaderMaterial.set_shader_parameter] and [method ShaderMaterial.get_shader_parameter]. The parameters returned are contained in dictionaries in a similar format to the ones returned by [method Object.get_property_list].  
          *  If argument [param get_groups] is `true`, parameter grouping hints are also included in the list.  
          */
-        get_shader_uniform_list(get_groups: boolean = false): GArray
+        get_shader_uniform_list(get_groups?: boolean /* = false */): GArray
         
         /** Only available when running in the editor. Opens a popup that visualizes the generated shader code, including all variants and internal shader code. See also [method Material.inspect_native_shader_code]. */
         inspect_native_shader_code(): void
@@ -1669,42 +1345,17 @@ declare module "godot" {
         get code(): string
         set code(value: string)
     }
-    class ShaderCreateDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        config(path: string, built_in_enabled: boolean, load_enabled: boolean, _unnamed_arg3: int64 = 1, _unnamed_arg4: int64 = 1): void
-        readonly shader_created: Signal1<Shader>
-        readonly shader_include_created: Signal1<ShaderInclude>
-    }
-    class ShaderEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class ShaderFileEditor<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
-        constructor(identifier?: any)
-    }
-    class ShaderFileEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class ShaderGlobalsEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _changed(): void
-        readonly globals_changed: Signal0
-    }
-    class ShaderGlobalsEditorInterface extends Object {
-        constructor(identifier?: any)
-        _var_changed(): void
-        readonly var_changed: Signal0
-    }
     /** A node used to override global shader parameters' values in a scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shaderglobalsoverride.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shaderglobalsoverride.html  
      */
-    class ShaderGlobalsOverride<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class ShaderGlobalsOverride<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         _activate(): void
     }
     /** A snippet of shader code to be included in a [Shader] with `#include`.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shaderinclude.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shaderinclude.html  
      */
     class ShaderInclude extends Resource {
         constructor(identifier?: any)
@@ -1714,7 +1365,7 @@ declare module "godot" {
     }
     /** Internal database of built in shader include files.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shaderincludedb.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shaderincludedb.html  
      */
     class ShaderIncludeDB extends Object {
         constructor(identifier?: any)
@@ -1729,7 +1380,7 @@ declare module "godot" {
     }
     /** A material defined by a custom [Shader] program and the values of its shader parameters.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shadermaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shadermaterial.html  
      */
     class ShaderMaterial extends Material {
         constructor(identifier?: any)
@@ -1750,7 +1401,7 @@ declare module "godot" {
     }
     /** Abstract base class for 2D shapes used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shape2d.html  
      */
     class Shape2D extends Resource {
         constructor(identifier?: any)
@@ -1792,7 +1443,7 @@ declare module "godot" {
     }
     /** Abstract base class for 3D shapes used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shape3d.html  
      */
     class Shape3D extends Resource {
         constructor(identifier?: any)
@@ -1813,9 +1464,9 @@ declare module "godot" {
     }
     /** A 2D shape that sweeps a region of space to detect [CollisionObject2D]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shapecast2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shapecast2d.html  
      */
-    class ShapeCast2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class ShapeCast2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns whether any object is intersecting with the shape's vector (considering the vector length). */
         is_colliding(): boolean
@@ -1900,7 +1551,7 @@ declare module "godot" {
         get max_results(): int64
         set max_results(value: int64)
         
-        /** The shape's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The shape's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -1917,9 +1568,9 @@ declare module "godot" {
     }
     /** A 3D shape that sweeps a region of space to detect [CollisionObject3D]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shapecast3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shapecast3d.html  
      */
-    class ShapeCast3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class ShapeCast3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** This method does nothing. */
         resource_changed(resource: Resource): void
@@ -2007,7 +1658,7 @@ declare module "godot" {
         get max_results(): int64
         set max_results(value: int64)
         
-        /** The shape's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The shape's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -2028,12 +1679,9 @@ declare module "godot" {
         get debug_shape_custom_color(): Color
         set debug_shape_custom_color(value: Color)
     }
-    class ShapeCast3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** A shortcut for binding input.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_shortcut.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_shortcut.html  
      */
     class Shortcut extends Resource {
         constructor(identifier?: any)
@@ -2052,16 +1700,11 @@ declare module "godot" {
         get events(): GArray
         set events(value: GArray)
     }
-    class SizeFlagPresetPicker<Map extends Record<string, Node> = Record<string, Node>> extends ControlEditorPresetPicker<Map> {
-        constructor(identifier?: any)
-        readonly size_flags_selected: Signal1<int64>
-        readonly expand_flag_toggled: Signal1<boolean>
-    }
     /** The parent of a hierarchy of [Bone2D]s, used to create a 2D skeletal animation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeleton2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeleton2d.html  
      */
-    class Skeleton2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Skeleton2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns the number of [Bone2D] nodes in the node hierarchy parented by Skeleton2D. */
         get_bone_count(): int64
@@ -2092,13 +1735,7 @@ declare module "godot" {
         get_bone_local_pose_override(bone_idx: int64): Transform2D
         
         /** Emitted when the [Bone2D] setup attached to this skeletons changes. This is primarily used internally within the skeleton. */
-        readonly bone_setup_changed: Signal0
-    }
-    class Skeleton2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class Skeleton2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly bone_setup_changed: Signal<() => void>
     }
     namespace Skeleton3D {
         enum ModifierCallbackModeProcess {
@@ -2107,13 +1744,16 @@ declare module "godot" {
             
             /** Set a flag to process modification during process frames (see [constant Node.NOTIFICATION_INTERNAL_PROCESS]). */
             MODIFIER_CALLBACK_MODE_PROCESS_IDLE = 1,
+            
+            /** Do not process modification. Use [method advance] to process the modification manually. */
+            MODIFIER_CALLBACK_MODE_PROCESS_MANUAL = 2,
         }
     }
     /** A node containing a bone hierarchy, used to create a 3D skeletal animation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeleton3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeleton3d.html  
      */
-    class Skeleton3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class Skeleton3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         /** Notification received when this skeleton's pose needs to be updated. In that case, this is called only once per frame in a deferred process. */
         static readonly NOTIFICATION_UPDATE_SKELETON = 50
         constructor(identifier?: any)
@@ -2236,7 +1876,7 @@ declare module "godot" {
         is_bone_enabled(bone_idx: int64): boolean
         
         /** Disables the pose for the bone at [param bone_idx] if `false`, enables the bone pose if `true`. */
-        set_bone_enabled(bone_idx: int64, enabled: boolean = true): void
+        set_bone_enabled(bone_idx: int64, enabled?: boolean /* = true */): void
         
         /** Returns the overall transform of the specified bone, with respect to the skeleton. Being relative to the skeleton frame, this is not the actual "global" transform of the bone.  
          *      
@@ -2256,6 +1896,12 @@ declare module "godot" {
         /** Force updates the bone transform for the bone at [param bone_idx] and all of its children. */
         force_update_bone_child_transform(bone_idx: int64): void
         
+        /** Manually advance the child [SkeletonModifier3D]s by the specified time (in seconds).  
+         *      
+         *  **Note:** The [param delta] is temporarily accumulated in the [Skeleton3D], and the deferred process uses the accumulated value to process the modification.  
+         */
+        advance(delta: float64): void
+        
         /** Removes the global pose override on all bones in the skeleton. */
         clear_bones_global_pose_override(): void
         
@@ -2264,7 +1910,7 @@ declare module "godot" {
          *      
          *  **Note:** The pose transform needs to be a global pose! To convert a world transform from a [Node3D] to a global bone pose, multiply the [method Transform3D.affine_inverse] of the node's [member Node3D.global_transform] by the desired world transform.  
          */
-        set_bone_global_pose_override(bone_idx: int64, pose: Transform3D, amount: float64, persistent: boolean = false): void
+        set_bone_global_pose_override(bone_idx: int64, pose: Transform3D, amount: float64, persistent?: boolean /* = false */): void
         
         /** Returns the global pose override transform for [param bone_idx]. */
         get_bone_global_pose_override(bone_idx: int64): Transform3D
@@ -2278,7 +1924,7 @@ declare module "godot" {
         /** Tells the [PhysicalBone3D] nodes in the Skeleton to start simulating and reacting to the physics world.  
          *  Optionally, a list of bone names can be passed-in, allowing only the passed-in bones to be simulated.  
          */
-        physical_bones_start_simulation(bones: GArray = []): void
+        physical_bones_start_simulation(bones?: GArray /* = [] */): void
         
         /** Adds a collision exception to the physical bone.  
          *  Works just like the [RigidBody3D] node.  
@@ -2312,37 +1958,31 @@ declare module "godot" {
         set animate_physical_bones(value: boolean)
         
         /** Emitted when the rest is updated. */
-        readonly rest_updated: Signal0
+        readonly rest_updated: Signal<() => void>
         
         /** Emitted when the pose is updated.  
          *      
          *  **Note:** During the update process, this signal is not fired, so modification by [SkeletonModifier3D] is not detected.  
          */
-        readonly pose_updated: Signal0
+        readonly pose_updated: Signal<() => void>
         
         /** Emitted when the final pose has been calculated will be applied to the skin in the update process.  
          *  This means that all [SkeletonModifier3D] processing is complete. In order to detect the completion of the processing of each [SkeletonModifier3D], use [signal SkeletonModifier3D.modification_processed].  
          */
-        readonly skeleton_updated: Signal0
+        readonly skeleton_updated: Signal<() => void>
         
         /** Emitted when the bone at [param bone_idx] is toggled with [method set_bone_enabled]. Use [method is_bone_enabled] to check the new value. */
-        readonly bone_enabled_changed: Signal1<int64>
-        readonly bone_list_changed: Signal0
+        readonly bone_enabled_changed: Signal<(bone_idx: int64) => void>
+        readonly bone_list_changed: Signal<() => void>
         
         /** Emitted when the value of [member show_rest_only] changes. */
-        readonly show_rest_only_changed: Signal0
-    }
-    class Skeleton3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class Skeleton3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
+        readonly show_rest_only_changed: Signal<() => void>
     }
     /** A node used to rotate all bones of a [Skeleton3D] bone chain a way that places the end bone at a desired 3D position.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonik3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonik3d.html  
      */
-    class SkeletonIK3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class SkeletonIK3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** Returns the parent [Skeleton3D] node that was present when SkeletonIK entered the scene tree. Returns `null` if the parent node was not a [Skeleton3D] node when SkeletonIK3D entered the scene tree. */
         get_parent_skeleton(): Skeleton3D
@@ -2351,7 +1991,7 @@ declare module "godot" {
         is_running(): boolean
         
         /** Starts applying IK effects on each frame to the [Skeleton3D] bones but will only take effect starting on the next frame. If [param one_time] is `true`, this will take effect immediately but also reset on the next frame. */
-        start(one_time: boolean = false): void
+        start(one_time?: boolean /* = false */): void
         
         /** Stops applying IK effects on each frame to the [Skeleton3D] bones and also calls [method Skeleton3D.clear_bones_global_pose_override] to remove existing overrides on all bones. */
         stop(): void
@@ -2396,12 +2036,9 @@ declare module "godot" {
         get interpolation(): float64
         set interpolation(value: float64)
     }
-    class SkeletonIK3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Base class for resources that operate on [Bone2D]s in a [Skeleton2D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2d.html  
      */
     class SkeletonModification2D extends Resource {
         constructor(identifier?: any)
@@ -2445,7 +2082,7 @@ declare module "godot" {
     }
     /** A modification that uses CCDIK to manipulate a series of bones to reach a target in 2D.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2dccdik.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2dccdik.html  
      */
     class SkeletonModification2DCCDIK extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2507,7 +2144,7 @@ declare module "godot" {
     }
     /** A modification that uses FABRIK to manipulate a series of [Bone2D] nodes to reach a target.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2dfabrik.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2dfabrik.html  
      */
     class SkeletonModification2DFABRIK extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2548,7 +2185,7 @@ declare module "godot" {
     }
     /** A modification that jiggles [Bone2D] nodes as they move towards a target.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2djiggle.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2djiggle.html  
      */
     class SkeletonModification2DJiggle extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2642,7 +2279,7 @@ declare module "godot" {
     }
     /** A modification that rotates a [Bone2D] node to look at a target.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2dlookat.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2dlookat.html  
      */
     class SkeletonModification2DLookAt extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2692,7 +2329,7 @@ declare module "godot" {
     }
     /** A modification that applies the transforms of [PhysicalBone2D] nodes to [Bone2D] nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2dphysicalbones.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2dphysicalbones.html  
      */
     class SkeletonModification2DPhysicalBones extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2711,12 +2348,12 @@ declare module "godot" {
         /** Tell the [PhysicalBone2D] nodes to start simulating and interacting with the physics world.  
          *  Optionally, an array of bone names can be passed to this function, and that will cause only [PhysicalBone2D] nodes with those names to start simulating.  
          */
-        start_simulation(bones: GArray = []): void
+        start_simulation(bones?: GArray /* = [] */): void
         
         /** Tell the [PhysicalBone2D] nodes to stop simulating and interacting with the physics world.  
          *  Optionally, an array of bone names can be passed to this function, and that will cause only [PhysicalBone2D] nodes with those names to stop simulating.  
          */
-        stop_simulation(bones: GArray = []): void
+        stop_simulation(bones?: GArray /* = [] */): void
         
         /** The number of [PhysicalBone2D] nodes linked in this modification. */
         get physical_bone_chain_length(): int64
@@ -2724,7 +2361,7 @@ declare module "godot" {
     }
     /** A modification that holds and executes a [SkeletonModificationStack2D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2dstackholder.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2dstackholder.html  
      */
     class SkeletonModification2DStackHolder extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2736,7 +2373,7 @@ declare module "godot" {
     }
     /** A modification that rotates two bones using the law of cosines to reach the target.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodification2dtwoboneik.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodification2dtwoboneik.html  
      */
     class SkeletonModification2DTwoBoneIK extends SkeletonModification2D {
         constructor(identifier?: any)
@@ -2782,7 +2419,7 @@ declare module "godot" {
     }
     /** A resource that holds a stack of [SkeletonModification2D]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodificationstack2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodificationstack2d.html  
      */
     class SkeletonModificationStack2D extends Resource {
         constructor(identifier?: any)
@@ -2851,10 +2488,16 @@ declare module "godot" {
     }
     /** A node that may modify Skeleton3D's bone.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonmodifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonmodifier3d.html  
      */
-    class SkeletonModifier3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class SkeletonModifier3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
+        /** Override this virtual method to implement a custom skeleton modifier. You should do things like get the [Skeleton3D]'s current pose and apply the pose here.  
+         *  [method _process_modification_with_delta] must not apply [member influence] to bone poses because the [Skeleton3D] automatically applies influence to all bone poses set by the modifier.  
+         *  [param delta] is passed from parent [Skeleton3D]. See also [method Skeleton3D.advance].  
+         */
+        /* gdvirtual */ _process_modification_with_delta(delta: float64): void
+        
         /** Override this virtual method to implement a custom skeleton modifier. You should do things like get the [Skeleton3D]'s current pose and apply the pose here.  
          *  [method _process_modification] must not apply [member influence] to bone poses because the [Skeleton3D] automatically applies influence to all bone poses set by the modifier.  
          */
@@ -2878,7 +2521,7 @@ declare module "godot" {
          *      
          *  **Note:** If you want to get the modified bone pose by the modifier, you must use [method Skeleton3D.get_bone_pose] or [method Skeleton3D.get_bone_global_pose] at the moment this signal is fired.  
          */
-        readonly modification_processed: Signal0
+        readonly modification_processed: Signal<() => void>
     }
     namespace SkeletonProfile {
         enum TailDirection {
@@ -2894,7 +2537,7 @@ declare module "godot" {
     }
     /** Base class for a profile of a virtual skeleton used as a target for retargeting.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonprofile.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonprofile.html  
      */
     class SkeletonProfile extends Resource {
         constructor(identifier?: any)
@@ -2998,16 +2641,16 @@ declare module "godot" {
          *      
          *  **Note:** This signal is not connected directly to editor to simplify the reference, instead it is passed on to editor through the [BoneMap].  
          */
-        readonly profile_updated: Signal0
+        readonly profile_updated: Signal<() => void>
     }
     /** A humanoid [SkeletonProfile] preset.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skeletonprofilehumanoid.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skeletonprofilehumanoid.html  
      */
     class SkeletonProfileHumanoid extends SkeletonProfile {
         constructor(identifier?: any)
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_skin.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_skin.html */
     class Skin extends Resource {
         constructor(identifier?: any)
         set_bind_count(bind_count: int64): void
@@ -3024,7 +2667,7 @@ declare module "godot" {
     }
     /** A reference-counted holder object for a skeleton RID used in the [RenderingServer].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_skinreference.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_skinreference.html  
      */
     class SkinReference extends RefCounted {
         constructor(identifier?: any)
@@ -3081,7 +2724,7 @@ declare module "godot" {
     }
     /** Defines a 3D environment's background by using a [Material].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_sky.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_sky.html  
      */
     class Sky extends Resource {
         constructor(identifier?: any)
@@ -3103,9 +2746,9 @@ declare module "godot" {
     }
     /** Abstract base class for sliders.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_slider.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_slider.html  
      */
-    class Slider<Map extends Record<string, Node> = Record<string, Node>> extends Range<Map> {
+    class Slider<Map extends Record<string, Node> = {}> extends Range<Map> {
         constructor(identifier?: any)
         /** If `true`, the slider can be interacted with. If `false`, the value can be changed only by code. */
         get editable(): boolean
@@ -3124,10 +2767,10 @@ declare module "godot" {
         set ticks_on_borders(value: boolean)
         
         /** Emitted when the grabber starts being dragged. This is emitted before the corresponding [signal Range.value_changed] signal. */
-        readonly drag_started: Signal0
+        readonly drag_started: Signal<() => void>
         
         /** Emitted when the grabber stops being dragged. If [param value_changed] is `true`, [member Range.value] is different from the value when the dragging was started. */
-        readonly drag_ended: Signal1<boolean>
+        readonly drag_ended: Signal<(value_changed: boolean) => void>
     }
     namespace SliderJoint3D {
         enum Param {
@@ -3203,9 +2846,9 @@ declare module "godot" {
     }
     /** A physics joint that restricts the movement of a 3D physics body along an axis relative to another physics body.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_sliderjoint3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_sliderjoint3d.html  
      */
-    class SliderJoint3D<Map extends Record<string, Node> = Record<string, Node>> extends Joint3D<Map> {
+    class SliderJoint3D<Map extends Record<string, Node> = {}> extends Joint3D<Map> {
         constructor(identifier?: any)
         /** Assigns [param value] to the given parameter (see [enum Param] constants). */
         set_param(param: SliderJoint3D.Param, value: float64): void
@@ -3307,9 +2950,6 @@ declare module "godot" {
         get "angular_ortho/damping"(): float64
         set "angular_ortho/damping"(value: float64)
     }
-    class SnapDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
     namespace SoftBody3D {
         enum DisableMode {
             /** When [member Node.process_mode] is set to [constant Node.PROCESS_MODE_DISABLED], remove from the physics simulation to stop all physics interactions with this [SoftBody3D].  
@@ -3323,9 +2963,9 @@ declare module "godot" {
     }
     /** A deformable 3D physics mesh.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_softbody3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_softbody3d.html  
      */
-    class SoftBody3D<Map extends Record<string, Node> = Record<string, Node>> extends MeshInstance3D<Map> {
+    class SoftBody3D<Map extends Record<string, Node> = {}> extends MeshInstance3D<Map> {
         constructor(identifier?: any)
         /** Returns the internal [RID] used by the [PhysicsServer3D] for this body. */
         get_physics_rid(): RID
@@ -3355,21 +2995,21 @@ declare module "godot" {
         get_point_transform(point_index: int64): Vector3
         
         /** Sets the pinned state of a surface vertex. When set to `true`, the optional [param attachment_path] can define a [Node3D] the pinned vertex will be attached to. */
-        set_point_pinned(point_index: int64, pinned: boolean, attachment_path: NodePath | string = '', insert_at: int64 = -1): void
+        set_point_pinned(point_index: int64, pinned: boolean, attachment_path?: NodePath | string /* = '' */, insert_at?: int64 /* = -1 */): void
         
         /** Returns `true` if vertex is set to pinned. */
         is_point_pinned(point_index: int64): boolean
         
         /** The physics layers this SoftBody3D **is in**. Collision objects can exist in one or more of 32 different layers. See also [member collision_mask].  
          *      
-         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_layer(): int64
         set collision_layer(value: int64)
         
         /** The physics layers this SoftBody3D **scans**. Collision objects can scan one or more of 32 different layers. See also [member collision_layer].  
          *      
-         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_mask(): int64
         set collision_mask(value: int64)
@@ -3413,12 +3053,9 @@ declare module "godot" {
         get disable_mode(): int64
         set disable_mode(value: int64)
     }
-    class SoftBody3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Class representing a spherical [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_spheremesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_spheremesh.html  
      */
     class SphereMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -3447,7 +3084,7 @@ declare module "godot" {
     }
     /** Spherical shape for use with occlusion culling in [OccluderInstance3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_sphereoccluder3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_sphereoccluder3d.html  
      */
     class SphereOccluder3D extends Occluder3D {
         constructor(identifier?: any)
@@ -3457,7 +3094,7 @@ declare module "godot" {
     }
     /** A 3D sphere shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_sphereshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_sphereshape3d.html  
      */
     class SphereShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -3467,9 +3104,9 @@ declare module "godot" {
     }
     /** An input field for numbers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_spinbox.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_spinbox.html  
      */
-    class SpinBox<Map extends Record<string, Node> = Record<string, Node>> extends Range<Map> {
+    class SpinBox<Map extends Record<string, Node> = {}> extends Range<Map> {
         constructor(identifier?: any)
         /** Applies the current value of this [SpinBox]. */
         apply(): void
@@ -3526,9 +3163,9 @@ declare module "godot" {
     }
     /** A container that splits two child controls horizontally or vertically and provides a grabber for adjusting the split ratio.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_splitcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_splitcontainer.html  
      */
-    class SplitContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class SplitContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
         /** Clamps the [member split_offset] value to not go outside the currently possible minimal and maximum values. */
         clamp_split_offset(): void
@@ -3580,22 +3217,19 @@ declare module "godot" {
         set drag_area_highlight_in_editor(value: boolean)
         
         /** Emitted when the dragger is dragged by user. */
-        readonly dragged: Signal1<int64>
+        readonly dragged: Signal<(offset: int64) => void>
         
         /** Emitted when the user starts dragging. */
-        readonly drag_started: Signal0
+        readonly drag_started: Signal<() => void>
         
         /** Emitted when the user ends dragging. */
-        readonly drag_ended: Signal0
-    }
-    class SplitContainerDragger<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
+        readonly drag_ended: Signal<() => void>
     }
     /** A spotlight, such as a reflector spotlight or a lantern.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_spotlight3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_spotlight3d.html  
      */
-    class SpotLight3D<Map extends Record<string, Node> = Record<string, Node>> extends Light3D<Map> {
+    class SpotLight3D<Map extends Record<string, Node> = {}> extends Light3D<Map> {
         constructor(identifier?: any)
         /** The maximal range that can be reached by the spotlight. Note that the effectively lit area may appear to be smaller depending on the [member spot_attenuation] in use. No matter the [member spot_attenuation] in use, the light will never reach anything outside this range.  
          *      
@@ -3627,9 +3261,9 @@ declare module "godot" {
     }
     /** A 3D raycast that dynamically moves its children near the collision point.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_springarm3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_springarm3d.html  
      */
-    class SpringArm3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class SpringArm3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns the spring arm's current length. */
         get_hit_length(): float64
@@ -3643,7 +3277,7 @@ declare module "godot" {
         /** Clears the list of [PhysicsBody3D] objects excluded from the collision check. */
         clear_excluded_objects(): void
         
-        /** The layers against which the collision check shall be done. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The layers against which the collision check shall be done. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -3666,14 +3300,11 @@ declare module "godot" {
         get margin(): float64
         set margin(value: float64)
     }
-    class SpringArm3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** A base class of the collision that interacts with [SpringBoneSimulator3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_springbonecollision3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_springbonecollision3d.html  
      */
-    class SpringBoneCollision3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class SpringBoneCollision3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Get parent [Skeleton3D] node of the parent [SpringBoneSimulator3D] if found. */
         get_skeleton(): Skeleton3D
@@ -3694,14 +3325,11 @@ declare module "godot" {
         get rotation_offset(): Quaternion
         set rotation_offset(value: Quaternion)
     }
-    class SpringBoneCollision3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** A capsule shape collision that interacts with [SpringBoneSimulator3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_springbonecollisioncapsule3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_springbonecollisioncapsule3d.html  
      */
-    class SpringBoneCollisionCapsule3D<Map extends Record<string, Node> = Record<string, Node>> extends SpringBoneCollision3D<Map> {
+    class SpringBoneCollisionCapsule3D<Map extends Record<string, Node> = {}> extends SpringBoneCollision3D<Map> {
         constructor(identifier?: any)
         /** The capsule's radius. */
         get radius(): float64
@@ -3717,16 +3345,16 @@ declare module "godot" {
     }
     /** A infinite plane collision that interacts with [SpringBoneSimulator3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_springbonecollisionplane3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_springbonecollisionplane3d.html  
      */
-    class SpringBoneCollisionPlane3D<Map extends Record<string, Node> = Record<string, Node>> extends SpringBoneCollision3D<Map> {
+    class SpringBoneCollisionPlane3D<Map extends Record<string, Node> = {}> extends SpringBoneCollision3D<Map> {
         constructor(identifier?: any)
     }
     /** A sphere shape collision that interacts with [SpringBoneSimulator3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_springbonecollisionsphere3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_springbonecollisionsphere3d.html  
      */
-    class SpringBoneCollisionSphere3D<Map extends Record<string, Node> = Record<string, Node>> extends SpringBoneCollision3D<Map> {
+    class SpringBoneCollisionSphere3D<Map extends Record<string, Node> = {}> extends SpringBoneCollision3D<Map> {
         constructor(identifier?: any)
         /** The sphere's radius. */
         get radius(): float64
@@ -3789,9 +3417,9 @@ declare module "godot" {
     }
     /** A [SkeletonModifier3D] to apply inertial wavering to bone chains.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_springbonesimulator3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_springbonesimulator3d.html  
      */
-    class SpringBoneSimulator3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class SpringBoneSimulator3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** Sets the root bone name of the bone chain. */
         set_root_bone_name(index: int64, bone_name: string): void
@@ -4042,18 +3670,21 @@ declare module "godot" {
          */
         reset(): void
         
+        /** The constant force that always affected bones. It is equal to the result when the parent [Skeleton3D] moves at this speed in the opposite direction.  
+         *  This is useful for effects such as wind and anti-gravity.  
+         */
+        get external_force(): Vector3
+        set external_force(value: Vector3)
+        
         /** The number of settings. */
         get setting_count(): any /*Settings,settings/*/
         set setting_count(value: any /*Settings,settings/*/)
     }
-    class SpringBoneSimulator3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** General-purpose sprite node.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_sprite2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_sprite2d.html  
      */
-    class Sprite2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Sprite2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns `true`, if the pixel at the given position is opaque and `false` in other case. The position is in local coordinates.  
          *      
@@ -4119,23 +3750,16 @@ declare module "godot" {
         set region_filter_clip_enabled(value: boolean)
         
         /** Emitted when the [member frame] changes. */
-        readonly frame_changed: Signal0
+        readonly frame_changed: Signal<() => void>
         
         /** Emitted when the [member texture] changes. */
-        readonly texture_changed: Signal0
-    }
-    class Sprite2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-        _add_as_sibling_or_child(_unnamed_arg0: Node, _unnamed_arg1: Node): void
-    }
-    class Sprite2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly texture_changed: Signal<() => void>
     }
     /** 2D sprite node in a 3D world.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_sprite3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_sprite3d.html  
      */
-    class Sprite3D<Map extends Record<string, Node> = Record<string, Node>> extends SpriteBase3D<Map> {
+    class Sprite3D<Map extends Record<string, Node> = {}> extends SpriteBase3D<Map> {
         constructor(identifier?: any)
         /** [Texture2D] object to draw. If [member GeometryInstance3D.material_override] is used, this will be overridden. The size information is still used. */
         get texture(): Texture2D
@@ -4166,10 +3790,10 @@ declare module "godot" {
         set region_rect(value: Rect2)
         
         /** Emitted when the [member frame] changes. */
-        readonly frame_changed: Signal0
+        readonly frame_changed: Signal<() => void>
         
         /** Emitted when the [member texture] changes. */
-        readonly texture_changed: Signal0
+        readonly texture_changed: Signal<() => void>
     }
     namespace SpriteBase3D {
         enum DrawFlags {
@@ -4207,9 +3831,9 @@ declare module "godot" {
     }
     /** 2D sprite node in 3D environment.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_spritebase3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_spritebase3d.html  
      */
-    class SpriteBase3D<Map extends Record<string, Node> = Record<string, Node>> extends GeometryInstance3D<Map> {
+    class SpriteBase3D<Map extends Record<string, Node> = {}> extends GeometryInstance3D<Map> {
         constructor(identifier?: any)
         /** If `true`, the specified flag will be enabled. See [enum SpriteBase3D.DrawFlags] for a list of flags. */
         set_draw_flag(flag: SpriteBase3D.DrawFlags, enabled: boolean): void
@@ -4279,7 +3903,7 @@ declare module "godot" {
         get no_depth_test(): boolean
         set no_depth_test(value: boolean)
         
-        /** If `true`, the label is rendered at the same size regardless of distance. */
+        /** If `true`, the texture is rendered at the same size regardless of distance. The texture's size on screen is the same as if the camera was `1.0` units away from the texture's origin, regardless of the actual distance from the camera. The [Camera3D]'s field of view (or [member Camera3D.size] when in orthogonal/frustum mode) still affects the size the sprite is drawn at. */
         get fixed_size(): boolean
         set fixed_size(value: boolean)
         
@@ -4319,12 +3943,9 @@ declare module "godot" {
         get render_priority(): int64
         set render_priority(value: int64)
     }
-    class SpriteBase3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Sprite frame library for AnimatedSprite2D and AnimatedSprite3D.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_spriteframes.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_spriteframes.html  
      */
     class SpriteFrames extends Resource {
         constructor(identifier?: any)
@@ -4359,10 +3980,10 @@ declare module "godot" {
         get_animation_loop(anim: StringName): boolean
         
         /** Adds a frame to the [param anim] animation. If [param at_position] is `-1`, the frame will be added to the end of the animation. [param duration] specifies the relative duration, see [method get_frame_duration] for details. */
-        add_frame(anim: StringName, texture: Texture2D, duration: float64 = 1, at_position: int64 = -1): void
+        add_frame(anim: StringName, texture: Texture2D, duration?: float64 /* = 1 */, at_position?: int64 /* = -1 */): void
         
         /** Sets the [param texture] and the [param duration] of the frame [param idx] in the [param anim] animation. [param duration] specifies the relative duration, see [method get_frame_duration] for details. */
-        set_frame(anim: StringName, idx: int64, texture: Texture2D, duration: float64 = 1): void
+        set_frame(anim: StringName, idx: int64, texture: Texture2D, duration?: float64 /* = 1 */): void
         
         /** Removes the [param anim] animation's frame [param idx]. */
         remove_frame(anim: StringName, idx: int64): void
@@ -4387,29 +4008,18 @@ declare module "godot" {
         get animations(): GArray
         set animations(value: GArray)
     }
-    class SpriteFramesEditor<Map extends Record<string, Node> = Record<string, Node>> extends HSplitContainer<Map> {
-        constructor(identifier?: any)
-        _update_library(skipsel: boolean = false): void
-        _select_animation(name: string, update_node: boolean = true): void
-    }
-    class SpriteFramesEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A PBR (Physically Based Rendering) material to be used on 3D objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_standardmaterial3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_standardmaterial3d.html  
      */
     class StandardMaterial3D extends BaseMaterial3D {
         constructor(identifier?: any)
     }
-    class StandardMaterial3DConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
-    }
     /** A 2D physics body that can't be moved by external forces. When moved manually, it doesn't affect other bodies in its path.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_staticbody2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_staticbody2d.html  
      */
-    class StaticBody2D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody2D<Map> {
+    class StaticBody2D<Map extends Record<string, Node> = {}> extends PhysicsBody2D<Map> {
         constructor(identifier?: any)
         /** The physics material override for the body.  
          *  If a material is assigned to this property, it will be used instead of any other physics material, such as an inherited one.  
@@ -4427,9 +4037,9 @@ declare module "godot" {
     }
     /** A 3D physics body that can't be moved by external forces. When moved manually, it doesn't affect other bodies in its path.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_staticbody3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_staticbody3d.html  
      */
-    class StaticBody3D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody3D<Map> {
+    class StaticBody3D<Map extends Record<string, Node> = {}> extends PhysicsBody3D<Map> {
         constructor(identifier?: any)
         /** The physics material override for the body.  
          *  If a material is assigned to this property, it will be used instead of any other physics material, such as an inherited one.  
@@ -4449,9 +4059,9 @@ declare module "godot" {
      *      
      *  **Note:** Status indicator is implemented on macOS and Windows.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_statusindicator.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_statusindicator.html  
      */
-    class StatusIndicator<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class StatusIndicator<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Returns the status indicator rectangle in screen coordinates. If this status indicator is not visible, returns an empty [Rect2]. */
         get_rect(): Rect2
@@ -4476,16 +4086,16 @@ declare module "godot" {
         set visible(value: boolean)
         
         /** Emitted when the status indicator is pressed. */
-        readonly pressed: Signal2<int64, Vector2i>
+        readonly pressed: Signal<(mouse_button: int64, mouse_position: Vector2i) => void>
     }
     /** Abstract base class for interacting with streams.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_streampeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_streampeer.html  
      */
     class StreamPeer extends RefCounted {
         constructor(identifier?: any)
         /** Sends a chunk of data through the connection, blocking if necessary until the data is done sending. This function returns an [enum Error] code. */
-        put_data(data: PackedByteArray | byte[] | ArrayBuffer): GError
+        put_data(data: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Sends a chunk of data through the connection. If all the data could not be sent at once, only part of it will. This function returns two values, an [enum Error] code and an integer, describing how much data was actually sent. */
         put_partial_data(data: PackedByteArray | byte[] | ArrayBuffer): GArray
@@ -4549,7 +4159,7 @@ declare module "godot" {
         /** Puts a Variant into the stream. If [param full_objects] is `true` encoding objects is allowed (and can potentially include code).  
          *  Internally, this uses the same encoding mechanism as the [method @GlobalScope.var_to_bytes] method.  
          */
-        put_var(value: any, full_objects: boolean = false): void
+        put_var(value: any, full_objects?: boolean /* = false */): void
         
         /** Gets a signed byte from the stream. */
         get_8(): int64
@@ -4585,16 +4195,16 @@ declare module "godot" {
         get_double(): float64
         
         /** Gets an ASCII string with byte-length [param bytes] from the stream. If [param bytes] is negative (default) the length will be read from the stream using the reverse process of [method put_string]. */
-        get_string(bytes: int64 = -1): string
+        get_string(bytes?: int64 /* = -1 */): string
         
         /** Gets a UTF-8 string with byte-length [param bytes] from the stream (this decodes the string sent as UTF-8). If [param bytes] is negative (default) the length will be read from the stream using the reverse process of [method put_utf8_string]. */
-        get_utf8_string(bytes: int64 = -1): string
+        get_utf8_string(bytes?: int64 /* = -1 */): string
         
         /** Gets a Variant from the stream. If [param allow_objects] is `true`, decoding objects is allowed.  
          *  Internally, this uses the same decoding mechanism as the [method @GlobalScope.bytes_to_var] method.  
          *  **Warning:** Deserialized objects can contain code which gets executed. Do not use this option if the serialized object comes from untrusted sources to avoid potential security threats such as remote code execution.  
          */
-        get_var(allow_objects: boolean = false): any
+        get_var(allow_objects?: boolean /* = false */): any
         
         /** If `true`, this [StreamPeer] will using big-endian format for encoding and decoding. */
         get big_endian(): boolean
@@ -4602,7 +4212,7 @@ declare module "godot" {
     }
     /** A stream peer used to handle binary data streams.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_streampeerbuffer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_streampeerbuffer.html  
      */
     class StreamPeerBuffer extends StreamPeer {
         constructor(identifier?: any)
@@ -4628,29 +4238,31 @@ declare module "godot" {
         get data_array(): PackedByteArray
         set data_array(value: PackedByteArray | byte[] | ArrayBuffer)
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_streampeerextension.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_streampeerextension.html */
     class StreamPeerExtension extends StreamPeer {
         constructor(identifier?: any)
-        /* gdvirtual */ _get_data(r_buffer: int64, r_bytes: int64, r_received: int64): GError
-        /* gdvirtual */ _get_partial_data(r_buffer: int64, r_bytes: int64, r_received: int64): GError
-        /* gdvirtual */ _put_data(p_data: int64, p_bytes: int64, r_sent: int64): GError
-        /* gdvirtual */ _put_partial_data(p_data: int64, p_bytes: int64, r_sent: int64): GError
+        /* gdvirtual */ _get_data(r_buffer: int64, r_bytes: int64, r_received: int64): Error
+        /* gdvirtual */ _get_partial_data(r_buffer: int64, r_bytes: int64, r_received: int64): Error
+        /* gdvirtual */ _put_data(p_data: int64, p_bytes: int64, r_sent: int64): Error
+        /* gdvirtual */ _put_partial_data(p_data: int64, p_bytes: int64, r_sent: int64): Error
         /* gdvirtual */ _get_available_bytes(): int64
     }
     /** A stream peer that handles GZIP and deflate compression/decompression.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_streampeergzip.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_streampeergzip.html  
      */
     class StreamPeerGZIP extends StreamPeer {
         constructor(identifier?: any)
         /** Start the stream in compression mode with the given [param buffer_size], if [param use_deflate] is `true` uses deflate instead of GZIP. */
-        start_compression(use_deflate: boolean = false, buffer_size: int64 = 65535): GError
+        start_compression(use_deflate?: boolean /* = false */, buffer_size?: int64 /* = 65535 */): Error
         
         /** Start the stream in decompression mode with the given [param buffer_size], if [param use_deflate] is `true` uses deflate instead of GZIP. */
-        start_decompression(use_deflate: boolean = false, buffer_size: int64 = 65535): GError
+        start_decompression(use_deflate?: boolean /* = false */, buffer_size?: int64 /* = 65535 */): Error
         
-        /** Finalizes the stream, compressing or decompressing any buffered chunk left. */
-        finish(): GError
+        /** Finalizes the stream, compressing any buffered chunk left.  
+         *  You must call it only when you are compressing.  
+         */
+        finish(): Error
         
         /** Clears this stream, resetting the internal state. */
         clear(): void
@@ -4672,20 +4284,20 @@ declare module "godot" {
     }
     /** A stream peer that handles TCP connections.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_streampeertcp.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_streampeertcp.html  
      */
     class StreamPeerTCP extends StreamPeer {
         constructor(identifier?: any)
         /** Opens the TCP socket, and binds it to the specified local address.  
          *  This method is generally not needed, and only used to force the subsequent call to [method connect_to_host] to use the specified [param host] and [param port] as source address. This can be desired in some NAT punchthrough techniques, or when forcing the source network interface.  
          */
-        bind(port: int64, host: string = '*'): GError
+        bind(port: int64, host?: string /* = '*' */): Error
         
         /** Connects to the specified `host:port` pair. A hostname will be resolved if valid. Returns [constant OK] on success. */
-        connect_to_host(host: string, port: int64): GError
+        connect_to_host(host: string, port: int64): Error
         
         /** Poll the socket, updating its state. See [method get_status]. */
-        poll(): GError
+        poll(): Error
         
         /** Returns the status of the connection, see [enum Status]. */
         get_status(): StreamPeerTCP.Status
@@ -4728,7 +4340,7 @@ declare module "godot" {
     }
     /** A stream peer that handles TLS connections.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_streampeertls.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_streampeertls.html  
      */
     class StreamPeerTLS extends StreamPeer {
         constructor(identifier?: any)
@@ -4736,10 +4348,10 @@ declare module "godot" {
         poll(): void
         
         /** Accepts a peer connection as a server using the given [param server_options]. See [method TLSOptions.server]. */
-        accept_stream(stream: StreamPeer, server_options: TLSOptions): GError
+        accept_stream(stream: StreamPeer, server_options: TLSOptions): Error
         
         /** Connects to a peer using an underlying [StreamPeer] [param stream] and verifying the remote certificate is correctly signed for the given [param common_name]. You can pass the optional [param client_options] parameter to customize the trusted certification authorities, or disable the common name verification. See [method TLSOptions.client] and [method TLSOptions.client_unsafe]. */
-        connect_to_stream(stream: StreamPeer, common_name: string, client_options: TLSOptions = undefined): GError
+        connect_to_stream(stream: StreamPeer, common_name: string, client_options?: TLSOptions /* = undefined */): Error
         
         /** Returns the status of the connection. See [enum Status] for values. */
         get_status(): StreamPeerTLS.Status
@@ -4752,7 +4364,7 @@ declare module "godot" {
     }
     /** Abstract base class for defining stylized boxes for UI elements.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_stylebox.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_stylebox.html  
      */
     class StyleBox extends Resource {
         constructor(identifier?: any)
@@ -4820,19 +4432,16 @@ declare module "godot" {
         get content_margin_bottom(): float64
         set content_margin_bottom(value: float64)
     }
-    class StyleBoxEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** An empty [StyleBox] (does not display anything).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_styleboxempty.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_styleboxempty.html  
      */
     class StyleBoxEmpty extends StyleBox {
         constructor(identifier?: any)
     }
     /** A customizable [StyleBox] that doesn't use a texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_styleboxflat.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_styleboxflat.html  
      */
     class StyleBoxFlat extends StyleBox {
         constructor(identifier?: any)
@@ -4984,7 +4593,7 @@ declare module "godot" {
     }
     /** A [StyleBox] that displays a single line of a given color and thickness.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_styleboxline.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_styleboxline.html  
      */
     class StyleBoxLine extends StyleBox {
         constructor(identifier?: any)
@@ -5022,7 +4631,7 @@ declare module "godot" {
     }
     /** A texture-based nine-patch [StyleBox].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_styleboxtexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_styleboxtexture.html  
      */
     class StyleBoxTexture extends StyleBox {
         constructor(identifier?: any)
@@ -5145,9 +4754,9 @@ declare module "godot" {
     }
     /** An interface to a game world that doesn't create a window or draw to the screen directly.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_subviewport.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_subviewport.html  
      */
-    class SubViewport<Map extends Record<string, Node> = Record<string, Node>> extends Viewport<Map> {
+    class SubViewport<Map extends Record<string, Node> = {}> extends Viewport<Map> {
         constructor(identifier?: any)
         /** The width and height of the sub-viewport. Must be set to a value greater than or equal to 2 pixels on both dimensions. Otherwise, nothing will be displayed.  
          *      
@@ -5177,9 +4786,9 @@ declare module "godot" {
     }
     /** A container used for displaying the contents of a [SubViewport].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_subviewportcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_subviewportcontainer.html  
      */
-    class SubViewportContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class SubViewportContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
         /** Virtual method to be implemented by the user. If it returns `true`, the [param event] is propagated to [SubViewport] children. Propagation doesn't happen if it returns `false`. If the function is not implemented, all events are propagated to SubViewports. */
         /* gdvirtual */ _propagate_input_event(event: InputEvent): boolean
@@ -5206,12 +4815,9 @@ declare module "godot" {
         get mouse_target(): boolean
         set mouse_target(value: boolean)
     }
-    class SubViewportPreviewEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Runs a [Tween] nested within another [Tween].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_subtweentweener.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_subtweentweener.html  
      */
     class SubtweenTweener extends Tweener {
         constructor(identifier?: any)
@@ -5257,7 +4863,7 @@ declare module "godot" {
     }
     /** Helper tool to create geometry.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_surfacetool.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_surfacetool.html  
      */
     class SurfaceTool extends RefCounted {
         constructor(identifier?: any)
@@ -5327,7 +4933,7 @@ declare module "godot" {
         /** Inserts a triangle fan made of array data into [Mesh] being constructed.  
          *  Requires the primitive type be set to [constant Mesh.PRIMITIVE_TRIANGLES].  
          */
-        add_triangle_fan(vertices: PackedVector3Array | Vector3[], uvs: PackedVector2Array | Vector2[] = [], colors: PackedColorArray | Color[] = [], uv2s: PackedVector2Array | Vector2[] = [], normals: PackedVector3Array | Vector3[] = [], tangents: GArray = []): void
+        add_triangle_fan(vertices: PackedVector3Array | Vector3[], uvs?: PackedVector2Array | Vector2[] /* = [] */, colors?: PackedColorArray | Color[] /* = [] */, uv2s?: PackedVector2Array | Vector2[] /* = [] */, normals?: PackedVector3Array | Vector3[] /* = [] */, tangents?: GArray /* = [] */): void
         
         /** Adds a vertex to index array if you are using indexed vertices. Does not need to be called before adding vertices. */
         add_index(index: int64): void
@@ -5344,7 +4950,7 @@ declare module "godot" {
          *      
          *  **Note:** [method generate_normals] takes smooth groups into account. To generate smooth normals, set the smooth group to a value greater than or equal to `0` using [method set_smooth_group] or leave the smooth group at the default of `0`. To generate flat normals, set the smooth group to `-1` using [method set_smooth_group] prior to adding vertices.  
          */
-        generate_normals(flip: boolean = false): void
+        generate_normals(flip?: boolean /* = false */): void
         
         /** Generates a tangent vector for each vertex. Requires that each vertex already has UVs and normals set (see [method generate_normals]). */
         generate_tangents(): void
@@ -5356,7 +4962,7 @@ declare module "godot" {
         get_aabb(): AABB
         
         /** Generates an LOD for a given [param nd_threshold] in linear units (square root of quadric error metric), using at most [param target_index_count] indices. */
-        generate_lod(nd_threshold: float64, target_index_count: int64 = 3): PackedInt32Array
+        generate_lod(nd_threshold: float64, target_index_count?: int64 /* = 3 */): PackedInt32Array
         
         /** Sets [Material] to be used by the [Mesh] you are constructing. */
         set_material(material: Material): void
@@ -5371,7 +4977,7 @@ declare module "godot" {
         create_from(existing: Mesh, surface: int64): void
         
         /** Creates this SurfaceTool from existing vertex arrays such as returned by [method commit_to_arrays], [method Mesh.surface_get_arrays], [method Mesh.surface_get_blend_shape_arrays], [method ImporterMesh.get_surface_arrays], and [method ImporterMesh.get_surface_blend_shape_arrays]. [param primitive_type] controls the type of mesh data, defaulting to [constant Mesh.PRIMITIVE_TRIANGLES]. */
-        create_from_arrays(arrays: GArray, primitive_type: Mesh.PrimitiveType = 3): void
+        create_from_arrays(arrays: GArray, primitive_type?: Mesh.PrimitiveType /* = 3 */): void
         
         /** Creates a vertex array from the specified blend shape of an existing [Mesh]. This can be used to extract a specific pose from a blend shape. */
         create_from_blend_shape(existing: Mesh, surface: int64, blend_shape: string): void
@@ -5382,21 +4988,14 @@ declare module "godot" {
         /** Returns a constructed [ArrayMesh] from current information passed in. If an existing [ArrayMesh] is passed in as an argument, will add an extra surface to the existing [ArrayMesh].  
          *  The [param flags] argument can be the bitwise OR of [constant Mesh.ARRAY_FLAG_USE_DYNAMIC_UPDATE], [constant Mesh.ARRAY_FLAG_USE_8_BONE_WEIGHTS], or [constant Mesh.ARRAY_FLAG_USES_EMPTY_VERTEX_ARRAY].  
          */
-        commit(existing: ArrayMesh = undefined, flags: int64 = 0): ArrayMesh
+        commit(existing?: ArrayMesh /* = undefined */, flags?: int64 /* = 0 */): ArrayMesh
         
         /** Commits the data to the same format used by [method ArrayMesh.add_surface_from_arrays], [method ImporterMesh.add_surface], and [method create_from_arrays]. This way you can further process the mesh data using the [ArrayMesh] or [ImporterMesh] APIs. */
         commit_to_arrays(): GArray
     }
-    class SurfaceUpgradeDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class SurfaceUpgradeTool extends Object {
-        constructor(identifier?: any)
-        readonly upgrade_finished: Signal0
-    }
     /** Base class for syntax highlighters. Provides syntax highlighting data to a [TextEdit].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_syntaxhighlighter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_syntaxhighlighter.html  
      */
     class SyntaxHighlighter extends Resource {
         constructor(identifier?: any)
@@ -5434,7 +5033,7 @@ declare module "godot" {
     }
     /** A font loaded from a system font. Falls back to a default theme font if not implemented on the host OS.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_systemfont.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_systemfont.html  
      */
     class SystemFont extends Font {
         constructor(identifier?: any)
@@ -5474,6 +5073,10 @@ declare module "godot" {
         get force_autohinter(): boolean
         set force_autohinter(value: boolean)
         
+        /** If set to `true`, color modulation is applied when drawing colored glyphs, otherwise it's applied to the monochrome glyphs only. */
+        get modulate_color_glyphs(): boolean
+        set modulate_color_glyphs(value: boolean)
+        
         /** Font hinting mode. */
         get hinting(): int64
         set hinting(value: int64)
@@ -5504,7 +5107,7 @@ declare module "godot" {
     }
     /** A TCP server.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tcpserver.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tcpserver.html  
      */
     class TCPServer extends RefCounted {
         constructor(identifier?: any)
@@ -5513,7 +5116,7 @@ declare module "godot" {
          *  If [param bind_address] is set as `"0.0.0.0"` (for IPv4) or `"::"` (for IPv6), the server will listen on all available addresses matching that IP type.  
          *  If [param bind_address] is set to any valid address (e.g. `"192.168.1.101"`, `"::1"`, etc.), the server will only listen on the interface with that address (or fail if no interface with the given address exists).  
          */
-        listen(port: int64, bind_address: string = '*'): GError
+        listen(port: int64, bind_address?: string /* = '*' */): Error
         
         /** Returns `true` if a connection is available for taking. */
         is_connection_available(): boolean
@@ -5532,7 +5135,7 @@ declare module "godot" {
     }
     /** TLS configuration for clients and servers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tlsoptions.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tlsoptions.html  
      */
     class TLSOptions extends RefCounted {
         constructor(identifier?: any)
@@ -5541,13 +5144,13 @@ declare module "godot" {
          *      
          *  **Note:** On the Web platform, TLS verification is always enforced against the CA list of the web browser. This is considered a security feature.  
          */
-        static client(trusted_chain: X509Certificate = undefined, common_name_override: string = ''): TLSOptions
+        static client(trusted_chain?: X509Certificate /* = undefined */, common_name_override?: string /* = '' */): TLSOptions
         
         /** Creates an **unsafe** TLS client configuration where certificate validation is optional. You can optionally provide a valid [param trusted_chain], but the common name of the certificates will never be checked. Using this configuration for purposes other than testing **is not recommended**.  
          *      
          *  **Note:** On the Web platform, TLS verification is always enforced against the CA list of the web browser. This is considered a security feature.  
          */
-        static client_unsafe(trusted_chain: X509Certificate = undefined): TLSOptions
+        static client_unsafe(trusted_chain?: X509Certificate /* = undefined */): TLSOptions
         
         /** Creates a TLS server configuration using the provided [param key] and [param certificate].  
          *      
@@ -5603,9 +5206,9 @@ declare module "godot" {
     }
     /** A control that provides a horizontal bar with tabs.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tabbar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tabbar.html  
      */
-    class TabBar<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class TabBar<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Returns the previously active tab index. */
         get_previous_tab(): int64
@@ -5683,7 +5286,7 @@ declare module "godot" {
         remove_tab(tab_idx: int64): void
         
         /** Adds a new tab. */
-        add_tab(title: string = '', icon: Texture2D = undefined): void
+        add_tab(title?: string /* = '' */, icon?: Texture2D /* = undefined */): void
         
         /** Returns the index of the tab at local coordinates [param point]. Returns `-1` if the point is outside the control boundaries or if there's no tab at the queried position. */
         get_tab_idx_at_point(point: Vector2): int64
@@ -5757,32 +5360,32 @@ declare module "godot" {
         set tab_count(value: any /*Tabs,tab_*/)
         
         /** Emitted when a tab is selected via click, directional input, or script, even if it is the current tab. */
-        readonly tab_selected: Signal1<int64>
+        readonly tab_selected: Signal<(tab: int64) => void>
         
         /** Emitted when switching to another tab. */
-        readonly tab_changed: Signal1<int64>
+        readonly tab_changed: Signal<(tab: int64) => void>
         
         /** Emitted when a tab is clicked, even if it is the current tab. */
-        readonly tab_clicked: Signal1<int64>
+        readonly tab_clicked: Signal<(tab: int64) => void>
         
         /** Emitted when a tab is right-clicked. [member select_with_rmb] must be enabled. */
-        readonly tab_rmb_clicked: Signal1<int64>
+        readonly tab_rmb_clicked: Signal<(tab: int64) => void>
         
         /** Emitted when a tab's close button is pressed.  
          *      
          *  **Note:** Tabs are not removed automatically once the close button is pressed, this behavior needs to be programmed manually. For example:  
          *    
          */
-        readonly tab_close_pressed: Signal1<int64>
+        readonly tab_close_pressed: Signal<(tab: int64) => void>
         
         /** Emitted when a tab's right button is pressed. See [method set_tab_button_icon]. */
-        readonly tab_button_pressed: Signal1<int64>
+        readonly tab_button_pressed: Signal<(tab: int64) => void>
         
         /** Emitted when a tab is hovered by the mouse. */
-        readonly tab_hovered: Signal1<int64>
+        readonly tab_hovered: Signal<(tab: int64) => void>
         
         /** Emitted when the active tab is rearranged via mouse drag. See [member drag_to_rearrange_enabled]. */
-        readonly active_tab_rearranged: Signal1<int64>
+        readonly active_tab_rearranged: Signal<(idx_to: int64) => void>
     }
     namespace TabContainer {
         enum TabPosition {
@@ -5798,9 +5401,9 @@ declare module "godot" {
     }
     /** A container that creates a tab for each child control, displaying only the active tab's control.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tabcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tabcontainer.html  
      */
-    class TabContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class TabContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
         /** Returns the number of tabs. */
         get_tab_count(): int64
@@ -5941,25 +5544,25 @@ declare module "godot" {
         set deselect_enabled(value: boolean)
         
         /** Emitted when the active tab is rearranged via mouse drag. See [member drag_to_rearrange_enabled]. */
-        readonly active_tab_rearranged: Signal1<int64>
+        readonly active_tab_rearranged: Signal<(idx_to: int64) => void>
         
         /** Emitted when switching to another tab. */
-        readonly tab_changed: Signal1<int64>
+        readonly tab_changed: Signal<(tab: int64) => void>
         
         /** Emitted when a tab is clicked, even if it is the current tab. */
-        readonly tab_clicked: Signal1<int64>
+        readonly tab_clicked: Signal<(tab: int64) => void>
         
         /** Emitted when a tab is hovered by the mouse. */
-        readonly tab_hovered: Signal1<int64>
+        readonly tab_hovered: Signal<(tab: int64) => void>
         
         /** Emitted when a tab is selected via click, directional input, or script, even if it is the current tab. */
-        readonly tab_selected: Signal1<int64>
+        readonly tab_selected: Signal<(tab: int64) => void>
         
         /** Emitted when the user clicks on the button icon on this tab. */
-        readonly tab_button_pressed: Signal1<int64>
+        readonly tab_button_pressed: Signal<(tab: int64) => void>
         
         /** Emitted when the [TabContainer]'s [Popup] button is clicked. See [method set_popup] for details. */
-        readonly pre_popup_pressed: Signal0
+        readonly pre_popup_pressed: Signal<() => void>
     }
     namespace TextEdit {
         enum MenuItems {
@@ -6125,9 +5728,9 @@ declare module "godot" {
     }
     /** A multiline text editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textedit.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textedit.html  
      */
-    class TextEdit<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class TextEdit<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Override this method to define what happens when the user types in the provided key [param unicode_char]. */
         /* gdvirtual */ _handle_unicode_input(unicode_char: int64, caret_index: int64): void
@@ -6189,7 +5792,7 @@ declare module "godot" {
         get_line_with_ime(line: int64): string
         
         /** Returns the width in pixels of the [param wrap_index] on [param line]. */
-        get_line_width(line: int64, wrap_index: int64 = -1): int64
+        get_line_width(line: int64, wrap_index?: int64 /* = -1 */): int64
         
         /** Returns the maximum value of the line height among all lines.  
          *      
@@ -6212,16 +5815,16 @@ declare module "godot" {
         /** Removes the line of text at [param line]. Carets on this line will attempt to match their previous visual x position.  
          *  If [param move_carets_down] is `true` carets will move to the next line down, otherwise carets will move up.  
          */
-        remove_line_at(line: int64, move_carets_down: boolean = true): void
+        remove_line_at(line: int64, move_carets_down?: boolean /* = true */): void
         
         /** Insert the specified text at the caret position. */
-        insert_text_at_caret(text: string, caret_index: int64 = -1): void
+        insert_text_at_caret(text: string, caret_index?: int64 /* = -1 */): void
         
         /** Inserts the [param text] at [param line] and [param column].  
          *  If [param before_selection_begin] is `true`, carets and selections that begin at [param line] and [param column] will moved to the end of the inserted text, along with all carets after it.  
          *  If [param before_selection_end] is `true`, selections that end at [param line] and [param column] will be extended to the end of the inserted text. These parameters can be used to insert text inside of or outside of selections.  
          */
-        insert_text(text: string, line: int64, column: int64, before_selection_begin: boolean = true, before_selection_end: boolean = false): void
+        insert_text(text: string, line: int64, column: int64, before_selection_begin?: boolean /* = true */, before_selection_end?: boolean /* = false */): void
         
         /** Removes text between the given positions. */
         remove_text(from_line: int64, from_column: int64, to_line: int64, to_column: int64): void
@@ -6236,19 +5839,19 @@ declare module "godot" {
         get_next_visible_line_index_offset_from(line: int64, wrap_index: int64, visible_amount: int64): Vector2i
         
         /** Called when the user presses the backspace key. Can be overridden with [method _backspace]. */
-        backspace(caret_index: int64 = -1): void
+        backspace(caret_index?: int64 /* = -1 */): void
         
         /** Cut's the current selection. Can be overridden with [method _cut]. */
-        cut(caret_index: int64 = -1): void
+        cut(caret_index?: int64 /* = -1 */): void
         
         /** Copies the current text selection. Can be overridden with [method _copy]. */
-        copy(caret_index: int64 = -1): void
+        copy(caret_index?: int64 /* = -1 */): void
         
         /** Paste at the current location. Can be overridden with [method _paste]. */
-        paste(caret_index: int64 = -1): void
+        paste(caret_index?: int64 /* = -1 */): void
         
         /** Pastes the primary clipboard. */
-        paste_primary_clipboard(caret_index: int64 = -1): void
+        paste_primary_clipboard(caret_index?: int64 /* = -1 */): void
         
         /** Starts an action, will end the current action if [param action] is different.  
          *  An action will also end after a call to [method end_action], after [member ProjectSettings.gui/timers/text_edit_idle_detect_sec] is triggered or a new undoable step outside the [method start_action] and [method end_action] calls.  
@@ -6313,7 +5916,7 @@ declare module "godot" {
          *  If [param clamp_line] is `false` and [param position] is below the last line, `Vector2i(-1, -1)` is returned.  
          *  If [param clamp_column] is `false` and [param position] is outside the column range of the line, `Vector2i(-1, -1)` is returned.  
          */
-        get_line_column_at_pos(position: Vector2i, clamp_line: boolean = true, clamp_column: boolean = true): Vector2i
+        get_line_column_at_pos(position: Vector2i, clamp_line?: boolean /* = true */, clamp_column?: boolean /* = true */): Vector2i
         
         /** Returns the local position for the given [param line] and [param column]. If `x` or `y` of the returned vector equal `-1`, the position is outside of the viewable area of the control.  
          *      
@@ -6334,7 +5937,7 @@ declare module "godot" {
         is_dragging_cursor(): boolean
         
         /** Returns `true` if the mouse is over a selection. If [param edges] is `true`, the edges are considered part of the selection. */
-        is_mouse_over_selection(edges: boolean, caret_index: int64 = -1): boolean
+        is_mouse_over_selection(edges: boolean, caret_index?: int64 /* = -1 */): boolean
         
         /** Adds a new caret at the given location. Returns the index of the new caret, or `-1` if the location is invalid. */
         add_caret(line: int64, column: int64): int64
@@ -6357,14 +5960,14 @@ declare module "godot" {
         /** Returns the carets sorted by selection beginning from lowest line and column to highest (from top to bottom of text).  
          *  If [param include_ignored_carets] is `false`, carets from [method multicaret_edit_ignore_caret] will be ignored.  
          */
-        get_sorted_carets(include_ignored_carets: boolean = false): PackedInt32Array
+        get_sorted_carets(include_ignored_carets?: boolean /* = false */): PackedInt32Array
         
         /** Collapse all carets in the given range to the [param from_line] and [param from_column] position.  
          *  [param inclusive] applies to both ends.  
          *  If [method is_in_mulitcaret_edit] is `true`, carets that are collapsed will be `true` for [method multicaret_edit_ignore_caret].  
          *  [method merge_overlapping_carets] will be called if any carets were collapsed.  
          */
-        collapse_carets(from_line: int64, from_column: int64, to_line: int64, to_column: int64, inclusive: boolean = false): void
+        collapse_carets(from_line: int64, from_column: int64, to_line: int64, to_column: int64, inclusive?: boolean /* = false */): void
         
         /** Merges any overlapping carets. Will favor the newest caret, or the caret with a selection.  
          *  If [method is_in_mulitcaret_edit] is `true`, the merge will be queued to happen at the end of the multicaret edit. See [method begin_multicaret_edit] and [method end_multicaret_edit].  
@@ -6393,10 +5996,10 @@ declare module "godot" {
          *      
          *  **Note:** [method is_caret_visible] does not account for a caret being off-screen if it is still within the scrollable area. It will return `true` even if the caret is off-screen as long as it meets [TextEdit]'s own conditions for being visible. This includes uses of [member scroll_fit_content_width] and [member scroll_fit_content_height] that cause the [TextEdit] to expand beyond the viewport's bounds.  
          */
-        is_caret_visible(caret_index: int64 = 0): boolean
+        is_caret_visible(caret_index?: int64 /* = 0 */): boolean
         
         /** Returns the caret pixel draw position. */
-        get_caret_draw_pos(caret_index: int64 = 0): Vector2
+        get_caret_draw_pos(caret_index?: int64 /* = 0 */): Vector2
         
         /** Moves the caret to the specified [param line] index. The caret column will be moved to the same visual position it was at the last time [method set_caret_column] was called, or clamped to the end of the line.  
          *  If [param adjust_viewport] is `true`, the viewport will center at the caret position after the move occurs.  
@@ -6405,26 +6008,26 @@ declare module "godot" {
          *      
          *  **Note:** If supporting multiple carets this will not check for any overlap. See [method merge_overlapping_carets].  
          */
-        set_caret_line(line: int64, adjust_viewport: boolean = true, can_be_hidden: boolean = true, wrap_index: int64 = 0, caret_index: int64 = 0): void
+        set_caret_line(line: int64, adjust_viewport?: boolean /* = true */, can_be_hidden?: boolean /* = true */, wrap_index?: int64 /* = 0 */, caret_index?: int64 /* = 0 */): void
         
         /** Returns the line the editing caret is on. */
-        get_caret_line(caret_index: int64 = 0): int64
+        get_caret_line(caret_index?: int64 /* = 0 */): int64
         
         /** Moves the caret to the specified [param column] index.  
          *  If [param adjust_viewport] is `true`, the viewport will center at the caret position after the move occurs.  
          *      
          *  **Note:** If supporting multiple carets this will not check for any overlap. See [method merge_overlapping_carets].  
          */
-        set_caret_column(column: int64, adjust_viewport: boolean = true, caret_index: int64 = 0): void
+        set_caret_column(column: int64, adjust_viewport?: boolean /* = true */, caret_index?: int64 /* = 0 */): void
         
         /** Returns the column the editing caret is at. */
-        get_caret_column(caret_index: int64 = 0): int64
+        get_caret_column(caret_index?: int64 /* = 0 */): int64
         
         /** Returns the wrap index the editing caret is on. */
-        get_caret_wrap_index(caret_index: int64 = 0): int64
+        get_caret_wrap_index(caret_index?: int64 /* = 0 */): int64
         
         /** Returns a [String] text with the word under the caret's location. */
-        get_word_under_caret(caret_index: int64 = -1): string
+        get_word_under_caret(caret_index?: int64 /* = -1 */): string
         
         /** Sets the current selection mode. */
         set_selection_mode(mode: TextEdit.SelectionMode): void
@@ -6438,7 +6041,7 @@ declare module "godot" {
         select_all(): void
         
         /** Selects the word under the caret. */
-        select_word_under_caret(caret_index: int64 = -1): void
+        select_word_under_caret(caret_index?: int64 /* = -1 */): void
         
         /** Adds a selection and a caret for the next occurrence of the current selection. If there is no active selection, selects word under caret. */
         add_selection_for_next_occurrence(): void
@@ -6451,59 +6054,59 @@ declare module "godot" {
          *      
          *  **Note:** If supporting multiple carets this will not check for any overlap. See [method merge_overlapping_carets].  
          */
-        select(origin_line: int64, origin_column: int64, caret_line: int64, caret_column: int64, caret_index: int64 = 0): void
+        select(origin_line: int64, origin_column: int64, caret_line: int64, caret_column: int64, caret_index?: int64 /* = 0 */): void
         
         /** Returns `true` if the user has selected text. */
-        has_selection(caret_index: int64 = -1): boolean
+        has_selection(caret_index?: int64 /* = -1 */): boolean
         
         /** Returns the text inside the selection of a caret, or all the carets if [param caret_index] is its default value `-1`. */
-        get_selected_text(caret_index: int64 = -1): string
+        get_selected_text(caret_index?: int64 /* = -1 */): string
         
         /** Returns the caret index of the selection at the given [param line] and [param column], or `-1` if there is none.  
          *  If [param include_edges] is `false`, the position must be inside the selection and not at either end. If [param only_selections] is `false`, carets without a selection will also be considered.  
          */
-        get_selection_at_line_column(line: int64, column: int64, include_edges: boolean = true, only_selections: boolean = true): int64
+        get_selection_at_line_column(line: int64, column: int64, include_edges?: boolean /* = true */, only_selections?: boolean /* = true */): int64
         
         /** Returns an [Array] of line ranges where `x` is the first line and `y` is the last line. All lines within these ranges will have a caret on them or be part of a selection. Each line will only be part of one line range, even if it has multiple carets on it.  
          *  If a selection's end column ([method get_selection_to_column]) is at column `0`, that line will not be included. If a selection begins on the line after another selection ends and [param merge_adjacent] is `true`, or they begin and end on the same line, one line range will include both selections.  
          */
-        get_line_ranges_from_carets(only_selections: boolean = false, merge_adjacent: boolean = true): GArray
+        get_line_ranges_from_carets(only_selections?: boolean /* = false */, merge_adjacent?: boolean /* = true */): GArray
         
         /** Returns the origin line of the selection. This is the opposite end from the caret. */
-        get_selection_origin_line(caret_index: int64 = 0): int64
+        get_selection_origin_line(caret_index?: int64 /* = 0 */): int64
         
         /** Returns the origin column of the selection. This is the opposite end from the caret. */
-        get_selection_origin_column(caret_index: int64 = 0): int64
+        get_selection_origin_column(caret_index?: int64 /* = 0 */): int64
         
         /** Sets the selection origin line to the [param line] for the given [param caret_index]. If the selection origin is moved to the caret position, the selection will deselect.  
          *  If [param can_be_hidden] is `false`, The line will be set to the nearest unhidden line below or above.  
          *  If [param wrap_index] is `-1`, the selection origin column will be clamped to the [param line]'s length. If [param wrap_index] is greater than `-1`, the column will be moved to attempt to match the visual x position on the line's [param wrap_index] to the position from the last time [method set_selection_origin_column] or [method select] was called.  
          */
-        set_selection_origin_line(line: int64, can_be_hidden: boolean = true, wrap_index: int64 = -1, caret_index: int64 = 0): void
+        set_selection_origin_line(line: int64, can_be_hidden?: boolean /* = true */, wrap_index?: int64 /* = -1 */, caret_index?: int64 /* = 0 */): void
         
         /** Sets the selection origin column to the [param column] for the given [param caret_index]. If the selection origin is moved to the caret position, the selection will deselect. */
-        set_selection_origin_column(column: int64, caret_index: int64 = 0): void
+        set_selection_origin_column(column: int64, caret_index?: int64 /* = 0 */): void
         
         /** Returns the selection begin line. Returns the caret line if there is no selection. */
-        get_selection_from_line(caret_index: int64 = 0): int64
+        get_selection_from_line(caret_index?: int64 /* = 0 */): int64
         
         /** Returns the selection begin column. Returns the caret column if there is no selection. */
-        get_selection_from_column(caret_index: int64 = 0): int64
+        get_selection_from_column(caret_index?: int64 /* = 0 */): int64
         
         /** Returns the selection end line. Returns the caret line if there is no selection. */
-        get_selection_to_line(caret_index: int64 = 0): int64
+        get_selection_to_line(caret_index?: int64 /* = 0 */): int64
         
         /** Returns the selection end column. Returns the caret column if there is no selection. */
-        get_selection_to_column(caret_index: int64 = 0): int64
+        get_selection_to_column(caret_index?: int64 /* = 0 */): int64
         
         /** Returns `true` if the caret of the selection is after the selection origin. This can be used to determine the direction of the selection. */
-        is_caret_after_selection_origin(caret_index: int64 = 0): boolean
+        is_caret_after_selection_origin(caret_index?: int64 /* = 0 */): boolean
         
         /** Deselects the current selection. */
-        deselect(caret_index: int64 = -1): void
+        deselect(caret_index?: int64 /* = -1 */): void
         
         /** Deletes the selected text. */
-        delete_selection(caret_index: int64 = -1): void
+        delete_selection(caret_index?: int64 /* = -1 */): void
         
         /** Returns if the given line is wrapped. */
         is_line_wrapped(line: int64): boolean
@@ -6524,19 +6127,19 @@ declare module "godot" {
         get_h_scroll_bar(): HScrollBar
         
         /** Returns the scroll position for [param wrap_index] of [param line]. */
-        get_scroll_pos_for_line(line: int64, wrap_index: int64 = 0): float64
+        get_scroll_pos_for_line(line: int64, wrap_index?: int64 /* = 0 */): float64
         
         /** Positions the [param wrap_index] of [param line] at the top of the viewport. */
-        set_line_as_first_visible(line: int64, wrap_index: int64 = 0): void
+        set_line_as_first_visible(line: int64, wrap_index?: int64 /* = 0 */): void
         
         /** Returns the first visible line. */
         get_first_visible_line(): int64
         
         /** Positions the [param wrap_index] of [param line] at the center of the viewport. */
-        set_line_as_center_visible(line: int64, wrap_index: int64 = 0): void
+        set_line_as_center_visible(line: int64, wrap_index?: int64 /* = 0 */): void
         
         /** Positions the [param wrap_index] of [param line] at the bottom of the viewport. */
-        set_line_as_last_visible(line: int64, wrap_index: int64 = 0): void
+        set_line_as_last_visible(line: int64, wrap_index?: int64 /* = 0 */): void
         
         /** Returns the last visible line. Use [method get_last_full_visible_line_wrap_index] for the wrap index. */
         get_last_full_visible_line(): int64
@@ -6554,16 +6157,16 @@ declare module "godot" {
         get_total_visible_line_count(): int64
         
         /** Adjust the viewport so the caret is visible. */
-        adjust_viewport_to_caret(caret_index: int64 = 0): void
+        adjust_viewport_to_caret(caret_index?: int64 /* = 0 */): void
         
         /** Centers the viewport on the line the editing caret is at. This also resets the [member scroll_horizontal] value to `0`. */
-        center_viewport_to_caret(caret_index: int64 = 0): void
+        center_viewport_to_caret(caret_index?: int64 /* = 0 */): void
         
         /** Returns the number of lines that may be drawn on the minimap. */
         get_minimap_visible_lines(): int64
         
         /** Register a new gutter to this [TextEdit]. Use [param at] to have a specific gutter order. A value of `-1` appends the gutter to the right. */
-        add_gutter(at: int64 = -1): void
+        add_gutter(at?: int64 /* = -1 */): void
         
         /** Removes the gutter at the given index. */
         remove_gutter(gutter: int64): void
@@ -6672,10 +6275,10 @@ declare module "godot" {
         get_caret_index_edit_order(): PackedInt32Array
         
         /** Returns the original start line of the selection. */
-        get_selection_line(caret_index: int64 = 0): int64
+        get_selection_line(caret_index?: int64 /* = 0 */): int64
         
         /** Returns the original start column of the selection. */
-        get_selection_column(caret_index: int64 = 0): int64
+        get_selection_column(caret_index?: int64 /* = 0 */): int64
         
         /** String value of the [TextEdit]. */
         get text(): string
@@ -6867,31 +6470,31 @@ declare module "godot" {
         set structured_text_bidi_override_options(value: GArray)
         
         /** Emitted when [method clear] is called or [member text] is set. */
-        readonly text_set: Signal0
+        readonly text_set: Signal<() => void>
         
         /** Emitted when the text changes. */
-        readonly text_changed: Signal0
+        readonly text_changed: Signal<() => void>
         
         /** Emitted immediately when the text changes.  
          *  When text is added [param from_line] will be less than [param to_line]. On a remove [param to_line] will be less than [param from_line].  
          */
-        readonly lines_edited_from: Signal2<int64, int64>
+        readonly lines_edited_from: Signal<(from_line: int64, to_line: int64) => void>
         
         /** Emitted when any caret changes position. */
-        readonly caret_changed: Signal0
+        readonly caret_changed: Signal<() => void>
         
         /** Emitted when a gutter is clicked. */
-        readonly gutter_clicked: Signal2<int64, int64>
+        readonly gutter_clicked: Signal<(line: int64, gutter: int64) => void>
         
         /** Emitted when a gutter is added. */
-        readonly gutter_added: Signal0
+        readonly gutter_added: Signal<() => void>
         
         /** Emitted when a gutter is removed. */
-        readonly gutter_removed: Signal0
+        readonly gutter_removed: Signal<() => void>
     }
     /** Holds a line of text.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textline.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textline.html  
      */
     class TextLine extends RefCounted {
         constructor(identifier?: any)
@@ -6904,13 +6507,13 @@ declare module "godot" {
         set_bidi_override(override: GArray): void
         
         /** Adds text span and font to draw it. */
-        add_string(text: string, font: Font, font_size: int64, language: string = '', meta: any = <any> {}): boolean
+        add_string(text: string, font: Font, font_size: int64, language?: string /* = '' */, meta?: any /* = <any> {} */): boolean
         
         /** Adds inline object to the text buffer, [param key] must be unique. In the text, object is represented as [param length] object replacement characters. */
-        add_object(key: any, size: Vector2, inline_align: InlineAlignment = 5, length: int64 = 1, baseline: float64 = 0): boolean
+        add_object(key: any, size: Vector2, inline_align?: InlineAlignment /* = 5 */, length?: int64 /* = 1 */, baseline?: float64 /* = 0 */): boolean
         
         /** Sets new size and alignment of embedded object. */
-        resize_object(key: any, size: Vector2, inline_align: InlineAlignment = 5, baseline: float64 = 0): boolean
+        resize_object(key: any, size: Vector2, inline_align?: InlineAlignment /* = 5 */, baseline?: float64 /* = 0 */): boolean
         
         /** Aligns text to the given tab-stops. */
         tab_align(tab_stops: PackedFloat32Array | float32[]): void
@@ -6943,10 +6546,10 @@ declare module "godot" {
         get_line_underline_thickness(): float64
         
         /** Draw text into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw(canvas: RID, pos: Vector2, color: Color = new Color(1, 1, 1, 1)): void
+        draw(canvas: RID, pos: Vector2, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw text into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw_outline(canvas: RID, pos: Vector2, outline_size: int64 = 1, color: Color = new Color(1, 1, 1, 1)): void
+        draw_outline(canvas: RID, pos: Vector2, outline_size?: int64 /* = 1 */, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Returns caret character offset at the specified pixel offset at the baseline. This function always returns a valid position. */
         hit_test(coords: float64): int64
@@ -6989,7 +6592,7 @@ declare module "godot" {
     }
     /** Generate an [PrimitiveMesh] from the text.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textmesh.html  
      */
     class TextMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -7070,7 +6673,7 @@ declare module "godot" {
     }
     /** Holds a paragraph of text.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textparagraph.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textparagraph.html  
      */
     class TextParagraph extends RefCounted {
         constructor(identifier?: any)
@@ -7083,19 +6686,19 @@ declare module "godot" {
         set_bidi_override(override: GArray): void
         
         /** Sets drop cap, overrides previously set drop cap. Drop cap (dropped capital) is a decorative element at the beginning of a paragraph that is larger than the rest of the text. */
-        set_dropcap(text: string, font: Font, font_size: int64, dropcap_margins: Rect2 = new Rect2(0, 0, 0, 0), language: string = ''): boolean
+        set_dropcap(text: string, font: Font, font_size: int64, dropcap_margins?: Rect2 /* = new Rect2(0, 0, 0, 0) */, language?: string /* = '' */): boolean
         
         /** Removes dropcap. */
         clear_dropcap(): void
         
         /** Adds text span and font to draw it. */
-        add_string(text: string, font: Font, font_size: int64, language: string = '', meta: any = <any> {}): boolean
+        add_string(text: string, font: Font, font_size: int64, language?: string /* = '' */, meta?: any /* = <any> {} */): boolean
         
         /** Adds inline object to the text buffer, [param key] must be unique. In the text, object is represented as [param length] object replacement characters. */
-        add_object(key: any, size: Vector2, inline_align: InlineAlignment = 5, length: int64 = 1, baseline: float64 = 0): boolean
+        add_object(key: any, size: Vector2, inline_align?: InlineAlignment /* = 5 */, length?: int64 /* = 1 */, baseline?: float64 /* = 0 */): boolean
         
         /** Sets new size and alignment of embedded object. */
-        resize_object(key: any, size: Vector2, inline_align: InlineAlignment = 5, baseline: float64 = 0): boolean
+        resize_object(key: any, size: Vector2, inline_align?: InlineAlignment /* = 5 */, baseline?: float64 /* = 0 */): boolean
         
         /** Aligns paragraph to the given tab-stops. */
         tab_align(tab_stops: PackedFloat32Array | float32[]): void
@@ -7152,22 +6755,22 @@ declare module "godot" {
         get_dropcap_lines(): int64
         
         /** Draw all lines of the text and drop cap into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw(canvas: RID, pos: Vector2, color: Color = new Color(1, 1, 1, 1), dc_color: Color = new Color(1, 1, 1, 1)): void
+        draw(canvas: RID, pos: Vector2, color?: Color /* = new Color(1, 1, 1, 1) */, dc_color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw outlines of all lines of the text and drop cap into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw_outline(canvas: RID, pos: Vector2, outline_size: int64 = 1, color: Color = new Color(1, 1, 1, 1), dc_color: Color = new Color(1, 1, 1, 1)): void
+        draw_outline(canvas: RID, pos: Vector2, outline_size?: int64 /* = 1 */, color?: Color /* = new Color(1, 1, 1, 1) */, dc_color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw single line of text into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw_line(canvas: RID, pos: Vector2, line: int64, color: Color = new Color(1, 1, 1, 1)): void
+        draw_line(canvas: RID, pos: Vector2, line: int64, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw outline of the single line of text into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw_line_outline(canvas: RID, pos: Vector2, line: int64, outline_size: int64 = 1, color: Color = new Color(1, 1, 1, 1)): void
+        draw_line_outline(canvas: RID, pos: Vector2, line: int64, outline_size?: int64 /* = 1 */, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw drop cap into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw_dropcap(canvas: RID, pos: Vector2, color: Color = new Color(1, 1, 1, 1)): void
+        draw_dropcap(canvas: RID, pos: Vector2, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw drop cap outline into a canvas item at a given position, with [param color]. [param pos] specifies the top left corner of the bounding box. */
-        draw_dropcap_outline(canvas: RID, pos: Vector2, outline_size: int64 = 1, color: Color = new Color(1, 1, 1, 1)): void
+        draw_dropcap_outline(canvas: RID, pos: Vector2, outline_size?: int64 /* = 1 */, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Returns caret character offset at the specified coordinates. This function always returns a valid position. */
         hit_test(coords: Vector2): int64
@@ -7341,6 +6944,16 @@ declare module "godot" {
             
             /** Subtract first line indentation width from all lines after the first one. */
             BREAK_TRIM_INDENT = 32,
+            
+            /** Remove spaces and line break characters from the start of broken line segments.  
+             *  E.g, after line breaking, the second segment of the following text `test  \n  next`, is `next` if the flag is set, and `  next` if it is not.  
+             */
+            BREAK_TRIM_START_EDGE_SPACES = 64,
+            
+            /** Remove spaces and line break characters from the end of broken line segments.  
+             *  E.g, after line breaking, the first segment of the following text `test  \n  next`, is `test` if the flag is set, and `test  \n` if it is not.  
+             */
+            BREAK_TRIM_END_EDGE_SPACES = 128,
         }
         enum VisibleCharactersBehavior {
             /** Trims text before the shaping. e.g, increasing [member Label.visible_characters] or [member RichTextLabel.visible_characters] value is visually identical to typing the text.  
@@ -7371,11 +6984,17 @@ declare module "godot" {
             /** Trims the text per word. */
             OVERRUN_TRIM_WORD = 2,
             
-            /** Trims the text per character and adds an ellipsis to indicate that parts are hidden. */
+            /** Trims the text per character and adds an ellipsis to indicate that parts are hidden if trimmed text is 6 characters or longer. */
             OVERRUN_TRIM_ELLIPSIS = 3,
             
-            /** Trims the text per word and adds an ellipsis to indicate that parts are hidden. */
+            /** Trims the text per word and adds an ellipsis to indicate that parts are hidden if trimmed text is 6 characters or longer. */
             OVERRUN_TRIM_WORD_ELLIPSIS = 4,
+            
+            /** Trims the text per character and adds an ellipsis to indicate that parts are hidden regardless of trimmed text length. */
+            OVERRUN_TRIM_ELLIPSIS_FORCE = 5,
+            
+            /** Trims the text per word and adds an ellipsis to indicate that parts are hidden regardless of trimmed text length. */
+            OVERRUN_TRIM_WORD_ELLIPSIS_FORCE = 6,
         }
         enum TextOverrunFlag {
             /** No trimming is performed. */
@@ -7592,7 +7211,7 @@ declare module "godot" {
     }
     /** A server interface for font management and text rendering.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textserver.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textserver.html  
      */
     class TextServer extends RefCounted {
         constructor(identifier?: any)
@@ -7763,6 +7382,12 @@ declare module "godot" {
         
         /** Returns `true` if auto-hinting is supported and preferred over font built-in hinting. Used by dynamic fonts only. */
         font_is_force_autohinter(font_rid: RID): boolean
+        
+        /** If set to `true`, color modulation is applied when drawing colored glyphs, otherwise it's applied to the monochrome glyphs only. */
+        font_set_modulate_color_glyphs(font_rid: RID, force_autohinter: boolean): void
+        
+        /** Returns `true`, if color modulation is applied when drawing colored glyphs. */
+        font_is_modulate_color_glyphs(font_rid: RID): boolean
         
         /** Sets font hinting mode. Used by dynamic fonts only. */
         font_set_hinting(font_rid: RID, hinting: TextServer.Hinting): void
@@ -8003,7 +7628,7 @@ declare module "godot" {
          *      
          *  **Note:** If there are pending glyphs to render, calling this function might trigger the texture cache update.  
          */
-        font_draw_glyph(font_rid: RID, canvas: RID, size: int64, pos: Vector2, index: int64, color: Color = new Color(1, 1, 1, 1)): void
+        font_draw_glyph(font_rid: RID, canvas: RID, size: int64, pos: Vector2, index: int64, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draws single glyph outline of size [param outline_size] into a canvas item at the position, using [param font_rid] at the size [param size].  
          *      
@@ -8011,7 +7636,7 @@ declare module "godot" {
          *      
          *  **Note:** If there are pending glyphs to render, calling this function might trigger the texture cache update.  
          */
-        font_draw_glyph_outline(font_rid: RID, canvas: RID, size: int64, outline_size: int64, pos: Vector2, index: int64, color: Color = new Color(1, 1, 1, 1)): void
+        font_draw_glyph_outline(font_rid: RID, canvas: RID, size: int64, outline_size: int64, pos: Vector2, index: int64, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Returns `true`, if font supports given language ([url=https://en.wikipedia.org/wiki/ISO_639-1]ISO 639[/url] code). */
         font_is_language_supported(font_rid: RID, language: string): boolean
@@ -8076,7 +7701,7 @@ declare module "godot" {
          *      
          *  **Note:** Orientation is ignored if server does not support [constant FEATURE_VERTICAL_LAYOUT] feature (supported by [TextServerAdvanced]).  
          */
-        create_shaped_text(direction: TextServer.Direction = 0, orientation: TextServer.Orientation = 0): RID
+        create_shaped_text(direction?: TextServer.Direction /* = 0 */, orientation?: TextServer.Orientation /* = 0 */): RID
         
         /** Clears text buffer (removes text and inline objects). */
         shaped_text_clear(rid: RID): void
@@ -8085,7 +7710,7 @@ declare module "godot" {
          *      
          *  **Note:** Direction is ignored if server does not support [constant FEATURE_BIDI_LAYOUT] feature (supported by [TextServerAdvanced]).  
          */
-        shaped_text_set_direction(shaped: RID, direction: TextServer.Direction = 0): void
+        shaped_text_set_direction(shaped: RID, direction?: TextServer.Direction /* = 0 */): void
         
         /** Returns direction of the text. */
         shaped_text_get_direction(shaped: RID): TextServer.Direction
@@ -8114,7 +7739,7 @@ declare module "godot" {
          *      
          *  **Note:** Orientation is ignored if server does not support [constant FEATURE_VERTICAL_LAYOUT] feature (supported by [TextServerAdvanced]).  
          */
-        shaped_text_set_orientation(shaped: RID, orientation: TextServer.Orientation = 0): void
+        shaped_text_set_orientation(shaped: RID, orientation?: TextServer.Orientation /* = 0 */): void
         
         /** Returns text orientation. */
         shaped_text_get_orientation(shaped: RID): TextServer.Orientation
@@ -8141,13 +7766,13 @@ declare module "godot" {
         shaped_text_get_spacing(shaped: RID, spacing: TextServer.SpacingType): int64
         
         /** Adds text span and font to draw it to the text buffer. */
-        shaped_text_add_string(shaped: RID, text: string, fonts: GArray, size: int64, opentype_features: GDictionary = new GDictionary(), language: string = '', meta: any = <any> {}): boolean
+        shaped_text_add_string(shaped: RID, text: string, fonts: GArray, size: int64, opentype_features?: GDictionary /* = new GDictionary() */, language?: string /* = '' */, meta?: any /* = <any> {} */): boolean
         
         /** Adds inline object to the text buffer, [param key] must be unique. In the text, object is represented as [param length] object replacement characters. */
-        shaped_text_add_object(shaped: RID, key: any, size: Vector2, inline_align: InlineAlignment = 5, length: int64 = 1, baseline: float64 = 0): boolean
+        shaped_text_add_object(shaped: RID, key: any, size: Vector2, inline_align?: InlineAlignment /* = 5 */, length?: int64 /* = 1 */, baseline?: float64 /* = 0 */): boolean
         
         /** Sets new size and alignment of embedded object. */
-        shaped_text_resize_object(shaped: RID, key: any, size: Vector2, inline_align: InlineAlignment = 5, baseline: float64 = 0): boolean
+        shaped_text_resize_object(shaped: RID, key: any, size: Vector2, inline_align?: InlineAlignment /* = 5 */, baseline?: float64 /* = 0 */): boolean
         
         /** Returns number of text spans added using [method shaped_text_add_string] or [method shaped_text_add_object]. */
         shaped_get_span_count(shaped: RID): int64
@@ -8159,7 +7784,7 @@ declare module "godot" {
         shaped_get_span_embedded_object(shaped: RID, index: int64): any
         
         /** Changes text span font, font size, and OpenType features, without changing the text. */
-        shaped_set_span_update_font(shaped: RID, index: int64, fonts: GArray, size: int64, opentype_features: GDictionary = new GDictionary()): void
+        shaped_set_span_update_font(shaped: RID, index: int64, fonts: GArray, size: int64, opentype_features?: GDictionary /* = new GDictionary() */): void
         
         /** Returns text buffer for the substring of the text in the [param shaped] text buffer (including inline objects). */
         shaped_text_substr(shaped: RID, start: int64, length: int64): RID
@@ -8168,7 +7793,7 @@ declare module "godot" {
         shaped_text_get_parent(shaped: RID): RID
         
         /** Adjusts text width to fit to specified width, returns new text width. */
-        shaped_text_fit_to_width(shaped: RID, width: float64, justification_flags: TextServer.JustificationFlag = 3): float64
+        shaped_text_fit_to_width(shaped: RID, width: float64, justification_flags?: TextServer.JustificationFlag /* = 3 */): float64
         
         /** Aligns shaped text to the given tab-stops. */
         shaped_text_tab_align(shaped: RID, tab_stops: PackedFloat32Array | float32[]): float64
@@ -8198,13 +7823,13 @@ declare module "godot" {
         shaped_text_get_range(shaped: RID): Vector2i
         
         /** Breaks text to the lines and columns. Returns character ranges for each segment. */
-        shaped_text_get_line_breaks_adv(shaped: RID, width: PackedFloat32Array | float32[], start: int64 = 0, once: boolean = true, break_flags: TextServer.LineBreakFlag = 3): PackedInt32Array
+        shaped_text_get_line_breaks_adv(shaped: RID, width: PackedFloat32Array | float32[], start?: int64 /* = 0 */, once?: boolean /* = true */, break_flags?: TextServer.LineBreakFlag /* = 3 */): PackedInt32Array
         
         /** Breaks text to the lines and returns character ranges for each line. */
-        shaped_text_get_line_breaks(shaped: RID, width: float64, start: int64 = 0, break_flags: TextServer.LineBreakFlag = 3): PackedInt32Array
+        shaped_text_get_line_breaks(shaped: RID, width: float64, start?: int64 /* = 0 */, break_flags?: TextServer.LineBreakFlag /* = 3 */): PackedInt32Array
         
         /** Breaks text into words and returns array of character ranges. Use [param grapheme_flags] to set what characters are used for breaking (see [enum GraphemeFlag]). */
-        shaped_text_get_word_breaks(shaped: RID, grapheme_flags: TextServer.GraphemeFlag = 264, skip_grapheme_flags: TextServer.GraphemeFlag = 4): PackedInt32Array
+        shaped_text_get_word_breaks(shaped: RID, grapheme_flags?: TextServer.GraphemeFlag /* = 264 */, skip_grapheme_flags?: TextServer.GraphemeFlag /* = 4 */): PackedInt32Array
         
         /** Returns the position of the overrun trim. */
         shaped_text_get_trim_pos(shaped: RID): int64
@@ -8219,7 +7844,7 @@ declare module "godot" {
         shaped_text_get_ellipsis_glyph_count(shaped: RID): int64
         
         /** Trims text if it exceeds the given width. */
-        shaped_text_overrun_trim_to_width(shaped: RID, width: float64 = 0, overrun_trim_flags: TextServer.TextOverrunFlag = 0): void
+        shaped_text_overrun_trim_to_width(shaped: RID, width?: float64 /* = 0 */, overrun_trim_flags?: TextServer.TextOverrunFlag /* = 0 */): void
         
         /** Returns array of inline objects. */
         shaped_text_get_objects(shaped: RID): GArray
@@ -8291,10 +7916,10 @@ declare module "godot" {
         shaped_text_closest_character_pos(shaped: RID, pos: int64): int64
         
         /** Draw shaped text into a canvas item at a given position, with [param color]. [param pos] specifies the leftmost point of the baseline (for horizontal layout) or topmost point of the baseline (for vertical layout). */
-        shaped_text_draw(shaped: RID, canvas: RID, pos: Vector2, clip_l: float64 = -1, clip_r: float64 = -1, color: Color = new Color(1, 1, 1, 1)): void
+        shaped_text_draw(shaped: RID, canvas: RID, pos: Vector2, clip_l?: float64 /* = -1 */, clip_r?: float64 /* = -1 */, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draw the outline of the shaped text into a canvas item at a given position, with [param color]. [param pos] specifies the leftmost point of the baseline (for horizontal layout) or topmost point of the baseline (for vertical layout). */
-        shaped_text_draw_outline(shaped: RID, canvas: RID, pos: Vector2, clip_l: float64 = -1, clip_r: float64 = -1, outline_size: int64 = 1, color: Color = new Color(1, 1, 1, 1)): void
+        shaped_text_draw_outline(shaped: RID, canvas: RID, pos: Vector2, clip_l?: float64 /* = -1 */, clip_r?: float64 /* = -1 */, outline_size?: int64 /* = 1 */, color?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Returns dominant direction of in the range of text. */
         shaped_text_get_dominant_direction_in_range(shaped: RID, start: int64, end: int64): TextServer.Direction
@@ -8302,24 +7927,24 @@ declare module "godot" {
         /** Converts a number from the Western Arabic (0..9) to the numeral systems used in [param language].  
          *  If [param language] is omitted, the active locale will be used.  
          */
-        format_number(number: string, language: string = ''): string
+        format_number(number: string, language?: string /* = '' */): string
         
         /** Converts [param number] from the numeral systems used in [param language] to Western Arabic (0..9). */
-        parse_number(number: string, language: string = ''): string
+        parse_number(number: string, language?: string /* = '' */): string
         
         /** Returns percent sign used in the [param language]. */
-        percent_sign(language: string = ''): string
+        percent_sign(language?: string /* = '' */): string
         
         /** Returns an array of the word break boundaries. Elements in the returned array are the offsets of the start and end of words. Therefore the length of the array is always even.  
          *  When [param chars_per_line] is greater than zero, line break boundaries are returned instead.  
          *    
          */
-        string_get_word_breaks(string_: string, language: string = '', chars_per_line: int64 = 0): PackedInt32Array
+        string_get_word_breaks(string_: string, language?: string /* = '' */, chars_per_line?: int64 /* = 0 */): PackedInt32Array
         
         /** Returns array of the composite character boundaries.  
          *    
          */
-        string_get_character_breaks(string_: string, language: string = ''): PackedInt32Array
+        string_get_character_breaks(string_: string, language?: string /* = '' */): PackedInt32Array
         
         /** Returns index of the first string in [param dict] which is visually confusable with the [param string], or `-1` if none is found.  
          *      
@@ -8362,7 +7987,7 @@ declare module "godot" {
          *      
          *  **Note:** The result may be longer or shorter than the original.  
          */
-        string_to_upper(string_: string, language: string = ''): string
+        string_to_upper(string_: string, language?: string /* = '' */): string
         
         /** Returns the string converted to lowercase.  
          *      
@@ -8370,7 +7995,7 @@ declare module "godot" {
          *      
          *  **Note:** The result may be longer or shorter than the original.  
          */
-        string_to_lower(string_: string, language: string = ''): string
+        string_to_lower(string_: string, language?: string /* = '' */): string
         
         /** Returns the string converted to title case.  
          *      
@@ -8378,28 +8003,28 @@ declare module "godot" {
          *      
          *  **Note:** The result may be longer or shorter than the original.  
          */
-        string_to_title(string_: string, language: string = ''): string
+        string_to_title(string_: string, language?: string /* = '' */): string
         
         /** Default implementation of the BiDi algorithm override function. See [enum StructuredTextParser] for more info. */
         parse_structured_text(parser_type: TextServer.StructuredTextParser, args: GArray, text: string): GArray
     }
     /** An advanced text server with support for BiDi, complex text layout, and contextual OpenType features. Used in Godot by default.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textserveradvanced.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textserveradvanced.html  
      */
     class TextServerAdvanced extends TextServerExtension {
         constructor(identifier?: any)
     }
     /** A dummy text server that can't render text or manage fonts.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textserverdummy.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textserverdummy.html  
      */
     class TextServerDummy extends TextServerExtension {
         constructor(identifier?: any)
     }
     /** Base class for custom [TextServer] implementations (plugins).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textserverextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textserverextension.html  
      */
     class TextServerExtension extends TextServer {
         constructor(identifier?: any)
@@ -8657,6 +8282,16 @@ declare module "godot" {
          *  Returns `true` if auto-hinting is supported and preferred over font built-in hinting.  
          */
         /* gdvirtual */ _font_is_force_autohinter(font_rid: RID): boolean
+        
+        /** **Optional.**  
+         *  If set to `true`, color modulation is applied when drawing colored glyphs, otherwise it's applied to the monochrome glyphs only.  
+         */
+        /* gdvirtual */ _font_set_modulate_color_glyphs(font_rid: RID, modulate: boolean): void
+        
+        /** **Optional.**  
+         *  Returns `true`, if color modulation is applied when drawing colored glyphs.  
+         */
+        /* gdvirtual */ _font_is_modulate_color_glyphs(font_rid: RID): boolean
         
         /** **Optional.**  
          *  Sets font hinting mode. Used by dynamic fonts only.  
@@ -9501,5 +9136,80 @@ declare module "godot" {
          *  This method is called before text server is unregistered.  
          */
         /* gdvirtual */ _cleanup(): void
+    }
+    /** Base class for all texture types.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture.html  
+     */
+    class Texture extends Resource {
+        constructor(identifier?: any)
+    }
+    /** Texture for 2D and 3D.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture2d.html  
+     */
+    class Texture2D extends Texture {
+        constructor(identifier?: any)
+        /** Called when the [Texture2D]'s width is queried. */
+        /* gdvirtual */ _get_width(): int64
+        
+        /** Called when the [Texture2D]'s height is queried. */
+        /* gdvirtual */ _get_height(): int64
+        
+        /** Called when a pixel's opaque state in the [Texture2D] is queried at the specified `(x, y)` position. */
+        /* gdvirtual */ _is_pixel_opaque(x: int64, y: int64): boolean
+        
+        /** Called when the presence of an alpha channel in the [Texture2D] is queried. */
+        /* gdvirtual */ _has_alpha(): boolean
+        
+        /** Called when the entire [Texture2D] is requested to be drawn over a [CanvasItem], with the top-left offset specified in [param pos]. [param modulate] specifies a multiplier for the colors being drawn, while [param transpose] specifies whether drawing should be performed in column-major order instead of row-major order (resulting in 90-degree clockwise rotation).  
+         *      
+         *  **Note:** This is only used in 2D rendering, not 3D.  
+         */
+        /* gdvirtual */ _draw(to_canvas_item: RID, pos: Vector2, modulate: Color, transpose: boolean): void
+        
+        /** Called when the [Texture2D] is requested to be drawn onto [CanvasItem]'s specified [param rect]. [param modulate] specifies a multiplier for the colors being drawn, while [param transpose] specifies whether drawing should be performed in column-major order instead of row-major order (resulting in 90-degree clockwise rotation).  
+         *      
+         *  **Note:** This is only used in 2D rendering, not 3D.  
+         */
+        /* gdvirtual */ _draw_rect(to_canvas_item: RID, rect: Rect2, tile: boolean, modulate: Color, transpose: boolean): void
+        
+        /** Called when a part of the [Texture2D] specified by [param src_rect]'s coordinates is requested to be drawn onto [CanvasItem]'s specified [param rect]. [param modulate] specifies a multiplier for the colors being drawn, while [param transpose] specifies whether drawing should be performed in column-major order instead of row-major order (resulting in 90-degree clockwise rotation).  
+         *      
+         *  **Note:** This is only used in 2D rendering, not 3D.  
+         */
+        /* gdvirtual */ _draw_rect_region(to_canvas_item: RID, rect: Rect2, src_rect: Rect2, modulate: Color, transpose: boolean, clip_uv: boolean): void
+        
+        /** Returns the texture width in pixels. */
+        get_width(): int64
+        
+        /** Returns the texture height in pixels. */
+        get_height(): int64
+        
+        /** Returns the texture size in pixels. */
+        get_size(): Vector2
+        
+        /** Returns `true` if this [Texture2D] has an alpha channel. */
+        has_alpha(): boolean
+        
+        /** Draws the texture using a [CanvasItem] with the [RenderingServer] API at the specified [param position]. */
+        draw(canvas_item: RID, position: Vector2, modulate?: Color /* = new Color(1, 1, 1, 1) */, transpose?: boolean /* = false */): void
+        
+        /** Draws the texture using a [CanvasItem] with the [RenderingServer] API. */
+        draw_rect(canvas_item: RID, rect: Rect2, tile: boolean, modulate?: Color /* = new Color(1, 1, 1, 1) */, transpose?: boolean /* = false */): void
+        
+        /** Draws a part of the texture using a [CanvasItem] with the [RenderingServer] API. */
+        draw_rect_region(canvas_item: RID, rect: Rect2, src_rect: Rect2, modulate?: Color /* = new Color(1, 1, 1, 1) */, transpose?: boolean /* = false */, clip_uv?: boolean /* = true */): void
+        
+        /** Returns an [Image] that is a copy of data from this [Texture2D] (a new [Image] is created each time). [Image]s can be accessed and manipulated directly.  
+         *      
+         *  **Note:** This will return `null` if this [Texture2D] is invalid.  
+         *      
+         *  **Note:** This will fetch the texture data from the GPU, which might cause performance problems when overused. Avoid calling [method get_image] every frame, especially on large textures.  
+         */
+        get_image(): Image
+        
+        /** Creates a placeholder version of this resource ([PlaceholderTexture2D]). */
+        create_placeholder(): Resource
     }
 }

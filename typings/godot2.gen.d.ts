@@ -1,6 +1,390 @@
 // AUTO-GENERATED
 /// <reference no-default-lib="true"/>
 declare module "godot" {
+    /** Stream that can be fitted with sub-streams, which will be played in-sync.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_audiostreamsynchronized.html  
+     */
+    class AudioStreamSynchronized extends AudioStream {
+        /** Maximum amount of streams that can be synchronized. */
+        static readonly MAX_STREAMS = 32
+        constructor(identifier?: any)
+        
+        /** Set one of the synchronized streams, by index. */
+        set_sync_stream(stream_index: int64, audio_stream: AudioStream): void
+        
+        /** Get one of the synchronized streams, by index. */
+        get_sync_stream(stream_index: int64): AudioStream
+        
+        /** Set the volume of one of the synchronized streams, by index. */
+        set_sync_stream_volume(stream_index: int64, volume_db: float64): void
+        
+        /** Get the volume of one of the synchronized streams, by index. */
+        get_sync_stream_volume(stream_index: int64): float64
+        
+        /** Set the total amount of streams that will be played back synchronized. */
+        get stream_count(): any /*Streams,stream_,unfoldable,page_size=999,add_button_text=Add Stream*/
+        set stream_count(value: any /*Streams,stream_,unfoldable,page_size=999,add_button_text=Add Stream*/)
+        get "stream_0/stream"(): AudioStream
+        set "stream_0/stream"(value: AudioStream)
+        get "stream_0/volume"(): float64
+        set "stream_0/volume"(value: float64)
+        get "stream_1/stream"(): AudioStream
+        set "stream_1/stream"(value: AudioStream)
+        get "stream_1/volume"(): float64
+        set "stream_1/volume"(value: float64)
+        get "stream_2/stream"(): AudioStream
+        set "stream_2/stream"(value: AudioStream)
+        get "stream_2/volume"(): float64
+        set "stream_2/volume"(value: float64)
+        get "stream_3/stream"(): AudioStream
+        set "stream_3/stream"(value: AudioStream)
+        get "stream_3/volume"(): float64
+        set "stream_3/volume"(value: float64)
+        get "stream_4/stream"(): AudioStream
+        set "stream_4/stream"(value: AudioStream)
+        get "stream_4/volume"(): float64
+        set "stream_4/volume"(value: float64)
+        get "stream_5/stream"(): AudioStream
+        set "stream_5/stream"(value: AudioStream)
+        get "stream_5/volume"(): float64
+        set "stream_5/volume"(value: float64)
+        get "stream_6/stream"(): AudioStream
+        set "stream_6/stream"(value: AudioStream)
+        get "stream_6/volume"(): float64
+        set "stream_6/volume"(value: float64)
+        get "stream_7/stream"(): AudioStream
+        set "stream_7/stream"(value: AudioStream)
+        get "stream_7/volume"(): float64
+        set "stream_7/volume"(value: float64)
+        get "stream_8/stream"(): AudioStream
+        set "stream_8/stream"(value: AudioStream)
+        get "stream_8/volume"(): float64
+        set "stream_8/volume"(value: float64)
+        get "stream_9/stream"(): AudioStream
+        set "stream_9/stream"(value: AudioStream)
+        get "stream_9/volume"(): float64
+        set "stream_9/volume"(value: float64)
+        get "stream_10/stream"(): AudioStream
+        set "stream_10/stream"(value: AudioStream)
+        get "stream_10/volume"(): float64
+        set "stream_10/volume"(value: float64)
+        get "stream_11/stream"(): AudioStream
+        set "stream_11/stream"(value: AudioStream)
+        get "stream_11/volume"(): float64
+        set "stream_11/volume"(value: float64)
+        get "stream_12/stream"(): AudioStream
+        set "stream_12/stream"(value: AudioStream)
+        get "stream_12/volume"(): float64
+        set "stream_12/volume"(value: float64)
+        get "stream_13/stream"(): AudioStream
+        set "stream_13/stream"(value: AudioStream)
+        get "stream_13/volume"(): float64
+        set "stream_13/volume"(value: float64)
+        get "stream_14/stream"(): AudioStream
+        set "stream_14/stream"(value: AudioStream)
+        get "stream_14/volume"(): float64
+        set "stream_14/volume"(value: float64)
+        get "stream_15/stream"(): AudioStream
+        set "stream_15/stream"(value: AudioStream)
+        get "stream_15/volume"(): float64
+        set "stream_15/volume"(value: float64)
+        get "stream_16/stream"(): AudioStream
+        set "stream_16/stream"(value: AudioStream)
+        get "stream_16/volume"(): float64
+        set "stream_16/volume"(value: float64)
+        get "stream_17/stream"(): AudioStream
+        set "stream_17/stream"(value: AudioStream)
+        get "stream_17/volume"(): float64
+        set "stream_17/volume"(value: float64)
+        get "stream_18/stream"(): AudioStream
+        set "stream_18/stream"(value: AudioStream)
+        get "stream_18/volume"(): float64
+        set "stream_18/volume"(value: float64)
+        get "stream_19/stream"(): AudioStream
+        set "stream_19/stream"(value: AudioStream)
+        get "stream_19/volume"(): float64
+        set "stream_19/volume"(value: float64)
+        get "stream_20/stream"(): AudioStream
+        set "stream_20/stream"(value: AudioStream)
+        get "stream_20/volume"(): float64
+        set "stream_20/volume"(value: float64)
+        get "stream_21/stream"(): AudioStream
+        set "stream_21/stream"(value: AudioStream)
+        get "stream_21/volume"(): float64
+        set "stream_21/volume"(value: float64)
+        get "stream_22/stream"(): AudioStream
+        set "stream_22/stream"(value: AudioStream)
+        get "stream_22/volume"(): float64
+        set "stream_22/volume"(value: float64)
+        get "stream_23/stream"(): AudioStream
+        set "stream_23/stream"(value: AudioStream)
+        get "stream_23/volume"(): float64
+        set "stream_23/volume"(value: float64)
+        get "stream_24/stream"(): AudioStream
+        set "stream_24/stream"(value: AudioStream)
+        get "stream_24/volume"(): float64
+        set "stream_24/volume"(value: float64)
+        get "stream_25/stream"(): AudioStream
+        set "stream_25/stream"(value: AudioStream)
+        get "stream_25/volume"(): float64
+        set "stream_25/volume"(value: float64)
+        get "stream_26/stream"(): AudioStream
+        set "stream_26/stream"(value: AudioStream)
+        get "stream_26/volume"(): float64
+        set "stream_26/volume"(value: float64)
+        get "stream_27/stream"(): AudioStream
+        set "stream_27/stream"(value: AudioStream)
+        get "stream_27/volume"(): float64
+        set "stream_27/volume"(value: float64)
+        get "stream_28/stream"(): AudioStream
+        set "stream_28/stream"(value: AudioStream)
+        get "stream_28/volume"(): float64
+        set "stream_28/volume"(value: float64)
+        get "stream_29/stream"(): AudioStream
+        set "stream_29/stream"(value: AudioStream)
+        get "stream_29/volume"(): float64
+        set "stream_29/volume"(value: float64)
+        get "stream_30/stream"(): AudioStream
+        set "stream_30/stream"(value: AudioStream)
+        get "stream_30/volume"(): float64
+        set "stream_30/volume"(value: float64)
+        get "stream_31/stream"(): AudioStream
+        set "stream_31/stream"(value: AudioStream)
+        get "stream_31/volume"(): float64
+        set "stream_31/volume"(value: float64)
+    }
+    namespace AudioStreamWAV {
+        enum Format {
+            /** 8-bit PCM audio codec. */
+            FORMAT_8_BITS = 0,
+            
+            /** 16-bit PCM audio codec. */
+            FORMAT_16_BITS = 1,
+            
+            /** Audio is lossily compressed as IMA ADPCM. */
+            FORMAT_IMA_ADPCM = 2,
+            
+            /** Audio is lossily compressed as [url=https://qoaformat.org/]Quite OK Audio[/url]. */
+            FORMAT_QOA = 3,
+        }
+        enum LoopMode {
+            /** Audio does not loop. */
+            LOOP_DISABLED = 0,
+            
+            /** Audio loops the data between [member loop_begin] and [member loop_end], playing forward only. */
+            LOOP_FORWARD = 1,
+            
+            /** Audio loops the data between [member loop_begin] and [member loop_end], playing back and forth. */
+            LOOP_PINGPONG = 2,
+            
+            /** Audio loops the data between [member loop_begin] and [member loop_end], playing backward only. */
+            LOOP_BACKWARD = 3,
+        }
+    }
+    /** Stores audio data loaded from WAV files.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_audiostreamwav.html  
+     */
+    class AudioStreamWAV extends AudioStream {
+        constructor(identifier?: any)
+        /** Creates a new [AudioStreamWAV] instance from the given buffer. The buffer must contain WAV data.  
+         *  The keys and values of [param options] match the properties of [ResourceImporterWAV]. The usage of [param options] is identical to [method AudioStreamWAV.load_from_file].  
+         */
+        static load_from_buffer(stream_data: PackedByteArray | byte[] | ArrayBuffer, options?: GDictionary /* = new GDictionary() */): AudioStreamWAV
+        
+        /** Creates a new [AudioStreamWAV] instance from the given file path. The file must be in WAV format.  
+         *  The keys and values of [param options] match the properties of [ResourceImporterWAV].  
+         *  **Example:** Load the first file dropped as a WAV and play it:  
+         *    
+         */
+        static load_from_file(path: string, options?: GDictionary /* = new GDictionary() */): AudioStreamWAV
+        
+        /** Saves the AudioStreamWAV as a WAV file to [param path]. Samples with IMA ADPCM or Quite OK Audio formats can't be saved.  
+         *      
+         *  **Note:** A `.wav` extension is automatically appended to [param path] if it is missing.  
+         */
+        save_to_wav(path: string): Error
+        
+        /** Contains the audio data in bytes.  
+         *      
+         *  **Note:** If [member format] is set to [constant FORMAT_8_BITS], this property expects signed 8-bit PCM data. To convert from unsigned 8-bit PCM, subtract 128 from each byte.  
+         *      
+         *  **Note:** If [member format] is set to [constant FORMAT_QOA], this property expects data from a full QOA file.  
+         */
+        get data(): PackedByteArray
+        set data(value: PackedByteArray | byte[] | ArrayBuffer)
+        
+        /** Audio format. See [enum Format] constants for values. */
+        get format(): int64
+        set format(value: int64)
+        
+        /** The loop mode. See [enum LoopMode] constants for values. */
+        get loop_mode(): int64
+        set loop_mode(value: int64)
+        
+        /** The loop start point (in number of samples, relative to the beginning of the stream). */
+        get loop_begin(): int64
+        set loop_begin(value: int64)
+        
+        /** The loop end point (in number of samples, relative to the beginning of the stream). */
+        get loop_end(): int64
+        set loop_end(value: int64)
+        
+        /** The sample rate for mixing this audio. Higher values require more storage space, but result in better quality.  
+         *  In games, common sample rates in use are `11025`, `16000`, `22050`, `32000`, `44100`, and `48000`.  
+         *  According to the [url=https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem]Nyquist-Shannon sampling theorem[/url], there is no quality difference to human hearing when going past 40,000 Hz (since most humans can only hear up to ~20,000 Hz, often less). If you are using lower-pitched sounds such as voices, lower sample rates such as `32000` or `22050` may be usable with no loss in quality.  
+         */
+        get mix_rate(): int64
+        set mix_rate(value: int64)
+        
+        /** If `true`, audio is stereo. */
+        get stereo(): boolean
+        set stereo(value: boolean)
+    }
+    namespace BackBufferCopy {
+        enum CopyMode {
+            /** Disables the buffering mode. This means the [BackBufferCopy] node will directly use the portion of screen it covers. */
+            COPY_MODE_DISABLED = 0,
+            
+            /** [BackBufferCopy] buffers a rectangular region. */
+            COPY_MODE_RECT = 1,
+            
+            /** [BackBufferCopy] buffers the entire screen. */
+            COPY_MODE_VIEWPORT = 2,
+        }
+    }
+    /** A node that copies a region of the screen to a buffer for access in shader code.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_backbuffercopy.html  
+     */
+    class BackBufferCopy<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+        /** Buffer mode. See [enum CopyMode] constants. */
+        get copy_mode(): int64
+        set copy_mode(value: int64)
+        
+        /** The area covered by the [BackBufferCopy]. Only used if [member copy_mode] is [constant COPY_MODE_RECT]. */
+        get rect(): Rect2
+        set rect(value: Rect2)
+    }
+    namespace BaseButton {
+        enum DrawMode {
+            /** The normal state (i.e. not pressed, not hovered, not toggled and enabled) of buttons. */
+            DRAW_NORMAL = 0,
+            
+            /** The state of buttons are pressed. */
+            DRAW_PRESSED = 1,
+            
+            /** The state of buttons are hovered. */
+            DRAW_HOVER = 2,
+            
+            /** The state of buttons are disabled. */
+            DRAW_DISABLED = 3,
+            
+            /** The state of buttons are both hovered and pressed. */
+            DRAW_HOVER_PRESSED = 4,
+        }
+        enum ActionMode {
+            /** Require just a press to consider the button clicked. */
+            ACTION_MODE_BUTTON_PRESS = 0,
+            
+            /** Require a press and a subsequent release before considering the button clicked. */
+            ACTION_MODE_BUTTON_RELEASE = 1,
+        }
+    }
+    /** Abstract base class for GUI buttons.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_basebutton.html  
+     */
+    class BaseButton<Map extends Record<string, Node> = {}> extends Control<Map> {
+        constructor(identifier?: any)
+        /** Called when the button is pressed. If you need to know the button's pressed state (and [member toggle_mode] is active), use [method _toggled] instead. */
+        /* gdvirtual */ _pressed(): void
+        
+        /** Called when the button is toggled (only if [member toggle_mode] is active). */
+        /* gdvirtual */ _toggled(toggled_on: boolean): void
+        
+        /** Changes the [member button_pressed] state of the button, without emitting [signal toggled]. Use when you just want to change the state of the button without sending the pressed event (e.g. when initializing scene). Only works if [member toggle_mode] is `true`.  
+         *      
+         *  **Note:** This method doesn't unpress other buttons in [member button_group].  
+         */
+        set_pressed_no_signal(pressed: boolean): void
+        
+        /** Returns `true` if the mouse has entered the button and has not left it yet. */
+        is_hovered(): boolean
+        
+        /** Returns the visual state used to draw the button. This is useful mainly when implementing your own draw code by either overriding _draw() or connecting to "draw" signal. The visual state of the button is defined by the [enum DrawMode] enum. */
+        get_draw_mode(): BaseButton.DrawMode
+        
+        /** If `true`, the button is in disabled state and can't be clicked or toggled. */
+        get disabled(): boolean
+        set disabled(value: boolean)
+        
+        /** If `true`, the button is in toggle mode. Makes the button flip state between pressed and unpressed each time its area is clicked. */
+        get toggle_mode(): boolean
+        set toggle_mode(value: boolean)
+        
+        /** If `true`, the button's state is pressed. Means the button is pressed down or toggled (if [member toggle_mode] is active). Only works if [member toggle_mode] is `true`.  
+         *      
+         *  **Note:** Changing the value of [member button_pressed] will result in [signal toggled] to be emitted. If you want to change the pressed state without emitting that signal, use [method set_pressed_no_signal].  
+         */
+        get button_pressed(): boolean
+        set button_pressed(value: boolean)
+        
+        /** Determines when the button is considered clicked, one of the [enum ActionMode] constants. */
+        get action_mode(): int64
+        set action_mode(value: int64)
+        
+        /** Binary mask to choose which mouse buttons this button will respond to.  
+         *  To allow both left-click and right-click, use `MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_RIGHT`.  
+         */
+        get button_mask(): int64
+        set button_mask(value: int64)
+        
+        /** If `true`, the button stays pressed when moving the cursor outside the button while pressing it.  
+         *      
+         *  **Note:** This property only affects the button's visual appearance. Signals will be emitted at the same moment regardless of this property's value.  
+         */
+        get keep_pressed_outside(): boolean
+        set keep_pressed_outside(value: boolean)
+        
+        /** The [ButtonGroup] associated with the button. Not to be confused with node groups.  
+         *      
+         *  **Note:** The button will be configured as a radio button if a [ButtonGroup] is assigned to it.  
+         */
+        get button_group(): ButtonGroup
+        set button_group(value: ButtonGroup)
+        
+        /** [Shortcut] associated to the button. */
+        get shortcut(): Shortcut
+        set shortcut(value: Shortcut)
+        
+        /** If `true`, the button will highlight for a short amount of time when its shortcut is activated. If `false` and [member toggle_mode] is `false`, the shortcut will activate without any visual feedback. */
+        get shortcut_feedback(): boolean
+        set shortcut_feedback(value: boolean)
+        
+        /** If `true`, the button will add information about its shortcut in the tooltip.  
+         *      
+         *  **Note:** This property does nothing when the tooltip control is customized using [method Control._make_custom_tooltip].  
+         */
+        get shortcut_in_tooltip(): boolean
+        set shortcut_in_tooltip(value: boolean)
+        
+        /** Emitted when the button is toggled or pressed. This is on [signal button_down] if [member action_mode] is [constant ACTION_MODE_BUTTON_PRESS] and on [signal button_up] otherwise.  
+         *  If you need to know the button's pressed state (and [member toggle_mode] is active), use [signal toggled] instead.  
+         */
+        readonly pressed: Signal<() => void>
+        
+        /** Emitted when the button stops being held down. */
+        readonly button_up: Signal<() => void>
+        
+        /** Emitted when the button starts being held down. */
+        readonly button_down: Signal<() => void>
+        
+        /** Emitted when the button was just toggled between pressed and normal states (only if [member toggle_mode] is active). The new state is contained in the [param toggled_on] argument. */
+        readonly toggled: Signal<(toggled_on: boolean) => void>
+    }
     namespace BaseMaterial3D {
         enum TextureParam {
             /** Texture specifying per-pixel color. */
@@ -360,7 +744,7 @@ declare module "godot" {
     }
     /** Abstract base class for defining the 3D rendering properties of meshes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_basematerial3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_basematerial3d.html  
      */
     class BaseMaterial3D extends Material {
         constructor(identifier?: any)
@@ -887,7 +1271,7 @@ declare module "godot" {
         get grow_amount(): float64
         set grow_amount(value: float64)
         
-        /** If `true`, the object is rendered at the same size regardless of distance. */
+        /** If `true`, the object is rendered at the same size regardless of distance. The object's size on screen is the same as if the camera was `1.0` units away from the object's origin, regardless of the actual distance from the camera. The [Camera3D]'s field of view (or [member Camera3D.size] when in orthogonal/frustum mode) still affects the size the object is drawn at. */
         get fixed_size(): boolean
         set fixed_size(value: boolean)
         
@@ -942,7 +1326,7 @@ declare module "godot" {
     }
     /** Boolean matrix.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_bitmap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_bitmap.html  
      */
     class BitMap extends Resource {
         constructor(identifier?: any)
@@ -950,7 +1334,7 @@ declare module "godot" {
         create(size: Vector2i): void
         
         /** Creates a bitmap that matches the given image dimensions, every element of the bitmap is set to `false` if the alpha value of the image at that position is equal to [param threshold] or less, and `true` in other case. */
-        create_from_image_alpha(image: Image, threshold: float64 = 0.1): void
+        create_from_image_alpha(image: Image, threshold?: float64 /* = 0.1 */): void
         
         /** Sets the bitmap's element at the specified position, to the specified value. */
         set_bitv(position: Vector2i, bit: boolean): void
@@ -987,18 +1371,15 @@ declare module "godot" {
          *    
          *  [param epsilon] is passed to RDP to control how accurately the polygons cover the bitmap: a lower [param epsilon] corresponds to more points in the polygons.  
          */
-        opaque_to_polygons(rect: Rect2i, epsilon: float64 = 2): GArray
+        opaque_to_polygons(rect: Rect2i, epsilon?: float64 /* = 2 */): GArray
         get data(): GDictionary
         set data(value: GDictionary)
     }
-    class BitMapEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A joint used with [Skeleton2D] to control and animate other nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_bone2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_bone2d.html  
      */
-    class Bone2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Bone2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Resets the bone to the rest pose. This is equivalent to setting [member Node2D.transform] to [member rest]. */
         apply_rest(): void
@@ -1039,9 +1420,9 @@ declare module "godot" {
     }
     /** А node that dynamically copies or overrides the 3D transform of a bone in its parent [Skeleton3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_boneattachment3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_boneattachment3d.html  
      */
-    class BoneAttachment3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class BoneAttachment3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Get parent or external [Skeleton3D] node if found. */
         get_skeleton(): Skeleton3D
@@ -1078,7 +1459,7 @@ declare module "godot" {
     }
     /** Describes a mapping of bone names for retargeting [Skeleton3D] into common names defined by a [SkeletonProfile].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_bonemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_bonemap.html  
      */
     class BoneMap extends Resource {
         constructor(identifier?: any)
@@ -1102,13 +1483,10 @@ declare module "godot" {
         set profile(value: SkeletonProfile)
         
         /** This signal is emitted when change the key value in the [BoneMap]. This is used to validate mapping and to update [BoneMap] editor. */
-        readonly bone_map_updated: Signal0
+        readonly bone_map_updated: Signal<() => void>
         
         /** This signal is emitted when change the value in profile or change the reference of profile. This is used to update key names in the [BoneMap] and to redraw the [BoneMap] editor. */
-        readonly profile_updated: Signal0
-    }
-    class BoneMapEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly profile_updated: Signal<() => void>
     }
     namespace BoxContainer {
         enum AlignmentMode {
@@ -1124,9 +1502,9 @@ declare module "godot" {
     }
     /** A container that arranges its child controls horizontally or vertically.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_boxcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_boxcontainer.html  
      */
-    class BoxContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class BoxContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
         /** Adds a [Control] node to the box as a spacer. If [param begin] is `true`, it will insert the [Control] node in front of all other children. */
         add_spacer(begin: boolean): Control
@@ -1143,7 +1521,7 @@ declare module "godot" {
     }
     /** Generate an axis-aligned box [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_boxmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_boxmesh.html  
      */
     class BoxMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -1165,7 +1543,7 @@ declare module "godot" {
     }
     /** Cuboid shape for use with occlusion culling in [OccluderInstance3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_boxoccluder3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_boxoccluder3d.html  
      */
     class BoxOccluder3D extends Occluder3D {
         constructor(identifier?: any)
@@ -1175,7 +1553,7 @@ declare module "godot" {
     }
     /** A 3D box shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_boxshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_boxshape3d.html  
      */
     class BoxShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -1185,9 +1563,9 @@ declare module "godot" {
     }
     /** A themed button that can contain text and an icon.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_button.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_button.html  
      */
-    class Button<Map extends Record<string, Node> = Record<string, Node>> extends BaseButton<Map> {
+    class Button<Map extends Record<string, Node> = {}> extends BaseButton<Map> {
         constructor(identifier?: any)
         /** The button's text that will be displayed inside the button's area. */
         get text(): string
@@ -1215,6 +1593,10 @@ declare module "godot" {
         get autowrap_mode(): int64
         set autowrap_mode(value: int64)
         
+        /** Autowrap space trimming flags. See [constant TextServer.BREAK_TRIM_START_EDGE_SPACES] and [constant TextServer.BREAK_TRIM_END_EDGE_SPACES] for more info. */
+        get autowrap_trim_flags(): int64
+        set autowrap_trim_flags(value: int64)
+        
         /** If `true`, text that is too large to fit the button is clipped horizontally. If `false`, the button will always be wide enough to hold the text. The text is not vertically clipped, and the button's height is not affected by this property. */
         get clip_text(): boolean
         set clip_text(value: boolean)
@@ -1241,7 +1623,7 @@ declare module "godot" {
     }
     /** A group of buttons that doesn't allow more than one button to be pressed at a time.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_buttongroup.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_buttongroup.html  
      */
     class ButtonGroup extends Resource {
         constructor(identifier?: any)
@@ -1256,7 +1638,7 @@ declare module "godot" {
         set allow_unpress(value: boolean)
         
         /** Emitted when one of the buttons of the group is pressed. */
-        readonly pressed: Signal1<BaseButton>
+        readonly pressed: Signal<(button: BaseButton) => void>
     }
     namespace CPUParticles2D {
         enum DrawOrder {
@@ -1344,9 +1726,9 @@ declare module "godot" {
     }
     /** A CPU-based 2D particle emitter.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cpuparticles2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cpuparticles2d.html  
      */
-    class CPUParticles2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class CPUParticles2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Requests the particles to process for extra process time during a single frame.  
          *  Useful for particle playback, if used in combination with [member use_fixed_seed] or by calling [method restart] with parameter `keep_seed` set to `true`.  
@@ -1356,7 +1738,7 @@ declare module "godot" {
         /** Restarts the particle emitter.  
          *  If [param keep_seed] is `true`, the current random seed will be preserved. Useful for seeking and playback.  
          */
-        restart(keep_seed: boolean = false): void
+        restart(keep_seed?: boolean /* = false */): void
         
         /** Sets the minimum value for the given parameter. */
         set_param_min(param: CPUParticles2D.Parameter, value: float64): void
@@ -1660,10 +2042,7 @@ declare module "godot" {
         set anim_offset_curve(value: Curve)
         
         /** Emitted when all active particles have finished processing. When [member one_shot] is disabled, particles will process continuously, so this is never emitted. */
-        readonly finished: Signal0
-    }
-    class CPUParticles2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends Particles2DEditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly finished: Signal<() => void>
     }
     namespace CPUParticles3D {
         enum DrawOrder {
@@ -1757,14 +2136,14 @@ declare module "godot" {
     }
     /** A CPU-based 3D particle emitter.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cpuparticles3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cpuparticles3d.html  
      */
-    class CPUParticles3D<Map extends Record<string, Node> = Record<string, Node>> extends GeometryInstance3D<Map> {
+    class CPUParticles3D<Map extends Record<string, Node> = {}> extends GeometryInstance3D<Map> {
         constructor(identifier?: any)
         /** Restarts the particle emitter.  
          *  If [param keep_seed] is `true`, the current random seed will be preserved. Useful for seeking and playback.  
          */
-        restart(keep_seed: boolean = false): void
+        restart(keep_seed?: boolean /* = false */): void
         
         /** Requests the particles to process for extra process time during a single frame.  
          *  Useful for particle playback, if used in combination with [member use_fixed_seed] or by calling [method restart] with parameter `keep_seed` set to `true`.  
@@ -2127,19 +2506,13 @@ declare module "godot" {
         set anim_offset_curve(value: Curve)
         
         /** Emitted when all active particles have finished processing. When [member one_shot] is disabled, particles will process continuously, so this is never emitted. */
-        readonly finished: Signal0
-    }
-    class CPUParticles3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends Particles3DEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class CPUParticles3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
+        readonly finished: Signal<() => void>
     }
     /** A CSG Box shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgbox3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgbox3d.html  
      */
-    class CSGBox3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGPrimitive3D<Map> {
+    class CSGBox3D<Map extends Record<string, Node> = {}> extends CSGPrimitive3D<Map> {
         constructor(identifier?: any)
         /** The box's width, height and depth. */
         get size(): Vector3
@@ -2151,16 +2524,16 @@ declare module "godot" {
     }
     /** A CSG node that allows you to combine other CSG modifiers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgcombiner3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgcombiner3d.html  
      */
-    class CSGCombiner3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGShape3D<Map> {
+    class CSGCombiner3D<Map extends Record<string, Node> = {}> extends CSGShape3D<Map> {
         constructor(identifier?: any)
     }
     /** A CSG Cylinder shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgcylinder3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgcylinder3d.html  
      */
-    class CSGCylinder3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGPrimitive3D<Map> {
+    class CSGCylinder3D<Map extends Record<string, Node> = {}> extends CSGPrimitive3D<Map> {
         constructor(identifier?: any)
         /** The radius of the cylinder. */
         get radius(): float64
@@ -2188,9 +2561,9 @@ declare module "godot" {
     }
     /** A CSG Mesh shape that uses a mesh resource.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgmesh3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgmesh3d.html  
      */
-    class CSGMesh3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGPrimitive3D<Map> {
+    class CSGMesh3D<Map extends Record<string, Node> = {}> extends CSGPrimitive3D<Map> {
         constructor(identifier?: any)
         /** The [Mesh] resource to use as a CSG shape.  
          *      
@@ -2243,9 +2616,9 @@ declare module "godot" {
     }
     /** Extrudes a 2D polygon shape to create a 3D mesh.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgpolygon3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgpolygon3d.html  
      */
-    class CSGPolygon3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGPrimitive3D<Map> {
+    class CSGPolygon3D<Map extends Record<string, Node> = {}> extends CSGPrimitive3D<Map> {
         constructor(identifier?: any)
         _is_editable_3d_polygon(): boolean
         _has_editable_3d_polygon_no_depth(): boolean
@@ -2323,9 +2696,9 @@ declare module "godot" {
     }
     /** Base class for CSG primitives.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgprimitive3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgprimitive3d.html  
      */
-    class CSGPrimitive3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGShape3D<Map> {
+    class CSGPrimitive3D<Map extends Record<string, Node> = {}> extends CSGShape3D<Map> {
         constructor(identifier?: any)
         /** If set, the order of the vertices in each triangle are reversed resulting in the backside of the mesh being drawn. */
         get flip_faces(): boolean
@@ -2345,14 +2718,13 @@ declare module "godot" {
     }
     /** The CSG base class.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgshape3d.html  
      */
-    class CSGShape3D<Map extends Record<string, Node> = Record<string, Node>> extends GeometryInstance3D<Map> {
+    class CSGShape3D<Map extends Record<string, Node> = {}> extends GeometryInstance3D<Map> {
         constructor(identifier?: any)
-        _update_shape(): void
-        
         /** Returns `true` if this is a root shape and is thus the object that is rendered. */
         is_root_shape(): boolean
+        _update_shape(): void
         
         /** Based on [param value], enables or disables the specified layer in the [member collision_mask], given a [param layer_number] between 1 and 32. */
         set_collision_mask_value(layer_number: int64, value: boolean): void
@@ -2367,16 +2739,24 @@ declare module "godot" {
         /** Returns whether or not the specified layer of the [member collision_layer] is enabled, given a [param layer_number] between 1 and 32. */
         get_collision_layer_value(layer_number: int64): boolean
         
-        /** Returns an [Array] with two elements, the first is the [Transform3D] of this node and the second is the root [Mesh] of this node. Only works when this node is the root shape. */
-        get_meshes(): GArray
-        
-        /** Returns a baked static [ArrayMesh] of this node's CSG operation result. Materials from involved CSG nodes are added as extra mesh surfaces. Returns an empty mesh if the node is not a CSG root node or has no valid geometry. */
-        bake_static_mesh(): ArrayMesh
-        
         /** Returns a baked physics [ConcavePolygonShape3D] of this node's CSG operation result. Returns an empty shape if the node is not a CSG root node or has no valid geometry.  
          *  **Performance:** If the CSG operation results in a very detailed geometry with many faces physics performance will be very slow. Concave shapes should in general only be used for static level geometry and not with dynamic objects that are moving.  
+         *      
+         *  **Note:** CSG mesh data updates are deferred, which means they are updated with a delay of one rendered frame. To avoid getting an empty shape or outdated mesh data, make sure to call `await get_tree().process_frame` before using [method bake_collision_shape] in [method Node._ready] or after changing properties on the [CSGShape3D].  
          */
         bake_collision_shape(): ConcavePolygonShape3D
+        
+        /** Returns an [Array] with two elements, the first is the [Transform3D] of this node and the second is the root [Mesh] of this node. Only works when this node is the root shape.  
+         *      
+         *  **Note:** CSG mesh data updates are deferred, which means they are updated with a delay of one rendered frame. To avoid getting an empty shape or outdated mesh data, make sure to call `await get_tree().process_frame` before using [method get_meshes] in [method Node._ready] or after changing properties on the [CSGShape3D].  
+         */
+        get_meshes(): GArray
+        
+        /** Returns a baked static [ArrayMesh] of this node's CSG operation result. Materials from involved CSG nodes are added as extra mesh surfaces. Returns an empty mesh if the node is not a CSG root node or has no valid geometry.  
+         *      
+         *  **Note:** CSG mesh data updates are deferred, which means they are updated with a delay of one rendered frame. To avoid getting an empty mesh or outdated mesh data, make sure to call `await get_tree().process_frame` before using [method bake_static_mesh] in [method Node._ready] or after changing properties on the [CSGShape3D].  
+         */
+        bake_static_mesh(): ArrayMesh
         
         /** The operation that is performed on this shape. This is ignored for the first CSG child node as the operation is between this node and the previous child of this nodes parent. */
         get operation(): int64
@@ -2386,7 +2766,7 @@ declare module "godot" {
         get snap(): float64
         set snap(value: float64)
         
-        /** Calculate tangents for the CSG shape which allows the use of normal maps. This is only applied on the root shape, this setting is ignored on any child. */
+        /** Calculate tangents for the CSG shape which allows the use of normal and height maps. This is only applied on the root shape, this setting is ignored on any child. Setting this to `false` can speed up shape generation slightly. */
         get calculate_tangents(): boolean
         set calculate_tangents(value: boolean)
         
@@ -2396,12 +2776,12 @@ declare module "godot" {
         
         /** The physics layers this area is in.  
          *  Collidable objects can exist in any of 32 different layers. These layers work like a tagging system, and are not visual. A collidable can use these layers to select with which objects it can collide, using the collision_mask property.  
-         *  A contact is detected if object A is in any of the layers that object B scans, or object B is in any layer scanned by object A. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  A contact is detected if object A is in any of the layers that object B scans, or object B is in any layer scanned by object A. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_layer(): int64
         set collision_layer(value: int64)
         
-        /** The physics layers this CSG shape scans for collisions. Only effective if [member use_collision] is `true`. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers this CSG shape scans for collisions. Only effective if [member use_collision] is `true`. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -2409,17 +2789,11 @@ declare module "godot" {
         get collision_priority(): float64
         set collision_priority(value: float64)
     }
-    class CSGShape3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
-    class CSGShapeEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
     /** A CSG Sphere shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgsphere3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgsphere3d.html  
      */
-    class CSGSphere3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGPrimitive3D<Map> {
+    class CSGSphere3D<Map extends Record<string, Node> = {}> extends CSGPrimitive3D<Map> {
         constructor(identifier?: any)
         /** Radius of the sphere. */
         get radius(): float64
@@ -2443,9 +2817,9 @@ declare module "godot" {
     }
     /** A CSG Torus shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csgtorus3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_csgtorus3d.html  
      */
-    class CSGTorus3D<Map extends Record<string, Node> = Record<string, Node>> extends CSGPrimitive3D<Map> {
+    class CSGTorus3D<Map extends Record<string, Node> = {}> extends CSGPrimitive3D<Map> {
         constructor(identifier?: any)
         /** The inner radius of the torus. */
         get inner_radius(): float64
@@ -2471,18 +2845,9 @@ declare module "godot" {
         get material(): BaseMaterial3D | ShaderMaterial
         set material(value: BaseMaterial3D | ShaderMaterial)
     }
-    /** A script implemented in the C# programming language, saved with the `.cs` extension (Mono-enabled builds only).  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_csharpscript.html  
-     */
-    class CSharpScript extends Script {
-        constructor(identifier?: any)
-        /** Returns a new instance of the script. */
-        new(...vargargs: any[]): any
-    }
     /** Calls the specified method after optional delay.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_callbacktweener.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_callbacktweener.html  
      */
     class CallbackTweener extends Tweener {
         constructor(identifier?: any)
@@ -2510,9 +2875,9 @@ declare module "godot" {
     }
     /** Camera node for 2D scenes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_camera2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_camera2d.html  
      */
-    class Camera2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Camera2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         _update_scroll(): void
         
@@ -2557,7 +2922,6 @@ declare module "godot" {
         
         /** Aligns the camera to the tracked node. */
         align(): void
-        _set_old_smoothing(follow_smoothing: float64): void
         
         /** The camera's relative offset. Useful for looking around or camera shake animations. The offsetted camera can go past the limits defined in [member limit_top], [member limit_bottom], [member limit_left] and [member limit_right]. */
         get offset(): Vector2
@@ -2591,6 +2955,10 @@ declare module "godot" {
         /** The camera's process callback. See [enum Camera2DProcessCallback]. */
         get process_callback(): int64
         set process_callback(value: int64)
+        
+        /** If `true`, the limits will be enabled. Disabling this will allow the camera to focus anywhere, when the four `limit_*` properties will not work. */
+        get limit_enabled(): boolean
+        set limit_enabled(value: boolean)
         
         /** Left scroll limit in pixels. The camera stops moving when reaching this value, but [member offset] can push the view past the limit. */
         get limit_left(): int64
@@ -2716,9 +3084,9 @@ declare module "godot" {
     }
     /** Camera node, displays from a point of view.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_camera3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_camera3d.html  
      */
-    class Camera3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class Camera3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns a normal vector in world space, that is the result of projecting a point on the [Viewport] rectangle by the inverse camera projection. This is useful for casting rays in the form of (origin, normal) for object intersection or picking. */
         project_ray_normal(screen_point: Vector2): Vector3
@@ -2758,7 +3126,7 @@ declare module "godot" {
         make_current(): void
         
         /** If this is the current camera, remove it from being current. If [param enable_next] is `true`, request to make the next camera current, if any. */
-        clear_current(enable_next: boolean = true): void
+        clear_current(enable_next?: boolean /* = true */): void
         
         /** Returns the transform of the camera plus the vertical ([member v_offset]) and horizontal ([member h_offset]) offsets; and any other adjustments made to the position and orientation of the camera by subclassed cameras such as [XRCamera3D]. */
         get_camera_transform(): Transform3D
@@ -2861,15 +3229,9 @@ declare module "godot" {
         get far(): float64
         set far(value: float64)
     }
-    class Camera3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class Camera3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Parent class for camera settings.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cameraattributes.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cameraattributes.html  
      */
     class CameraAttributes extends Resource {
         constructor(identifier?: any)
@@ -2899,7 +3261,7 @@ declare module "godot" {
     }
     /** Physically-based camera settings.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cameraattributesphysical.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cameraattributesphysical.html  
      */
     class CameraAttributesPhysical extends CameraAttributes {
         constructor(identifier?: any)
@@ -2944,7 +3306,7 @@ declare module "godot" {
     }
     /** Camera settings in an easy to use format.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cameraattributespractical.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cameraattributespractical.html  
      */
     class CameraAttributesPractical extends CameraAttributes {
         constructor(identifier?: any)
@@ -3020,7 +3382,7 @@ declare module "godot" {
     }
     /** A camera feed gives you access to a single physical camera attached to your device.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_camerafeed.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_camerafeed.html  
      */
     class CameraFeed extends RefCounted {
         constructor(identifier?: any)
@@ -3079,14 +3441,14 @@ declare module "godot" {
         get formats(): GArray
         
         /** Emitted when a new frame is available. */
-        readonly frame_changed: Signal0
+        readonly frame_changed: Signal<() => void>
         
         /** Emitted when the format has changed. */
-        readonly format_changed: Signal0
+        readonly format_changed: Signal<() => void>
     }
     /** Texture provided by a [CameraFeed].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cameratexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cameratexture.html  
      */
     class CameraTexture extends Texture2D {
         constructor(identifier?: any)
@@ -3104,9 +3466,9 @@ declare module "godot" {
     }
     /** Merges several 2D nodes into a single draw operation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_canvasgroup.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_canvasgroup.html  
      */
-    class CanvasGroup<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class CanvasGroup<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Sets the size of a margin used to expand the drawable rect of this [CanvasGroup]. The size of the [CanvasGroup] is determined by fitting a rect around its children then expanding that rect by [member fit_margin]. This increases both the backbuffer area used and the area covered by the [CanvasGroup] both of which can reduce performance. This should be kept as small as possible and should only be expanded when an increased size is needed (e.g. for custom shader effects). */
         get fit_margin(): float64
@@ -3160,26 +3522,26 @@ declare module "godot" {
             /** The [CanvasItem] will inherit the filter from its parent. */
             TEXTURE_REPEAT_PARENT_NODE = 0,
             
-            /** Texture will not repeat. */
+            /** The texture does not repeat. */
             TEXTURE_REPEAT_DISABLED = 1,
             
-            /** Texture will repeat normally. */
+            /** The texture repeats when exceeding the texture's size. */
             TEXTURE_REPEAT_ENABLED = 2,
             
-            /** Texture will repeat in a 2×2 tiled mode, where elements at even positions are mirrored. */
+            /** The texture repeats when the exceeding the texture's size in a "2×2 tiled mode". Repeated textures at even positions are mirrored. */
             TEXTURE_REPEAT_MIRROR = 3,
             
             /** Represents the size of the [enum TextureRepeat] enum. */
             TEXTURE_REPEAT_MAX = 4,
         }
         enum ClipChildrenMode {
-            /** Child draws over parent and is not clipped. */
+            /** Children are drawn over this node and are not clipped. */
             CLIP_CHILDREN_DISABLED = 0,
             
-            /** Parent is used for the purposes of clipping only. Child is clipped to the parent's visible area, parent is not drawn. */
+            /** This node is used as a mask and is **not** drawn. The mask is based on this node's alpha channel: Opaque pixels are kept, transparent pixels are discarded, and semi-transparent pixels are blended in according to their opacity. Children are clipped to this node's drawn area. */
             CLIP_CHILDREN_ONLY = 1,
             
-            /** Parent is used for clipping child, but parent is also drawn underneath child as normal before clipping child to its visible area. */
+            /** This node is used as a mask and is also drawn. The mask is based on this node's alpha channel: Opaque pixels are kept, transparent pixels are discarded, and semi-transparent pixels are blended in according to their opacity. Children are clipped to the parent's drawn area. */
             CLIP_CHILDREN_AND_DRAW = 2,
             
             /** Represents the size of the [enum ClipChildrenMode] enum. */
@@ -3188,19 +3550,27 @@ declare module "godot" {
     }
     /** Abstract base class for everything in 2D space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_canvasitem.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_canvasitem.html  
      */
-    class CanvasItem<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
-        /** The [CanvasItem]'s global transform has changed. This notification is only received if enabled by [method set_notify_transform]. */
+    class CanvasItem<Map extends Record<string, Node> = {}> extends Node<Map> {
+        /** Notification received when this node's global transform changes, if [method is_transform_notification_enabled] is `true`. See also [method set_notify_transform] and [method get_transform].  
+         *      
+         *  **Note:** Many canvas items such as [Camera2D] or [CollisionObject2D] automatically enable this in order to function correctly.  
+         */
         static readonly NOTIFICATION_TRANSFORM_CHANGED = 2000
         
-        /** The [CanvasItem]'s local transform has changed. This notification is only received if enabled by [method set_notify_local_transform]. */
+        /** Notification received when this node's transform changes, if [method is_local_transform_notification_enabled] is `true`. This is not received when a parent [Node2D]'s transform changes. See also [method set_notify_local_transform].  
+         *      
+         *  **Note:** Many canvas items such as [Camera2D] or [CollisionShape2D] automatically enable this in order to function correctly.  
+         */
         static readonly NOTIFICATION_LOCAL_TRANSFORM_CHANGED = 35
         
         /** The [CanvasItem] is requested to draw (see [method _draw]). */
         static readonly NOTIFICATION_DRAW = 30
         
-        /** The [CanvasItem]'s visibility has changed. */
+        /** Notification received when this node's visibility changes (see [member visible] and [method is_visible_in_tree]).  
+         *  This notification is received  *before*  the related [signal visibility_changed] signal.  
+         */
         static readonly NOTIFICATION_VISIBILITY_CHANGED = 31
         
         /** The [CanvasItem] has entered the canvas. */
@@ -3209,7 +3579,7 @@ declare module "godot" {
         /** The [CanvasItem] has exited the canvas. */
         static readonly NOTIFICATION_EXIT_CANVAS = 33
         
-        /** The [CanvasItem]'s active [World2D] changed. */
+        /** Notification received when this [CanvasItem] is registered to a new [World2D] (see [method get_world_2d]). */
         static readonly NOTIFICATION_WORLD_2D_CHANGED = 36
         constructor(identifier?: any)
         
@@ -3235,7 +3605,7 @@ declare module "godot" {
         _edit_use_pivot(): boolean
         _edit_get_transform(): Transform2D
         
-        /** Returns the canvas item RID used by [RenderingServer] for this item. */
+        /** Returns the internal canvas item [RID] used by the [RenderingServer] for this node. */
         get_canvas_item(): RID
         
         /** Returns `true` if the node is present in the [SceneTree], its [member visible] property is `true` and all its ancestors are also visible. If any ancestor is hidden, this node will not be visible in the scene tree, and is therefore not drawn (see [method _draw]).  
@@ -3245,7 +3615,10 @@ declare module "godot" {
          */
         is_visible_in_tree(): boolean
         
-        /** Show the [CanvasItem] if it's currently hidden. This is equivalent to setting [member visible] to `true`. For controls that inherit [Popup], the correct way to make them visible is to call one of the multiple `popup*()` functions instead. */
+        /** Show the [CanvasItem] if it's currently hidden. This is equivalent to setting [member visible] to `true`.  
+         *      
+         *  **Note:** For controls that inherit [Popup], the correct way to make them visible is to call one of the multiple `popup*()` functions instead.  
+         */
         show(): void
         
         /** Hide the [CanvasItem] if it's currently visible. This is equivalent to setting [member visible] to `false`. */
@@ -3254,15 +3627,13 @@ declare module "godot" {
         /** Queues the [CanvasItem] to redraw. During idle time, if [CanvasItem] is visible, [constant NOTIFICATION_DRAW] is sent and [method _draw] is called. This only occurs **once** per frame, even if this method has been called multiple times. */
         queue_redraw(): void
         
-        /** Moves this node to display on top of its siblings.  
-         *  Internally, the node is moved to the bottom of parent's child list. The method has no effect on nodes without a parent.  
-         */
+        /** Moves this node below its siblings, usually causing the node to draw on top of its siblings. Does nothing if this node does not have a parent. See also [method Node.move_child]. */
         move_to_front(): void
         
         /** Draws a line from a 2D point to another, with a given color and width. It can be optionally antialiased. See also [method draw_dashed_line], [method draw_multiline], and [method draw_polyline].  
          *  If [param width] is negative, then a two-point primitive will be drawn instead of a four-point one. This means that when the CanvasItem is scaled, the line will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
          */
-        draw_line(from: Vector2, to: Vector2, color: Color, width: float64 = -1, antialiased: boolean = false): void
+        draw_line(from: Vector2, to: Vector2, color: Color, width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws a dashed line from a 2D point to another, with a given color and width. See also [method draw_line], [method draw_multiline], and [method draw_polyline].  
          *  If [param width] is negative, then a two-point primitives will be drawn instead of a four-point ones. This means that when the CanvasItem is scaled, the line parts will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
@@ -3271,37 +3642,37 @@ declare module "godot" {
          *      
          *  **Note:** [param antialiased] is only effective if [param width] is greater than `0.0`.  
          */
-        draw_dashed_line(from: Vector2, to: Vector2, color: Color, width: float64 = -1, dash: float64 = 2, aligned: boolean = true, antialiased: boolean = false): void
+        draw_dashed_line(from: Vector2, to: Vector2, color: Color, width?: float64 /* = -1 */, dash?: float64 /* = 2 */, aligned?: boolean /* = true */, antialiased?: boolean /* = false */): void
         
         /** Draws interconnected line segments with a uniform [param color] and [param width] and optional antialiasing (supported only for positive [param width]). When drawing large amounts of lines, this is faster than using individual [method draw_line] calls. To draw disconnected lines, use [method draw_multiline] instead. See also [method draw_polygon].  
          *  If [param width] is negative, it will be ignored and the polyline will be drawn using [constant RenderingServer.PRIMITIVE_LINE_STRIP]. This means that when the CanvasItem is scaled, the polyline will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
          */
-        draw_polyline(points: PackedVector2Array | Vector2[], color: Color, width: float64 = -1, antialiased: boolean = false): void
+        draw_polyline(points: PackedVector2Array | Vector2[], color: Color, width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws interconnected line segments with a uniform [param width], point-by-point coloring, and optional antialiasing (supported only for positive [param width]). Colors assigned to line points match by index between [param points] and [param colors], i.e. each line segment is filled with a gradient between the colors of the endpoints. When drawing large amounts of lines, this is faster than using individual [method draw_line] calls. To draw disconnected lines, use [method draw_multiline_colors] instead. See also [method draw_polygon].  
          *  If [param width] is negative, it will be ignored and the polyline will be drawn using [constant RenderingServer.PRIMITIVE_LINE_STRIP]. This means that when the CanvasItem is scaled, the polyline will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
          */
-        draw_polyline_colors(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], width: float64 = -1, antialiased: boolean = false): void
+        draw_polyline_colors(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws an unfilled arc between the given angles with a uniform [param color] and [param width] and optional antialiasing (supported only for positive [param width]). The larger the value of [param point_count], the smoother the curve. See also [method draw_circle].  
          *  If [param width] is negative, it will be ignored and the arc will be drawn using [constant RenderingServer.PRIMITIVE_LINE_STRIP]. This means that when the CanvasItem is scaled, the arc will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
          *  The arc is drawn from [param start_angle] towards the value of [param end_angle] so in clockwise direction if `start_angle < end_angle` and counter-clockwise otherwise. Passing the same angles but in reversed order will produce the same arc. If absolute difference of [param start_angle] and [param end_angle] is greater than [constant @GDScript.TAU] radians, then a full circle arc is drawn (i.e. arc will not overlap itself).  
          */
-        draw_arc(center: Vector2, radius: float64, start_angle: float64, end_angle: float64, point_count: int64, color: Color, width: float64 = -1, antialiased: boolean = false): void
+        draw_arc(center: Vector2, radius: float64, start_angle: float64, end_angle: float64, point_count: int64, color: Color, width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws multiple disconnected lines with a uniform [param width] and [param color]. Each line is defined by two consecutive points from [param points] array, i.e. i-th segment consists of `points[2 * i]`, `points[2 * i + 1]` endpoints. When drawing large amounts of lines, this is faster than using individual [method draw_line] calls. To draw interconnected lines, use [method draw_polyline] instead.  
          *  If [param width] is negative, then two-point primitives will be drawn instead of a four-point ones. This means that when the CanvasItem is scaled, the lines will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
          *      
          *  **Note:** [param antialiased] is only effective if [param width] is greater than `0.0`.  
          */
-        draw_multiline(points: PackedVector2Array | Vector2[], color: Color, width: float64 = -1, antialiased: boolean = false): void
+        draw_multiline(points: PackedVector2Array | Vector2[], color: Color, width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws multiple disconnected lines with a uniform [param width] and segment-by-segment coloring. Each segment is defined by two consecutive points from [param points] array and a corresponding color from [param colors] array, i.e. i-th segment consists of `points[2 * i]`, `points[2 * i + 1]` endpoints and has `colors *` color. When drawing large amounts of lines, this is faster than using individual [method draw_line] calls. To draw interconnected lines, use [method draw_polyline_colors] instead.  
          *  If [param width] is negative, then two-point primitives will be drawn instead of a four-point ones. This means that when the CanvasItem is scaled, the lines will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
          *      
          *  **Note:** [param antialiased] is only effective if [param width] is greater than `0.0`.  
          */
-        draw_multiline_colors(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], width: float64 = -1, antialiased: boolean = false): void
+        draw_multiline_colors(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws a rectangle. If [param filled] is `true`, the rectangle will be filled with the [param color] specified. If [param filled] is `false`, the rectangle will be drawn as a stroke with the [param color] and [param width] specified. See also [method draw_texture_rect].  
          *  If [param width] is negative, then two-point primitives will be drawn instead of a four-point ones. This means that when the CanvasItem is scaled, the lines will remain thin. If this behavior is not desired, then pass a positive [param width] like `1.0`.  
@@ -3311,7 +3682,7 @@ declare module "godot" {
          *      
          *  **Note:** Unfilled rectangles drawn with a negative [param width] may not display perfectly. For example, corners may be missing or brighter due to overlapping lines (for a translucent [param color]).  
          */
-        draw_rect(rect: Rect2, color: Color, filled: boolean = true, width: float64 = -1, antialiased: boolean = false): void
+        draw_rect(rect: Rect2, color: Color, filled?: boolean /* = true */, width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws a circle. See also [method draw_arc], [method draw_polyline], and [method draw_polygon].  
          *  If [param filled] is `true`, the circle will be filled with the [param color] specified. If [param filled] is `false`, the circle will be drawn as a stroke with the [param color] and [param width] specified.  
@@ -3320,71 +3691,71 @@ declare module "godot" {
          *      
          *  **Note:** [param width] is only effective if [param filled] is `false`.  
          */
-        draw_circle(position: Vector2, radius: float64, color: Color, filled: boolean = true, width: float64 = -1, antialiased: boolean = false): void
+        draw_circle(position: Vector2, radius: float64, color: Color, filled?: boolean /* = true */, width?: float64 /* = -1 */, antialiased?: boolean /* = false */): void
         
         /** Draws a texture at a given position. */
-        draw_texture(texture: Texture2D, position: Vector2, modulate: Color = new Color(1, 1, 1, 1)): void
+        draw_texture(texture: Texture2D, position: Vector2, modulate?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draws a textured rectangle at a given position, optionally modulated by a color. If [param transpose] is `true`, the texture will have its X and Y coordinates swapped. See also [method draw_rect] and [method draw_texture_rect_region]. */
-        draw_texture_rect(texture: Texture2D, rect: Rect2, tile: boolean, modulate: Color = new Color(1, 1, 1, 1), transpose: boolean = false): void
+        draw_texture_rect(texture: Texture2D, rect: Rect2, tile: boolean, modulate?: Color /* = new Color(1, 1, 1, 1) */, transpose?: boolean /* = false */): void
         
         /** Draws a textured rectangle from a texture's region (specified by [param src_rect]) at a given position, optionally modulated by a color. If [param transpose] is `true`, the texture will have its X and Y coordinates swapped. See also [method draw_texture_rect]. */
-        draw_texture_rect_region(texture: Texture2D, rect: Rect2, src_rect: Rect2, modulate: Color = new Color(1, 1, 1, 1), transpose: boolean = false, clip_uv: boolean = true): void
+        draw_texture_rect_region(texture: Texture2D, rect: Rect2, src_rect: Rect2, modulate?: Color /* = new Color(1, 1, 1, 1) */, transpose?: boolean /* = false */, clip_uv?: boolean /* = true */): void
         
         /** Draws a textured rectangle region of the multi-channel signed distance field texture at a given position, optionally modulated by a color. See [member FontFile.multichannel_signed_distance_field] for more information and caveats about MSDF font rendering.  
          *  If [param outline] is positive, each alpha channel value of pixel in region is set to maximum value of true distance in the [param outline] radius.  
          *  Value of the [param pixel_range] should the same that was used during distance field texture generation.  
          */
-        draw_msdf_texture_rect_region(texture: Texture2D, rect: Rect2, src_rect: Rect2, modulate: Color = new Color(1, 1, 1, 1), outline: float64 = 0, pixel_range: float64 = 4, scale: float64 = 1): void
+        draw_msdf_texture_rect_region(texture: Texture2D, rect: Rect2, src_rect: Rect2, modulate?: Color /* = new Color(1, 1, 1, 1) */, outline?: float64 /* = 0 */, pixel_range?: float64 /* = 4 */, scale?: float64 /* = 1 */): void
         
         /** Draws a textured rectangle region of the font texture with LCD subpixel anti-aliasing at a given position, optionally modulated by a color.  
          *  Texture is drawn using the following blend operation, blend mode of the [CanvasItemMaterial] is ignored:  
          *    
          */
-        draw_lcd_texture_rect_region(texture: Texture2D, rect: Rect2, src_rect: Rect2, modulate: Color = new Color(1, 1, 1, 1)): void
+        draw_lcd_texture_rect_region(texture: Texture2D, rect: Rect2, src_rect: Rect2, modulate?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draws a styled rectangle. */
         draw_style_box(style_box: StyleBox, rect: Rect2): void
         
         /** Draws a custom primitive. 1 point for a point, 2 points for a line, 3 points for a triangle, and 4 points for a quad. If 0 points or more than 4 points are specified, nothing will be drawn and an error message will be printed. See also [method draw_line], [method draw_polyline], [method draw_polygon], and [method draw_rect]. */
-        draw_primitive(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], uvs: PackedVector2Array | Vector2[], texture: Texture2D = undefined): void
+        draw_primitive(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], uvs: PackedVector2Array | Vector2[], texture?: Texture2D /* = undefined */): void
         
         /** Draws a solid polygon of any number of points, convex or concave. Unlike [method draw_colored_polygon], each point's color can be changed individually. See also [method draw_polyline] and [method draw_polyline_colors]. If you need more flexibility (such as being able to use bones), use [method RenderingServer.canvas_item_add_triangle_array] instead.  
          *      
          *  **Note:** If you frequently redraw the same polygon with a large number of vertices, consider pre-calculating the triangulation with [method Geometry2D.triangulate_polygon] and using [method draw_mesh], [method draw_multimesh], or [method RenderingServer.canvas_item_add_triangle_array].  
          */
-        draw_polygon(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], uvs: PackedVector2Array | Vector2[] = [], texture: Texture2D = undefined): void
+        draw_polygon(points: PackedVector2Array | Vector2[], colors: PackedColorArray | Color[], uvs?: PackedVector2Array | Vector2[] /* = [] */, texture?: Texture2D /* = undefined */): void
         
         /** Draws a colored polygon of any number of points, convex or concave. Unlike [method draw_polygon], a single color must be specified for the whole polygon.  
          *      
          *  **Note:** If you frequently redraw the same polygon with a large number of vertices, consider pre-calculating the triangulation with [method Geometry2D.triangulate_polygon] and using [method draw_mesh], [method draw_multimesh], or [method RenderingServer.canvas_item_add_triangle_array].  
          */
-        draw_colored_polygon(points: PackedVector2Array | Vector2[], color: Color, uvs: PackedVector2Array | Vector2[] = [], texture: Texture2D = undefined): void
+        draw_colored_polygon(points: PackedVector2Array | Vector2[], color: Color, uvs?: PackedVector2Array | Vector2[] /* = [] */, texture?: Texture2D /* = undefined */): void
         
         /** Draws [param text] using the specified [param font] at the [param pos] (bottom-left corner using the baseline of the font). The text will have its color multiplied by [param modulate]. If [param width] is greater than or equal to 0, the text will be clipped if it exceeds the specified width.  
          *  **Example:** Draw "Hello world", using the project's default font:  
          *    
          *  See also [method Font.draw_string].  
          */
-        draw_string(font: Font, pos: Vector2, text: string, alignment: HorizontalAlignment = 0, width: float64 = -1, font_size: int64 = 16, modulate: Color = new Color(1, 1, 1, 1), justification_flags: TextServer.JustificationFlag = 3, direction: TextServer.Direction = 0, orientation: TextServer.Orientation = 0): void
+        draw_string(font: Font, pos: Vector2, text: string, alignment?: HorizontalAlignment /* = 0 */, width?: float64 /* = -1 */, font_size?: int64 /* = 16 */, modulate?: Color /* = new Color(1, 1, 1, 1) */, justification_flags?: TextServer.JustificationFlag /* = 3 */, direction?: TextServer.Direction /* = 0 */, orientation?: TextServer.Orientation /* = 0 */): void
         
         /** Breaks [param text] into lines and draws it using the specified [param font] at the [param pos] (top-left corner). The text will have its color multiplied by [param modulate]. If [param width] is greater than or equal to 0, the text will be clipped if it exceeds the specified width. */
-        draw_multiline_string(font: Font, pos: Vector2, text: string, alignment: HorizontalAlignment = 0, width: float64 = -1, font_size: int64 = 16, max_lines: int64 = -1, modulate: Color = new Color(1, 1, 1, 1), brk_flags: TextServer.LineBreakFlag = 3, justification_flags: TextServer.JustificationFlag = 3, direction: TextServer.Direction = 0, orientation: TextServer.Orientation = 0): void
+        draw_multiline_string(font: Font, pos: Vector2, text: string, alignment?: HorizontalAlignment /* = 0 */, width?: float64 /* = -1 */, font_size?: int64 /* = 16 */, max_lines?: int64 /* = -1 */, modulate?: Color /* = new Color(1, 1, 1, 1) */, brk_flags?: TextServer.LineBreakFlag /* = 3 */, justification_flags?: TextServer.JustificationFlag /* = 3 */, direction?: TextServer.Direction /* = 0 */, orientation?: TextServer.Orientation /* = 0 */): void
         
         /** Draws [param text] outline using the specified [param font] at the [param pos] (bottom-left corner using the baseline of the font). The text will have its color multiplied by [param modulate]. If [param width] is greater than or equal to 0, the text will be clipped if it exceeds the specified width. */
-        draw_string_outline(font: Font, pos: Vector2, text: string, alignment: HorizontalAlignment = 0, width: float64 = -1, font_size: int64 = 16, size: int64 = 1, modulate: Color = new Color(1, 1, 1, 1), justification_flags: TextServer.JustificationFlag = 3, direction: TextServer.Direction = 0, orientation: TextServer.Orientation = 0): void
+        draw_string_outline(font: Font, pos: Vector2, text: string, alignment?: HorizontalAlignment /* = 0 */, width?: float64 /* = -1 */, font_size?: int64 /* = 16 */, size?: int64 /* = 1 */, modulate?: Color /* = new Color(1, 1, 1, 1) */, justification_flags?: TextServer.JustificationFlag /* = 3 */, direction?: TextServer.Direction /* = 0 */, orientation?: TextServer.Orientation /* = 0 */): void
         
         /** Breaks [param text] to the lines and draws text outline using the specified [param font] at the [param pos] (top-left corner). The text will have its color multiplied by [param modulate]. If [param width] is greater than or equal to 0, the text will be clipped if it exceeds the specified width. */
-        draw_multiline_string_outline(font: Font, pos: Vector2, text: string, alignment: HorizontalAlignment = 0, width: float64 = -1, font_size: int64 = 16, max_lines: int64 = -1, size: int64 = 1, modulate: Color = new Color(1, 1, 1, 1), brk_flags: TextServer.LineBreakFlag = 3, justification_flags: TextServer.JustificationFlag = 3, direction: TextServer.Direction = 0, orientation: TextServer.Orientation = 0): void
+        draw_multiline_string_outline(font: Font, pos: Vector2, text: string, alignment?: HorizontalAlignment /* = 0 */, width?: float64 /* = -1 */, font_size?: int64 /* = 16 */, max_lines?: int64 /* = -1 */, size?: int64 /* = 1 */, modulate?: Color /* = new Color(1, 1, 1, 1) */, brk_flags?: TextServer.LineBreakFlag /* = 3 */, justification_flags?: TextServer.JustificationFlag /* = 3 */, direction?: TextServer.Direction /* = 0 */, orientation?: TextServer.Orientation /* = 0 */): void
         
         /** Draws a string first character using a custom font. */
-        draw_char(font: Font, pos: Vector2, char: string, font_size: int64 = 16, modulate: Color = new Color(1, 1, 1, 1)): void
+        draw_char(font: Font, pos: Vector2, char: string, font_size?: int64 /* = 16 */, modulate?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draws a string first character outline using a custom font. */
-        draw_char_outline(font: Font, pos: Vector2, char: string, font_size: int64 = 16, size: int64 = -1, modulate: Color = new Color(1, 1, 1, 1)): void
+        draw_char_outline(font: Font, pos: Vector2, char: string, font_size?: int64 /* = 16 */, size?: int64 /* = -1 */, modulate?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draws a [Mesh] in 2D, using the provided texture. See [MeshInstance2D] for related documentation. */
-        draw_mesh(mesh: Mesh, texture: Texture2D, transform: Transform2D = new Transform2D(), modulate: Color = new Color(1, 1, 1, 1)): void
+        draw_mesh(mesh: Mesh, texture: Texture2D, transform?: Transform2D /* = new Transform2D() */, modulate?: Color /* = new Color(1, 1, 1, 1) */): void
         
         /** Draws a [MultiMesh] in 2D with the provided texture. See [MultiMeshInstance2D] for related documentation. */
         draw_multimesh(multimesh: MultiMesh, texture: Texture2D): void
@@ -3393,18 +3764,18 @@ declare module "godot" {
          *      
          *  **Note:** [member FontFile.oversampling] does  *not*  take [param scale] into account. This means that scaling up/down will cause bitmap fonts and rasterized (non-MSDF) dynamic fonts to appear blurry or pixelated. To ensure text remains crisp regardless of scale, you can enable MSDF font rendering by enabling [member ProjectSettings.gui/theme/default_font_multichannel_signed_distance_field] (applies to the default project font only), or enabling **Multichannel Signed Distance Field** in the import options of a DynamicFont for custom fonts. On system fonts, [member SystemFont.multichannel_signed_distance_field] can be enabled in the inspector.  
          */
-        draw_set_transform(position: Vector2, rotation: float64 = 0, scale: Vector2 = Vector2.ONE): void
+        draw_set_transform(position: Vector2, rotation?: float64 /* = 0 */, scale?: Vector2 /* = Vector2.ONE */): void
         
         /** Sets a custom transform for drawing via matrix. Anything drawn afterwards will be transformed by this. */
         draw_set_transform_matrix(xform: Transform2D): void
         
         /** Subsequent drawing commands will be ignored unless they fall within the specified animation slice. This is a faster way to implement animations that loop on background rather than redrawing constantly. */
-        draw_animation_slice(animation_length: float64, slice_begin: float64, slice_end: float64, offset: float64 = 0): void
+        draw_animation_slice(animation_length: float64, slice_begin: float64, slice_end: float64, offset?: float64 /* = 0 */): void
         
         /** After submitting all animations slices via [method draw_animation_slice], this function can be used to revert drawing to its default state (all subsequent drawing commands will be visible). If you don't care about this particular use case, usage of this function after submitting the slices is not required. */
         draw_end_animation(): void
         
-        /** Returns the transform matrix of this item. */
+        /** Returns the transform matrix of this [CanvasItem]. */
         get_transform(): Transform2D
         
         /** Returns the global transform matrix of this item, i.e. the combined transform up to the topmost [CanvasItem] node. The topmost item is a [CanvasItem] that either has no parent, has non-[CanvasItem] parent or it has [member top_level] enabled. */
@@ -3413,13 +3784,13 @@ declare module "godot" {
         /** Returns the transform from the local coordinate system of this [CanvasItem] to the [Viewport]s coordinate system. */
         get_global_transform_with_canvas(): Transform2D
         
-        /** Returns the transform from the coordinate system of the canvas, this item is in, to the [Viewport]s embedders coordinate system. */
+        /** Returns the transform of this node, converted from its registered canvas's coordinate system to its viewport embedder's coordinate system. See also [method Viewport.get_final_transform] and [method Node.get_viewport]. */
         get_viewport_transform(): Transform2D
         
-        /** Returns the viewport's boundaries as a [Rect2]. */
+        /** Returns this node's viewport boundaries as a [Rect2]. See also [method Node.get_viewport]. */
         get_viewport_rect(): Rect2
         
-        /** Returns the transform from the coordinate system of the canvas, this item is in, to the [Viewport]s coordinate system. */
+        /** Returns the transform of this node, converted from its registered canvas's coordinate system to its viewport's coordinate system. See also [method Node.get_viewport]. */
         get_canvas_transform(): Transform2D
         
         /** Returns the transform of this [CanvasItem] in global screen coordinates (i.e. taking window position into account). Mostly useful for editor plugins.  
@@ -3430,22 +3801,24 @@ declare module "godot" {
         /** Returns the mouse's position in this [CanvasItem] using the local coordinate system of this [CanvasItem]. */
         get_local_mouse_position(): Vector2
         
-        /** Returns the mouse's position in the [CanvasLayer] that this [CanvasItem] is in using the coordinate system of the [CanvasLayer].  
+        /** Returns mouse cursor's global position relative to the [CanvasLayer] that contains this node.  
          *      
          *  **Note:** For screen-space coordinates (e.g. when using a non-embedded [Popup]), you can use [method DisplayServer.mouse_get_position].  
          */
         get_global_mouse_position(): Vector2
         
-        /** Returns the [RID] of the [World2D] canvas where this item is in. */
+        /** Returns the [RID] of the [World2D] canvas where this node is registered to, used by the [RenderingServer]. */
         get_canvas(): RID
         
         /** Returns the [CanvasLayer] that contains this node, or `null` if the node is not in any [CanvasLayer]. */
         get_canvas_layer_node(): CanvasLayer
         
-        /** Returns the [World2D] where this item is in. */
+        /** Returns the [World2D] this node is registered to.  
+         *  Usually, this is the same as this node's viewport (see [method Node.get_viewport] and [method Viewport.find_world_2d]).  
+         */
         get_world_2d(): World2D
         
-        /** Set the value of a shader uniform for this instance only ([url=https://docs.godotengine.org/en/4.4/tutorials/shaders/shader_reference/shading_language.html#per-instance-uniforms]per-instance uniform[/url]). See also [method ShaderMaterial.set_shader_parameter] to assign a uniform on all instances using the same [ShaderMaterial].  
+        /** Set the value of a shader uniform for this instance only ([url=https://docs.godotengine.org/en/latest/tutorials/shaders/shader_reference/shading_language.html#per-instance-uniforms]per-instance uniform[/url]). See also [method ShaderMaterial.set_shader_parameter] to assign a uniform on all instances using the same [ShaderMaterial].  
          *      
          *  **Note:** For a shader uniform to be assignable on a per-instance basis, it  *must*  be defined with `instance uniform ...` rather than `uniform ...` in the shader code.  
          *      
@@ -3456,19 +3829,28 @@ declare module "godot" {
         /** Get the value of a shader parameter as set on this instance. */
         get_instance_shader_parameter(name: StringName): any
         
-        /** If [param enable] is `true`, this node will receive [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED] when its local transform changes. */
+        /** If `true`, the node will receive [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED] whenever its local transform changes.  
+         *      
+         *  **Note:** Many canvas items such as [Bone2D] or [CollisionShape2D] automatically enable this in order to function correctly.  
+         */
         set_notify_local_transform(enable: boolean): void
         
-        /** Returns `true` if local transform notifications are communicated to children. */
+        /** Returns `true` if the node receives [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED] whenever its local transform changes. This is enabled with [method set_notify_local_transform]. */
         is_local_transform_notification_enabled(): boolean
         
-        /** If [param enable] is `true`, this node will receive [constant NOTIFICATION_TRANSFORM_CHANGED] when its global transform changes. */
+        /** If `true`, the node will receive [constant NOTIFICATION_TRANSFORM_CHANGED] whenever global transform changes.  
+         *      
+         *  **Note:** Many canvas items such as [Camera2D] or [Light2D] automatically enable this in order to function correctly.  
+         */
         set_notify_transform(enable: boolean): void
         
-        /** Returns `true` if global transform notifications are communicated to children. */
+        /** Returns `true` if the node receives [constant NOTIFICATION_TRANSFORM_CHANGED] whenever its global transform changes. This is enabled with [method set_notify_transform]. */
         is_transform_notification_enabled(): boolean
         
-        /** Forces the transform to update. Transform changes in physics are not instant for performance reasons. Transforms are accumulated and then set. Use this if you need an up-to-date transform when doing physics operations. */
+        /** Forces the node's transform to update. Fails if the node is not inside the tree. See also [method get_transform].  
+         *      
+         *  **Note:** For performance reasons, transform changes are usually accumulated and applied  *once*  at the end of the frame. The update propagates through [CanvasItem] children, as well. Therefore, use this method only when you need an up-to-date transform (such as during physics operations).  
+         */
         force_update_transform(): void
         
         /** Transforms [param viewport_point] from the viewport's coordinates to this node's local coordinates.  
@@ -3477,13 +3859,13 @@ declare module "godot" {
          */
         make_canvas_position_local(viewport_point: Vector2): Vector2
         
-        /** Transformations issued by [param event]'s inputs are applied in local space instead of global space. */
+        /** Returns a copy of the given [param event] with its coordinates converted from global space to this [CanvasItem]'s local space. If not possible, returns the same [InputEvent] unchanged. */
         make_input_local(event: InputEvent): InputEvent
         
         /** Set/clear individual bits on the rendering visibility layer. This simplifies editing this [CanvasItem]'s visibility layer. */
         set_visibility_layer_bit(layer: int64, enabled: boolean): void
         
-        /** Returns an individual bit on the rendering visibility layer. */
+        /** Returns `true` if the layer at the given index is set in [member visibility_layer]. */
         get_visibility_layer_bit(layer: int64): boolean
         
         /** If `true`, this [CanvasItem] may be drawn. Whether this [CanvasItem] is actually drawn depends on the visibility of all of its [CanvasItem] ancestors. In other words: this [CanvasItem] will be drawn when [method is_visible_in_tree] returns `true` and all [CanvasItem] ancestors share at least one [member visibility_layer] with this [CanvasItem].  
@@ -3499,12 +3881,12 @@ declare module "godot" {
         
         /** The color applied to this [CanvasItem]. This property does **not** affect child [CanvasItem]s, unlike [member modulate] which affects both the node itself and its children.  
          *      
-         *  **Note:** Internal children (e.g. sliders in [ColorPicker] or tab bar in [TabContainer]) are also not affected by this property (see `include_internal` parameter of [method Node.get_child] and other similar methods).  
+         *  **Note:** Internal children are also not affected by this property (see the `include_internal` parameter in [method Node.add_child]). For built-in nodes this includes sliders in [ColorPicker], and the tab bar in [TabContainer].  
          */
         get self_modulate(): Color
         set self_modulate(value: Color)
         
-        /** If `true`, the object draws behind its parent. */
+        /** If `true`, this node draws behind its parent. */
         get show_behind_parent(): boolean
         set show_behind_parent(value: boolean)
         
@@ -3512,9 +3894,9 @@ declare module "godot" {
         get top_level(): boolean
         set top_level(value: boolean)
         
-        /** Allows the current node to clip child nodes, essentially acting as a mask.  
+        /** The mode in which this node clips its children, acting as a mask.  
          *      
-         *  **Note:** Clipping nodes cannot be nested or placed within [CanvasGroup]s. If an ancestor of this node clips its children or is a [CanvasGroup], then this node's clip mode should be set to [constant CLIP_CHILDREN_DISABLED] to avoid unexpected behavior.  
+         *  **Note:** Clipping nodes cannot be nested or placed within a [CanvasGroup]. If an ancestor of this node clips its children or is a [CanvasGroup], then this node's clip mode should be set to [constant CLIP_CHILDREN_DISABLED] to avoid unexpected behavior.  
          */
         get clip_children(): int64
         set clip_children(value: int64)
@@ -3527,14 +3909,16 @@ declare module "godot" {
         get visibility_layer(): int64
         set visibility_layer(value: int64)
         
-        /** Controls the order in which the nodes render. A node with a higher Z index will display in front of others. Must be between [constant RenderingServer.CANVAS_ITEM_Z_MIN] and [constant RenderingServer.CANVAS_ITEM_Z_MAX] (inclusive).  
+        /** The order in which this node is drawn. A node with a higher Z index will display in front of others. Must be between [constant RenderingServer.CANVAS_ITEM_Z_MIN] and [constant RenderingServer.CANVAS_ITEM_Z_MAX] (inclusive).  
          *      
-         *  **Note:** Changing the Z index of a [Control] only affects the drawing order, not the order in which input events are handled. This can be useful to implement certain UI animations, e.g. a menu where hovered items are scaled and should overlap others.  
+         *  **Note:** The Z index does **not** affect the order in which [CanvasItem] nodes are processed or the way input events are handled. This is especially important to keep in mind for [Control] nodes.  
          */
         get z_index(): int64
         set z_index(value: int64)
         
-        /** If `true`, the node's Z index is relative to its parent's Z index. If this node's Z index is 2 and its parent's effective Z index is 3, then this node's effective Z index will be 2 + 3 = 5. */
+        /** If `true`, this node's final Z index is relative to its parent's Z index.  
+         *  For example, if [member z_index] is `2` and its parent's final Z index is `3`, then this node's final Z index will be `5` (`2 + 3`).  
+         */
         get z_as_relative(): boolean
         set z_as_relative(value: boolean)
         
@@ -3545,11 +3929,11 @@ declare module "godot" {
         get y_sort_enabled(): boolean
         set y_sort_enabled(value: boolean)
         
-        /** The texture filtering mode to use on this [CanvasItem]. */
+        /** The filtering mode used to render this [CanvasItem]'s texture(s). */
         get texture_filter(): int64
         set texture_filter(value: int64)
         
-        /** The texture repeating mode to use on this [CanvasItem]. */
+        /** The repeating mode used to render this [CanvasItem]'s texture(s). */
         get texture_repeat(): int64
         set texture_repeat(value: int64)
         
@@ -3557,7 +3941,7 @@ declare module "godot" {
         get material(): CanvasItemMaterial | ShaderMaterial
         set material(value: CanvasItemMaterial | ShaderMaterial)
         
-        /** If `true`, the parent [CanvasItem]'s [member material] property is used as this one's material. */
+        /** If `true`, the parent [CanvasItem]'s [member material] is used as this node's material. */
         get use_parent_material(): boolean
         set use_parent_material(value: boolean)
         
@@ -3565,34 +3949,18 @@ declare module "godot" {
          *      
          *  **Note:** Deferred connections do not allow drawing through the `draw_*` methods.  
          */
-        readonly draw: Signal0
+        readonly draw: Signal<() => void>
         
-        /** Emitted when the [CanvasItem]'s visibility changes, either because its own [member visible] property changed or because its visibility in the tree changed (see [method is_visible_in_tree]). */
-        readonly visibility_changed: Signal0
+        /** Emitted when the [CanvasItem]'s visibility changes, either because its own [member visible] property changed or because its visibility in the tree changed (see [method is_visible_in_tree]).  
+         *  This signal is emitted  *after*  the related [constant NOTIFICATION_VISIBILITY_CHANGED] notification.  
+         */
+        readonly visibility_changed: Signal<() => void>
         
-        /** Emitted when the [CanvasItem] is hidden, i.e. it's no longer visible in the tree (see [method is_visible_in_tree]). */
-        readonly hidden: Signal0
+        /** Emitted when this node becomes hidden, i.e. it's no longer visible in the tree (see [method is_visible_in_tree]). */
+        readonly hidden: Signal<() => void>
         
         /** Emitted when the [CanvasItem]'s boundaries (position or size) change, or when an action took place that may have affected these boundaries (e.g. changing [member Sprite2D.texture]). */
-        readonly item_rect_changed: Signal0
-    }
-    class CanvasItemEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _get_editor_data(_unnamed_arg0: Object): Object
-        update_viewport(): void
-        center_at(position: Vector2): void
-        _set_owner_for_node_and_children(_unnamed_arg0: Node, _unnamed_arg1: Node): void
-        readonly item_lock_status_changed: Signal0
-        readonly item_group_status_changed: Signal0
-    }
-    class CanvasItemEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class CanvasItemEditorSelectedItem extends Object {
-        constructor(identifier?: any)
-    }
-    class CanvasItemEditorViewport<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
+        readonly item_rect_changed: Signal<() => void>
     }
     namespace CanvasItemMaterial {
         enum BlendMode {
@@ -3624,7 +3992,7 @@ declare module "godot" {
     }
     /** A material for [CanvasItem]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_canvasitemmaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_canvasitemmaterial.html  
      */
     class CanvasItemMaterial extends Material {
         constructor(identifier?: any)
@@ -3663,14 +4031,11 @@ declare module "godot" {
         get particles_anim_loop(): boolean
         set particles_anim_loop(value: boolean)
     }
-    class CanvasItemMaterialConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
-    }
     /** A node used for independent rendering of objects within a 2D scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_canvaslayer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_canvaslayer.html  
      */
-    class CanvasLayer<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class CanvasLayer<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Shows any [CanvasItem] under this [CanvasLayer]. This is equivalent to setting [member visible] to `true`. */
         show(): void
@@ -3728,13 +4093,13 @@ declare module "godot" {
         set follow_viewport_scale(value: float64)
         
         /** Emitted when visibility of the layer is changed. See [member visible]. */
-        readonly visibility_changed: Signal0
+        readonly visibility_changed: Signal<() => void>
     }
     /** A node that applies a color tint to a canvas.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_canvasmodulate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_canvasmodulate.html  
      */
-    class CanvasModulate<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class CanvasModulate<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** The tint color to apply. */
         get color(): Color
@@ -3742,7 +4107,7 @@ declare module "godot" {
     }
     /** Texture with optional normal and specular maps for use in 2D rendering.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_canvastexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_canvastexture.html  
      */
     class CanvasTexture extends Texture2D {
         constructor(identifier?: any)
@@ -3779,7 +4144,7 @@ declare module "godot" {
     }
     /** Class representing a capsule-shaped [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_capsulemesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_capsulemesh.html  
      */
     class CapsuleMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -3801,7 +4166,7 @@ declare module "godot" {
     }
     /** A 2D capsule shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_capsuleshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_capsuleshape2d.html  
      */
     class CapsuleShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -3815,7 +4180,7 @@ declare module "godot" {
     }
     /** A 3D capsule shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_capsuleshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_capsuleshape3d.html  
      */
     class CapsuleShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -3827,17 +4192,11 @@ declare module "godot" {
         get height(): float64
         set height(value: float64)
     }
-    class Cast2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class Cast2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A container that keeps child controls in its center.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_centercontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_centercontainer.html  
      */
-    class CenterContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class CenterContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
         /** If `true`, centers children relative to the [CenterContainer]'s top left corner. */
         get use_top_left(): boolean
@@ -3845,7 +4204,7 @@ declare module "godot" {
     }
     /** Controls how an individual character will be displayed in a [RichTextEffect].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_charfxtransform.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_charfxtransform.html  
      */
     class CharFXTransform extends RefCounted {
         constructor(identifier?: any)
@@ -3946,9 +4305,9 @@ declare module "godot" {
     }
     /** A 2D physics body specialized for characters moved by script.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_characterbody2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_characterbody2d.html  
      */
-    class CharacterBody2D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody2D<Map> {
+    class CharacterBody2D<Map extends Record<string, Node> = {}> extends PhysicsBody2D<Map> {
         constructor(identifier?: any)
         /** Moves the body based on [member velocity]. If the body collides with another, it will slide along the other body (by default only on floor) rather than stop immediately. If the other body is a [CharacterBody2D] or [RigidBody2D], it will also be affected by the motion of the other body. You can use this to make moving and rotating platforms, or to make nodes push other nodes.  
          *  Modifies [member velocity] if a slide collision occurred. To get the latest collision call [method get_last_slide_collision], for detailed information about collisions that occurred, use [method get_slide_collision].  
@@ -3999,7 +4358,7 @@ declare module "godot" {
         get_real_velocity(): Vector2
         
         /** Returns the floor's collision angle at the last collision point according to [param up_direction], which is [constant Vector2.UP] by default. This value is always positive and only valid after calling [method move_and_slide] and when [method is_on_floor] returns `true`. */
-        get_floor_angle(up_direction: Vector2 = new Vector2(0, -1)): float64
+        get_floor_angle(up_direction?: Vector2 /* = new Vector2(0, -1) */): float64
         
         /** Returns the linear velocity of the platform at the last collision point. Only valid after calling [method move_and_slide]. */
         get_platform_velocity(): Vector2
@@ -4032,11 +4391,11 @@ declare module "godot" {
         get slide_on_ceiling(): boolean
         set slide_on_ceiling(value: boolean)
         
-        /** Maximum number of times the body can change direction before it stops when calling [method move_and_slide]. */
+        /** Maximum number of times the body can change direction before it stops when calling [method move_and_slide]. Must be greater than zero. */
         get max_slides(): int64
         set max_slides(value: int64)
         
-        /** Minimum angle (in radians) where the body is allowed to slide when it encounters a slope. The default value equals 15 degrees. This property only affects movement when [member motion_mode] is [constant MOTION_MODE_FLOATING]. */
+        /** Minimum angle (in radians) where the body is allowed to slide when it encounters a wall. The default value equals 15 degrees. This property only affects movement when [member motion_mode] is [constant MOTION_MODE_FLOATING]. */
         get wall_min_slide_angle(): float64
         set wall_min_slide_angle(value: float64)
         
@@ -4107,9 +4466,9 @@ declare module "godot" {
     }
     /** A 3D physics body specialized for characters moved by script.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_characterbody3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_characterbody3d.html  
      */
-    class CharacterBody3D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody3D<Map> {
+    class CharacterBody3D<Map extends Record<string, Node> = {}> extends PhysicsBody3D<Map> {
         constructor(identifier?: any)
         /** Moves the body based on [member velocity]. If the body collides with another, it will slide along the other body rather than stop immediately. If the other body is a [CharacterBody3D] or [RigidBody3D], it will also be affected by the motion of the other body. You can use this to make moving and rotating platforms, or to make nodes push other nodes.  
          *  Modifies [member velocity] if a slide collision occurred. To get the latest collision call [method get_last_slide_collision], for more detailed information about collisions that occurred, use [method get_slide_collision].  
@@ -4159,7 +4518,7 @@ declare module "godot" {
         get_real_velocity(): Vector3
         
         /** Returns the floor's collision angle at the last collision point according to [param up_direction], which is [constant Vector3.UP] by default. This value is always positive and only valid after calling [method move_and_slide] and when [method is_on_floor] returns `true`. */
-        get_floor_angle(up_direction: Vector3 = Vector3.ZERO): float64
+        get_floor_angle(up_direction?: Vector3 /* = Vector3.ZERO */): float64
         
         /** Returns the linear velocity of the platform at the last collision point. Only valid after calling [method move_and_slide]. */
         get_platform_velocity(): Vector3
@@ -4192,11 +4551,11 @@ declare module "godot" {
         get velocity(): Vector3
         set velocity(value: Vector3)
         
-        /** Maximum number of times the body can change direction before it stops when calling [method move_and_slide]. */
+        /** Maximum number of times the body can change direction before it stops when calling [method move_and_slide]. Must be greater than zero. */
         get max_slides(): int64
         set max_slides(value: int64)
         
-        /** Minimum angle (in radians) where the body is allowed to slide when it encounters a slope. The default value equals 15 degrees. When [member motion_mode] is [constant MOTION_MODE_GROUNDED], it only affects movement if [member floor_block_on_wall] is `true`. */
+        /** Minimum angle (in radians) where the body is allowed to slide when it encounters a wall. The default value equals 15 degrees. When [member motion_mode] is [constant MOTION_MODE_GROUNDED], it only affects movement if [member floor_block_on_wall] is `true`. */
         get wall_min_slide_angle(): float64
         set wall_min_slide_angle(value: float64)
         
@@ -4248,21 +4607,37 @@ declare module "godot" {
     }
     /** A button that represents a binary choice.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_checkbox.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_checkbox.html  
      */
-    class CheckBox<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
+    class CheckBox<Map extends Record<string, Node> = {}> extends Button<Map> {
         constructor(identifier?: any)
     }
     /** A button that represents a binary choice.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_checkbutton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_checkbutton.html  
      */
-    class CheckButton<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
+    class CheckButton<Map extends Record<string, Node> = {}> extends Button<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_childnim.html */
+    class ChildNim<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_childrust.html */
+    class ChildRust<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_childswift.html */
+    class ChildSwift<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_childv.html */
+    class ChildV<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
     }
     /** A 2D circle shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_circleshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_circleshape2d.html  
      */
     class CircleShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -4318,9 +4693,9 @@ declare module "godot" {
     }
     /** A multiline text editor designed for editing code.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_codeedit.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_codeedit.html  
      */
-    class CodeEdit<Map extends Record<string, Node> = Record<string, Node>> extends TextEdit<Map> {
+    class CodeEdit<Map extends Record<string, Node> = {}> extends TextEdit<Map> {
         constructor(identifier?: any)
         /** Override this method to define how the selected entry should be inserted. If [param replace] is `true`, any existing text should be replaced. */
         /* gdvirtual */ _confirm_code_completion(replace: boolean): void
@@ -4345,7 +4720,7 @@ declare module "godot" {
         /** Converts the indents of lines between [param from_line] and [param to_line] to tabs or spaces as set by [member indent_use_spaces].  
          *  Values of `-1` convert the entire text.  
          */
-        convert_indent(from_line: int64 = -1, to_line: int64 = -1): void
+        convert_indent(from_line?: int64 /* = -1 */, to_line?: int64 /* = -1 */): void
         
         /** Adds a brace pair.  
          *  Both the start and end keys must be symbols. Only the start key has to be unique.  
@@ -4438,7 +4813,7 @@ declare module "godot" {
         get_code_region_end_tag(): string
         
         /** Sets the code region start and end tags (without comment delimiter). */
-        set_code_region_tags(start: string = 'region', end: string = 'endregion'): void
+        set_code_region_tags(start?: string /* = 'region' */, end?: string /* = 'endregion' */): void
         
         /** Returns `true` if the given line is a code region start. See [method set_code_region_tags]. */
         is_line_code_region_start(line: int64): boolean
@@ -4449,7 +4824,7 @@ declare module "godot" {
         /** Defines a string delimiter from [param start_key] to [param end_key]. Both keys should be symbols, and [param start_key] must not be shared with other delimiters.  
          *  If [param line_only] is `true` or [param end_key] is an empty [String], the region does not carry over to the next line.  
          */
-        add_string_delimiter(start_key: string, end_key: string, line_only: boolean = false): void
+        add_string_delimiter(start_key: string, end_key: string, line_only?: boolean /* = false */): void
         
         /** Removes the string delimiter with [param start_key]. */
         remove_string_delimiter(start_key: string): void
@@ -4461,12 +4836,12 @@ declare module "godot" {
         clear_string_delimiters(): void
         
         /** Returns the delimiter index if [param line] [param column] is in a string. If [param column] is not provided, will return the delimiter index if the entire [param line] is a string. Otherwise `-1`. */
-        is_in_string(line: int64, column: int64 = -1): int64
+        is_in_string(line: int64, column?: int64 /* = -1 */): int64
         
         /** Adds a comment delimiter from [param start_key] to [param end_key]. Both keys should be symbols, and [param start_key] must not be shared with other delimiters.  
          *  If [param line_only] is `true` or [param end_key] is an empty [String], the region does not carry over to the next line.  
          */
-        add_comment_delimiter(start_key: string, end_key: string, line_only: boolean = false): void
+        add_comment_delimiter(start_key: string, end_key: string, line_only?: boolean /* = false */): void
         
         /** Removes the comment delimiter with [param start_key]. */
         remove_comment_delimiter(start_key: string): void
@@ -4478,7 +4853,7 @@ declare module "godot" {
         clear_comment_delimiters(): void
         
         /** Returns delimiter index if [param line] [param column] is in a comment. If [param column] is not provided, will return delimiter index if the entire [param line] is a comment. Otherwise `-1`. */
-        is_in_comment(line: int64, column: int64 = -1): int64
+        is_in_comment(line: int64, column?: int64 /* = -1 */): int64
         
         /** Gets the start key for a string or comment region index. */
         get_delimiter_start_key(delimiter_index: int64): string
@@ -4502,14 +4877,14 @@ declare module "godot" {
         get_text_for_code_completion(): string
         
         /** Emits [signal code_completion_requested], if [param force] is `true` will bypass all checks. Otherwise will check that the caret is in a word or in front of a prefix. Will ignore the request if all current options are of type file path, node path, or signal. */
-        request_code_completion(force: boolean = false): void
+        request_code_completion(force?: boolean /* = false */): void
         
         /** Submits an item to the queue of potential candidates for the autocomplete menu. Call [method update_code_completion_options] to update the list.  
          *  [param location] indicates location of the option relative to the location of the code completion query. See [enum CodeEdit.CodeCompletionLocation] for how to set this value.  
          *      
          *  **Note:** This list will replace all current candidates.  
          */
-        add_code_completion_option(type: CodeEdit.CodeCompletionKind, display_text: string, insert_text: string, text_color: Color = new Color(1, 1, 1, 1), icon: Resource = undefined, value: any = <any> {}, location: int64 = 1024): void
+        add_code_completion_option(type: CodeEdit.CodeCompletionKind, display_text: string, insert_text: string, text_color?: Color /* = new Color(1, 1, 1, 1) */, icon?: Resource /* = undefined */, value?: any /* = <any> {} */, location?: int64 /* = 1024 */): void
         
         /** Submits all completion options added with [method add_code_completion_option]. Will try to force the autocomplete menu to popup, if [param force] is `true`.  
          *      
@@ -4537,7 +4912,7 @@ declare module "godot" {
         set_code_completion_selected_index(index: int64): void
         
         /** Inserts the selected entry into the text. If [param replace] is `true`, any existing text is replaced rather than merged. */
-        confirm_code_completion(replace: boolean = false): void
+        confirm_code_completion(replace?: boolean /* = false */): void
         
         /** Cancels the autocomplete menu. */
         cancel_code_completion(): void
@@ -4651,29 +5026,29 @@ declare module "godot" {
         set auto_brace_completion_pairs(value: GDictionary)
         
         /** Emitted when a breakpoint is added or removed from a line. If the line is moved via backspace a removed is emitted at the old line. */
-        readonly breakpoint_toggled: Signal1<int64>
+        readonly breakpoint_toggled: Signal<(line: int64) => void>
         
         /** Emitted when the user requests code completion. This signal will not be sent if [method _request_code_completion] is overridden or [member code_completion_enabled] is `false`. */
-        readonly code_completion_requested: Signal0
+        readonly code_completion_requested: Signal<() => void>
         
         /** Emitted when the user has clicked on a valid symbol. */
-        readonly symbol_lookup: Signal3<string, int64, int64>
+        readonly symbol_lookup: Signal<(symbol: string, line: int64, column: int64) => void>
         
         /** Emitted when the user hovers over a symbol. The symbol should be validated and responded to, by calling [method set_symbol_lookup_word_as_valid].  
          *      
          *  **Note:** [member symbol_lookup_on_click] must be `true` for this signal to be emitted.  
          */
-        readonly symbol_validate: Signal1<string>
+        readonly symbol_validate: Signal<(symbol: string) => void>
         
         /** Emitted when the user hovers over a symbol. Unlike [signal Control.mouse_entered], this signal is not emitted immediately, but when the cursor is over the symbol for [member ProjectSettings.gui/timers/tooltip_delay_sec] seconds.  
          *      
          *  **Note:** [member symbol_tooltip_on_hover] must be `true` for this signal to be emitted.  
          */
-        readonly symbol_hovered: Signal3<string, int64, int64>
+        readonly symbol_hovered: Signal<(symbol: string, line: int64, column: int64) => void>
     }
     /** A syntax highlighter intended for code.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_codehighlighter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_codehighlighter.html  
      */
     class CodeHighlighter extends SyntaxHighlighter {
         constructor(identifier?: any)
@@ -4715,7 +5090,7 @@ declare module "godot" {
         /** Adds a color region (such as for comments or strings) from [param start_key] to [param end_key]. Both keys should be symbols, and [param start_key] must not be shared with other delimiters.  
          *  If [param line_only] is `true` or [param end_key] is an empty [String], the region does not carry over to the next line.  
          */
-        add_color_region(start_key: string, end_key: string, color: Color, line_only: boolean = false): void
+        add_color_region(start_key: string, end_key: string, color: Color, line_only?: boolean /* = false */): void
         
         /** Removes the color region that uses that start key. */
         remove_color_region(start_key: string): void
@@ -4772,9 +5147,9 @@ declare module "godot" {
     }
     /** Abstract base class for 2D physics objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_collisionobject2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_collisionobject2d.html  
      */
-    class CollisionObject2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class CollisionObject2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Accepts unhandled [InputEvent]s. [param shape_idx] is the child index of the clicked [Shape2D]. Connect to [signal input_event] to easily pick up these events.  
          *      
@@ -4872,14 +5247,14 @@ declare module "godot" {
         
         /** The physics layers this CollisionObject2D is in. Collision objects can exist in one or more of 32 different layers. See also [member collision_mask].  
          *      
-         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_layer(): int64
         set collision_layer(value: int64)
         
         /** The physics layers this CollisionObject2D scans. Collision objects can scan one or more of 32 different layers. See also [member collision_layer].  
          *      
-         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_mask(): int64
         set collision_mask(value: int64)
@@ -4893,25 +5268,25 @@ declare module "godot" {
         set input_pickable(value: boolean)
         
         /** Emitted when an input event occurs. Requires [member input_pickable] to be `true` and at least one [member collision_layer] bit to be set. See [method _input_event] for details. */
-        readonly input_event: Signal3<Node, InputEvent, int64>
+        readonly input_event: Signal<(viewport: Node, event: InputEvent, shape_idx: int64) => void>
         
         /** Emitted when the mouse pointer enters any of this object's shapes. Requires [member input_pickable] to be `true` and at least one [member collision_layer] bit to be set. Note that moving between different shapes within a single [CollisionObject2D] won't cause this signal to be emitted.  
          *      
          *  **Note:** Due to the lack of continuous collision detection, this signal may not be emitted in the expected order if the mouse moves fast enough and the [CollisionObject2D]'s area is small. This signal may also not be emitted if another [CollisionObject2D] is overlapping the [CollisionObject2D] in question.  
          */
-        readonly mouse_entered: Signal0
+        readonly mouse_entered: Signal<() => void>
         
         /** Emitted when the mouse pointer exits all this object's shapes. Requires [member input_pickable] to be `true` and at least one [member collision_layer] bit to be set. Note that moving between different shapes within a single [CollisionObject2D] won't cause this signal to be emitted.  
          *      
          *  **Note:** Due to the lack of continuous collision detection, this signal may not be emitted in the expected order if the mouse moves fast enough and the [CollisionObject2D]'s area is small. This signal may also not be emitted if another [CollisionObject2D] is overlapping the [CollisionObject2D] in question.  
          */
-        readonly mouse_exited: Signal0
+        readonly mouse_exited: Signal<() => void>
         
         /** Emitted when the mouse pointer enters any of this object's shapes or moves from one shape to another. [param shape_idx] is the child index of the newly entered [Shape2D]. Requires [member input_pickable] to be `true` and at least one [member collision_layer] bit to be set. */
-        readonly mouse_shape_entered: Signal1<int64>
+        readonly mouse_shape_entered: Signal<(shape_idx: int64) => void>
         
         /** Emitted when the mouse pointer exits any of this object's shapes. [param shape_idx] is the child index of the exited [Shape2D]. Requires [member input_pickable] to be `true` and at least one [member collision_layer] bit to be set. */
-        readonly mouse_shape_exited: Signal1<int64>
+        readonly mouse_shape_exited: Signal<(shape_idx: int64) => void>
     }
     namespace CollisionObject3D {
         enum DisableMode {
@@ -4931,9 +5306,9 @@ declare module "godot" {
     }
     /** Abstract base class for 3D physics objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_collisionobject3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_collisionobject3d.html  
      */
-    class CollisionObject3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class CollisionObject3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Receives unhandled [InputEvent]s. [param event_position] is the location in world space of the mouse pointer on the surface of the shape with index [param shape_idx] and [param normal] is the normal vector of the surface at that point. Connect to the [signal input_event] signal to easily pick up these events.  
          *      
@@ -5013,14 +5388,14 @@ declare module "godot" {
         
         /** The physics layers this CollisionObject3D **is in**. Collision objects can exist in one or more of 32 different layers. See also [member collision_mask].  
          *      
-         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_layer(): int64
         set collision_layer(value: int64)
         
         /** The physics layers this CollisionObject3D **scans**. Collision objects can scan one or more of 32 different layers. See also [member collision_layer].  
          *      
-         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
+         *  **Note:** Object A can detect a contact with object B only if object B is in any of the layers that object A scans. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information.  
          */
         get collision_mask(): int64
         set collision_mask(value: int64)
@@ -5038,22 +5413,19 @@ declare module "godot" {
         set input_capture_on_drag(value: boolean)
         
         /** Emitted when the object receives an unhandled [InputEvent]. [param event_position] is the location in world space of the mouse pointer on the surface of the shape with index [param shape_idx] and [param normal] is the normal vector of the surface at that point. */
-        readonly input_event: Signal5<Node, InputEvent, Vector3, Vector3, int64>
+        readonly input_event: Signal<(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int64) => void>
         
         /** Emitted when the mouse pointer enters any of this object's shapes. Requires [member input_ray_pickable] to be `true` and at least one [member collision_layer] bit to be set.  
          *      
          *  **Note:** Due to the lack of continuous collision detection, this signal may not be emitted in the expected order if the mouse moves fast enough and the [CollisionObject3D]'s area is small. This signal may also not be emitted if another [CollisionObject3D] is overlapping the [CollisionObject3D] in question.  
          */
-        readonly mouse_entered: Signal0
+        readonly mouse_entered: Signal<() => void>
         
         /** Emitted when the mouse pointer exits all this object's shapes. Requires [member input_ray_pickable] to be `true` and at least one [member collision_layer] bit to be set.  
          *      
          *  **Note:** Due to the lack of continuous collision detection, this signal may not be emitted in the expected order if the mouse moves fast enough and the [CollisionObject3D]'s area is small. This signal may also not be emitted if another [CollisionObject3D] is overlapping the [CollisionObject3D] in question.  
          */
-        readonly mouse_exited: Signal0
-    }
-    class CollisionObject3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
+        readonly mouse_exited: Signal<() => void>
     }
     namespace CollisionPolygon2D {
         enum BuildMode {
@@ -5066,9 +5438,9 @@ declare module "godot" {
     }
     /** A node that provides a polygon shape to a [CollisionObject2D] parent.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_collisionpolygon2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_collisionpolygon2d.html  
      */
-    class CollisionPolygon2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class CollisionPolygon2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Collision build mode. Use one of the [enum BuildMode] constants. */
         get build_mode(): int64
@@ -5096,17 +5468,11 @@ declare module "godot" {
         get one_way_collision_margin(): float64
         set one_way_collision_margin(value: float64)
     }
-    class CollisionPolygon2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditor<Map> {
-        constructor(identifier?: any)
-    }
-    class CollisionPolygon2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A node that provides a thickened polygon shape (a prism) to a [CollisionObject3D] parent.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_collisionpolygon3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_collisionpolygon3d.html  
      */
-    class CollisionPolygon3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class CollisionPolygon3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         _is_editable_3d_polygon(): boolean
         
@@ -5137,14 +5503,11 @@ declare module "godot" {
         get debug_fill(): boolean
         set debug_fill(value: boolean)
     }
-    class CollisionPolygon3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** A node that provides a [Shape2D] to a [CollisionObject2D] parent.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_collisionshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_collisionshape2d.html  
      */
-    class CollisionShape2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class CollisionShape2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** The actual shape owned by this collision shape. */
         get shape(): Shape2D
@@ -5172,17 +5535,11 @@ declare module "godot" {
         get debug_color(): Color
         set debug_color(value: Color)
     }
-    class CollisionShape2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class CollisionShape2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A node that provides a [Shape3D] to a [CollisionObject3D] parent.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_collisionshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_collisionshape3d.html  
      */
-    class CollisionShape3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class CollisionShape3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** This method does nothing. */
         resource_changed(resource: Resource): void
@@ -5209,12 +5566,9 @@ declare module "godot" {
         get debug_fill(): boolean
         set debug_fill(value: boolean)
     }
-    class CollisionShape3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** A resource class for managing a palette of colors, which can be loaded and saved using [ColorPicker].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_colorpalette.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_colorpalette.html  
      */
     class ColorPalette extends Resource {
         constructor(identifier?: any)
@@ -5258,9 +5612,9 @@ declare module "godot" {
     }
     /** A widget that provides an interface for selecting or modifying a color.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_colorpicker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_colorpicker.html  
      */
-    class ColorPicker<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
+    class ColorPicker<Map extends Record<string, Node> = {}> extends VBoxContainer<Map> {
         constructor(identifier?: any)
         /** Adds the given color to a list of color presets. The presets are displayed in the color picker and the user will be able to select them.  
          *      
@@ -5331,19 +5685,19 @@ declare module "godot" {
         set presets_visible(value: boolean)
         
         /** Emitted when the color is changed. */
-        readonly color_changed: Signal1<Color>
+        readonly color_changed: Signal<(color: Color) => void>
         
         /** Emitted when a preset is added. */
-        readonly preset_added: Signal1<Color>
+        readonly preset_added: Signal<(color: Color) => void>
         
         /** Emitted when a preset is removed. */
-        readonly preset_removed: Signal1<Color>
+        readonly preset_removed: Signal<(color: Color) => void>
     }
     /** A button that brings up a [ColorPicker] when pressed.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_colorpickerbutton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_colorpickerbutton.html  
      */
-    class ColorPickerButton<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
+    class ColorPickerButton<Map extends Record<string, Node> = {}> extends Button<Map> {
         constructor(identifier?: any)
         /** Returns the [ColorPicker] that this node toggles.  
          *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member CanvasItem.visible] property.  
@@ -5365,19 +5719,19 @@ declare module "godot" {
         set edit_alpha(value: boolean)
         
         /** Emitted when the color changes. */
-        readonly color_changed: Signal1<Color>
+        readonly color_changed: Signal<(color: Color) => void>
         
         /** Emitted when the [ColorPicker] is closed. */
-        readonly popup_closed: Signal0
+        readonly popup_closed: Signal<() => void>
         
         /** Emitted when the [ColorPicker] is created (the button is pressed for the first time). */
-        readonly picker_created: Signal0
+        readonly picker_created: Signal<() => void>
     }
     /** A control that displays a solid color rectangle.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_colorrect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_colorrect.html  
      */
-    class ColorRect<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class ColorRect<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** The fill color of the rectangle. */
         get color(): Color
@@ -5385,7 +5739,7 @@ declare module "godot" {
     }
     /** Stores attributes used to customize how a Viewport is rendered.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compositor.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compositor.html  
      */
     class Compositor extends Resource {
         constructor(identifier?: any)
@@ -5416,7 +5770,7 @@ declare module "godot" {
     }
     /** This resource allows for creating a custom rendering effect.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compositoreffect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compositoreffect.html  
      */
     class CompositorEffect extends Resource {
         constructor(identifier?: any)
@@ -5471,21 +5825,21 @@ declare module "godot" {
     }
     /** An optionally compressed [Cubemap].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compressedcubemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compressedcubemap.html  
      */
     class CompressedCubemap extends CompressedTextureLayered {
         constructor(identifier?: any)
     }
     /** An optionally compressed [CubemapArray].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compressedcubemaparray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compressedcubemaparray.html  
      */
     class CompressedCubemapArray extends CompressedTextureLayered {
         constructor(identifier?: any)
     }
     /** Texture with 2 dimensions, optionally compressed.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compressedtexture2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compressedtexture2d.html  
      */
     class CompressedTexture2D extends Texture2D {
         constructor(identifier?: any)
@@ -5495,14 +5849,14 @@ declare module "godot" {
     }
     /** Array of 2-dimensional textures, optionally compressed.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compressedtexture2darray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compressedtexture2darray.html  
      */
     class CompressedTexture2DArray extends CompressedTextureLayered {
         constructor(identifier?: any)
     }
     /** Texture with 3 dimensions, optionally compressed.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compressedtexture3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compressedtexture3d.html  
      */
     class CompressedTexture3D extends Texture3D {
         constructor(identifier?: any)
@@ -5512,7 +5866,7 @@ declare module "godot" {
     }
     /** Base class for texture arrays that can optionally be compressed.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_compressedtexturelayered.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_compressedtexturelayered.html  
      */
     class CompressedTextureLayered extends TextureLayered {
         constructor(identifier?: any)
@@ -5522,7 +5876,7 @@ declare module "godot" {
     }
     /** A 2D polyline shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_concavepolygonshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_concavepolygonshape2d.html  
      */
     class ConcavePolygonShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -5532,7 +5886,7 @@ declare module "godot" {
     }
     /** A 3D trimesh shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_concavepolygonshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_concavepolygonshape3d.html  
      */
     class ConcavePolygonShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -5574,9 +5928,9 @@ declare module "godot" {
     }
     /** A physics joint that connects two 3D physics bodies in a way that simulates a ball-and-socket joint.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_conetwistjoint3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_conetwistjoint3d.html  
      */
-    class ConeTwistJoint3D<Map extends Record<string, Node> = Record<string, Node>> extends Joint3D<Map> {
+    class ConeTwistJoint3D<Map extends Record<string, Node> = {}> extends Joint3D<Map> {
         constructor(identifier?: any)
         /** Sets the value of the specified parameter. */
         set_param(param: ConeTwistJoint3D.Param, value: float64): void
@@ -5614,7 +5968,7 @@ declare module "godot" {
     }
     /** Helper class to handle INI-style files.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_configfile.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_configfile.html  
      */
     class ConfigFile extends RefCounted {
         constructor(identifier?: any)
@@ -5622,7 +5976,7 @@ declare module "godot" {
         set_value(section: string, key: string, value: any): void
         
         /** Returns the current value for the specified section and key. If either the section or the key do not exist, the method returns the fallback [param default] value. If [param default] is not specified or set to `null`, an error is also raised. */
-        get_value(section: string, key: string, default_: any = <any> {}): any
+        get_value(section: string, key: string, default_?: any /* = <any> {} */): any
         
         /** Returns `true` if the specified section exists. */
         has_section(section: string): boolean
@@ -5645,17 +5999,17 @@ declare module "godot" {
         /** Loads the config file specified as a parameter. The file's contents are parsed and loaded in the [ConfigFile] object which the method was called on.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        load(path: string): GError
+        load(path: string): Error
         
         /** Parses the passed string as the contents of a config file. The string is parsed and loaded in the ConfigFile object which the method was called on.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        parse(data: string): GError
+        parse(data: string): Error
         
         /** Saves the contents of the [ConfigFile] object to the file specified as a parameter. The output file uses an INI-style structure.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        save(path: string): GError
+        save(path: string): Error
         
         /** Obtain the text version of this config file (the same text that would be written to a file). */
         encode_to_text(): string
@@ -5663,31 +6017,31 @@ declare module "godot" {
         /** Loads the encrypted config file specified as a parameter, using the provided [param key] to decrypt it. The file's contents are parsed and loaded in the [ConfigFile] object which the method was called on.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        load_encrypted(path: string, key: PackedByteArray | byte[] | ArrayBuffer): GError
+        load_encrypted(path: string, key: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Loads the encrypted config file specified as a parameter, using the provided [param password] to decrypt it. The file's contents are parsed and loaded in the [ConfigFile] object which the method was called on.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        load_encrypted_pass(path: string, password: string): GError
+        load_encrypted_pass(path: string, password: string): Error
         
         /** Saves the contents of the [ConfigFile] object to the AES-256 encrypted file specified as a parameter, using the provided [param key] to encrypt it. The output file uses an INI-style structure.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        save_encrypted(path: string, key: PackedByteArray | byte[] | ArrayBuffer): GError
+        save_encrypted(path: string, key: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Saves the contents of the [ConfigFile] object to the AES-256 encrypted file specified as a parameter, using the provided [param password] to encrypt it. The output file uses an INI-style structure.  
          *  Returns [constant OK] on success, or one of the other [enum Error] values if the operation failed.  
          */
-        save_encrypted_pass(path: string, password: string): GError
+        save_encrypted_pass(path: string, password: string): Error
         
         /** Removes the entire contents of the config. */
         clear(): void
     }
     /** A dialog used for confirmation of actions.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_confirmationdialog.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_confirmationdialog.html  
      */
-    class ConfirmationDialog<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
+    class ConfirmationDialog<Map extends Record<string, Node> = {}> extends AcceptDialog<Map> {
         constructor(identifier?: any)
         /** Returns the cancel button.  
          *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member CanvasItem.visible] property.  
@@ -5698,22 +6052,11 @@ declare module "godot" {
         get cancel_button_text(): string
         set cancel_button_text(value: string)
     }
-    class ConnectDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly connected: Signal0
-    }
-    class ConnectDialogBinds extends Object {
-        constructor(identifier?: any)
-    }
-    class ConnectionsDock<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        update_tree(): void
-    }
     /** Base class for all GUI containers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_container.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_container.html  
      */
-    class Container<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class Container<Map extends Record<string, Node> = {}> extends Control<Map> {
         /** Notification just before children are going to be sorted, in case there's something to process beforehand. */
         static readonly NOTIFICATION_PRE_SORT_CHILDREN = 50
         
@@ -5740,10 +6083,10 @@ declare module "godot" {
         fit_child_in_rect(child: Control, rect: Rect2): void
         
         /** Emitted when children are going to be sorted. */
-        readonly pre_sort_children: Signal0
+        readonly pre_sort_children: Signal<() => void>
         
         /** Emitted when sorting the children is needed. */
-        readonly sort_children: Signal0
+        readonly sort_children: Signal<() => void>
     }
     namespace Control {
         enum FocusMode {
@@ -5755,6 +6098,16 @@ declare module "godot" {
             
             /** The node can grab focus on mouse click, using the arrows and the Tab keys on the keyboard, or using the D-pad buttons on a gamepad. Use with [member focus_mode]. */
             FOCUS_ALL = 2,
+        }
+        enum RecursiveBehavior {
+            /** Inherits the associated behavior from the control's parent. This is the default for any newly created control. */
+            RECURSIVE_BEHAVIOR_INHERITED = 0,
+            
+            /** The current control and all its recursive child controls have their associated behavior disabled, regardless of the parent control's configuration. */
+            RECURSIVE_BEHAVIOR_DISABLED = 1,
+            
+            /** The current control and all its recursive child controls have their associated behavior enabled, regardless of the parent control's configuration. */
+            RECURSIVE_BEHAVIOR_ENABLED = 2,
         }
         enum CursorShape {
             /** Show the system's arrow mouse cursor when the user hovers the node. Use with [member mouse_default_cursor_shape]. */
@@ -5960,9 +6313,9 @@ declare module "godot" {
     }
     /** Base class for all GUI controls. Adapts its position and size based on its parent control.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_control.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_control.html  
      */
-    class Control<Map extends Record<string, Node> = Record<string, Node>> extends CanvasItem<Map> {
+    class Control<Map extends Record<string, Node> = {}> extends CanvasItem<Map> {
         /** Sent when the node changes size. Use [member size] to get the new size. */
         static readonly NOTIFICATION_RESIZED = 40
         
@@ -6116,23 +6469,23 @@ declare module "godot" {
         /** Sets the anchors to a [param preset] from [enum Control.LayoutPreset] enum. This is the code equivalent to using the Layout menu in the 2D editor.  
          *  If [param keep_offsets] is `true`, control's position will also be updated.  
          */
-        set_anchors_preset(preset: Control.LayoutPreset, keep_offsets: boolean = false): void
+        set_anchors_preset(preset: Control.LayoutPreset, keep_offsets?: boolean /* = false */): void
         
         /** Sets the offsets to a [param preset] from [enum Control.LayoutPreset] enum. This is the code equivalent to using the Layout menu in the 2D editor.  
          *  Use parameter [param resize_mode] with constants from [enum Control.LayoutPresetMode] to better determine the resulting size of the [Control]. Constant size will be ignored if used with presets that change size, e.g. [constant PRESET_LEFT_WIDE].  
          *  Use parameter [param margin] to determine the gap between the [Control] and the edges.  
          */
-        set_offsets_preset(preset: Control.LayoutPreset, resize_mode: Control.LayoutPresetMode = 0, margin: int64 = 0): void
+        set_offsets_preset(preset: Control.LayoutPreset, resize_mode?: Control.LayoutPresetMode /* = 0 */, margin?: int64 /* = 0 */): void
         
         /** Sets both anchor preset and offset preset. See [method set_anchors_preset] and [method set_offsets_preset]. */
-        set_anchors_and_offsets_preset(preset: Control.LayoutPreset, resize_mode: Control.LayoutPresetMode = 0, margin: int64 = 0): void
+        set_anchors_and_offsets_preset(preset: Control.LayoutPreset, resize_mode?: Control.LayoutPresetMode /* = 0 */, margin?: int64 /* = 0 */): void
         _set_anchor(side: Side, anchor: float64): void
         
         /** Sets the anchor for the specified [enum Side] to [param anchor]. A setter method for [member anchor_bottom], [member anchor_left], [member anchor_right] and [member anchor_top].  
          *  If [param keep_offset] is `true`, offsets aren't updated after this operation.  
          *  If [param push_opposite_anchor] is `true` and the opposite anchor overlaps this anchor, the opposite one will have its value overridden. For example, when setting left anchor to 1 and the right anchor has value of 0.5, the right anchor will also get value of 1. If [param push_opposite_anchor] was `false`, the left anchor would get value 0.5.  
          */
-        set_anchor(side: Side, anchor: float64, keep_offset: boolean = false, push_opposite_anchor: boolean = true): void
+        set_anchor(side: Side, anchor: float64, keep_offset?: boolean /* = false */, push_opposite_anchor?: boolean /* = true */): void
         
         /** Returns the anchor for the specified [enum Side]. A getter method for [member anchor_bottom], [member anchor_left], [member anchor_right] and [member anchor_top]. */
         get_anchor(side: Side): float64
@@ -6144,7 +6497,7 @@ declare module "godot" {
         get_offset(offset: Side): float64
         
         /** Works the same as [method set_anchor], but instead of `keep_offset` argument and automatic update of offset, it allows to set the offset yourself (see [method set_offset]). */
-        set_anchor_and_offset(side: Side, anchor: float64, offset: float64, push_opposite_anchor: boolean = false): void
+        set_anchor_and_offset(side: Side, anchor: float64, offset: float64, push_opposite_anchor?: boolean /* = false */): void
         
         /** Sets [member offset_left] and [member offset_top] at the same time. Equivalent of changing [member position]. */
         set_begin(position: Vector2): void
@@ -6155,12 +6508,12 @@ declare module "godot" {
         /** Sets the [member position] to given [param position].  
          *  If [param keep_offsets] is `true`, control's anchors will be updated instead of offsets.  
          */
-        set_position(position: Vector2, keep_offsets: boolean = false): void
+        set_position(position: Vector2, keep_offsets?: boolean /* = false */): void
         
         /** Sets the size (see [member size]).  
          *  If [param keep_offsets] is `true`, control's anchors will be updated instead of offsets.  
          */
-        set_size(size: Vector2, keep_offsets: boolean = false): void
+        set_size(size: Vector2, keep_offsets?: boolean /* = false */): void
         
         /** Resets the size to [method get_combined_minimum_size]. This is equivalent to calling `set_size(Vector2())` (or any size below the minimum). */
         reset_size(): void
@@ -6168,7 +6521,7 @@ declare module "godot" {
         /** Sets the [member global_position] to given [param position].  
          *  If [param keep_offsets] is `true`, control's anchors will be updated instead of offsets.  
          */
-        set_global_position(position: Vector2, keep_offsets: boolean = false): void
+        set_global_position(position: Vector2, keep_offsets?: boolean /* = false */): void
         
         /** Returns [member offset_left] and [member offset_top]. See also [member position]. */
         get_begin(): Vector2
@@ -6201,6 +6554,9 @@ declare module "godot" {
          *  **Note:** Setting [member Viewport.gui_snap_controls_to_pixels] to `true` can lead to rounding inaccuracies between the displayed control and the returned [Rect2].  
          */
         get_global_rect(): Rect2
+        
+        /** Similar to the getter of [member focus_mode], but takes parent's [member focus_recursive_behavior] into account. */
+        get_focus_mode_with_recursive(): Control.FocusMode
         
         /** Returns `true` if this is the current focused control. See [member focus_mode]. */
         has_focus(): boolean
@@ -6287,33 +6643,33 @@ declare module "godot" {
         /** Returns an icon from the first matching [Theme] in the tree if that [Theme] has an icon item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        get_theme_icon(name: StringName, theme_type: StringName = ''): Texture2D
+        get_theme_icon(name: StringName, theme_type?: StringName /* = '' */): Texture2D
         
         /** Returns a [StyleBox] from the first matching [Theme] in the tree if that [Theme] has a stylebox item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        get_theme_stylebox(name: StringName, theme_type: StringName = ''): StyleBox
+        get_theme_stylebox(name: StringName, theme_type?: StringName /* = '' */): StyleBox
         
         /** Returns a [Font] from the first matching [Theme] in the tree if that [Theme] has a font item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        get_theme_font(name: StringName, theme_type: StringName = ''): Font
+        get_theme_font(name: StringName, theme_type?: StringName /* = '' */): Font
         
         /** Returns a font size from the first matching [Theme] in the tree if that [Theme] has a font size item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        get_theme_font_size(name: StringName, theme_type: StringName = ''): int64
+        get_theme_font_size(name: StringName, theme_type?: StringName /* = '' */): int64
         
         /** Returns a [Color] from the first matching [Theme] in the tree if that [Theme] has a color item with the specified [param name] and [param theme_type]. If [param theme_type] is omitted the class name of the current control is used as the type, or [member theme_type_variation] if it is defined. If the type is a class name its parent classes are also checked, in order of inheritance. If the type is a variation its base types are checked, in order of dependency, then the control's class name and its parent classes are checked.  
          *  For the current control its local overrides are considered first (see [method add_theme_color_override]), then its assigned [member theme]. After the current control, each parent control and its assigned [member theme] are considered; controls without a [member theme] assigned are skipped. If no matching [Theme] is found in the tree, the custom project [Theme] (see [member ProjectSettings.gui/theme/custom]) and the default [Theme] are used (see [ThemeDB]).  
          *    
          */
-        get_theme_color(name: StringName, theme_type: StringName = ''): Color
+        get_theme_color(name: StringName, theme_type?: StringName /* = '' */): Color
         
         /** Returns a constant from the first matching [Theme] in the tree if that [Theme] has a constant item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        get_theme_constant(name: StringName, theme_type: StringName = ''): int64
+        get_theme_constant(name: StringName, theme_type?: StringName /* = '' */): int64
         
         /** Returns `true` if there is a local override for a theme icon with the specified [param name] in this [Control] node.  
          *  See [method add_theme_icon_override].  
@@ -6348,32 +6704,32 @@ declare module "godot" {
         /** Returns `true` if there is a matching [Theme] in the tree that has an icon item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        has_theme_icon(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_icon(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a stylebox item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        has_theme_stylebox(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_stylebox(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a font item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        has_theme_font(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_font(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a font size item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        has_theme_font_size(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_font_size(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a color item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        has_theme_color(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_color(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a constant item with the specified [param name] and [param theme_type].  
          *  See [method get_theme_color] for details.  
          */
-        has_theme_constant(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_constant(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns the default base scale value from the first matching [Theme] in the tree if that [Theme] has a valid [member Theme.default_base_scale] value.  
          *  See [method get_theme_color] for details.  
@@ -6398,10 +6754,10 @@ declare module "godot" {
          *      
          *  **Note:** If this method returns an empty [String] and [method _make_custom_tooltip] is not overridden, no tooltip is displayed.  
          */
-        get_tooltip(at_position: Vector2 = Vector2.ZERO): string
+        get_tooltip(at_position?: Vector2 /* = Vector2.ZERO */): string
         
         /** Returns the mouse cursor shape the control displays on mouse hover. See [enum CursorShape]. */
-        get_cursor_shape(position: Vector2 = Vector2.ZERO): Control.CursorShape
+        get_cursor_shape(position?: Vector2 /* = Vector2.ZERO */): Control.CursorShape
         
         /** Sets the focus neighbor for the specified [enum Side] to the [Control] at [param neighbor] node path. A setter method for [member focus_neighbor_bottom], [member focus_neighbor_left], [member focus_neighbor_right] and [member focus_neighbor_top]. */
         set_focus_neighbor(side: Side, neighbor: NodePath | string): void
@@ -6416,6 +6772,9 @@ declare module "godot" {
          *  The methods [method _can_drop_data] and [method _drop_data] must be implemented on controls that want to receive drop data.  
          */
         force_drag(data: any, preview: Control): void
+        
+        /** Similar to the getter of [member mouse_filter], but takes parent's [member mouse_recursive_behavior] into account. */
+        get_mouse_filter_with_recursive(): Control.MouseFilter
         
         /** Creates an [InputEventMouseButton] that attempts to click the control. If the event is received, the control gains focus.  
          *    
@@ -6541,7 +6900,7 @@ declare module "godot" {
         
         /** The node's scale, relative to its [member size]. Change this property to scale the node around its [member pivot_offset]. The Control's [member tooltip_text] will also scale according to this value.  
          *      
-         *  **Note:** This property is mainly intended to be used for animation purposes. To support multiple resolutions in your project, use an appropriate viewport stretch mode as described in the [url=https://docs.godotengine.org/en/4.4/tutorials/rendering/multiple_resolutions.html]documentation[/url] instead of scaling Controls individually.  
+         *  **Note:** This property is mainly intended to be used for animation purposes. To support multiple resolutions in your project, use an appropriate viewport stretch mode as described in the [url=https://docs.godotengine.org/en/latest/tutorials/rendering/multiple_resolutions.html]documentation[/url] instead of scaling Controls individually.  
          *      
          *  **Note:** [member FontFile.oversampling] does  *not*  take [Control] [member scale] into account. This means that scaling up/down will cause bitmap fonts and rasterized (non-MSDF) dynamic fonts to appear blurry or pixelated. To ensure text remains crisp regardless of scale, you can enable MSDF font rendering by enabling [member ProjectSettings.gui/theme/default_font_multichannel_signed_distance_field] (applies to the default project font only), or enabling **Multichannel Signed Distance Field** in the import options of a DynamicFont for custom fonts. On system fonts, [member SystemFont.multichannel_signed_distance_field] can be enabled in the inspector.  
          *      
@@ -6624,9 +6983,17 @@ declare module "godot" {
         get focus_mode(): int64
         set focus_mode(value: int64)
         
+        /** Controls whether the recursive child nodes should have their [member focus_mode] overridden to [constant FOCUS_NONE] when evaluating input. */
+        get focus_recursive_behavior(): int64
+        set focus_recursive_behavior(value: int64)
+        
         /** Controls whether the control will be able to receive mouse button input events through [method _gui_input] and how these events should be handled. Also controls whether the control can receive the [signal mouse_entered], and [signal mouse_exited] signals. See the constants to learn what each does. */
         get mouse_filter(): int64
         set mouse_filter(value: int64)
+        
+        /** Controls whether the recursive child nodes should have their [member mouse_filter] overridden to [constant MOUSE_FILTER_IGNORE] when evaluating input. */
+        get mouse_recursive_behavior(): int64
+        set mouse_recursive_behavior(value: int64)
         
         /** When enabled, scroll wheel events processed by [method _gui_input] will be passed to the parent control even if [member mouse_filter] is set to [constant MOUSE_FILTER_STOP].  
          *  You should disable it on the root of your UI if you do not want scroll events to go to the [method Node._unhandled_input] processing.  
@@ -6665,16 +7032,16 @@ declare module "godot" {
         set theme_type_variation(value: string)
         
         /** Emitted when the control changes size. */
-        readonly resized: Signal0
+        readonly resized: Signal<() => void>
         
         /** Emitted when the node receives an [InputEvent]. */
-        readonly gui_input: Signal1<InputEvent>
+        readonly gui_input: Signal<(event: InputEvent) => void>
         
         /** Emitted when the mouse cursor enters the control's (or any child control's) visible area, that is not occluded behind other Controls or Windows, provided its [member mouse_filter] lets the event reach it and regardless if it's currently focused or not.  
          *      
          *  **Note:** [member CanvasItem.z_index] doesn't affect, which Control receives the signal.  
          */
-        readonly mouse_entered: Signal0
+        readonly mouse_entered: Signal<() => void>
         
         /** Emitted when the mouse cursor leaves the control's (and all child control's) visible area, that is not occluded behind other Controls or Windows, provided its [member mouse_filter] lets the event reach it and regardless if it's currently focused or not.  
          *      
@@ -6683,38 +7050,26 @@ declare module "godot" {
          *  **Note:** If you want to check whether the mouse truly left the area, ignoring any top nodes, you can use code like this:  
          *    
          */
-        readonly mouse_exited: Signal0
+        readonly mouse_exited: Signal<() => void>
         
         /** Emitted when the node gains focus. */
-        readonly focus_entered: Signal0
+        readonly focus_entered: Signal<() => void>
         
         /** Emitted when the node loses focus. */
-        readonly focus_exited: Signal0
+        readonly focus_exited: Signal<() => void>
         
         /** Emitted when one of the size flags changes. See [member size_flags_horizontal] and [member size_flags_vertical]. */
-        readonly size_flags_changed: Signal0
+        readonly size_flags_changed: Signal<() => void>
         
         /** Emitted when the node's minimum size changes. */
-        readonly minimum_size_changed: Signal0
+        readonly minimum_size_changed: Signal<() => void>
         
         /** Emitted when the [constant NOTIFICATION_THEME_CHANGED] notification is sent. */
-        readonly theme_changed: Signal0
-    }
-    class ControlEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class ControlEditorPopupButton<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
-        constructor(identifier?: any)
-    }
-    class ControlEditorPresetPicker<Map extends Record<string, Node> = Record<string, Node>> extends MarginContainer<Map> {
-        constructor(identifier?: any)
-    }
-    class ControlEditorToolbar<Map extends Record<string, Node> = Record<string, Node>> extends HBoxContainer<Map> {
-        constructor(identifier?: any)
+        readonly theme_changed: Signal<() => void>
     }
     /** A 2D convex polygon shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_convexpolygonshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_convexpolygonshape2d.html  
      */
     class ConvexPolygonShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -6729,7 +7084,7 @@ declare module "godot" {
     }
     /** A 3D convex polyhedron shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_convexpolygonshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_convexpolygonshape3d.html  
      */
     class ConvexPolygonShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -6737,14 +7092,9 @@ declare module "godot" {
         get points(): GArray
         set points(value: GArray)
     }
-    class CreateDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly create: Signal0
-        readonly favorites_updated: Signal0
-    }
     /** Provides access to advanced cryptographic functionalities.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_crypto.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_crypto.html  
      */
     class Crypto extends RefCounted {
         constructor(identifier?: any)
@@ -6758,7 +7108,7 @@ declare module "godot" {
          *  A small example to generate an RSA key and an X509 self-signed certificate.  
          *    
          */
-        generate_self_signed_certificate(key: CryptoKey, issuer_name: string = 'CN=myserver,O=myorganisation,C=IT', not_before: string = '20140101000000', not_after: string = '20340101000000'): X509Certificate
+        generate_self_signed_certificate(key: CryptoKey, issuer_name?: string /* = 'CN=myserver,O=myorganisation,C=IT' */, not_before?: string /* = '20140101000000' */, not_after?: string /* = '20340101000000' */): X509Certificate
         
         /** Sign a given [param hash] of type [param hash_type] with the provided private [param key]. */
         sign(hash_type: HashingContext.HashType, hash: PackedByteArray | byte[] | ArrayBuffer, key: CryptoKey): PackedByteArray
@@ -6790,7 +7140,7 @@ declare module "godot" {
     }
     /** A cryptographic key (RSA or elliptic-curve).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cryptokey.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cryptokey.html  
      */
     class CryptoKey extends Resource {
         constructor(identifier?: any)
@@ -6798,26 +7148,26 @@ declare module "godot" {
          *      
          *  **Note:** [param path] should be a "*.pub" file if [param public_only] is `true`, a "*.key" file otherwise.  
          */
-        save(path: string, public_only: boolean = false): GError
+        save(path: string, public_only?: boolean /* = false */): Error
         
         /** Loads a key from [param path]. If [param public_only] is `true`, only the public key will be loaded.  
          *      
          *  **Note:** [param path] should be a "*.pub" file if [param public_only] is `true`, a "*.key" file otherwise.  
          */
-        load(path: string, public_only: boolean = false): GError
+        load(path: string, public_only?: boolean /* = false */): Error
         
         /** Returns `true` if this CryptoKey only has the public part, and not the private one. */
         is_public_only(): boolean
         
         /** Returns a string containing the key in PEM format. If [param public_only] is `true`, only the public key will be included. */
-        save_to_string(public_only: boolean = false): string
+        save_to_string(public_only?: boolean /* = false */): string
         
         /** Loads a key from the given [param string_key]. If [param public_only] is `true`, only the public key will be loaded. */
-        load_from_string(string_key: string, public_only: boolean = false): GError
+        load_from_string(string_key: string, public_only?: boolean /* = false */): Error
     }
     /** Six square textures representing the faces of a cube. Commonly used as a skybox.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cubemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cubemap.html  
      */
     class Cubemap extends ImageTextureLayered {
         constructor(identifier?: any)
@@ -6826,7 +7176,7 @@ declare module "godot" {
     }
     /** An array of [Cubemap]s, stored together and with a single reference.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cubemaparray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cubemaparray.html  
      */
     class CubemapArray extends ImageTextureLayered {
         constructor(identifier?: any)
@@ -6847,12 +7197,12 @@ declare module "godot" {
     }
     /** A mathematical curve.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_curve.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_curve.html  
      */
     class Curve extends Resource {
         constructor(identifier?: any)
         /** Adds a point to the curve. For each side, if the `*_mode` is [constant TANGENT_LINEAR], the `*_tangent` angle (in degrees) uses the slope of the curve halfway to the adjacent point. Allows custom assignments to the `*_tangent` angle if `*_mode` is set to [constant TANGENT_FREE]. */
-        add_point(position: Vector2, left_tangent: float64 = 0, right_tangent: float64 = 0, left_mode: Curve.TangentMode = 0, right_mode: Curve.TangentMode = 0): int64
+        add_point(position: Vector2, left_tangent?: float64 /* = 0 */, right_tangent?: float64 /* = 0 */, left_mode?: Curve.TangentMode /* = 0 */, right_mode?: Curve.TangentMode /* = 0 */): int64
         
         /** Removes the point at [param index] from the curve. */
         remove_point(index: int64): void
@@ -6940,21 +7290,21 @@ declare module "godot" {
         set point_count(value: any /*Points,point_*/)
         
         /** Emitted when [member max_value] or [member min_value] is changed. */
-        readonly range_changed: Signal0
+        readonly range_changed: Signal<() => void>
         
         /** Emitted when [member max_domain] or [member min_domain] is changed. */
-        readonly domain_changed: Signal0
+        readonly domain_changed: Signal<() => void>
     }
     /** Describes a Bézier curve in 2D space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_curve2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_curve2d.html  
      */
     class Curve2D extends Resource {
         constructor(identifier?: any)
         /** Adds a point with the specified [param position] relative to the curve's own position, with control points [param in] and [param out]. Appends the new point at the end of the point list.  
          *  If [param index] is given, the new point is inserted before the existing point identified by index [param index]. Every existing point starting from [param index] is shifted further down the list of points. The index must be greater than or equal to `0` and must not exceed the number of existing points in the line. See [member point_count].  
          */
-        add_point(position: Vector2, in_: Vector2 = Vector2.ZERO, out_: Vector2 = Vector2.ZERO, index: int64 = -1): void
+        add_point(position: Vector2, in_?: Vector2 /* = Vector2.ZERO */, out_?: Vector2 /* = Vector2.ZERO */, index?: int64 /* = -1 */): void
         
         /** Sets the position for the vertex [param idx]. If the index is out of bounds, the function sends an error to the console. */
         set_point_position(idx: int64, position: Vector2): void
@@ -6995,12 +7345,12 @@ declare module "godot" {
          *  To do that, it finds the two cached points where the [param offset] lies between, then interpolates the values. This interpolation is cubic if [param cubic] is set to `true`, or linear if set to `false`.  
          *  Cubic interpolation tends to follow the curves better, but linear is faster (and often, precise enough).  
          */
-        sample_baked(offset: float64 = 0, cubic: boolean = false): Vector2
+        sample_baked(offset?: float64 /* = 0 */, cubic?: boolean /* = false */): Vector2
         
         /** Similar to [method sample_baked], but returns [Transform2D] that includes a rotation along the curve, with [member Transform2D.origin] as the point position and the [member Transform2D.x] vector pointing in the direction of the path at that point. Returns an empty transform if the length of the curve is `0`.  
          *    
          */
-        sample_baked_with_rotation(offset: float64 = 0, cubic: boolean = false): Transform2D
+        sample_baked_with_rotation(offset?: float64 /* = 0 */, cubic?: boolean /* = false */): Transform2D
         
         /** Returns the cache of points as a [PackedVector2Array]. */
         get_baked_points(): PackedVector2Array
@@ -7020,12 +7370,12 @@ declare module "godot" {
          *  [param max_stages] controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!  
          *  [param tolerance_degrees] controls how many degrees the midpoint of a segment may deviate from the real curve, before the segment has to be subdivided.  
          */
-        tessellate(max_stages: int64 = 5, tolerance_degrees: float64 = 4): PackedVector2Array
+        tessellate(max_stages?: int64 /* = 5 */, tolerance_degrees?: float64 /* = 4 */): PackedVector2Array
         
         /** Returns a list of points along the curve, with almost uniform density. [param max_stages] controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!  
          *  [param tolerance_length] controls the maximal distance between two neighboring points, before the segment has to be subdivided.  
          */
-        tessellate_even_length(max_stages: int64 = 5, tolerance_length: float64 = 20): PackedVector2Array
+        tessellate_even_length(max_stages?: int64 /* = 5 */, tolerance_length?: float64 /* = 20 */): PackedVector2Array
         
         /** The distance in pixels between two adjacent cached points. Changing it forces the cache to be recomputed the next time the [method get_baked_points] or [method get_baked_length] function is called. The smaller the distance, the more points in the cache and the more memory it will consume, so use with care. */
         get bake_interval(): float64
@@ -7039,14 +7389,14 @@ declare module "godot" {
     }
     /** Describes a Bézier curve in 3D space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_curve3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_curve3d.html  
      */
     class Curve3D extends Resource {
         constructor(identifier?: any)
         /** Adds a point with the specified [param position] relative to the curve's own position, with control points [param in] and [param out]. Appends the new point at the end of the point list.  
          *  If [param index] is given, the new point is inserted before the existing point identified by index [param index]. Every existing point starting from [param index] is shifted further down the list of points. The index must be greater than or equal to `0` and must not exceed the number of existing points in the line. See [member point_count].  
          */
-        add_point(position: Vector3, in_: Vector3 = new Vector3(0, 0, 0), out_: Vector3 = new Vector3(0, 0, 0), index: int64 = -1): void
+        add_point(position: Vector3, in_?: Vector3 /* = new Vector3(0, 0, 0) */, out_?: Vector3 /* = new Vector3(0, 0, 0) */, index?: int64 /* = -1 */): void
         
         /** Sets the position for the vertex [param idx]. If the index is out of bounds, the function sends an error to the console. */
         set_point_position(idx: int64, position: Vector3): void
@@ -7094,15 +7444,15 @@ declare module "godot" {
         /** Returns a point within the curve at position [param offset], where [param offset] is measured as a distance in 3D units along the curve. To do that, it finds the two cached points where the [param offset] lies between, then interpolates the values. This interpolation is cubic if [param cubic] is set to `true`, or linear if set to `false`.  
          *  Cubic interpolation tends to follow the curves better, but linear is faster (and often, precise enough).  
          */
-        sample_baked(offset: float64 = 0, cubic: boolean = false): Vector3
+        sample_baked(offset?: float64 /* = 0 */, cubic?: boolean /* = false */): Vector3
         
         /** Returns a [Transform3D] with `origin` as point position, `basis.x` as sideway vector, `basis.y` as up vector, `basis.z` as forward vector. When the curve length is 0, there is no reasonable way to calculate the rotation, all vectors aligned with global space axes. See also [method sample_baked]. */
-        sample_baked_with_rotation(offset: float64 = 0, cubic: boolean = false, apply_tilt: boolean = false): Transform3D
+        sample_baked_with_rotation(offset?: float64 /* = 0 */, cubic?: boolean /* = false */, apply_tilt?: boolean /* = false */): Transform3D
         
         /** Returns an up vector within the curve at position [param offset], where [param offset] is measured as a distance in 3D units along the curve. To do that, it finds the two cached up vectors where the [param offset] lies between, then interpolates the values. If [param apply_tilt] is `true`, an interpolated tilt is applied to the interpolated up vector.  
          *  If the curve has no up vectors, the function sends an error to the console, and returns `(0, 1, 0)`.  
          */
-        sample_baked_up_vector(offset: float64, apply_tilt: boolean = false): Vector3
+        sample_baked_up_vector(offset: float64, apply_tilt?: boolean /* = false */): Vector3
         
         /** Returns the cache of points as a [PackedVector3Array]. */
         get_baked_points(): PackedVector3Array
@@ -7130,12 +7480,12 @@ declare module "godot" {
          *  [param max_stages] controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!  
          *  [param tolerance_degrees] controls how many degrees the midpoint of a segment may deviate from the real curve, before the segment has to be subdivided.  
          */
-        tessellate(max_stages: int64 = 5, tolerance_degrees: float64 = 4): PackedVector3Array
+        tessellate(max_stages?: int64 /* = 5 */, tolerance_degrees?: float64 /* = 4 */): PackedVector3Array
         
         /** Returns a list of points along the curve, with almost uniform density. [param max_stages] controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!  
          *  [param tolerance_length] controls the maximal distance between two neighboring points, before the segment has to be subdivided.  
          */
-        tessellate_even_length(max_stages: int64 = 5, tolerance_length: float64 = 0.2): PackedVector3Array
+        tessellate_even_length(max_stages?: int64 /* = 5 */, tolerance_length?: float64 /* = 0.2 */): PackedVector3Array
         
         /** If `true`, and the curve has more than 2 control points, the last point and the first one will be connected in a loop. */
         get closed(): boolean
@@ -7155,12 +7505,6 @@ declare module "godot" {
         get up_vector_enabled(): boolean
         set up_vector_enabled(value: boolean)
     }
-    class CurveEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class CurvePreviewGenerator extends EditorResourcePreviewGenerator {
-        constructor(identifier?: any)
-    }
     namespace CurveTexture {
         enum TextureMode {
             /** Store the curve equally across the red, green and blue channels. This uses more video memory, but is more compatible with shaders that only read the green and blue values. */
@@ -7172,7 +7516,7 @@ declare module "godot" {
     }
     /** A 1D texture where pixel brightness corresponds to points on a curve.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_curvetexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_curvetexture.html  
      */
     class CurveTexture extends Texture2D {
         constructor(identifier?: any)
@@ -7190,7 +7534,7 @@ declare module "godot" {
     }
     /** A 1D texture where the red, green, and blue color channels correspond to points on 3 curves.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_curvexyztexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_curvexyztexture.html  
      */
     class CurveXYZTexture extends Texture2D {
         constructor(identifier?: any)
@@ -7212,7 +7556,7 @@ declare module "godot" {
     }
     /** Class representing a cylindrical [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cylindermesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cylindermesh.html  
      */
     class CylinderMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -7252,7 +7596,7 @@ declare module "godot" {
     }
     /** A 3D cylinder shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_cylindershape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_cylindershape3d.html  
      */
     class CylinderShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -7266,12 +7610,12 @@ declare module "godot" {
     }
     /** Helper class to implement a DTLS server.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_dtlsserver.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_dtlsserver.html  
      */
     class DTLSServer extends RefCounted {
         constructor(identifier?: any)
         /** Setup the DTLS server to use the given [param server_options]. See [method TLSOptions.server]. */
-        setup(server_options: TLSOptions): GError
+        setup(server_options: TLSOptions): Error
         
         /** Try to initiate the DTLS handshake with the given [param udp_peer] which must be already connected (see [method PacketPeerUDP.connect_to_host]).  
          *      
@@ -7281,9 +7625,9 @@ declare module "godot" {
     }
     /** A physics joint that connects two 2D physics bodies with a spring-like force.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_dampedspringjoint2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_dampedspringjoint2d.html  
      */
-    class DampedSpringJoint2D<Map extends Record<string, Node> = Record<string, Node>> extends Joint2D<Map> {
+    class DampedSpringJoint2D<Map extends Record<string, Node> = {}> extends Joint2D<Map> {
         constructor(identifier?: any)
         /** The spring joint's maximum length. The two attached bodies cannot stretch it past this value. */
         get length(): float64
@@ -7300,34 +7644,6 @@ declare module "godot" {
         /** The spring joint's damping ratio. A value between `0` and `1`. When the two bodies move into different directions the system tries to align them to the spring axis again. A high [member damping] value forces the attached bodies to align faster. */
         get damping(): float64
         set damping(value: float64)
-    }
-    class DebugAdapterParser extends Object {
-        constructor(identifier?: any)
-        req_initialize(params: GDictionary): GDictionary
-        req_disconnect(params: GDictionary): GDictionary
-        req_launch(params: GDictionary): GDictionary
-        req_attach(params: GDictionary): GDictionary
-        req_restart(params: GDictionary): GDictionary
-        req_terminate(params: GDictionary): GDictionary
-        req_configurationDone(params: GDictionary): GDictionary
-        req_pause(params: GDictionary): GDictionary
-        req_continue(params: GDictionary): GDictionary
-        req_threads(params: GDictionary): GDictionary
-        req_stackTrace(params: GDictionary): GDictionary
-        req_setBreakpoints(params: GDictionary): GDictionary
-        req_breakpointLocations(params: GDictionary): GDictionary
-        req_scopes(params: GDictionary): GDictionary
-        req_variables(params: GDictionary): GDictionary
-        req_next(params: GDictionary): GDictionary
-        req_stepIn(params: GDictionary): GDictionary
-        req_evaluate(params: GDictionary): GDictionary
-        ["req_godot/put_msg"]: (params: GDictionary) => GDictionary
-    }
-    class DebugAdapterServer<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class DebuggerEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
     }
     namespace Decal {
         enum DecalTexture {
@@ -7349,9 +7665,9 @@ declare module "godot" {
     }
     /** Node that projects a texture onto a [MeshInstance3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_decal.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_decal.html  
      */
-    class Decal<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class Decal<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Sets the [Texture2D] associated with the specified [enum DecalTexture]. This is a convenience method, in most cases you should access the texture directly.  
          *  For example, instead of `$Decal.set_texture(Decal.TEXTURE_ALBEDO, albedo_tex)`, use `$Decal.texture_albedo = albedo_tex`.  
@@ -7449,30 +7765,9 @@ declare module "godot" {
         get cull_mask(): int64
         set cull_mask(value: int64)
     }
-    class DecalGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
-    class DefaultThemeEditorPreview<Map extends Record<string, Node> = Record<string, Node>> extends ThemeEditorPreview<Map> {
-        constructor(identifier?: any)
-    }
-    class DependencyEditor<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class DependencyEditorOwners<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class DependencyErrorDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class DependencyRemoveDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly resource_removed: Signal1<Object>
-        readonly file_removed: Signal1<string>
-        readonly folder_removed: Signal1<string>
-    }
     /** Provides methods for managing directories and their content.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_diraccess.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_diraccess.html  
      */
     class DirAccess extends RefCounted {
         constructor(identifier?: any)
@@ -7482,21 +7777,21 @@ declare module "godot" {
         static open(path: string): DirAccess
         
         /** Returns the result of the last [method open] call in the current thread. */
-        static get_open_error(): GError
+        static get_open_error(): Error
         
         /** Creates a temporary directory. This directory will be freed when the returned [DirAccess] is freed.  
          *  If [param prefix] is not empty, it will be prefixed to the directory name, separated by a `-`.  
          *  If [param keep] is `true`, the directory is not deleted when the returned [DirAccess] is freed.  
          *  Returns `null` if opening the directory failed. You can use [method get_open_error] to check the error that occurred.  
          */
-        static create_temp(prefix: string = '', keep: boolean = false): DirAccess
+        static create_temp(prefix?: string /* = '' */, keep?: boolean /* = false */): DirAccess
         
         /** Initializes the stream used to list all files and directories using the [method get_next] function, closing the currently opened stream if needed. Once the stream has been processed, it should typically be closed with [method list_dir_end].  
          *  Affected by [member include_hidden] and [member include_navigational].  
          *      
          *  **Note:** The order of files and directories returned by this method is not deterministic, and can vary between operating systems. If you want a list of all files or folders sorted alphabetically, use [method get_files] or [method get_directories].  
          */
-        list_dir_begin(): GError
+        list_dir_begin(): Error
         
         /** Returns the next element (file or directory) in the current directory.  
          *  The name of the file or directory is returned (and not its full path). Once the stream has been fully processed, the method returns an empty [String] and closes the stream automatically (i.e. [method list_dir_end] would not be mandatory in such a case).  
@@ -7559,26 +7854,26 @@ declare module "godot" {
          *      
          *  **Note:** The new directory must be within the same scope, e.g. when you had opened a directory inside `res://`, you can't change it to `user://` directory. If you need to open a directory in another access scope, use [method open] to create a new instance instead.  
          */
-        change_dir(to_dir: string): GError
+        change_dir(to_dir: string): Error
         
         /** Returns the absolute path to the currently opened directory (e.g. `res://folder` or `C:\tmp\folder`). */
-        get_current_dir(include_drive: boolean = true): string
+        get_current_dir(include_drive?: boolean /* = true */): string
         
         /** Creates a directory. The argument can be relative to the current directory, or an absolute path. The target directory should be placed in an already existing directory (to create the full path recursively, see [method make_dir_recursive]).  
          *  Returns one of the [enum Error] code constants ([constant OK] on success).  
          */
-        make_dir(path: string): GError
+        make_dir(path: string): Error
         
         /** Static version of [method make_dir]. Supports only absolute paths. */
-        static make_dir_absolute(path: string): GError
+        static make_dir_absolute(path: string): Error
         
         /** Creates a target directory and all necessary intermediate directories in its path, by calling [method make_dir] recursively. The argument can be relative to the current directory, or an absolute path.  
          *  Returns one of the [enum Error] code constants ([constant OK] on success).  
          */
-        make_dir_recursive(path: string): GError
+        make_dir_recursive(path: string): Error
         
         /** Static version of [method make_dir_recursive]. Supports only absolute paths. */
-        static make_dir_recursive_absolute(path: string): GError
+        static make_dir_recursive_absolute(path: string): Error
         
         /** Returns whether the target file exists. The argument can be relative to the current directory, or an absolute path.  
          *  For a static equivalent, use [method FileAccess.file_exists].  
@@ -7606,27 +7901,27 @@ declare module "godot" {
          *  If [param chmod_flags] is different than `-1`, the Unix permissions for the destination path will be set to the provided value, if available on the current operating system.  
          *  Returns one of the [enum Error] code constants ([constant OK] on success).  
          */
-        copy(from: string, to: string, chmod_flags: int64 = -1): GError
+        copy(from: string, to: string, chmod_flags?: int64 /* = -1 */): Error
         
         /** Static version of [method copy]. Supports only absolute paths. */
-        static copy_absolute(from: string, to: string, chmod_flags: int64 = -1): GError
+        static copy_absolute(from: string, to: string, chmod_flags?: int64 /* = -1 */): Error
         
         /** Renames (move) the [param from] file or directory to the [param to] destination. Both arguments should be paths to files or directories, either relative or absolute. If the destination file or directory exists and is not access-protected, it will be overwritten.  
          *  Returns one of the [enum Error] code constants ([constant OK] on success).  
          */
-        rename(from: string, to: string): GError
+        rename(from: string, to: string): Error
         
         /** Static version of [method rename]. Supports only absolute paths. */
-        static rename_absolute(from: string, to: string): GError
+        static rename_absolute(from: string, to: string): Error
         
         /** Permanently deletes the target file or an empty directory. The argument can be relative to the current directory, or an absolute path. If the target directory is not empty, the operation will fail.  
          *  If you don't want to delete the file/directory permanently, use [method OS.move_to_trash] instead.  
          *  Returns one of the [enum Error] code constants ([constant OK] on success).  
          */
-        remove(path: string): GError
+        remove(path: string): Error
         
         /** Static version of [method remove]. Supports only absolute paths. */
-        static remove_absolute(path: string): GError
+        static remove_absolute(path: string): Error
         
         /** Returns `true` if the file or directory is a symbolic link, directory junction, or other reparse point.  
          *      
@@ -7646,7 +7941,7 @@ declare module "godot" {
          *      
          *  **Note:** This method is implemented on macOS, Linux, and Windows.  
          */
-        create_link(source: string, target: string): GError
+        create_link(source: string, target: string): Error
         
         /** Returns `true` if the directory is a macOS bundle.  
          *      
@@ -7659,6 +7954,9 @@ declare module "godot" {
          *  **Note:** This method is implemented on macOS, Linux (for EXT4 and F2FS filesystems only) and Windows. On other platforms, it always returns `true`.  
          */
         is_case_sensitive(path: string): boolean
+        
+        /** Returns `true` if paths [param path_a] and [param path_b] resolve to the same file system object. Returns `false` otherwise, even if the files are bit-for-bit identical (e.g., identical copies of the file that are not symbolic links). */
+        is_equivalent(path_a: string, path_b: string): boolean
         
         /** If `true`, `.` and `..` are included when navigating the directory.  
          *  Affects [method list_dir_begin] and [method get_directories].  
@@ -7674,9 +7972,9 @@ declare module "godot" {
     }
     /** Directional 2D light from a distance.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_directionallight2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_directionallight2d.html  
      */
-    class DirectionalLight2D<Map extends Record<string, Node> = Record<string, Node>> extends Light2D<Map> {
+    class DirectionalLight2D<Map extends Record<string, Node> = {}> extends Light2D<Map> {
         constructor(identifier?: any)
         /** The height of the light. Used with 2D normal mapping. Ranges from 0 (parallel to the plane) to 1 (perpendicular to the plane). */
         get height(): float64
@@ -7710,9 +8008,9 @@ declare module "godot" {
     }
     /** Directional light from a distance, as from the Sun.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_directionallight3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_directionallight3d.html  
      */
-    class DirectionalLight3D<Map extends Record<string, Node> = Record<string, Node>> extends Light3D<Map> {
+    class DirectionalLight3D<Map extends Record<string, Node> = {}> extends Light3D<Map> {
         constructor(identifier?: any)
         /** The light's shadow rendering algorithm. See [enum ShadowMode]. */
         get directional_shadow_mode(): int64
@@ -7749,21 +8047,6 @@ declare module "godot" {
         /** Set whether this [DirectionalLight3D] is visible in the sky, in the scene, or both in the sky and in the scene. See [enum SkyMode] for options. */
         get sky_mode(): int64
         set sky_mode(value: int64)
-    }
-    class DirectoryCreateDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class DockContextPopup<Map extends Record<string, Node> = Record<string, Node>> extends PopupPanel<Map> {
-        constructor(identifier?: any)
-    }
-    class DockSplitContainer<Map extends Record<string, Node> = Record<string, Node>> extends SplitContainer<Map> {
-        constructor(identifier?: any)
-    }
-    class DynamicFontImportSettingsData extends RefCounted {
-        constructor(identifier?: any)
-    }
-    class DynamicFontImportSettingsDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
     }
     namespace ENetConnection {
         enum CompressionMode {
@@ -7814,7 +8097,7 @@ declare module "godot" {
     }
     /** A wrapper class for an [url=http://enet.bespin.org/group__host.html]ENetHost[/url].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_enetconnection.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_enetconnection.html  
      */
     class ENetConnection extends RefCounted {
         constructor(identifier?: any)
@@ -7822,14 +8105,14 @@ declare module "godot" {
          *      
          *  **Note:** It is necessary to create a host in both client and server in order to establish a connection.  
          */
-        create_host_bound(bind_address: string, bind_port: int64, max_peers: int64 = 32, max_channels: int64 = 0, in_bandwidth: int64 = 0, out_bandwidth: int64 = 0): GError
+        create_host_bound(bind_address: string, bind_port: int64, max_peers?: int64 /* = 32 */, max_channels?: int64 /* = 0 */, in_bandwidth?: int64 /* = 0 */, out_bandwidth?: int64 /* = 0 */): Error
         
         /** Creates an ENetHost that allows up to [param max_peers] connected peers, each allocating up to [param max_channels] channels, optionally limiting bandwidth to [param in_bandwidth] and [param out_bandwidth] (if greater than zero).  
          *  This method binds a random available dynamic UDP port on the host machine at the  *unspecified*  address. Use [method create_host_bound] to specify the address and port.  
          *      
          *  **Note:** It is necessary to create a host in both client and server in order to establish a connection.  
          */
-        create_host(max_peers: int64 = 32, max_channels: int64 = 0, in_bandwidth: int64 = 0, out_bandwidth: int64 = 0): GError
+        create_host(max_peers?: int64 /* = 32 */, max_channels?: int64 /* = 0 */, in_bandwidth?: int64 /* = 0 */, out_bandwidth?: int64 /* = 0 */): Error
         
         /** Destroys the host and all resources associated with it. */
         destroy(): void
@@ -7838,20 +8121,20 @@ declare module "godot" {
          *      
          *  **Note:** You must call either [method create_host] or [method create_host_bound] on both ends before calling this method.  
          */
-        connect_to_host(address: string, port: int64, channels: int64 = 0, data: int64 = 0): ENetPacketPeer
+        connect_to_host(address: string, port: int64, channels?: int64 /* = 0 */, data?: int64 /* = 0 */): ENetPacketPeer
         
         /** Waits for events on this connection and shuttles packets between the host and its peers, with the given [param timeout] (in milliseconds). The returned [Array] will have 4 elements. An [enum EventType], the [ENetPacketPeer] which generated the event, the event associated data (if any), the event associated channel (if any). If the generated event is [constant EVENT_RECEIVE], the received packet will be queued to the associated [ENetPacketPeer].  
          *  Call this function regularly to handle connections, disconnections, and to receive new packets.  
          *      
          *  **Note:** This method must be called on both ends involved in the event (sending and receiving hosts).  
          */
-        service(timeout: int64 = 0): GArray
+        service(timeout?: int64 /* = 0 */): GArray
         
         /** Sends any queued packets on the host specified to its designated peers. */
         flush(): void
         
         /** Adjusts the bandwidth limits of a host. */
-        bandwidth_limit(in_bandwidth: int64 = 0, out_bandwidth: int64 = 0): void
+        bandwidth_limit(in_bandwidth?: int64 /* = 0 */, out_bandwidth?: int64 /* = 0 */): void
         
         /** Limits the maximum allowed channels of future incoming connections. */
         channel_limit(limit: int64): void
@@ -7868,10 +8151,10 @@ declare module "godot" {
         compress(mode: ENetConnection.CompressionMode): void
         
         /** Configure this ENetHost to use the custom Godot extension allowing DTLS encryption for ENet servers. Call this right after [method create_host_bound] to have ENet expect peers to connect using DTLS. See [method TLSOptions.server]. */
-        dtls_server_setup(server_options: TLSOptions): GError
+        dtls_server_setup(server_options: TLSOptions): Error
         
         /** Configure this ENetHost to use the custom Godot extension allowing DTLS encryption for ENet clients. Call this before [method connect_to_host] to have ENet connect using DTLS validating the server certificate against [param hostname]. You can pass the optional [param client_options] parameter to customize the trusted certification authorities, or disable the common name verification. See [method TLSOptions.client] and [method TLSOptions.client_unsafe]. */
-        dtls_client_setup(hostname: string, client_options: TLSOptions = undefined): GError
+        dtls_client_setup(hostname: string, client_options?: TLSOptions /* = undefined */): Error
         
         /** Configures the DTLS server to automatically drop new connections.  
          *      
@@ -7902,24 +8185,24 @@ declare module "godot" {
     }
     /** A MultiplayerPeer implementation using the [url=http://enet.bespin.org/index.html]ENet[/url] library.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_enetmultiplayerpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_enetmultiplayerpeer.html  
      */
     class ENetMultiplayerPeer extends MultiplayerPeer {
         constructor(identifier?: any)
         /** Create server that listens to connections via [param port]. The port needs to be an available, unused port between 0 and 65535. Note that ports below 1024 are privileged and may require elevated permissions depending on the platform. To change the interface the server listens on, use [method set_bind_ip]. The default IP is the wildcard `"*"`, which listens on all available interfaces. [param max_clients] is the maximum number of clients that are allowed at once, any number up to 4095 may be used, although the achievable number of simultaneous clients may be far lower and depends on the application. For additional details on the bandwidth parameters, see [method create_client]. Returns [constant OK] if a server was created, [constant ERR_ALREADY_IN_USE] if this ENetMultiplayerPeer instance already has an open connection (in which case you need to call [method MultiplayerPeer.close] first) or [constant ERR_CANT_CREATE] if the server could not be created. */
-        create_server(port: int64, max_clients: int64 = 32, max_channels: int64 = 0, in_bandwidth: int64 = 0, out_bandwidth: int64 = 0): GError
+        create_server(port: int64, max_clients?: int64 /* = 32 */, max_channels?: int64 /* = 0 */, in_bandwidth?: int64 /* = 0 */, out_bandwidth?: int64 /* = 0 */): Error
         
         /** Create client that connects to a server at [param address] using specified [param port]. The given address needs to be either a fully qualified domain name (e.g. `"www.example.com"`) or an IP address in IPv4 or IPv6 format (e.g. `"192.168.1.1"`). The [param port] is the port the server is listening on. The [param channel_count] parameter can be used to specify the number of ENet channels allocated for the connection. The [param in_bandwidth] and [param out_bandwidth] parameters can be used to limit the incoming and outgoing bandwidth to the given number of bytes per second. The default of 0 means unlimited bandwidth. Note that ENet will strategically drop packets on specific sides of a connection between peers to ensure the peer's bandwidth is not overwhelmed. The bandwidth parameters also determine the window size of a connection which limits the amount of reliable packets that may be in transit at any given time. Returns [constant OK] if a client was created, [constant ERR_ALREADY_IN_USE] if this ENetMultiplayerPeer instance already has an open connection (in which case you need to call [method MultiplayerPeer.close] first) or [constant ERR_CANT_CREATE] if the client could not be created. If [param local_port] is specified, the client will also listen to the given port; this is useful for some NAT traversal techniques. */
-        create_client(address: string, port: int64, channel_count: int64 = 0, in_bandwidth: int64 = 0, out_bandwidth: int64 = 0, local_port: int64 = 0): GError
+        create_client(address: string, port: int64, channel_count?: int64 /* = 0 */, in_bandwidth?: int64 /* = 0 */, out_bandwidth?: int64 /* = 0 */, local_port?: int64 /* = 0 */): Error
         
         /** Initialize this [MultiplayerPeer] in mesh mode. The provided [param unique_id] will be used as the local peer network unique ID once assigned as the [member MultiplayerAPI.multiplayer_peer]. In the mesh configuration you will need to set up each new peer manually using [ENetConnection] before calling [method add_mesh_peer]. While this technique is more advanced, it allows for better control over the connection process (e.g. when dealing with NAT punch-through) and for better distribution of the network load (which would otherwise be more taxing on the server). */
-        create_mesh(unique_id: int64): GError
+        create_mesh(unique_id: int64): Error
         
         /** Add a new remote peer with the given [param peer_id] connected to the given [param host].  
          *      
          *  **Note:** The [param host] must have exactly one peer in the [constant ENetPacketPeer.STATE_CONNECTED] state.  
          */
-        add_mesh_peer(peer_id: int64, host: ENetConnection): GError
+        add_mesh_peer(peer_id: int64, host: ENetConnection): Error
         
         /** The IP used when creating a server. This is set to the wildcard `"*"` by default, which binds to all available interfaces. The given IP needs to be in IPv4 or IPv6 address format, for example: `"192.168.1.1"`. */
         set_bind_ip(ip: string): void
@@ -8008,7 +8291,7 @@ declare module "godot" {
     }
     /** A wrapper class for an [url=http://enet.bespin.org/group__peer.html]ENetPeer[/url].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_enetpacketpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_enetpacketpeer.html  
      */
     class ENetPacketPeer extends PacketPeer {
         /** The reference scale for packet loss. See [method get_statistic] and [constant PEER_PACKET_LOSS]. */
@@ -8028,13 +8311,13 @@ declare module "godot" {
         constructor(identifier?: any)
         
         /** Request a disconnection from a peer. An [constant ENetConnection.EVENT_DISCONNECT] will be generated during [method ENetConnection.service] once the disconnection is complete. */
-        peer_disconnect(data: int64 = 0): void
+        peer_disconnect(data?: int64 /* = 0 */): void
         
         /** Request a disconnection from a peer, but only after all queued outgoing packets are sent. An [constant ENetConnection.EVENT_DISCONNECT] will be generated during [method ENetConnection.service] once the disconnection is complete. */
-        peer_disconnect_later(data: int64 = 0): void
+        peer_disconnect_later(data?: int64 /* = 0 */): void
         
         /** Force an immediate disconnection from a peer. No [constant ENetConnection.EVENT_DISCONNECT] will be generated. The foreign peer is not guaranteed to receive the disconnect notification, and is reset immediately upon return from this function. */
-        peer_disconnect_now(data: int64 = 0): void
+        peer_disconnect_now(data?: int64 /* = 0 */): void
         
         /** Sends a ping request to a peer. ENet automatically pings all connected peers at regular intervals, however, this function may be called to ensure more frequent ping requests. */
         ping(): void
@@ -8046,7 +8329,7 @@ declare module "godot" {
         reset(): void
         
         /** Queues a [param packet] to be sent over the specified [param channel]. See `FLAG_*` constants for available packet flags. */
-        send(channel: int64, packet: PackedByteArray | byte[] | ArrayBuffer, flags: int64): GError
+        send(channel: int64, packet: PackedByteArray | byte[] | ArrayBuffer, flags: int64): Error
         
         /** Configures throttle parameter for a peer.  
          *  Unreliable packets are dropped by ENet in response to the varying conditions of the Internet connection to the peer. The throttle represents a probability that an unreliable packet should not be dropped and thus sent by ENet to the peer. By measuring fluctuations in round trip times of reliable packets over the specified [param interval], ENet will either increase the probability by the amount specified in the [param acceleration] parameter, or decrease it by the amount specified in the [param deceleration] parameter (both are ratios to [constant PACKET_THROTTLE_SCALE]).  
@@ -8082,95 +8365,11 @@ declare module "godot" {
         /** Returns `true` if the peer is currently active (i.e. the associated [ENetConnection] is still valid). */
         is_active(): boolean
     }
-    class EditorAbout<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class EditorAssetLibrary<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
-        constructor(identifier?: any)
-        readonly install_asset: Signal2<string, string>
-    }
-    class EditorAudioBus<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
-        constructor(identifier?: any)
-        update_bus(): void
-        update_send(): void
-        readonly duplicate_request: Signal0
-        readonly delete_request: Signal0
-        readonly vol_reset_request: Signal0
-        readonly drop_end_request: Signal0
-        readonly dropped: Signal0
-    }
-    class EditorAudioBuses<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _update_bus(_unnamed_arg0: int64): void
-        _update_sends(): void
-    }
-    class EditorAudioMeterNotches<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-        add_notch(_unnamed_arg0: float64, _unnamed_arg1: float64, _unnamed_arg2: boolean): void
-        _draw_audio_notches(): void
-    }
-    class EditorAudioStreamPreviewPlugin extends EditorResourcePreviewGenerator {
-        constructor(identifier?: any)
-    }
-    class EditorAudioStreamTooltipPlugin extends EditorResourceTooltipPlugin {
-        constructor(identifier?: any)
-    }
-    class EditorAutoloadSettings<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        update_autoload(): void
-        autoload_add(_unnamed_arg0: string, _unnamed_arg1: string): boolean
-        autoload_remove(_unnamed_arg0: string): void
-        readonly autoload_changed: Signal0
-    }
-    class EditorBitmapPreviewPlugin extends EditorResourcePreviewGenerator {
-        constructor(identifier?: any)
-    }
-    class EditorBottomPanel<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
-        constructor(identifier?: any)
-    }
-    namespace EditorBuildProfile {
-        enum BuildOption {
-            BUILD_OPTION_3D = 0,
-            BUILD_OPTION_PHYSICS_2D = 1,
-            BUILD_OPTION_PHYSICS_3D = 2,
-            BUILD_OPTION_NAVIGATION = 3,
-            BUILD_OPTION_XR = 4,
-            BUILD_OPTION_RENDERING_DEVICE = 5,
-            BUILD_OPTION_OPENGL = 6,
-            BUILD_OPTION_VULKAN = 7,
-            BUILD_OPTION_TEXT_SERVER_FALLBACK = 8,
-            BUILD_OPTION_TEXT_SERVER_ADVANCED = 9,
-            BUILD_OPTION_DYNAMIC_FONTS = 10,
-            BUILD_OPTION_WOFF2_FONTS = 11,
-            BUILD_OPTION_GRAPHITE_FONTS = 12,
-            BUILD_OPTION_MSDFGEN = 13,
-            BUILD_OPTION_MAX = 14,
-        }
-        enum BuildOptionCategory {
-            BUILD_OPTION_CATEGORY_GENERAL = 0,
-            BUILD_OPTION_CATEGORY_TEXT_SERVER = 1,
-            BUILD_OPTION_CATEGORY_MAX = 2,
-        }
-    }
-    class EditorBuildProfile extends RefCounted {
-        constructor(identifier?: any)
-        set_disable_class(class_name: StringName, disable: boolean): void
-        is_class_disabled(class_name: StringName): boolean
-        set_disable_build_option(build_option: EditorBuildProfile.BuildOption, disable: boolean): void
-        is_build_option_disabled(build_option: EditorBuildProfile.BuildOption): boolean
-        get_build_option_name(build_option: EditorBuildProfile.BuildOption): string
-        save_to_file(path: string): GError
-        load_from_file(path: string): GError
-    }
-    class EditorBuildProfileManager<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-        _update_selected_profile(): void
-    }
     /** Godot editor's command palette.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorcommandpalette.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorcommandpalette.html  
      */
-    class EditorCommandPalette<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
+    class EditorCommandPalette<Map extends Record<string, Node> = {}> extends ConfirmationDialog<Map> {
         constructor(identifier?: any)
         /** Adds a custom command to EditorCommandPalette.  
          *  - [param command_name]: [String] (Name of the **Command**. This is displayed to the user.)  
@@ -8178,7 +8377,7 @@ declare module "godot" {
          *  - [param binded_callable]: [Callable] (Callable of the **Command**. This will be executed when the **Command** is selected.)  
          *  - [param shortcut_text]: [String] (Shortcut text of the **Command** if available.)  
          */
-        add_command(command_name: string, key_name: string, binded_callable: Callable, shortcut_text: string = 'None'): void
+        add_command(command_name: string, key_name: string, binded_callable: Callable, shortcut_text?: string /* = 'None' */): void
         
         /** Removes the custom command from EditorCommandPalette.  
          *  - [param key_name]: [String] (Name of the key for a particular **Command**.)  
@@ -8217,7 +8416,7 @@ declare module "godot" {
     }
     /** Plugin for adding custom context menus in the editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorcontextmenuplugin.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorcontextmenuplugin.html  
      */
     class EditorContextMenuPlugin extends RefCounted {
         constructor(identifier?: any)
@@ -8233,47 +8432,21 @@ declare module "godot" {
          *    
          *  If you want to assign shortcut to the menu item, use [method add_context_menu_item_from_shortcut] instead.  
          */
-        add_context_menu_item(name: string, callback: Callable, icon: Texture2D = undefined): void
+        add_context_menu_item(name: string, callback: Callable, icon?: Texture2D /* = undefined */): void
         
         /** Add custom option to the context menu of the plugin's specified slot. The option will have the [param shortcut] assigned and reuse its callback. The shortcut has to be registered beforehand with [method add_menu_shortcut].  
          *    
          */
-        add_context_menu_item_from_shortcut(name: string, shortcut: Shortcut, icon: Texture2D = undefined): void
+        add_context_menu_item_from_shortcut(name: string, shortcut: Shortcut, icon?: Texture2D /* = undefined */): void
         
         /** Add a submenu to the context menu of the plugin's specified slot. The submenu is not automatically handled, you need to connect to its signals yourself. Also the submenu is freed on every popup, so provide a new [PopupMenu] every time.  
          *    
          */
-        add_context_submenu_item(name: string, menu: PopupMenu, icon: Texture2D = undefined): void
-    }
-    class EditorContextMenuPluginManager extends Object {
-        constructor(identifier?: any)
-    }
-    class EditorDebuggerInspector<Map extends Record<string, Node> = Record<string, Node>> extends EditorInspector<Map> {
-        constructor(identifier?: any)
-        readonly object_selected: Signal1<int64>
-        readonly object_edited: Signal3<int64, string, any /*value*/>
-        readonly object_property_updated: Signal2<int64, string>
-    }
-    class EditorDebuggerNode<Map extends Record<string, Node> = Record<string, Node>> extends MarginContainer<Map> {
-        constructor(identifier?: any)
-        live_debug_create_node(_unnamed_arg0: NodePath | string, _unnamed_arg1: string, _unnamed_arg2: string): void
-        live_debug_instantiate_node(_unnamed_arg0: NodePath | string, _unnamed_arg1: string, _unnamed_arg2: string): void
-        live_debug_remove_node(_unnamed_arg0: NodePath | string): void
-        live_debug_remove_and_keep_node(_unnamed_arg0: NodePath | string, _unnamed_arg1: int64): void
-        live_debug_restore_node(_unnamed_arg0: int64, _unnamed_arg1: NodePath | string, _unnamed_arg2: int64): void
-        live_debug_duplicate_node(_unnamed_arg0: NodePath | string, _unnamed_arg1: string): void
-        live_debug_reparent_node(_unnamed_arg0: NodePath | string, _unnamed_arg1: NodePath | string, _unnamed_arg2: string, _unnamed_arg3: int64): void
-        readonly goto_script_line: Signal0
-        readonly set_execution: Signal2<any /*script*/, int64>
-        readonly clear_execution: Signal1<any /*script*/>
-        readonly breaked: Signal2<boolean, boolean>
-        readonly breakpoint_toggled: Signal3<string, int64, boolean>
-        readonly breakpoint_set_in_tree: Signal4<any /*script*/, int64, boolean, int64>
-        readonly breakpoints_cleared_in_tree: Signal1<int64>
+        add_context_submenu_item(name: string, menu: PopupMenu, icon?: Texture2D /* = undefined */): void
     }
     /** A base class to implement debugger plugins.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editordebuggerplugin.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editordebuggerplugin.html  
      */
     class EditorDebuggerPlugin extends RefCounted {
         constructor(identifier?: any)
@@ -8304,25 +8477,17 @@ declare module "godot" {
          */
         get_sessions(): GArray
     }
-    class EditorDebuggerRemoteObject extends Object {
-        constructor(identifier?: any)
-        get_title(): string
-        get_variant(_unnamed_arg0: StringName): any
-        clear(): void
-        get_remote_object_id(): int64
-        readonly value_edited: Signal3<int64, string, any /*value*/>
-    }
     /** A class to interact with the editor debugger.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editordebuggersession.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editordebuggersession.html  
      */
     class EditorDebuggerSession extends RefCounted {
         constructor(identifier?: any)
         /** Sends the given [param message] to the attached remote instance, optionally passing additionally [param data]. See [EngineDebugger] for how to retrieve those messages. */
-        send_message(message: string, data: GArray = []): void
+        send_message(message: string, data?: GArray /* = [] */): void
         
         /** Toggle the given [param profiler] on the attached remote instance, optionally passing additionally [param data]. See [EngineProfiler] for more details. */
-        toggle_profiler(profiler: string, enable: boolean, data: GArray = []): void
+        toggle_profiler(profiler: string, enable: boolean, data?: GArray /* = [] */): void
         
         /** Returns `true` if the attached remote instance is currently in the debug loop. */
         is_breaked(): boolean
@@ -8343,38 +8508,16 @@ declare module "godot" {
         set_breakpoint(path: string, line: int64, enabled: boolean): void
         
         /** Emitted when a remote instance is attached to this session (i.e. the session becomes active). */
-        readonly started: Signal0
+        readonly started: Signal<() => void>
         
         /** Emitted when a remote instance is detached from this session (i.e. the session becomes inactive). */
-        readonly stopped: Signal0
+        readonly stopped: Signal<() => void>
         
         /** Emitted when the attached remote instance enters a break state. If [param can_debug] is `true`, the remote instance will enter the debug loop. */
-        readonly breaked: Signal1<boolean>
+        readonly breaked: Signal<(can_debug: boolean) => void>
         
         /** Emitted when the attached remote instance exits a break state. */
-        readonly continued: Signal0
-    }
-    class EditorDebuggerTree<Map extends Record<string, Node> = Record<string, Node>> extends Tree<Map> {
-        constructor(identifier?: any)
-        readonly object_selected: Signal2<int64, int64>
-        readonly save_node: Signal3<int64, string, int64>
-        readonly open: Signal0
-    }
-    class EditorDirDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly copy_pressed: Signal1<string>
-        readonly move_pressed: Signal1<string>
-    }
-    class EditorDockManager extends Object {
-        constructor(identifier?: any)
-    }
-    class EditorExport<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
-        constructor(identifier?: any)
-        readonly export_presets_updated: Signal0
-        readonly export_presets_runnable_updated: Signal0
-    }
-    class EditorExportGDScript extends EditorExportPlugin {
-        constructor(identifier?: any)
+        readonly continued: Signal<() => void>
     }
     namespace EditorExportPlatform {
         enum ExportMessageType {
@@ -8409,7 +8552,7 @@ declare module "godot" {
     }
     /** Identifies a supported export platform, and internally provides the functionality of exporting to that platform.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatform.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatform.html  
      */
     class EditorExportPlatform extends RefCounted {
         constructor(identifier?: any)
@@ -8428,7 +8571,7 @@ declare module "godot" {
         /** Saves PCK archive and returns [Dictionary] with the following keys: `result: Error`, `so_files: Array` (array of the shared/static objects which contains dictionaries with the following keys: `path: String`, `tags: PackedStringArray`, and `target_folder: String`).  
          *  If [param embed] is `true`, PCK content is appended to the end of [param path] file and return [Dictionary] additionally include following keys: `embedded_start: int` (embedded PCK offset) and `embedded_size: int` (embedded PCK size).  
          */
-        save_pack(preset: EditorExportPreset, debug: boolean, path: string, embed: boolean = false): GDictionary
+        save_pack(preset: EditorExportPreset, debug: boolean, path: string, embed?: boolean /* = false */): GDictionary
         
         /** Saves ZIP archive and returns [Dictionary] with the following keys: `result: Error`, `so_files: Array` (array of the shared/static objects which contains dictionaries with the following keys: `path: String`, `tags: PackedStringArray`, and `target_folder: String`). */
         save_zip(preset: EditorExportPreset, debug: boolean, path: string): GDictionary
@@ -8448,28 +8591,28 @@ declare module "godot" {
          *      
          *  **Note:** `file_index` and `file_count` are intended for progress tracking only and aren't necessarily unique and precise.  
          */
-        export_project_files(preset: EditorExportPreset, debug: boolean, save_cb: Callable, shared_cb: Callable = new Callable()): GError
+        export_project_files(preset: EditorExportPreset, debug: boolean, save_cb: Callable, shared_cb?: Callable /* = new Callable() */): Error
         
         /** Creates a full project at [param path] for the specified [param preset]. */
-        export_project(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags = 0): GError
+        export_project(preset: EditorExportPreset, debug: boolean, path: string, flags?: EditorExportPlatform.DebugFlags /* = 0 */): Error
         
         /** Creates a PCK archive at [param path] for the specified [param preset]. */
-        export_pack(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags = 0): GError
+        export_pack(preset: EditorExportPreset, debug: boolean, path: string, flags?: EditorExportPlatform.DebugFlags /* = 0 */): Error
         
         /** Create a ZIP archive at [param path] for the specified [param preset]. */
-        export_zip(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags = 0): GError
+        export_zip(preset: EditorExportPreset, debug: boolean, path: string, flags?: EditorExportPlatform.DebugFlags /* = 0 */): Error
         
         /** Creates a patch PCK archive at [param path] for the specified [param preset], containing only the files that have changed since the last patch.  
          *      
          *  **Note:** [param patches] is an optional override of the set of patches defined in the export preset. When empty the patches defined in the export preset will be used instead.  
          */
-        export_pack_patch(preset: EditorExportPreset, debug: boolean, path: string, patches: PackedStringArray | string[] = [], flags: EditorExportPlatform.DebugFlags = 0): GError
+        export_pack_patch(preset: EditorExportPreset, debug: boolean, path: string, patches?: PackedStringArray | string[] /* = [] */, flags?: EditorExportPlatform.DebugFlags /* = 0 */): Error
         
         /** Create a patch ZIP archive at [param path] for the specified [param preset], containing only the files that have changed since the last patch.  
          *      
          *  **Note:** [param patches] is an optional override of the set of patches defined in the export preset. When empty the patches defined in the export preset will be used instead.  
          */
-        export_zip_patch(preset: EditorExportPreset, debug: boolean, path: string, patches: PackedStringArray | string[] = [], flags: EditorExportPlatform.DebugFlags = 0): GError
+        export_zip_patch(preset: EditorExportPreset, debug: boolean, path: string, patches?: PackedStringArray | string[] /* = [] */, flags?: EditorExportPlatform.DebugFlags /* = 0 */): Error
         
         /** Clears the export log. */
         clear_messages(): void
@@ -8493,13 +8636,13 @@ declare module "godot" {
         get_worst_message_type(): EditorExportPlatform.ExportMessageType
         
         /** Executes specified command on the remote host via SSH protocol and returns command output in the [param output]. */
-        ssh_run_on_remote(host: string, port: string, ssh_arg: PackedStringArray | string[], cmd_args: string, output: GArray = [], port_fwd: int64 = -1): GError
+        ssh_run_on_remote(host: string, port: string, ssh_arg: PackedStringArray | string[], cmd_args: string, output?: GArray /* = [] */, port_fwd?: int64 /* = -1 */): Error
         
         /** Executes specified command on the remote host via SSH protocol and returns process ID (on the remote host) without waiting for command to finish. */
-        ssh_run_on_remote_no_wait(host: string, port: string, ssh_args: PackedStringArray | string[], cmd_args: string, port_fwd: int64 = -1): int64
+        ssh_run_on_remote_no_wait(host: string, port: string, ssh_args: PackedStringArray | string[], cmd_args: string, port_fwd?: int64 /* = -1 */): int64
         
         /** Uploads specified file over SCP protocol to the remote host. */
-        ssh_push_to_remote(host: string, port: string, scp_args: PackedStringArray | string[], src_file: string, dst_file: string): GError
+        ssh_push_to_remote(host: string, port: string, scp_args: PackedStringArray | string[], src_file: string, dst_file: string): Error
         
         /** Returns additional files that should always be exported regardless of preset configuration, and are not part of the project source. The returned [Dictionary] contains filename keys ([String]) and their corresponding raw data ([PackedByteArray]). */
         get_internal_export_files(preset: EditorExportPreset, debug: boolean): GDictionary
@@ -8509,14 +8652,14 @@ declare module "godot" {
     }
     /** Exporter for Android.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformandroid.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformandroid.html  
      */
     class EditorExportPlatformAndroid extends EditorExportPlatform {
         constructor(identifier?: any)
     }
     /** Base class for custom [EditorExportPlatform] implementations (plugins).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformextension.html  
      */
     class EditorExportPlatformExtension extends EditorExportPlatform {
         constructor(identifier?: any)
@@ -8618,7 +8761,7 @@ declare module "godot" {
          *  This method is called when [param device] one-click deploy menu option is selected.  
          *  Implementation should export project to a temporary location, upload and run it on the specific [param device], or perform another action associated with the menu item.  
          */
-        /* gdvirtual */ _run(preset: EditorExportPreset, device: int64, debug_flags: EditorExportPlatform.DebugFlags): GError
+        /* gdvirtual */ _run(preset: EditorExportPreset, device: int64, debug_flags: EditorExportPlatform.DebugFlags): Error
         
         /** **Optional.**  
          *  Returns icon of the one-click deploy menu button, icon should be 16x16 adjusted to the current editor scale, see [method EditorInterface.get_editor_scale].  
@@ -8651,19 +8794,19 @@ declare module "godot" {
          *  This method is called when "Export" button is pressed in the export dialog.  
          *  This method implementation can call [method EditorExportPlatform.save_pack] or [method EditorExportPlatform.save_zip] to use default PCK/ZIP export process, or calls [method EditorExportPlatform.export_project_files] and implement custom callback for processing each exported file.  
          */
-        /* gdvirtual */ _export_project(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags): GError
+        /* gdvirtual */ _export_project(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags): Error
         
         /** **Optional.**  
          *  Creates a PCK archive at [param path] for the specified [param preset].  
          *  This method is called when "Export PCK/ZIP" button is pressed in the export dialog, with "Export as Patch" disabled, and PCK is selected as a file type.  
          */
-        /* gdvirtual */ _export_pack(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags): GError
+        /* gdvirtual */ _export_pack(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags): Error
         
         /** **Optional.**  
          *  Create a ZIP archive at [param path] for the specified [param preset].  
          *  This method is called when "Export PCK/ZIP" button is pressed in the export dialog, with "Export as Patch" disabled, and ZIP is selected as a file type.  
          */
-        /* gdvirtual */ _export_zip(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags): GError
+        /* gdvirtual */ _export_zip(preset: EditorExportPreset, debug: boolean, path: string, flags: EditorExportPlatform.DebugFlags): Error
         
         /** **Optional.**  
          *  Creates a patch PCK archive at [param path] for the specified [param preset], containing only the files that have changed since the last patch.  
@@ -8671,7 +8814,7 @@ declare module "godot" {
          *      
          *  **Note:** The patches provided in [param patches] have already been loaded when this method is called and are merely provided as context. When empty the patches defined in the export preset have been loaded instead.  
          */
-        /* gdvirtual */ _export_pack_patch(preset: EditorExportPreset, debug: boolean, path: string, patches: PackedStringArray | string[], flags: EditorExportPlatform.DebugFlags): GError
+        /* gdvirtual */ _export_pack_patch(preset: EditorExportPreset, debug: boolean, path: string, patches: PackedStringArray | string[], flags: EditorExportPlatform.DebugFlags): Error
         
         /** **Optional.**  
          *  Create a ZIP archive at [param path] for the specified [param preset], containing only the files that have changed since the last patch.  
@@ -8679,7 +8822,7 @@ declare module "godot" {
          *      
          *  **Note:** The patches provided in [param patches] have already been loaded when this method is called and are merely provided as context. When empty the patches defined in the export preset have been loaded instead.  
          */
-        /* gdvirtual */ _export_zip_patch(preset: EditorExportPreset, debug: boolean, path: string, patches: PackedStringArray | string[], flags: EditorExportPlatform.DebugFlags): GError
+        /* gdvirtual */ _export_zip_patch(preset: EditorExportPreset, debug: boolean, path: string, patches: PackedStringArray | string[], flags: EditorExportPlatform.DebugFlags): Error
         
         /** **Required.**  
          *  Returns array of platform specific features.  
@@ -8705,49 +8848,49 @@ declare module "godot" {
     }
     /** Exporter for iOS.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformios.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformios.html  
      */
     class EditorExportPlatformIOS extends EditorExportPlatform {
         constructor(identifier?: any)
     }
     /** Exporter for Linux/BSD.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformlinuxbsd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformlinuxbsd.html  
      */
     class EditorExportPlatformLinuxBSD extends EditorExportPlatformPC {
         constructor(identifier?: any)
     }
     /** Exporter for macOS.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformmacos.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformmacos.html  
      */
     class EditorExportPlatformMacOS extends EditorExportPlatform {
         constructor(identifier?: any)
     }
     /** Base class for the desktop platform exporter (Windows and Linux/BSD).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformpc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformpc.html  
      */
     class EditorExportPlatformPC extends EditorExportPlatform {
         constructor(identifier?: any)
     }
     /** Exporter for the Web.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformweb.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformweb.html  
      */
     class EditorExportPlatformWeb extends EditorExportPlatform {
         constructor(identifier?: any)
     }
     /** Exporter for Windows.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplatformwindows.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplatformwindows.html  
      */
     class EditorExportPlatformWindows extends EditorExportPlatformPC {
         constructor(identifier?: any)
     }
     /** A script that is executed when exporting the project.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportplugin.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html  
      */
     class EditorExportPlugin extends RefCounted {
         constructor(identifier?: any)
@@ -8884,6 +9027,12 @@ declare module "godot" {
          */
         /* gdvirtual */ _get_android_manifest_element_contents(platform: EditorExportPlatform, debug: boolean): string
         
+        /** Provide access to the Android prebuilt manifest and allows the plugin to modify it if needed.  
+         *  Implementers of this virtual method should take the binary manifest data from [param manifest_data], copy it, modify it, and then return it with the modifications.  
+         *  If no modifications are needed, then an empty [PackedByteArray] should be returned.  
+         */
+        /* gdvirtual */ _update_android_prebuilt_manifest(platform: EditorExportPlatform, manifest_data: PackedByteArray | byte[] | ArrayBuffer): PackedByteArray
+        
         /** Adds a shared object or a directory containing only shared objects with the given [param tags] and destination [param path].  
          *      
          *  **Note:** In case of macOS exports, those shared objects will be added to `Frameworks` directory of app bundle.  
@@ -8963,7 +9112,7 @@ declare module "godot" {
     }
     /** Export preset configuration.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorexportpreset.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorexportpreset.html  
      */
     class EditorExportPreset extends RefCounted {
         constructor(identifier?: any)
@@ -8985,7 +9134,7 @@ declare module "godot" {
         has_export_file(path: string): boolean
         
         /** Returns file export mode for the specified file. */
-        get_file_export_mode(path: string, default_: EditorExportPreset.FileExportMode = 0): EditorExportPreset.FileExportMode
+        get_file_export_mode(path: string, default_?: EditorExportPreset.FileExportMode /* = 0 */): EditorExportPreset.FileExportMode
         
         /** Returns export preset name. */
         get_preset_name(): string
@@ -9043,9 +9192,6 @@ declare module "godot" {
          */
         get_version(name: StringName, windows_version: boolean): string
     }
-    class EditorExpressionEvaluator<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-    }
     namespace EditorFeatureProfile {
         enum Feature {
             /** The 3D editor. If this feature is disabled, the 3D editor won't display but 3D nodes will still display in the Create New Node dialog. */
@@ -9081,7 +9227,7 @@ declare module "godot" {
     }
     /** An editor feature profile which can be used to disable specific features.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorfeatureprofile.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_editorfeatureprofile.html  
      */
     class EditorFeatureProfile extends RefCounted {
         constructor(identifier?: any)
@@ -9116,176 +9262,12 @@ declare module "godot" {
          *      
          *  **Note:** Feature profiles created via the user interface are saved in the `feature_profiles` directory, as a file with the `.profile` extension. The editor configuration folder can be found by using [method EditorPaths.get_config_dir].  
          */
-        save_to_file(path: string): GError
+        save_to_file(path: string): Error
         
         /** Loads an editor feature profile from a file. The file must follow the JSON format obtained by using the feature profile manager's **Export** button or the [method save_to_file] method.  
          *      
          *  **Note:** Feature profiles created via the user interface are loaded from the `feature_profiles` directory, as a file with the `.profile` extension. The editor configuration folder can be found by using [method EditorPaths.get_config_dir].  
          */
-        load_from_file(path: string): GError
-    }
-    class EditorFeatureProfileManager<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-        readonly current_feature_profile_changed: Signal0
-    }
-    namespace EditorFileDialog {
-        enum FileMode {
-            /** The [EditorFileDialog] can select only one file. Accepting the window will open the file. */
-            FILE_MODE_OPEN_FILE = 0,
-            
-            /** The [EditorFileDialog] can select multiple files. Accepting the window will open all files. */
-            FILE_MODE_OPEN_FILES = 1,
-            
-            /** The [EditorFileDialog] can select only one directory. Accepting the window will open the directory. */
-            FILE_MODE_OPEN_DIR = 2,
-            
-            /** The [EditorFileDialog] can select a file or directory. Accepting the window will open it. */
-            FILE_MODE_OPEN_ANY = 3,
-            
-            /** The [EditorFileDialog] can select only one file. Accepting the window will save the file. */
-            FILE_MODE_SAVE_FILE = 4,
-        }
-        enum Access {
-            /** The [EditorFileDialog] can only view `res://` directory contents. */
-            ACCESS_RESOURCES = 0,
-            
-            /** The [EditorFileDialog] can only view `user://` directory contents. */
-            ACCESS_USERDATA = 1,
-            
-            /** The [EditorFileDialog] can view the entire local file system. */
-            ACCESS_FILESYSTEM = 2,
-        }
-        enum DisplayMode {
-            /** The [EditorFileDialog] displays resources as thumbnails. */
-            DISPLAY_THUMBNAILS = 0,
-            
-            /** The [EditorFileDialog] displays resources as a list of filenames. */
-            DISPLAY_LIST = 1,
-        }
-    }
-    /** A modified version of [FileDialog] used by the editor.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_editorfiledialog.html  
-     */
-    class EditorFileDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        _cancel_pressed(): void
-        
-        /** Removes all filters except for "All Files (*.*)". */
-        clear_filters(): void
-        
-        /** Adds a comma-delimited file name [param filter] option to the [EditorFileDialog] with an optional [param description], which restricts what files can be picked.  
-         *  A [param filter] should be of the form `"filename.extension"`, where filename and extension can be `*` to match any string. Filters starting with `.` (i.e. empty filenames) are not allowed.  
-         *  For example, a [param filter] of `"*.tscn, *.scn"` and a [param description] of `"Scenes"` results in filter text "Scenes (*.tscn, *.scn)".  
-         */
-        add_filter(filter: string, description: string = ''): void
-        
-        /** Returns the name of the [OptionButton] or [CheckBox] with index [param option]. */
-        get_option_name(option: int64): string
-        
-        /** Returns an array of values of the [OptionButton] with index [param option]. */
-        get_option_values(option: int64): PackedStringArray
-        
-        /** Returns the default value index of the [OptionButton] or [CheckBox] with index [param option]. */
-        get_option_default(option: int64): int64
-        
-        /** Sets the name of the [OptionButton] or [CheckBox] with index [param option]. */
-        set_option_name(option: int64, name: string): void
-        
-        /** Sets the option values of the [OptionButton] with index [param option]. */
-        set_option_values(option: int64, values: PackedStringArray | string[]): void
-        
-        /** Sets the default value index of the [OptionButton] or [CheckBox] with index [param option]. */
-        set_option_default(option: int64, default_value_index: int64): void
-        
-        /** Adds an additional [OptionButton] to the file dialog. If [param values] is empty, a [CheckBox] is added instead.  
-         *  [param default_value_index] should be an index of the value in the [param values]. If [param values] is empty it should be either `1` (checked), or `0` (unchecked).  
-         */
-        add_option(name: string, values: PackedStringArray | string[], default_value_index: int64): void
-        
-        /** Returns a [Dictionary] with the selected values of the additional [OptionButton]s and/or [CheckBox]es. [Dictionary] keys are names and values are selected value indices. */
-        get_selected_options(): GDictionary
-        
-        /** Clear the filter for file names. */
-        clear_filename_filter(): void
-        
-        /** Sets the value of the filter for file names. */
-        set_filename_filter(filter: string): void
-        
-        /** Returns the value of the filter for file names. */
-        get_filename_filter(): string
-        
-        /** Returns the [VBoxContainer] used to display the file system.  
-         *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member CanvasItem.visible] property.  
-         */
-        get_vbox(): VBoxContainer
-        
-        /** Returns the LineEdit for the selected file.  
-         *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member CanvasItem.visible] property.  
-         */
-        get_line_edit(): LineEdit
-        _thumbnail_done(_unnamed_arg0: string, _unnamed_arg1: Texture2D, _unnamed_arg2: Texture2D, _unnamed_arg3: any): void
-        _thumbnail_result(_unnamed_arg0: string, _unnamed_arg1: Texture2D, _unnamed_arg2: Texture2D, _unnamed_arg3: any): void
-        
-        /** Adds the given [param menu] to the side of the file dialog with the given [param title] text on top. Only one side menu is allowed. */
-        add_side_menu(menu: Control, title: string = ''): void
-        
-        /** Shows the [EditorFileDialog] at the default size and position for file dialogs in the editor, and selects the file name if there is a current file. */
-        popup_file_dialog(): void
-        
-        /** Notify the [EditorFileDialog] that its view of the data is no longer accurate. Updates the view contents on next view update. */
-        invalidate(): void
-        
-        /** The location from which the user may select a file, including `res://`, `user://`, and the local file system. */
-        get access(): int64
-        set access(value: int64)
-        
-        /** The view format in which the [EditorFileDialog] displays resources to the user. */
-        get display_mode(): int64
-        set display_mode(value: int64)
-        
-        /** The dialog's open or save mode, which affects the selection behavior. See [enum FileMode]. */
-        get file_mode(): int64
-        set file_mode(value: int64)
-        
-        /** The currently occupied directory. */
-        get current_dir(): string
-        set current_dir(value: string)
-        
-        /** The currently selected file. */
-        get current_file(): string
-        set current_file(value: string)
-        
-        /** The file system path in the address bar. */
-        get current_path(): string
-        set current_path(value: string)
-        
-        /** The available file type filters. For example, this shows only `.png` and `.gd` files: `set_filters(PackedStringArray(["*.png ; PNG Images","*.gd ; GDScript Files"]))`. Multiple file types can also be specified in a single filter. `"*.png, *.jpg, *.jpeg ; Supported Images"` will show both PNG and JPEG files when selected. */
-        get filters(): PackedStringArray
-        set filters(value: PackedStringArray | string[])
-        
-        /** The number of additional [OptionButton]s and [CheckBox]es in the dialog. */
-        get option_count(): any /*Options,option_*/
-        set option_count(value: any /*Options,option_*/)
-        
-        /** If `true`, hidden files and directories will be visible in the [EditorFileDialog]. This property is synchronized with [member EditorSettings.filesystem/file_dialog/show_hidden_files]. */
-        get show_hidden_files(): boolean
-        set show_hidden_files(value: boolean)
-        
-        /** If `true`, the [EditorFileDialog] will not warn the user before overwriting files. */
-        get disable_overwrite_warning(): boolean
-        set disable_overwrite_warning(value: boolean)
-        
-        /** Emitted when a file is selected. */
-        readonly file_selected: Signal1<string>
-        
-        /** Emitted when multiple files are selected. */
-        readonly files_selected: Signal1<PackedStringArray | string[]>
-        
-        /** Emitted when a directory is selected. */
-        readonly dir_selected: Signal1<string>
-        
-        /** Emitted when the filter for file names changes. */
-        readonly filename_filter_changed: Signal1<string>
+        load_from_file(path: string): Error
     }
 }

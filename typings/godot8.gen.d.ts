@@ -1,33 +1,9 @@
 // AUTO-GENERATED
 /// <reference no-default-lib="true"/>
 declare module "godot" {
-    class WindowWrapper<Map extends Record<string, Node> = Record<string, Node>> extends MarginContainer<Map> {
-        constructor(identifier?: any)
-        readonly window_visibility_changed: Signal1<boolean>
-        readonly window_close_requested: Signal0
-        readonly window_size_changed: Signal0
-    }
-    /** A resource that holds all components of a 2D world, such as a canvas and a physics space.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_world2d.html  
-     */
-    class World2D extends Resource {
-        constructor(identifier?: any)
-        /** The [RID] of this world's canvas resource. Used by the [RenderingServer] for 2D drawing. */
-        get canvas(): RID
-        
-        /** The [RID] of this world's physics space resource. Used by the [PhysicsServer2D] for 2D physics, treating it as both a space and an area. */
-        get space(): RID
-        
-        /** The [RID] of this world's navigation map. Used by the [NavigationServer2D]. */
-        get navigation_map(): RID
-        
-        /** Direct access to the world's physics 2D space state. Used for querying current and potential collisions. When using multi-threaded physics, access is limited to [method Node._physics_process] in the main thread. */
-        get direct_space_state(): PhysicsDirectSpaceState2D
-    }
     /** A resource that holds all components of a 3D world, such as a visual scenario and a physics space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_world3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_world3d.html  
      */
     class World3D extends Resource {
         constructor(identifier?: any)
@@ -57,7 +33,7 @@ declare module "godot" {
     }
     /** A 2D world boundary (half-plane) shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_worldboundaryshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_worldboundaryshape2d.html  
      */
     class WorldBoundaryShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -73,7 +49,7 @@ declare module "godot" {
     }
     /** A 3D world boundary (half-space) shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_worldboundaryshape3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_worldboundaryshape3d.html  
      */
     class WorldBoundaryShape3D extends Shape3D {
         constructor(identifier?: any)
@@ -83,9 +59,9 @@ declare module "godot" {
     }
     /** Default environment properties for the entire scene (post-processing effects, lighting and background settings).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_worldenvironment.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_worldenvironment.html  
      */
-    class WorldEnvironment<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class WorldEnvironment<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** The [Environment] resource used by this [WorldEnvironment], defining the default properties. */
         get environment(): Environment
@@ -101,21 +77,21 @@ declare module "godot" {
     }
     /** An X509 certificate (e.g. for TLS).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_x509certificate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_x509certificate.html  
      */
     class X509Certificate extends Resource {
         constructor(identifier?: any)
         /** Saves a certificate to the given [param path] (should be a "*.crt" file). */
-        save(path: string): GError
+        save(path: string): Error
         
         /** Loads a certificate from [param path] ("*.crt" file). */
-        load(path: string): GError
+        load(path: string): Error
         
         /** Returns a string representation of the certificate, or an empty string if the certificate is invalid. */
         save_to_string(): string
         
         /** Loads a certificate from the given [param string]. */
-        load_from_string(string_: string): GError
+        load_from_string(string_: string): Error
     }
     namespace XMLParser {
         enum NodeType {
@@ -143,12 +119,12 @@ declare module "godot" {
     }
     /** Provides a low-level interface for creating parsers for XML files.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xmlparser.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xmlparser.html  
      */
     class XMLParser extends RefCounted {
         constructor(identifier?: any)
         /** Parses the next node in the file. This method returns an error code. */
-        read(): GError
+        read(): Error
         
         /** Returns the type of the current node. Compare with [enum NodeType] constants. */
         get_node_type(): XMLParser.NodeType
@@ -196,19 +172,19 @@ declare module "godot" {
         skip_section(): void
         
         /** Moves the buffer cursor to a certain offset (since the beginning) and reads the next node there. This method returns an error code. */
-        seek(position: int64): GError
+        seek(position: int64): Error
         
         /** Opens an XML [param file] for parsing. This method returns an error code. */
-        open(file: string): GError
+        open(file: string): Error
         
         /** Opens an XML raw [param buffer] for parsing. This method returns an error code. */
-        open_buffer(buffer: PackedByteArray | byte[] | ArrayBuffer): GError
+        open_buffer(buffer: PackedByteArray | byte[] | ArrayBuffer): Error
     }
     /** An anchor point in AR space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xranchor3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xranchor3d.html  
      */
-    class XRAnchor3D<Map extends Record<string, Node> = Record<string, Node>> extends XRNode3D<Map> {
+    class XRAnchor3D<Map extends Record<string, Node> = {}> extends XRNode3D<Map> {
         constructor(identifier?: any)
         /** Returns the estimated size of the plane that was detected. Say when the anchor relates to a table in the real world, this is the estimated size of the surface of that table. */
         get_size(): Vector3
@@ -240,9 +216,9 @@ declare module "godot" {
     }
     /** A node for driving body meshes from [XRBodyTracker] data.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrbodymodifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrbodymodifier3d.html  
      */
-    class XRBodyModifier3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class XRBodyModifier3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** The name of the [XRBodyTracker] registered with [XRServer] to obtain the body tracking data from. */
         get body_tracker(): string
@@ -515,7 +491,7 @@ declare module "godot" {
     }
     /** A tracked body in XR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrbodytracker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrbodytracker.html  
      */
     class XRBodyTracker extends XRPositionalTracker {
         constructor(identifier?: any)
@@ -541,59 +517,71 @@ declare module "godot" {
     }
     /** A camera node with a few overrules for AR/VR applied, such as location tracking.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrcamera3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrcamera3d.html  
      */
-    class XRCamera3D<Map extends Record<string, Node> = Record<string, Node>> extends Camera3D<Map> {
+    class XRCamera3D<Map extends Record<string, Node> = {}> extends Camera3D<Map> {
         constructor(identifier?: any)
     }
     /** A 3D node representing a spatially-tracked controller.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrcontroller3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrcontroller3d.html  
      */
-    class XRController3D<Map extends Record<string, Node> = Record<string, Node>> extends XRNode3D<Map> {
+    class XRController3D<Map extends Record<string, Node> = {}> extends XRNode3D<Map> {
         constructor(identifier?: any)
-        /** Returns `true` if the button with the given [param name] is pressed. */
+        /** Returns `true` if the button with the given [param name] is pressed.  
+         *      
+         *  **Note:** The current [XRInterface] defines the [param name] for each input. In the case of OpenXR, these are the names of actions in the current action set.  
+         */
         is_button_pressed(name: StringName): boolean
         
-        /** Returns a [Variant] for the input with the given [param name]. This works for any input type, the variant will be typed according to the actions configuration. */
+        /** Returns a [Variant] for the input with the given [param name]. This works for any input type, the variant will be typed according to the actions configuration.  
+         *      
+         *  **Note:** The current [XRInterface] defines the [param name] for each input. In the case of OpenXR, these are the names of actions in the current action set.  
+         */
         get_input(name: StringName): any
         
-        /** Returns a numeric value for the input with the given [param name]. This is used for triggers and grip sensors. */
+        /** Returns a numeric value for the input with the given [param name]. This is used for triggers and grip sensors.  
+         *      
+         *  **Note:** The current [XRInterface] defines the [param name] for each input. In the case of OpenXR, these are the names of actions in the current action set.  
+         */
         get_float(name: StringName): float64
         
-        /** Returns a [Vector2] for the input with the given [param name]. This is used for thumbsticks and thumbpads found on many controllers. */
+        /** Returns a [Vector2] for the input with the given [param name]. This is used for thumbsticks and thumbpads found on many controllers.  
+         *      
+         *  **Note:** The current [XRInterface] defines the [param name] for each input. In the case of OpenXR, these are the names of actions in the current action set.  
+         */
         get_vector2(name: StringName): Vector2
         
         /** Returns the hand holding this controller, if known. See [enum XRPositionalTracker.TrackerHand]. */
         get_tracker_hand(): XRPositionalTracker.TrackerHand
         
         /** Emitted when a button on this controller is pressed. */
-        readonly button_pressed: Signal1<string>
+        readonly button_pressed: Signal<(name: string) => void>
         
         /** Emitted when a button on this controller is released. */
-        readonly button_released: Signal1<string>
+        readonly button_released: Signal<(name: string) => void>
         
         /** Emitted when a trigger or similar input on this controller changes value. */
-        readonly input_float_changed: Signal2<string, float64>
+        readonly input_float_changed: Signal<(name: string, value: float64) => void>
         
         /** Emitted when a thumbstick or thumbpad on this controller is moved. */
-        readonly input_vector2_changed: Signal2<string, Vector2>
+        readonly input_vector2_changed: Signal<(name: string, value: Vector2) => void>
         
         /** Emitted when the interaction profile on this controller is changed. */
-        readonly profile_changed: Signal1<string>
+        readonly profile_changed: Signal<(role: string) => void>
     }
     /** A tracked controller.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrcontrollertracker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrcontrollertracker.html  
      */
     class XRControllerTracker extends XRPositionalTracker {
         constructor(identifier?: any)
     }
     /** A node for driving standard face meshes from [XRFaceTracker] weights.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrfacemodifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrfacemodifier3d.html  
      */
-    class XRFaceModifier3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class XRFaceModifier3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** The [XRFaceTracker] path. */
         get face_tracker(): string
@@ -1040,7 +1028,7 @@ declare module "godot" {
     }
     /** A tracked face.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrfacetracker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrfacetracker.html  
      */
     class XRFaceTracker extends XRTracker {
         constructor(identifier?: any)
@@ -1068,9 +1056,9 @@ declare module "godot" {
     }
     /** A node for driving hand meshes from [XRHandTracker] data.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrhandmodifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrhandmodifier3d.html  
      */
-    class XRHandModifier3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class XRHandModifier3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** The name of the [XRHandTracker] registered with [XRServer] to obtain the hand tracking data from. */
         get hand_tracker(): string
@@ -1201,7 +1189,7 @@ declare module "godot" {
     }
     /** A tracked hand in XR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrhandtracker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrhandtracker.html  
      */
     class XRHandTracker extends XRPositionalTracker {
         constructor(identifier?: any)
@@ -1297,6 +1285,9 @@ declare module "godot" {
             
             /** Same as [constant XR_PLAY_AREA_ROOMSCALE] but origin point is fixed to the center of the physical space. In this mode, system-level recentering may be disabled, requiring the use of [method XRServer.center_on_hmd]. */
             XR_PLAY_AREA_STAGE = 4,
+            
+            /** Custom play area set by a GDExtension. */
+            XR_PLAY_AREA_CUSTOM = 2147483647,
         }
         enum EnvironmentBlendMode {
             /** Opaque blend mode. This is typically used for VR devices. */
@@ -1311,7 +1302,7 @@ declare module "godot" {
     }
     /** Base class for an XR interface implementation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrinterface.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrinterface.html  
      */
     class XRInterface extends RefCounted {
         constructor(identifier?: any)
@@ -1414,11 +1405,11 @@ declare module "godot" {
         set ar_is_anchor_detection_enabled(value: boolean)
         
         /** Emitted when the play area is changed. This can be a result of the player resetting the boundary or entering a new play area, the player changing the play area mode, the world scale changing or the player resetting their headset orientation. */
-        readonly play_area_changed: Signal1<int64>
+        readonly play_area_changed: Signal<(mode: int64) => void>
     }
     /** Base class for XR interface extensions (plugins).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrinterfaceextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrinterfaceextension.html  
      */
     class XRInterfaceExtension extends XRInterface {
         constructor(identifier?: any)
@@ -1524,9 +1515,9 @@ declare module "godot" {
     }
     /** A 3D node that has its position automatically updated by the [XRServer].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrnode3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrnode3d.html  
      */
-    class XRNode3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class XRNode3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns `true` if the [member tracker] has been registered and the [member pose] is being tracked. */
         get_is_active(): boolean
@@ -1563,13 +1554,13 @@ declare module "godot" {
         set show_when_tracked(value: boolean)
         
         /** Emitted when the [member tracker] starts or stops receiving updated tracking data for the [member pose] being tracked. The [param tracking] argument indicates whether the tracker is getting updated tracking data. */
-        readonly tracking_changed: Signal1<boolean>
+        readonly tracking_changed: Signal<(tracking: boolean) => void>
     }
     /** The origin point in AR/VR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrorigin3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrorigin3d.html  
      */
-    class XROrigin3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class XROrigin3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** The scale of the game world compared to the real world. This is the same as [member XRServer.world_scale]. By default, most AR/VR platforms assume that 1 game unit corresponds to 1 real world meter. */
         get world_scale(): float64
@@ -1593,7 +1584,7 @@ declare module "godot" {
     }
     /** This object contains all data related to a pose on a tracked object.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrpose.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrpose.html  
      */
     class XRPose extends RefCounted {
         constructor(identifier?: any)
@@ -1640,7 +1631,7 @@ declare module "godot" {
     }
     /** A tracked object.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrpositionaltracker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrpositionaltracker.html  
      */
     class XRPositionalTracker extends XRTracker {
         constructor(identifier?: any)
@@ -1671,29 +1662,29 @@ declare module "godot" {
         set hand(value: int64)
         
         /** Emitted when the state of a pose tracked by this tracker changes. */
-        readonly pose_changed: Signal1<XRPose>
+        readonly pose_changed: Signal<(pose: XRPose) => void>
         
         /** Emitted when a pose tracked by this tracker stops getting updated tracking data. */
-        readonly pose_lost_tracking: Signal1<XRPose>
+        readonly pose_lost_tracking: Signal<(pose: XRPose) => void>
         
         /** Emitted when a button on this tracker is pressed. Note that many XR runtimes allow other inputs to be mapped to buttons. */
-        readonly button_pressed: Signal1<string>
+        readonly button_pressed: Signal<(name: string) => void>
         
         /** Emitted when a button on this tracker is released. */
-        readonly button_released: Signal1<string>
+        readonly button_released: Signal<(name: string) => void>
         
         /** Emitted when a trigger or similar input on this tracker changes value. */
-        readonly input_float_changed: Signal2<string, float64>
+        readonly input_float_changed: Signal<(name: string, value: float64) => void>
         
         /** Emitted when a thumbstick or thumbpad on this tracker moves. */
-        readonly input_vector2_changed: Signal2<string, Vector2>
+        readonly input_vector2_changed: Signal<(name: string, vector: Vector2) => void>
         
         /** Emitted when the profile of our tracker changes. */
-        readonly profile_changed: Signal1<string>
+        readonly profile_changed: Signal<(role: string) => void>
     }
     /** A tracked object.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrtracker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrtracker.html  
      */
     class XRTracker extends RefCounted {
         constructor(identifier?: any)
@@ -1710,7 +1701,7 @@ declare module "godot" {
     }
     /** Helper class for XR interfaces that generates VRS images.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_xrvrs.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_xrvrs.html  
      */
     class XRVRS extends Object {
         constructor(identifier?: any)
@@ -1745,44 +1736,44 @@ declare module "godot" {
     }
     /** Allows the creation of ZIP files.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_zippacker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_zippacker.html  
      */
     class ZIPPacker extends RefCounted {
         constructor(identifier?: any)
         /** Opens a zip file for writing at the given path using the specified write mode.  
          *  This must be called before everything else.  
          */
-        open(path: string, append: ZIPPacker.ZipAppend = 0): GError
+        open(path: string, append?: ZIPPacker.ZipAppend /* = 0 */): Error
         
         /** Starts writing to a file within the archive. Only one file can be written at the same time.  
          *  Must be called after [method open].  
          */
-        start_file(path: string): GError
+        start_file(path: string): Error
         
         /** Write the given [param data] to the file.  
          *  Needs to be called after [method start_file].  
          */
-        write_file(data: PackedByteArray | byte[] | ArrayBuffer): GError
+        write_file(data: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Stops writing to a file within the archive.  
          *  It will fail if there is no open file.  
          */
-        close_file(): GError
+        close_file(): Error
         
         /** Closes the underlying resources used by this instance. */
-        close(): GError
+        close(): Error
     }
     /** Allows reading the content of a ZIP file.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_zipreader.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_zipreader.html  
      */
     class ZIPReader extends RefCounted {
         constructor(identifier?: any)
         /** Opens the zip archive at the given [param path] and reads its file index. */
-        open(path: string): GError
+        open(path: string): Error
         
         /** Closes the underlying resources used by this instance. */
-        close(): GError
+        close(): Error
         
         /** Returns the list of names of all files in the loaded archive.  
          *  Must be called after [method open].  
@@ -1792,12 +1783,12 @@ declare module "godot" {
         /** Loads the whole content of a file in the loaded zip archive into memory and returns it.  
          *  Must be called after [method open].  
          */
-        read_file(path: string, case_sensitive: boolean = true): PackedByteArray
+        read_file(path: string, case_sensitive?: boolean /* = true */): PackedByteArray
         
         /** Returns `true` if the file exists in the loaded zip archive.  
          *  Must be called after [method open].  
          */
-        file_exists(path: string, case_sensitive: boolean = true): boolean
+        file_exists(path: string, case_sensitive?: boolean /* = true */): boolean
     }
     namespace Vector2 {
         enum Axis {
@@ -1810,7 +1801,7 @@ declare module "godot" {
     }
     /** A 2D vector using floating-point coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vector2.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vector2.html  
      */
     class Vector2 {
         /** Zero vector, a vector with all components set to `0`. */
@@ -1876,7 +1867,7 @@ declare module "godot" {
         length_squared(): float64
         
         /** Returns the vector with a maximum length by limiting its length to [param length]. If the vector is non-finite, the result is undefined. */
-        limit_length(length: float64 = 1): Vector2
+        limit_length(length?: float64 /* = 1 */): Vector2
         
         /** Returns the result of scaling the vector to unit length. Equivalent to `v / v.length()`. Returns `(0, 0)` if `v.length() == 0`. See also [method is_normalized].  
          *      
@@ -2056,7 +2047,7 @@ declare module "godot" {
     }
     /** A 2D vector using integer coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vector2i.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vector2i.html  
      */
     class Vector2i {
         /** Zero vector, a vector with all components set to `0`. */
@@ -2162,7 +2153,7 @@ declare module "godot" {
     }
     /** A 2D axis-aligned bounding box using floating-point coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rect2.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rect2.html  
      */
     class Rect2 {
         constructor()
@@ -2193,7 +2184,7 @@ declare module "godot" {
         is_finite(): boolean
         
         /** Returns `true` if this rectangle overlaps with the [param b] rectangle. The edges of both rectangles are excluded, unless [param include_borders] is `true`. */
-        intersects(b: Rect2, include_borders: boolean = false): boolean
+        intersects(b: Rect2, include_borders?: boolean /* = false */): boolean
         
         /** Returns `true` if this rectangle  *completely*  encloses the [param b] rectangle. */
         encloses(b: Rect2): boolean
@@ -2242,7 +2233,7 @@ declare module "godot" {
     }
     /** A 2D axis-aligned bounding box using integer coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rect2i.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rect2i.html  
      */
     class Rect2i {
         constructor()
@@ -2328,7 +2319,7 @@ declare module "godot" {
     }
     /** A 3D vector using floating-point coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vector3.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vector3.html  
      */
     class Vector3 {
         /** Zero vector, a vector with all components set to `0`. */
@@ -2412,7 +2403,7 @@ declare module "godot" {
         length_squared(): float64
         
         /** Returns the vector with a maximum length by limiting its length to [param length]. If the vector is non-finite, the result is undefined. */
-        limit_length(length: float64 = 1): Vector3
+        limit_length(length?: float64 /* = 1 */): Vector3
         
         /** Returns the result of scaling the vector to unit length. Equivalent to `v / v.length()`. Returns `(0, 0, 0)` if `v.length() == 0`. See also [method is_normalized].  
          *      
@@ -2595,7 +2586,7 @@ declare module "godot" {
     }
     /** A 3D vector using integer coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vector3i.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vector3i.html  
      */
     class Vector3i {
         /** Zero vector, a vector with all components set to `0`. */
@@ -2706,7 +2697,7 @@ declare module "godot" {
     }
     /** A 2×3 matrix representing a 2D transformation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_transform2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_transform2d.html  
      */
     class Transform2D {
         /** The identity [Transform2D]. This is a transform with no translation, no rotation, and a scale of [constant Vector2.ONE]. This also means that:  
@@ -2834,7 +2825,7 @@ declare module "godot" {
         is_finite(): boolean
         
         /** Returns a copy of the transform rotated such that the rotated X-axis points towards the [param target] position, in global space. */
-        looking_at(target: Vector2 = Vector2.ZERO): Transform2D
+        looking_at(target?: Vector2 /* = Vector2.ZERO */): Transform2D
         static MULTIPLY(left: Transform2D, right: Transform2D): Transform2D
         static MULTIPLY(left: Transform2D, right: float64): Transform2D
         static MULTIPLY(left: Transform2D, right: Vector2): Vector2
@@ -2869,7 +2860,7 @@ declare module "godot" {
     }
     /** A 4D vector using floating-point coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vector4.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vector4.html  
      */
     class Vector4 {
         /** Zero vector, a vector with all components set to `0`. */
@@ -3031,7 +3022,7 @@ declare module "godot" {
     }
     /** A 4D vector using integer coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vector4i.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vector4i.html  
      */
     class Vector4i {
         /** Zero vector, a vector with all components set to `0`. */
@@ -3126,7 +3117,7 @@ declare module "godot" {
     }
     /** A plane in Hessian normal form.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_plane.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_plane.html  
      */
     class Plane {
         /** A plane that extends in the Y and Z axes (normal vector points +X). */
@@ -3164,7 +3155,7 @@ declare module "godot" {
         distance_to(point: Vector3): float64
         
         /** Returns `true` if [param point] is inside the plane. Comparison uses a custom minimum [param tolerance] threshold. */
-        has_point(point: Vector3, tolerance: float64 = 0.00001): boolean
+        has_point(point: Vector3, tolerance?: float64 /* = 0.00001 */): boolean
         
         /** Returns the orthogonal projection of [param point] into a point in the plane. */
         project(point: Vector3): Vector3
@@ -3193,7 +3184,7 @@ declare module "godot" {
     }
     /** A unit quaternion used for representing 3D rotations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_quaternion.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_quaternion.html  
      */
     class Quaternion {
         /** The identity quaternion, representing no rotation. This has the same rotation as [constant Basis.IDENTITY].  
@@ -3267,7 +3258,7 @@ declare module "godot" {
         /** Returns this quaternion's rotation as a [Vector3] of [url=https://en.wikipedia.org/wiki/Euler_angles]Euler angles[/url], in radians.  
          *  The order of each consecutive rotation can be changed with [param order] (see [enum EulerOrder] constants). By default, the YXZ convention is used ([constant EULER_ORDER_YXZ]): Z (roll) is calculated first, then X (pitch), and lastly Y (yaw). When using the opposite method [method from_euler], this order is reversed.  
          */
-        get_euler(order: int64 = 2): Vector3
+        get_euler(order?: int64 /* = 2 */): Vector3
         
         /** Constructs a new [Quaternion] from the given [Vector3] of [url=https://en.wikipedia.org/wiki/Euler_angles]Euler angles[/url], in radians. This method always uses the YXZ convention ([constant EULER_ORDER_YXZ]). */
         static from_euler(euler: Vector3): Quaternion
@@ -3302,7 +3293,7 @@ declare module "godot" {
     }
     /** A 3D axis-aligned bounding box.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_aabb.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_aabb.html  
      */
     class AABB {
         constructor()
@@ -3429,7 +3420,7 @@ declare module "godot" {
     }
     /** A 3×3 matrix for representing 3D rotation and scale.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_basis.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_basis.html  
      */
     class Basis {
         /** The identity [Basis]. This is an orthonormal basis with no rotation, no shear, and a scale of [constant Vector3.ONE]. This also means that:  
@@ -3516,7 +3507,7 @@ declare module "godot" {
          *      
          *  **Note:** In the Inspector dock, a basis's rotation is often displayed in Euler angles (in degrees), as is the case with the [member Node3D.rotation] property.  
          */
-        get_euler(order: int64 = 2): Vector3
+        get_euler(order?: int64 /* = 2 */): Vector3
         
         /** Returns the transposed dot product between [param with] and the [member x] axis (see [method transposed]).  
          *  This is equivalent to `basis.x.dot(vector)`.  
@@ -3559,7 +3550,7 @@ declare module "godot" {
          *  The up axis (+Y) points as close to the [param up] vector as possible while staying perpendicular to the forward axis. The returned basis is orthonormalized (see [method orthonormalized]).  
          *  The [param target] and the [param up] cannot be [constant Vector3.ZERO], and shouldn't be colinear to avoid unintended rotation around local Z axis.  
          */
-        static looking_at(target: Vector3, up: Vector3 = Vector3.ZERO, use_model_front: boolean = false): Basis
+        static looking_at(target: Vector3, up?: Vector3 /* = Vector3.ZERO */, use_model_front?: boolean /* = false */): Basis
         
         /** Constructs a new [Basis] that only represents scale, with no rotation or shear, from the given [param scale] vector.  
          *    
@@ -3575,7 +3566,7 @@ declare module "godot" {
          *    
          *  The order of each consecutive rotation can be changed with [param order] (see [enum EulerOrder] constants). By default, the YXZ convention is used ([constant EULER_ORDER_YXZ]): the basis rotates first around the Y axis (yaw), then X (pitch), and lastly Z (roll). When using the opposite method [method get_euler], this order is reversed.  
          */
-        static from_euler(euler: Vector3, order: int64 = 2): Basis
+        static from_euler(euler: Vector3, order?: int64 /* = 2 */): Basis
         static MULTIPLY(left: Basis, right: Basis): Basis
         static MULTIPLY(left: Basis, right: float64): Basis
         static MULTIPLY(left: Basis, right: Vector3): Vector3
@@ -3591,7 +3582,7 @@ declare module "godot" {
     }
     /** A 3×4 matrix representing a 3D transformation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_transform3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_transform3d.html  
      */
     class Transform3D {
         /** The identity [Transform3D]. This is a transform with no translation, no rotation, and a scale of [constant Vector3.ONE]. Its [member basis] is equal to [constant Basis.IDENTITY]. This also means that:  
@@ -3676,7 +3667,7 @@ declare module "godot" {
          *  The up axis (+Y) points as close to the [param up] vector as possible while staying perpendicular to the forward axis. The resulting transform is orthonormalized. The existing rotation, scale, and skew information from the original transform is discarded. The [param target] and [param up] vectors cannot be zero, cannot be parallel to each other, and are defined in global/parent space.  
          *  If [param use_model_front] is `true`, the +Z axis (asset front) is treated as forward (implies +X is left) and points toward the [param target] position. By default, the -Z axis (camera forward) is treated as forward (implies +X is right).  
          */
-        looking_at(target: Vector3, up: Vector3 = Vector3.ZERO, use_model_front: boolean = false): Transform3D
+        looking_at(target: Vector3, up?: Vector3 /* = Vector3.ZERO */, use_model_front?: boolean /* = false */): Transform3D
         
         /** Returns the result of the linear interpolation between this transform and [param xform] by the given [param weight].  
          *  The [param weight] should be between `0.0` and `1.0` (inclusive). Values outside this range are allowed and can be used to perform  *extrapolation*  instead.  
@@ -3728,7 +3719,7 @@ declare module "godot" {
     }
     /** A 4×4 matrix for 3D projective transformations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_projection.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_projection.html  
      */
     class Projection {
         /** A [Projection] with no transformation defined. When applied to other data structures, no transformation is performed. */
@@ -3750,7 +3741,7 @@ declare module "godot" {
         /** Creates a new [Projection] that projects positions using a perspective projection with the given Y-axis field of view (in degrees), X:Y aspect ratio, and clipping planes.  
          *  [param flip_fov] determines whether the projection's field of view is flipped over its diagonal.  
          */
-        static create_perspective(fovy: float64, aspect: float64, z_near: float64, z_far: float64, flip_fov: boolean = false): Projection
+        static create_perspective(fovy: float64, aspect: float64, z_near: float64, z_far: float64, flip_fov?: boolean /* = false */): Projection
         
         /** Creates a new [Projection] that projects positions using a perspective projection with the given Y-axis field of view (in degrees), X:Y aspect ratio, and clipping distances. The projection is adjusted for a head-mounted display with the given distance between eyes and distance to a point that can be focused on.  
          *  [param eye] creates the projection for the left eye when set to 1, or the right eye when set to 2.  
@@ -3769,7 +3760,7 @@ declare module "godot" {
         /** Creates a new [Projection] that projects positions using an orthogonal projection with the given size, X:Y aspect ratio, and clipping planes.  
          *  [param flip_fov] determines whether the projection's field of view is flipped over its diagonal.  
          */
-        static create_orthogonal_aspect(size: float64, aspect: float64, z_near: float64, z_far: float64, flip_fov: boolean = false): Projection
+        static create_orthogonal_aspect(size: float64, aspect: float64, z_near: float64, z_far: float64, flip_fov?: boolean /* = false */): Projection
         
         /** Creates a new [Projection] that projects positions in a frustum with the given clipping planes. */
         static create_frustum(left: float64, right: float64, bottom: float64, top: float64, z_near: float64, z_far: float64): Projection
@@ -3777,7 +3768,7 @@ declare module "godot" {
         /** Creates a new [Projection] that projects positions in a frustum with the given size, X:Y aspect ratio, offset, and clipping planes.  
          *  [param flip_fov] determines whether the projection's field of view is flipped over its diagonal.  
          */
-        static create_frustum_aspect(size: float64, aspect: float64, offset: Vector2, z_near: float64, z_far: float64, flip_fov: boolean = false): Projection
+        static create_frustum_aspect(size: float64, aspect: float64, offset: Vector2, z_near: float64, z_far: float64, flip_fov?: boolean /* = false */): Projection
         
         /** Creates a new [Projection] that scales a given projection to fit around a given [AABB] in projection space. */
         static create_fit_aabb(aabb: AABB): Projection
@@ -3834,7 +3825,7 @@ declare module "godot" {
         /** Returns a [Projection] that performs the inverse of this [Projection]'s projective transformation. */
         inverse(): Projection
         
-        /** Returns the number of pixels with the given pixel width displayed per meter, after this [Projection] is applied. */
+        /** Returns [param for_pixel_width] divided by the viewport's width measured in meters on the near plane, after this [Projection] is applied. */
         get_pixels_per_meter(for_pixel_width: int64): int64
         
         /** Returns the factor by which the visible level of detail is scaled by this [Projection]. */
@@ -3855,7 +3846,7 @@ declare module "godot" {
     }
     /** A color represented in RGBA format.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_color.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_color.html  
      */
     class Color {
         /** Alice blue color. */
@@ -4337,10 +4328,10 @@ declare module "godot" {
          *  Setting [param with_alpha] to `false`, excludes alpha from the hexadecimal string, using RGB format instead of RGBA format.  
          *    
          */
-        to_html(with_alpha: boolean = true): string
+        to_html(with_alpha?: boolean /* = true */): string
         
         /** Returns a new color with all components clamped between the components of [param min] and [param max], by running [method @GlobalScope.clamp] on each component. */
-        clamp(min: Color = new Color(0, 0, 0, 0), max: Color = new Color(1, 1, 1, 1)): Color
+        clamp(min?: Color /* = new Color(0, 0, 0, 0) */, max?: Color /* = new Color(1, 1, 1, 1) */): Color
         
         /** Returns the color with its [member r], [member g], and [member b] components inverted (`(1 - r, 1 - g, 1 - b, a)`).  
          *    
@@ -4413,12 +4404,12 @@ declare module "godot" {
         /** Constructs a color from an [url=https://en.wikipedia.org/wiki/HSL_and_HSV]HSV profile[/url]. The hue ([param h]), saturation ([param s]), and value ([param v]) are typically between 0.0 and 1.0.  
          *    
          */
-        static from_hsv(h: float64, s: float64, v: float64, alpha: float64 = 1): Color
+        static from_hsv(h: float64, s: float64, v: float64, alpha?: float64 /* = 1 */): Color
         
         /** Constructs a color from an [url=https://bottosson.github.io/posts/colorpicker/]OK HSL profile[/url]. The hue ([param h]), saturation ([param s]), and lightness ([param l]) are typically between 0.0 and 1.0.  
          *    
          */
-        static from_ok_hsl(h: float64, s: float64, l: float64, alpha: float64 = 1): Color
+        static from_ok_hsl(h: float64, s: float64, l: float64, alpha?: float64 /* = 1 */): Color
         
         /** Decodes a [Color] from an RGBE9995 format integer. See [constant Image.FORMAT_RGBE9995]. */
         static from_rgbe9995(rgbe: int64): Color
@@ -4428,7 +4419,7 @@ declare module "godot" {
          *      
          *  **Note:** Due to the lower precision of [method from_rgba8] compared to the standard [Color] constructor, a color created with [method from_rgba8] will generally not be equal to the same color created with the standard [Color] constructor. Use [method is_equal_approx] for comparisons to avoid issues with floating-point precision error.  
          */
-        static from_rgba8(r8: int64, g8: int64, b8: int64, a8: int64 = 255): Color
+        static from_rgba8(r8: int64, g8: int64, b8: int64, a8?: int64 /* = 255 */): Color
         static ADD(left: Color, right: Color): Color
         static SUBTRACT(left: Color, right: Color): Color
         static MULTIPLY(left: Color, right: Color): Color
@@ -4470,7 +4461,7 @@ declare module "godot" {
     }
     /** A pre-parsed scene tree path.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_nodepath.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_nodepath.html  
      */
     class NodePath {
         constructor()
@@ -4518,7 +4509,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the sum of [method get_name_count] and [method get_subname_count], so the default value for [param end] makes it slice to the end of the [NodePath] by default (i.e. `path.slice(1)` is a shorthand for `path.slice(1, path.get_name_count() + path.get_subname_count())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the [NodePath] (i.e. `path.slice(0, -2)` is a shorthand for `path.slice(0, path.get_name_count() + path.get_subname_count() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): NodePath
+        slice(begin: int64, end?: int64 /* = 2147483647 */): NodePath
         
         /** Returns a copy of this node path with a colon character (`:`) prefixed, transforming it to a pure property path with no node names (relative to the current node).  
          *    
@@ -4532,7 +4523,7 @@ declare module "godot" {
     }
     /** A handle for a [Resource]'s unique identifier.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rid.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rid.html  
      */
     class RID {
         constructor()
@@ -4552,42 +4543,26 @@ declare module "godot" {
     }
     /** A built-in type representing a method or a standalone function.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_callable.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_callable.html  
      */
-    class Callable extends AnyCallable {
-        /** Create a callable object with a bound object `self` */
-        static create<R = void>(self: Object, fn: () => R): Callable0<R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, R = void>(self: Object, fn: (v1: T1) => R): Callable1<T1, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, R = void>(self: Object, fn: (v1: T1, v2: T2) => R): Callable2<T1, T2, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, T3, R = void>(self: Object, fn: (v1: T1, v2: T2, v3: T3) => R): Callable3<T1, T2, T3, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, T3, T4, R = void>(self: Object, fn: (v1: T1, v2: T2, v3: T3, v4: T4) => R): Callable4<T1, T2, T3, T4, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, T3, T4, T5, R = void>(self: Object, fn: (v1: T1, v2: T2, v3: T3, v4: T4, v5: T5) => R): Callable5<T1, T2, T3, T4, T5, R>
-        /** Create a callable object with a bound object `self` */
-        static create<R = void>(fn: () => R): Callable0<R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, R = void>(fn: (v1: T1) => R): Callable1<T1, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, R = void>(fn: (v1: T1, v2: T2) => R): Callable2<T1, T2, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, T3, R = void>(fn: (v1: T1, v2: T2, v3: T3) => R): Callable3<T1, T2, T3, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, T3, T4, R = void>(fn: (v1: T1, v2: T2, v3: T3, v4: T4) => R): Callable4<T1, T2, T3, T4, R>
-        /** Create a callable object with a bound object `self` */
-        static create<T1, T2, T3, T4, T5, R = void>(fn: (v1: T1, v2: T2, v3: T3, v4: T4, v5: T5) => R): Callable5<T1, T2, T3, T4, T5, R>
+    class Callable<T extends Function = Function> {
+        /**
+         * Create godot Callable without a bound object.
+         */
+        static create<F extends Function>(fn: F): Callable<F>
+        /**
+         * Create godot Callable with a bound object `self`.
+         */
+        static create<S extends Object, F extends (this: S, ...args: any[]) => any>(self: S, fn: F): Callable<F>
         constructor()
-        constructor(from: AnyCallable)
+        constructor(from: Callable)
         constructor(object: Object, method: StringName)
         
         /** Creates a new [Callable] for the method named [param method] in the specified [param variant]. To represent a method of a built-in [Variant] type, a custom callable is used (see [method is_custom]). If [param variant] is [Object], then a standard callable will be created instead.  
          *      
          *  **Note:** This method is always necessary for the [Dictionary] type, as property syntax is used to access its entries. You may also use this method when [param variant]'s type is not known in advance (for polymorphism).  
          */
-        static create(variant: any, method: StringName): AnyCallable
+        static create(variant: any, method: StringName): Callable
         
         /** Calls the method represented by this [Callable]. Unlike [method call], this method expects all arguments to be contained inside the [param arguments] [Array]. */
         callv(arguments_: GArray): any
@@ -4651,17 +4626,17 @@ declare module "godot" {
          *      
          *  **Note:** When this method is chained with other similar methods, the order in which the argument list is modified is read from right to left.  
          */
-        bindv(arguments_: GArray): AnyCallable
+        bindv(arguments_: GArray): Callable
         
         /** Returns a copy of this [Callable] with a number of arguments unbound. In other words, when the new callable is called the last few arguments supplied by the user are ignored, according to [param argcount]. The remaining arguments are passed to the callable. This allows to use the original callable in a context that attempts to pass more arguments than this callable can handle, e.g. a signal with a fixed number of arguments. See also [method bind].  
          *      
          *  **Note:** When this method is chained with other similar methods, the order in which the argument list is modified is read from right to left.  
          *    
          */
-        unbind(argcount: int64): AnyCallable
+        unbind(argcount: int64): Callable
         
         /** Calls the method represented by this [Callable]. Arguments can be passed and should match the method's signature. */
-        call(...vargargs: any[]): any
+        call: T
         
         /** Calls the method represented by this [Callable] in deferred mode, i.e. at the end of the current frame. Arguments can be passed and should match the method's signature.  
          *    
@@ -4669,29 +4644,30 @@ declare module "godot" {
          *  **Note:** Deferred calls are processed at idle time. Idle time happens mainly at the end of process and physics frames. In it, deferred calls will be run until there are none left, which means you can defer calls from other deferred calls and they'll still be run in the current idle time cycle. This means you should not call a method deferred from itself (or from a method called by it), as this causes infinite recursion the same way as if you had called the method directly.  
          *  See also [method Object.call_deferred].  
          */
-        call_deferred(...vargargs: any[]): void
+        call_deferred(...varargs: any[]): void
         
         /** Perform an RPC (Remote Procedure Call) on all connected peers. This is used for multiplayer and is normally not available, unless the function being called has been marked as  *RPC*  (using [annotation @GDScript.@rpc] or [method Node.rpc_config]). Calling this method on unsupported functions will result in an error. See [method Node.rpc]. */
-        rpc(...vargargs: any[]): void
+        rpc(...varargs: any[]): void
         
         /** Perform an RPC (Remote Procedure Call) on a specific peer ID (see multiplayer documentation for reference). This is used for multiplayer and is normally not available unless the function being called has been marked as  *RPC*  (using [annotation @GDScript.@rpc] or [method Node.rpc_config]). Calling this method on unsupported functions will result in an error. See [method Node.rpc_id]. */
-        rpc_id(peer_id: int64, ...vargargs: any[]): void
+        rpc_id(peer_id: int64, ...varargs: any[]): void
         
         /** Returns a copy of this [Callable] with one or more arguments bound. When called, the bound arguments are passed  *after*  the arguments supplied by [method call]. See also [method unbind].  
          *      
          *  **Note:** When this method is chained with other similar methods, the order in which the argument list is modified is read from right to left.  
          */
-        bind(...vargargs: any[]): AnyCallable
-        static EQUAL(left: AnyCallable, right: AnyCallable): boolean
-        static NOT_EQUAL(left: AnyCallable, right: AnyCallable): boolean
+        bind<A extends any[]>(...varargs: A): Callable<BindRight<T, A>>
+        static EQUAL(left: Callable, right: Callable): boolean
+        static NOT_EQUAL(left: Callable, right: Callable): boolean
     }
     /** A built-in type representing a signal of an [Object].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_signal.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_signal.html  
      */
-    class Signal extends AnySignal {
+    class Signal<T extends (...args: any[]) => void = (...args: any[]) => void> {
+        as_promise(): Parameters<T> extends [] ? Promise<void> : Parameters<T> extends [infer R] ? Promise<R> : Promise<Parameters<T>>
         constructor()
-        constructor(from: AnySignal)
+        constructor(from: Signal)
         constructor(object: Object, signal: StringName)
         
         /** Returns `true` if this [Signal] has no object and the signal name is empty. Equivalent to `signal == Signal()`. */
@@ -4710,13 +4686,13 @@ declare module "godot" {
          *  A signal can only be connected once to the same [Callable]. If the signal is already connected, returns [constant ERR_INVALID_PARAMETER] and pushes an error message, unless the signal is connected with [constant Object.CONNECT_REFERENCE_COUNTED]. To prevent this, use [method is_connected] first to check for existing connections.  
          *    
          */
-        connect(callable: AnyCallable, flags: int64 = 0): int64
+        connect(callable: Callable<T>, flags?: int64 /* = 0 */): int64
         
         /** Disconnects this signal from the specified [Callable]. If the connection does not exist, generates an error. Use [method is_connected] to make sure that the connection exists. */
-        disconnect(callable: AnyCallable): void
+        disconnect(callable: Callable<T>): void
         
         /** Returns `true` if the specified [Callable] is connected to this signal. */
-        is_connected(callable: AnyCallable): boolean
+        is_connected(callable: Callable<T>): boolean
         
         /** Returns an [Array] of connections for this signal. Each connection is represented as a [Dictionary] that contains three entries:  
          *  - `signal` is a reference to this signal;  
@@ -4729,153 +4705,64 @@ declare module "godot" {
         has_connections(): boolean
         
         /** Emits this signal. All [Callable]s connected to this signal will be triggered. This method supports a variable number of arguments, so parameters can be passed as a comma separated list. */
-        emit(...vargargs: any[]): void
-        static EQUAL(left: AnySignal, right: AnySignal): boolean
-        static NOT_EQUAL(left: AnySignal, right: AnySignal): boolean
+        emit: T
+        static EQUAL(left: Signal, right: Signal): boolean
+        static NOT_EQUAL(left: Signal, right: Signal): boolean
     }
     class GDictionary<T = Record<any, any>> {
+        /** Builder function that returns a GDictionary with properties populated from a source JS object. */
+        static create<T>(properties: T extends GDictionary<infer S> ? GDictionaryProxy<S> : GDictionaryProxy<T>): T extends GDictionary<infer S> ? GDictionary<S> : GDictionary<T>
         [Symbol.iterator](): IteratorObject<{ key: any, value: any }>
         /** Returns a Proxy that targets this GDictionary but behaves similar to a regular JavaScript object. Values are exposed as enumerable properties, so Object.keys(), Object.entries() etc. will work. */
-        proxy(): GDictionaryProxy<T>
+        proxy<Write extends boolean = false>(): Write extends true ? GDictionaryProxy<T> : GDictionaryReadProxy<T>
         
         set_keyed<K extends keyof T>(key: K, value: T[K]): void
         get_keyed<K extends keyof T>(key: K): T[K]
         constructor()
         constructor(from: GDictionary)
         constructor(base: GDictionary, key_type: int64, key_class_name: StringName, key_script: any, value_type: int64, value_class_name: StringName, value_script: any)
-        
-        /** Returns the number of entries in the dictionary. Empty dictionaries (`{ }`) always return `0`. See also [method is_empty]. */
         size(): int64
-        
-        /** Returns `true` if the dictionary is empty (its size is `0`). See also [method size]. */
         is_empty(): boolean
-        
-        /** Clears the dictionary, removing all entries from it. */
         clear(): void
-        
-        /** Assigns elements of another [param dictionary] into the dictionary. Resizes the dictionary to match [param dictionary]. Performs type conversions if the dictionary is typed. */
         assign(dictionary: T): void
-        
-        /** Sorts the dictionary in-place by key. This can be used to ensure dictionaries with the same contents produce equivalent results when getting the [method keys], getting the [method values], and converting to a string. This is also useful when wanting a JSON representation consistent with what is in memory, and useful for storing on a database that requires dictionaries to be sorted. */
         sort(): void
-        
-        /** Adds entries from [param dictionary] to this dictionary. By default, duplicate keys are not copied over, unless [param overwrite] is `true`.  
-         *    
-         *      
-         *  **Note:** [method merge] is  *not*  recursive. Nested dictionaries are considered as keys that can be overwritten or not depending on the value of [param overwrite], but they will never be merged together.  
-         */
-        merge(dictionary: T, overwrite: boolean = false): void
-        
-        /** Returns a copy of this dictionary merged with the other [param dictionary]. By default, duplicate keys are not copied over, unless [param overwrite] is `true`. See also [method merge].  
-         *  This method is useful for quickly making dictionaries with default values:  
-         *    
-         */
-        merged<U>(dictionary: GDictionary<U>, overwrite: boolean = false): GDictionary<T & U>
-        
-        /** Returns `true` if the dictionary contains an entry with the given [param key].  
-         *    
-         *  In GDScript, this is equivalent to the `in` operator:  
-         *    
-         *      
-         *  **Note:** This method returns `true` as long as the [param key] exists, even if its corresponding value is `null`.  
-         */
+        merge(dictionary: T, overwrite?: boolean /* = false */): void
+        merged<U>(dictionary: GDictionary<U>, overwrite?: boolean /* = false */): GDictionary<T & U>
         has(key: keyof T): boolean
-        
-        /** Returns `true` if the dictionary contains all keys in the given [param keys] array.  
-         *    
-         */
         has_all(keys: GArray<keyof T>): boolean
-        
-        /** Finds and returns the first key whose associated value is equal to [param value], or `null` if it is not found.  
-         *      
-         *  **Note:** `null` is also a valid key. If inside the dictionary, [method find_key] may give misleading results.  
-         */
         find_key(value: T[keyof T]): keyof T
-        
-        /** Removes the dictionary entry by key, if it exists. Returns `true` if the given [param key] existed in the dictionary, otherwise `false`.  
-         *      
-         *  **Note:** Do not erase entries while iterating over the dictionary. You can iterate over the [method keys] array instead.  
-         */
         erase(key: keyof T): boolean
-        
-        /** Returns a hashed 32-bit integer value representing the dictionary contents.  
-         *    
-         *      
-         *  **Note:** Dictionaries with the same entries but in a different order will not have the same hash.  
-         *      
-         *  **Note:** Dictionaries with equal hash values are  *not*  guaranteed to be the same, because of hash collisions. On the contrary, dictionaries with different hash values are guaranteed to be different.  
-         */
         hash(): int64
-        
-        /** Returns the list of keys in the dictionary. */
         keys(): Array<keyof T>
-        
-        /** Returns the list of values in this dictionary. */
         values(): GArray<T[keyof T]>
-        
-        /** Creates and returns a new copy of the dictionary. If [param deep] is `true`, inner [Dictionary] and [Array] keys and values are also copied, recursively. */
-        duplicate(deep: boolean = false): GDictionary<T>
-        
-        /** Returns the corresponding value for the given [param key] in the dictionary. If the [param key] does not exist, returns [param default], or `null` if the parameter is omitted. */
-        get<K extends keyof T>(key: K, default_: any = <any> {}): T[K]
-        
-        /** Gets a value and ensures the key is set. If the [param key] exists in the dictionary, this behaves like [method get]. Otherwise, the [param default] value is inserted into the dictionary and returned. */
-        get_or_add<K extends keyof T>(key: K, default_: any = <any> {}): any
-        
-        /** Sets the value of the element at the given [param key] to the given [param value]. This is the same as using the `[]` operator (`array[index] = value`). */
+        duplicate(deep?: boolean /* = false */): GDictionary<T>
+        get<K extends keyof T>(key: K, default_?: any /* = <any> {} */): T[K]
+        get_or_add<K extends keyof T>(key: K, default_: T[K] /* = <any> {} */): any
         set<K extends keyof T>(key: K, value: T[K]): boolean
-        
-        /** Returns `true` if the dictionary is typed. Typed dictionaries can only store keys/values of their associated type and provide type safety for the `[]` operator. Methods of typed dictionary still return [Variant]. */
         is_typed(): boolean
-        
-        /** Returns `true` if the dictionary's keys are typed. */
         is_typed_key(): boolean
-        
-        /** Returns `true` if the dictionary's values are typed. */
         is_typed_value(): boolean
-        
-        /** Returns `true` if the dictionary is typed the same as [param dictionary]. */
         is_same_typed(dictionary: GDictionary): boolean
-        
-        /** Returns `true` if the dictionary's keys are typed the same as [param dictionary]'s keys. */
         is_same_typed_key(dictionary: GDictionary): boolean
-        
-        /** Returns `true` if the dictionary's values are typed the same as [param dictionary]'s values. */
         is_same_typed_value(dictionary: GDictionary): boolean
-        
-        /** Returns the built-in [Variant] type of the typed dictionary's keys as a [enum Variant.Type] constant. If the keys are not typed, returns [constant TYPE_NIL]. See also [method is_typed_key]. */
         get_typed_key_builtin(): int64
-        
-        /** Returns the built-in [Variant] type of the typed dictionary's values as a [enum Variant.Type] constant. If the values are not typed, returns [constant TYPE_NIL]. See also [method is_typed_value]. */
         get_typed_value_builtin(): int64
-        
-        /** Returns the **built-in** class name of the typed dictionary's keys, if the built-in [Variant] type is [constant TYPE_OBJECT]. Otherwise, returns an empty [StringName]. See also [method is_typed_key] and [method Object.get_class]. */
         get_typed_key_class_name(): StringName
-        
-        /** Returns the **built-in** class name of the typed dictionary's values, if the built-in [Variant] type is [constant TYPE_OBJECT]. Otherwise, returns an empty [StringName]. See also [method is_typed_value] and [method Object.get_class]. */
         get_typed_value_class_name(): StringName
-        
-        /** Returns the [Script] instance associated with this typed dictionary's keys, or `null` if it does not exist. See also [method is_typed_key]. */
         get_typed_key_script(): any
-        
-        /** Returns the [Script] instance associated with this typed dictionary's values, or `null` if it does not exist. See also [method is_typed_value]. */
         get_typed_value_script(): any
-        
-        /** Makes the dictionary read-only, i.e. disables modification of the dictionary's contents. Does not apply to nested content, e.g. content of nested dictionaries. */
         make_read_only(): void
-        
-        /** Returns `true` if the dictionary is read-only. See [method make_read_only]. Dictionaries are automatically read-only if declared with `const` keyword. */
         is_read_only(): boolean
-        
-        /** Returns `true` if the two dictionaries contain the same keys and values, inner [Dictionary] and [Array] keys and values are compared recursively. */
         recursive_equal(dictionary: GDictionary, recursion_count: int64): boolean
         static EQUAL(left: GDictionary, right: GDictionary): boolean
         static NOT_EQUAL(left: GDictionary, right: GDictionary): boolean
     }
-    class GArray<T = Any> {
+    class GArray<T = GAny> {
+        /** Builder function that returns a GArray populated with elements from a JS array. */
+        static create<T>(elements: [T] extends [GArray<infer E>] ? Array<E | GProxyValueWrap<E>> : Array<T | GProxyValueWrap<T>>): [T] extends [GArray<infer E>] ? GArray<E> : GArray<T>
         [Symbol.iterator](): IteratorObject<T>
         /** Returns a Proxy that targets this GArray but behaves similar to a JavaScript array. */
-        proxy(): GArrayProxy<T>
+        proxy<Write extends boolean = false>(): Write extends true ? GArrayProxy<T> : GArrayReadProxy<T>
         
         set_indexed(index: number, value: T): void
         get_indexed(index: number): T
@@ -4892,298 +4779,55 @@ declare module "godot" {
         constructor(from: PackedVector3Array | Vector3[])
         constructor(from: PackedColorArray | Color[])
         constructor(from: PackedVector4Array)
-        
-        /** Returns the number of elements in the array. Empty arrays (`[]`) always return `0`. See also [method is_empty]. */
         size(): int64
-        
-        /** Returns `true` if the array is empty (`[]`). See also [method size]. */
         is_empty(): boolean
-        
-        /** Removes all elements from the array. This is equivalent to using [method resize] with a size of `0`. */
         clear(): void
-        
-        /** Returns a hashed 32-bit integer value representing the array and its contents.  
-         *      
-         *  **Note:** Arrays with equal hash values are  *not*  guaranteed to be the same, as a result of hash collisions. On the countrary, arrays with different hash values are guaranteed to be different.  
-         */
         hash(): int64
-        
-        /** Assigns elements of another [param array] into the array. Resizes the array to match [param array]. Performs type conversions if the array is typed. */
         assign(array: GArray): void
-        
-        /** Returns the element at the given [param index] in the array. This is the same as using the `[]` operator (`array[index]`). */
         get(index: int64): T
-        
-        /** Sets the value of the element at the given [param index] to the given [param value]. This will not change the size of the array, it only changes the value at an index already in the array. This is the same as using the `[]` operator (`array[index] = value`). */
         set(index: int64, value: T): void
-        
-        /** Appends an element at the end of the array. See also [method push_front]. */
         push_back(value: T): void
-        
-        /** Adds an element at the beginning of the array. See also [method push_back].  
-         *      
-         *  **Note:** This method shifts every other element's index forward, which may have a noticeable performance cost, especially on larger arrays.  
-         */
         push_front(value: T): void
-        
-        /** Appends [param value] at the end of the array (alias of [method push_back]). */
         append(value: T): void
-        
-        /** Appends another [param array] at the end of this array.  
-         *    
-         */
         append_array(array: GArray<T>): void
-        
-        /** Sets the array's number of elements to [param size]. If [param size] is smaller than the array's current size, the elements at the end are removed. If [param size] is greater, new default elements (usually `null`) are added, depending on the array's type.  
-         *  Returns [constant OK] on success, or one of the other [enum Error] constants if this method fails.  
-         *      
-         *  **Note:** Calling this method once and assigning the new values is faster than calling [method append] for every new element.  
-         */
         resize(size: int64): int64
-        
-        /** Inserts a new element ([param value]) at a given index ([param position]) in the array. [param position] should be between `0` and the array's [method size].  
-         *  Returns [constant OK] on success, or one of the other [enum Error] constants if this method fails.  
-         *      
-         *  **Note:** Every element's index after [param position] needs to be shifted forward, which may have a noticeable performance cost, especially on larger arrays.  
-         */
         insert(position: int64, value: T): int64
-        
-        /** Removes the element from the array at the given index ([param position]). If the index is out of bounds, this method fails.  
-         *  If you need to return the removed element, use [method pop_at]. To remove an element by value, use [method erase] instead.  
-         *      
-         *  **Note:** This method shifts every element's index after [param position] back, which may have a noticeable performance cost, especially on larger arrays.  
-         *      
-         *  **Note:** The [param position] cannot be negative. To remove an element relative to the end of the array, use `arr.remove_at(arr.size() - (i + 1))`. To remove the last element from the array, use `arr.resize(arr.size() - 1)`.  
-         */
         remove_at(position: int64): void
-        
-        /** Assigns the given [param value] to all elements in the array.  
-         *  This method can often be combined with [method resize] to create an array with a given size and initialized elements:  
-         *    
-         *      
-         *  **Note:** If [param value] is a [Variant] passed by reference ([Object]-derived, [Array], [Dictionary], etc.), the array will be filled with references to the same [param value], which are not duplicates.  
-         */
         fill(value: T): void
-        
-        /** Finds and removes the first occurrence of [param value] from the array. If [param value] does not exist in the array, nothing happens. To remove an element by index, use [method remove_at] instead.  
-         *      
-         *  **Note:** This method shifts every element's index after the removed [param value] back, which may have a noticeable performance cost, especially on larger arrays.  
-         *      
-         *  **Note:** Erasing elements while iterating over arrays is **not** supported and will result in unpredictable behavior.  
-         */
         erase(value: T): void
-        
-        /** Returns the first element of the array. If the array is empty, fails and returns `null`. See also [method back].  
-         *      
-         *  **Note:** Unlike with the `[]` operator (`array[0]`), an error is generated without stopping project execution.  
-         */
         front(): T
-        
-        /** Returns the last element of the array. If the array is empty, fails and returns `null`. See also [method front].  
-         *      
-         *  **Note:** Unlike with the `[]` operator (`array[-1]`), an error is generated without stopping project execution.  
-         */
         back(): T
-        
-        /** Returns a random element from the array. Generates an error and returns `null` if the array is empty.  
-         *    
-         *      
-         *  **Note:** Like many similar functions in the engine (such as [method @GlobalScope.randi] or [method shuffle]), this method uses a common, global random seed. To get a predictable outcome from this method, see [method @GlobalScope.seed].  
-         */
         pick_random(): T
-        
-        /** Returns the index of the **first** occurrence of [param what] in this array, or `-1` if there are none. The search's start can be specified with [param from], continuing to the end of the array.  
-         *      
-         *  **Note:** If you just want to know whether the array contains [param what], use [method has] (`Contains` in C#). In GDScript, you may also use the `in` operator.  
-         *      
-         *  **Note:** For performance reasons, the search is affected by [param what]'s [enum Variant.Type]. For example, `7` ([int]) and `7.0` ([float]) are not considered equal for this method.  
-         */
-        find(what: T, from: int64 = 0): int64
-        
-        /** Returns the index of the **first** element in the array that causes [param method] to return `true`, or `-1` if there are none. The search's start can be specified with [param from], continuing to the end of the array.  
-         *  [param method] is a callable that takes an element of the array, and returns a [bool].  
-         *      
-         *  **Note:** If you just want to know whether the array contains  *anything*  that satisfies [param method], use [method any].  
-         *    
-         */
-        find_custom(method: AnyCallable, from: int64 = 0): int64
-        
-        /** Returns the index of the **last** occurrence of [param what] in this array, or `-1` if there are none. The search's start can be specified with [param from], continuing to the beginning of the array. This method is the reverse of [method find]. */
-        rfind(what: T, from: int64 = -1): int64
-        
-        /** Returns the index of the **last** element of the array that causes [param method] to return `true`, or `-1` if there are none. The search's start can be specified with [param from], continuing to the beginning of the array. This method is the reverse of [method find_custom]. */
-        rfind_custom(method: AnyCallable, from: int64 = -1): int64
-        
-        /** Returns the number of times an element is in the array.  
-         *  To count how many elements in an array satisfy a condition, see [method reduce].  
-         */
+        find(what: T, from?: int64 /* = 0 */): int64
+        find_custom(method: Callable, from?: int64 /* = 0 */): int64
+        rfind(what: T, from?: int64 /* = -1 */): int64
+        rfind_custom(method: Callable, from?: int64 /* = -1 */): int64
         count(value: T): int64
-        
-        /** Returns `true` if the array contains the given [param value].  
-         *    
-         *  In GDScript, this is equivalent to the `in` operator:  
-         *    
-         *      
-         *  **Note:** For performance reasons, the search is affected by the [param value]'s [enum Variant.Type]. For example, `7` ([int]) and `7.0` ([float]) are not considered equal for this method.  
-         */
         has(value: T): boolean
-        
-        /** Removes and returns the last element of the array. Returns `null` if the array is empty, without generating an error. See also [method pop_front]. */
         pop_back(): T
-        
-        /** Removes and returns the first element of the array. Returns `null` if the array is empty, without generating an error. See also [method pop_back].  
-         *      
-         *  **Note:** This method shifts every other element's index back, which may have a noticeable performance cost, especially on larger arrays.  
-         */
         pop_front(): T
-        
-        /** Removes and returns the element of the array at index [param position]. If negative, [param position] is considered relative to the end of the array. Returns `null` if the array is empty. If [param position] is out of bounds, an error message is also generated.  
-         *      
-         *  **Note:** This method shifts every element's index after [param position] back, which may have a noticeable performance cost, especially on larger arrays.  
-         */
         pop_at(position: int64): T
-        
-        /** Sorts the array in ascending order. The final order is dependent on the "less than" (`<`) comparison between elements.  
-         *    
-         *      
-         *  **Note:** The sorting algorithm used is not [url=https://en.wikipedia.org/wiki/Sorting_algorithm#Stability]stable[/url]. This means that equivalent elements (such as `2` and `2.0`) may have their order changed when calling [method sort].  
-         */
         sort(): void
-        
-        /** Sorts the array using a custom [Callable].  
-         *  [param func] is called as many times as necessary, receiving two array elements as arguments. The function should return `true` if the first element should be moved  *before*  the second one, otherwise it should return `false`.  
-         *    
-         *  It may also be necessary to use this method to sort strings by natural order, with [method String.naturalnocasecmp_to], as in the following example:  
-         *    
-         *      
-         *  **Note:** In C#, this method is not supported.  
-         *      
-         *  **Note:** The sorting algorithm used is not [url=https://en.wikipedia.org/wiki/Sorting_algorithm#Stability]stable[/url]. This means that values considered equal may have their order changed when calling this method.  
-         *      
-         *  **Note:** You should not randomize the return value of [param func], as the heapsort algorithm expects a consistent result. Randomizing the return value will result in unexpected behavior.  
-         */
         sort_custom(func: Callable2<T, T, boolean>): void
-        
-        /** Shuffles all elements of the array in a random order.  
-         *      
-         *  **Note:** Like many similar functions in the engine (such as [method @GlobalScope.randi] or [method pick_random]), this method uses a common, global random seed. To get a predictable outcome from this method, see [method @GlobalScope.seed].  
-         */
         shuffle(): void
-        
-        /** Returns the index of [param value] in the sorted array. If it cannot be found, returns where [param value] should be inserted to keep the array sorted. The algorithm used is [url=https://en.wikipedia.org/wiki/Binary_search_algorithm]binary search[/url].  
-         *  If [param before] is `true` (as by default), the returned index comes before all existing elements equal to [param value] in the array.  
-         *    
-         *      
-         *  **Note:** Calling [method bsearch] on an  *unsorted*  array will result in unexpected behavior. Use [method sort] before calling this method.  
-         */
-        bsearch(value: T, before: boolean = true): int64
-        
-        /** Returns the index of [param value] in the sorted array. If it cannot be found, returns where [param value] should be inserted to keep the array sorted (using [param func] for the comparisons). The algorithm used is [url=https://en.wikipedia.org/wiki/Binary_search_algorithm]binary search[/url].  
-         *  Similar to [method sort_custom], [param func] is called as many times as necessary, receiving one array element and [param value] as arguments. The function should return `true` if the array element should be  *behind*  [param value], otherwise it should return `false`.  
-         *  If [param before] is `true` (as by default), the returned index comes before all existing elements equal to [param value] in the array.  
-         *    
-         *      
-         *  **Note:** Calling [method bsearch_custom] on an  *unsorted*  array will result in unexpected behavior. Use [method sort_custom] with [param func] before calling this method.  
-         */
-        bsearch_custom(value: T, func: Callable2<T, T, boolean>, before: boolean = true): int64
-        
-        /** Reverses the order of all elements in the array. */
+        bsearch(value: T, before?: boolean /* = true */): int64
+        bsearch_custom(value: T, func: Callable2<T, T, boolean>, before?: boolean /* = true */): int64
         reverse(): void
-        
-        /** Returns a new copy of the array.  
-         *  By default, a **shallow** copy is returned: all nested [Array] and [Dictionary] elements are shared with the original array. Modifying them in one array will also affect them in the other.[br]If [param deep] is `true`, a **deep** copy is returned: all nested arrays and dictionaries are also duplicated (recursively).  
-         */
-        duplicate(deep: boolean = false): GArray<T>
-        
-        /** Returns a new [Array] containing this array's elements, from index [param begin] (inclusive) to [param end] (exclusive), every [param step] elements.  
-         *  If either [param begin] or [param end] are negative, their value is relative to the end of the array.  
-         *  If [param step] is negative, this method iterates through the array in reverse, returning a slice ordered backwards. For this to work, [param begin] must be greater than [param end].  
-         *  If [param deep] is `true`, all nested [Array] and [Dictionary] elements in the slice are duplicated from the original, recursively. See also [method duplicate]).  
-         *    
-         */
-        slice(begin: int64, end: int64 = 2147483647, step: int64 = 1, deep: boolean = false): GArray<T>
-        
-        /** Calls the given [Callable] on each element in the array and returns a new, filtered [Array].  
-         *  The [param method] receives one of the array elements as an argument, and should return `true` to add the element to the filtered array, or `false` to exclude it.  
-         *    
-         *  See also [method any], [method all], [method map] and [method reduce].  
-         */
+        duplicate(deep?: boolean /* = false */): GArray<T>
+        slice(begin: int64, end?: int64 /* = 2147483647 */, step?: int64 /* = 1 */, deep?: boolean /* = false */): GArray<T>
         filter(method: Callable1<T, boolean>): GArray<T>
-        
-        /** Calls the given [Callable] for each element in the array and returns a new array filled with values returned by the [param method].  
-         *  The [param method] should take one [Variant] parameter (the current array element) and can return any [Variant].  
-         *    
-         *  See also [method filter], [method reduce], [method any] and [method all].  
-         */
         map<U>(method: Callable1<T, U>): GArray<U>
-        
-        /** Calls the given [Callable] for each element in array, accumulates the result in [param accum], then returns it.  
-         *  The [param method] takes two arguments: the current value of [param accum] and the current array element. If [param accum] is `null` (as by default), the iteration will start from the second element, with the first one used as initial value of [param accum].  
-         *    
-         *  If [method max] is not desirable, this method may also be used to implement a custom comparator:  
-         *    
-         *  This method can also be used to count how many elements in an array satisfy a certain condition, similar to [method count]:  
-         *    
-         *  See also [method map], [method filter], [method any], and [method all].  
-         */
-        reduce(method: AnyCallable, accum: any = <any> {}): any
-        
-        /** Calls the given [Callable] on each element in the array and returns `true` if the [Callable] returns `true` for  *one or more*  elements in the array. If the [Callable] returns `false` for all elements in the array, this method returns `false`.  
-         *  The [param method] should take one [Variant] parameter (the current array element) and return a [bool].  
-         *    
-         *  See also [method all], [method filter], [method map] and [method reduce].  
-         *      
-         *  **Note:** Unlike relying on the size of an array returned by [method filter], this method will return as early as possible to improve performance (especially with large arrays).  
-         *      
-         *  **Note:** For an empty array, this method always returns `false`.  
-         */
+        reduce(method: Callable, accum?: any /* = <any> {} */): any
         any(method: Callable1<T, boolean>): boolean
-        
-        /** Calls the given [Callable] on each element in the array and returns `true` if the [Callable] returns `true` for  *all*  elements in the array. If the [Callable] returns `false` for one array element or more, this method returns `false`.  
-         *  The [param method] should take one [Variant] parameter (the current array element) and return a [bool].  
-         *    
-         *  See also [method any], [method filter], [method map] and [method reduce].  
-         *      
-         *  **Note:** Unlike relying on the size of an array returned by [method filter], this method will return as early as possible to improve performance (especially with large arrays).  
-         *      
-         *  **Note:** For an empty array, this method [url=https://en.wikipedia.org/wiki/Vacuous_truth]always[/url] returns `true`.  
-         */
         all(method: Callable1<T, boolean>): boolean
-        
-        /** Returns the maximum value contained in the array, if all elements can be compared. Otherwise, returns `null`. See also [method min].  
-         *  To find the maximum value using a custom comparator, you can use [method reduce].  
-         */
         max(): T
-        
-        /** Returns the minimum value contained in the array, if all elements can be compared. Otherwise, returns `null`. See also [method max]. */
         min(): T
-        
-        /** Returns `true` if the array is typed. Typed arrays can only contain elements of a specific type, as defined by the typed array constructor. The methods of a typed array are still expected to return a generic [Variant].  
-         *  In GDScript, it is possible to define a typed array with static typing:  
-         *    
-         */
         is_typed(): boolean
-        
-        /** Returns `true` if this array is typed the same as the given [param array]. See also [method is_typed]. */
         is_same_typed(array: GArray): boolean
-        
-        /** Returns the built-in [Variant] type of the typed array as a [enum Variant.Type] constant. If the array is not typed, returns [constant TYPE_NIL]. See also [method is_typed]. */
         get_typed_builtin(): int64
-        
-        /** Returns the **built-in** class name of the typed array, if the built-in [Variant] type [constant TYPE_OBJECT]. Otherwise, returns an empty [StringName]. See also [method is_typed] and [method Object.get_class]. */
         get_typed_class_name(): StringName
-        
-        /** Returns the [Script] instance associated with this typed array, or `null` if it does not exist. See also [method is_typed]. */
         get_typed_script(): any
-        
-        /** Makes the array read-only. The array's elements cannot be overridden with different values, and their order cannot change. Does not apply to nested elements, such as dictionaries.  
-         *  In GDScript, arrays are automatically read-only if declared with the `const` keyword.  
-         */
         make_read_only(): void
-        
-        /** Returns `true` if the array is read-only. See [method make_read_only].  
-         *  In GDScript, arrays are automatically read-only if declared with the `const` keyword.  
-         */
         is_read_only(): boolean
         static EQUAL(left: GArray, right: GArray): boolean
         static NOT_EQUAL(left: GArray, right: GArray): boolean
@@ -5194,7 +4838,7 @@ declare module "godot" {
     }
     /** A packed array of bytes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedbytearray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedbytearray.html  
      */
     class PackedByteArray {
         /** [jsb utility method] Converts a PackedByteArray to a JavaScript ArrayBuffer. */
@@ -5233,7 +4877,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: int64): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5249,7 +4895,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedByteArray
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedByteArray
         
         /** Sorts the elements of the array in ascending order. */
         sort(): void
@@ -5258,19 +4904,22 @@ declare module "godot" {
          *      
          *  **Note:** Calling [method bsearch] on an unsorted array results in unexpected behavior.  
          */
-        bsearch(value: int64, before: boolean = true): int64
+        bsearch(value: int64, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedByteArray
         
         /** Searches the array for a value and returns its index or `-1` if not found. Optionally, the initial search index can be passed. */
-        find(value: int64, from: int64 = 0): int64
+        find(value: int64, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array. */
-        rfind(value: int64, from: int64 = -1): int64
+        rfind(value: int64, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array. */
         count(value: int64): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead. */
+        erase(value: int64): boolean
         
         /** Converts ASCII/Latin-1 encoded array to [String]. Fast alternative to [method get_string_from_utf8] if the content is ASCII/Latin-1 only. Unlike the UTF-8 function this function maps every byte to a character in the array. Multibyte sequences will not be interpreted correctly. For parsing user input always use [method get_string_from_utf8]. This is the inverse of [method String.to_ascii_buffer]. */
         get_string_from_ascii(): string
@@ -5287,19 +4936,26 @@ declare module "godot" {
         /** Converts wide character (`wchar_t`, UTF-16 on Windows, UTF-32 on other platforms) encoded array to [String]. Returns empty string if source array is not valid wide string. This is the inverse of [method String.to_wchar_buffer]. */
         get_string_from_wchar(): string
         
+        /** Converts system multibyte code page encoded array to [String]. If conversion fails, empty string is returned. This is the inverse of [method String.to_multibyte_char_buffer].  
+         *  The values permitted for [param encoding] are system dependent. If [param encoding] is empty string, system default encoding is used.  
+         *  - For Windows, see [url=https://learn.microsoft.com/en-us/windows/win32/Intl/code-page-identifiers]Code Page Identifiers[/url] .NET names.  
+         *  - For macOS and Linux/BSD, see `libiconv` library documentation and `iconv --list` for a list of supported encodings.  
+         */
+        get_string_from_multibyte_char(encoding?: string /* = '' */): string
+        
         /** Returns a hexadecimal representation of this array as a [String].  
          *    
          */
         hex_encode(): string
         
         /** Returns a new [PackedByteArray] with the data compressed. Set the compression mode using one of [enum FileAccess.CompressionMode]'s constants. */
-        compress(compression_mode: int64 = 0): PackedByteArray
+        compress(compression_mode?: int64 /* = 0 */): PackedByteArray
         
         /** Returns a new [PackedByteArray] with the data decompressed. Set [param buffer_size] to the size of the uncompressed data. Set the compression mode using one of [enum FileAccess.CompressionMode]'s constants.  
          *      
          *  **Note:** Decompression is not guaranteed to work with data not compressed by Godot, for example if data compressed with the deflate compression mode lacks a checksum or header.  
          */
-        decompress(buffer_size: int64, compression_mode: int64 = 0): PackedByteArray
+        decompress(buffer_size: int64, compression_mode?: int64 /* = 0 */): PackedByteArray
         
         /** Returns a new [PackedByteArray] with the data decompressed. Set the compression mode using one of [enum FileAccess.CompressionMode]'s constants. **This method only accepts brotli, gzip, and deflate compression modes.**  
          *  This method is potentially slower than [method decompress], as it may have to re-allocate its output buffer multiple times while decompressing, whereas [method decompress] knows it's output buffer size from the beginning.  
@@ -5307,7 +4963,7 @@ declare module "godot" {
          *      
          *  **Note:** Decompression is not guaranteed to work with data not compressed by Godot, for example if data compressed with the deflate compression mode lacks a checksum or header.  
          */
-        decompress_dynamic(max_output_size: int64, compression_mode: int64 = 0): PackedByteArray
+        decompress_dynamic(max_output_size: int64, compression_mode?: int64 /* = 0 */): PackedByteArray
         
         /** Decodes a 8-bit unsigned integer number from the bytes starting at [param byte_offset]. Fails if the byte count is insufficient. Returns `0` if a valid number can't be decoded. */
         decode_u8(byte_offset: int64): int64
@@ -5343,13 +4999,13 @@ declare module "godot" {
         decode_double(byte_offset: int64): float64
         
         /** Returns `true` if a valid [Variant] value can be decoded at the [param byte_offset]. Returns `false` otherwise or when the value is [Object]-derived and [param allow_objects] is `false`. */
-        has_encoded_var(byte_offset: int64, allow_objects: boolean = false): boolean
+        has_encoded_var(byte_offset: int64, allow_objects?: boolean /* = false */): boolean
         
         /** Decodes a [Variant] from the bytes starting at [param byte_offset]. Returns `null` if a valid variant can't be decoded or the value is [Object]-derived and [param allow_objects] is `false`. */
-        decode_var(byte_offset: int64, allow_objects: boolean = false): any
+        decode_var(byte_offset: int64, allow_objects?: boolean /* = false */): any
         
         /** Decodes a size of a [Variant] from the bytes starting at [param byte_offset]. Requires at least 4 bytes of data starting at the offset, otherwise fails. */
-        decode_var_size(byte_offset: int64, allow_objects: boolean = false): int64
+        decode_var_size(byte_offset: int64, allow_objects?: boolean /* = false */): int64
         
         /** Returns a copy of the data converted to a [PackedInt32Array], where each block of 4 bytes has been converted to a signed 32-bit integer (C++ `int32_t`).  
          *  The size of the input array must be a multiple of 4 (size of 32-bit integer). The size of the new array will be `byte_array.size() / 4`.  
@@ -5409,13 +5065,13 @@ declare module "godot" {
         encode_double(byte_offset: int64, value: float64): void
         
         /** Encodes a [Variant] at the index of [param byte_offset] bytes. A sufficient space must be allocated, depending on the encoded variant's size. If [param allow_objects] is `false`, [Object]-derived values are not permitted and will instead be serialized as ID-only. */
-        encode_var(byte_offset: int64, value: any, allow_objects: boolean = false): int64
+        encode_var(byte_offset: int64, value: any, allow_objects?: boolean /* = false */): int64
         static EQUAL(left: PackedByteArray | byte[] | ArrayBuffer, right: PackedByteArray | byte[] | ArrayBuffer): boolean
         static NOT_EQUAL(left: PackedByteArray | byte[] | ArrayBuffer, right: PackedByteArray | byte[] | ArrayBuffer): boolean
     }
     /** A packed array of 32-bit integers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedint32array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedint32array.html  
      */
     class PackedInt32Array {
         constructor()
@@ -5452,7 +5108,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: int64): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5468,7 +5126,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedInt32Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedInt32Array
         
         /** Returns a copy of the data converted to a [PackedByteArray], where each element has been encoded as 4 bytes.  
          *  The size of the new array will be `int32_array.size() * 4`.  
@@ -5482,25 +5140,28 @@ declare module "godot" {
          *      
          *  **Note:** Calling [method bsearch] on an unsorted array results in unexpected behavior.  
          */
-        bsearch(value: int64, before: boolean = true): int64
+        bsearch(value: int64, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedInt32Array
         
         /** Searches the array for a value and returns its index or `-1` if not found. Optionally, the initial search index can be passed. */
-        find(value: int64, from: int64 = 0): int64
+        find(value: int64, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array. */
-        rfind(value: int64, from: int64 = -1): int64
+        rfind(value: int64, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array. */
         count(value: int64): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead. */
+        erase(value: int64): boolean
         static EQUAL(left: PackedInt32Array | int32[], right: PackedInt32Array | int32[]): boolean
         static NOT_EQUAL(left: PackedInt32Array | int32[], right: PackedInt32Array | int32[]): boolean
     }
     /** A packed array of 64-bit integers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedint64array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedint64array.html  
      */
     class PackedInt64Array {
         constructor()
@@ -5537,7 +5198,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: int64): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5553,7 +5216,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedInt64Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedInt64Array
         
         /** Returns a copy of the data converted to a [PackedByteArray], where each element has been encoded as 8 bytes.  
          *  The size of the new array will be `int64_array.size() * 8`.  
@@ -5567,25 +5230,28 @@ declare module "godot" {
          *      
          *  **Note:** Calling [method bsearch] on an unsorted array results in unexpected behavior.  
          */
-        bsearch(value: int64, before: boolean = true): int64
+        bsearch(value: int64, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedInt64Array
         
         /** Searches the array for a value and returns its index or `-1` if not found. Optionally, the initial search index can be passed. */
-        find(value: int64, from: int64 = 0): int64
+        find(value: int64, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array. */
-        rfind(value: int64, from: int64 = -1): int64
+        rfind(value: int64, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array. */
         count(value: int64): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead. */
+        erase(value: int64): boolean
         static EQUAL(left: PackedInt64Array | int64[], right: PackedInt64Array | int64[]): boolean
         static NOT_EQUAL(left: PackedInt64Array | int64[], right: PackedInt64Array | int64[]): boolean
     }
     /** A packed array of 32-bit floating-point values.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedfloat32array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedfloat32array.html  
      */
     class PackedFloat32Array {
         constructor()
@@ -5622,7 +5288,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: float64): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5641,7 +5309,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedFloat32Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedFloat32Array
         
         /** Returns a copy of the data converted to a [PackedByteArray], where each element has been encoded as 4 bytes.  
          *  The size of the new array will be `float32_array.size() * 4`.  
@@ -5660,7 +5328,7 @@ declare module "godot" {
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        bsearch(value: float64, before: boolean = true): int64
+        bsearch(value: float64, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedFloat32Array
@@ -5669,25 +5337,31 @@ declare module "godot" {
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        find(value: float64, from: int64 = 0): int64
+        find(value: float64, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array.  
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        rfind(value: float64, from: int64 = -1): int64
+        rfind(value: float64, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array.  
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
         count(value: float64): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead.  
+         *      
+         *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
+         */
+        erase(value: float64): boolean
         static EQUAL(left: PackedFloat32Array | float32[], right: PackedFloat32Array | float32[]): boolean
         static NOT_EQUAL(left: PackedFloat32Array | float32[], right: PackedFloat32Array | float32[]): boolean
     }
     /** A packed array of 64-bit floating-point values.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedfloat64array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedfloat64array.html  
      */
     class PackedFloat64Array {
         constructor()
@@ -5724,7 +5398,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: float64): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5743,7 +5419,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedFloat64Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedFloat64Array
         
         /** Returns a copy of the data converted to a [PackedByteArray], where each element has been encoded as 8 bytes.  
          *  The size of the new array will be `float64_array.size() * 8`.  
@@ -5762,7 +5438,7 @@ declare module "godot" {
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        bsearch(value: float64, before: boolean = true): int64
+        bsearch(value: float64, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedFloat64Array
@@ -5771,25 +5447,31 @@ declare module "godot" {
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        find(value: float64, from: int64 = 0): int64
+        find(value: float64, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array.  
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        rfind(value: float64, from: int64 = -1): int64
+        rfind(value: float64, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array.  
          *      
          *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
         count(value: float64): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead.  
+         *      
+         *  **Note:** [constant @GDScript.NAN] doesn't behave the same as other numbers. Therefore, the results from this method may not be accurate if NaNs are included.  
+         */
+        erase(value: float64): boolean
         static EQUAL(left: PackedFloat64Array | float64[], right: PackedFloat64Array | float64[]): boolean
         static NOT_EQUAL(left: PackedFloat64Array | float64[], right: PackedFloat64Array | float64[]): boolean
     }
     /** A packed array of [String]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedstringarray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedstringarray.html  
      */
     class PackedStringArray {
         constructor()
@@ -5826,7 +5508,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: string): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5842,7 +5526,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedStringArray
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedStringArray
         
         /** Returns a [PackedByteArray] with each string encoded as UTF-8. Strings are `null` terminated. */
         to_byte_array(): PackedByteArray
@@ -5854,25 +5538,28 @@ declare module "godot" {
          *      
          *  **Note:** Calling [method bsearch] on an unsorted array results in unexpected behavior.  
          */
-        bsearch(value: string, before: boolean = true): int64
+        bsearch(value: string, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedStringArray
         
         /** Searches the array for a value and returns its index or `-1` if not found. Optionally, the initial search index can be passed. */
-        find(value: string, from: int64 = 0): int64
+        find(value: string, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array. */
-        rfind(value: string, from: int64 = -1): int64
+        rfind(value: string, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array. */
         count(value: string): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead. */
+        erase(value: string): boolean
         static EQUAL(left: PackedStringArray | string[], right: PackedStringArray | string[]): boolean
         static NOT_EQUAL(left: PackedStringArray | string[], right: PackedStringArray | string[]): boolean
     }
     /** A packed array of [Vector2]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedvector2array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedvector2array.html  
      */
     class PackedVector2Array {
         constructor()
@@ -5909,7 +5596,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: Vector2): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -5928,7 +5617,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedVector2Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedVector2Array
         
         /** Returns a [PackedByteArray] with each vector encoded as bytes. */
         to_byte_array(): PackedByteArray
@@ -5945,7 +5634,7 @@ declare module "godot" {
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        bsearch(value: Vector2, before: boolean = true): int64
+        bsearch(value: Vector2, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedVector2Array
@@ -5954,25 +5643,31 @@ declare module "godot" {
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        find(value: Vector2, from: int64 = 0): int64
+        find(value: Vector2, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array.  
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        rfind(value: Vector2, from: int64 = -1): int64
+        rfind(value: Vector2, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array.  
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
         count(value: Vector2): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead.  
+         *      
+         *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
+         */
+        erase(value: Vector2): boolean
         static EQUAL(left: PackedVector2Array | Vector2[], right: PackedVector2Array | Vector2[]): boolean
         static NOT_EQUAL(left: PackedVector2Array | Vector2[], right: PackedVector2Array | Vector2[]): boolean
     }
     /** A packed array of [Vector3]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedvector3array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedvector3array.html  
      */
     class PackedVector3Array {
         constructor()
@@ -6009,7 +5704,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: Vector3): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -6028,7 +5725,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedVector3Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedVector3Array
         
         /** Returns a [PackedByteArray] with each vector encoded as bytes. */
         to_byte_array(): PackedByteArray
@@ -6045,7 +5742,7 @@ declare module "godot" {
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        bsearch(value: Vector3, before: boolean = true): int64
+        bsearch(value: Vector3, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedVector3Array
@@ -6054,25 +5751,31 @@ declare module "godot" {
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        find(value: Vector3, from: int64 = 0): int64
+        find(value: Vector3, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array.  
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        rfind(value: Vector3, from: int64 = -1): int64
+        rfind(value: Vector3, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array.  
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
         count(value: Vector3): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead.  
+         *      
+         *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
+         */
+        erase(value: Vector3): boolean
         static EQUAL(left: PackedVector3Array | Vector3[], right: PackedVector3Array | Vector3[]): boolean
         static NOT_EQUAL(left: PackedVector3Array | Vector3[], right: PackedVector3Array | Vector3[]): boolean
     }
     /** A packed array of [Vector4]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedvector4array.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedvector4array.html  
      */
     class PackedVector4Array {
         constructor()
@@ -6109,7 +5812,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: Vector4): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -6128,7 +5833,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedVector4Array
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedVector4Array
         
         /** Returns a [PackedByteArray] with each vector encoded as bytes. */
         to_byte_array(): PackedByteArray
@@ -6145,7 +5850,7 @@ declare module "godot" {
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        bsearch(value: Vector4, before: boolean = true): int64
+        bsearch(value: Vector4, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedVector4Array
@@ -6154,25 +5859,31 @@ declare module "godot" {
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        find(value: Vector4, from: int64 = 0): int64
+        find(value: Vector4, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array.  
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
-        rfind(value: Vector4, from: int64 = -1): int64
+        rfind(value: Vector4, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array.  
          *      
          *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
          */
         count(value: Vector4): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead.  
+         *      
+         *  **Note:** Vectors with [constant @GDScript.NAN] elements don't behave the same as other vectors. Therefore, the results from this method may not be accurate if NaNs are included.  
+         */
+        erase(value: Vector4): boolean
         static EQUAL(left: PackedVector4Array, right: PackedVector4Array): boolean
         static NOT_EQUAL(left: PackedVector4Array, right: PackedVector4Array): boolean
     }
     /** A packed array of [Color]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedcolorarray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedcolorarray.html  
      */
     class PackedColorArray {
         constructor()
@@ -6209,7 +5920,9 @@ declare module "godot" {
         /** Assigns the given value to all elements in the array. This can typically be used together with [method resize] to create an array with a given size and initialized elements. */
         fill(value: Color): void
         
-        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one. */
+        /** Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling [method resize] once and assigning the new values is faster than adding new elements one by one.  
+         *  Returns [constant OK] on success, or one of the following [enum Error] constants if this method fails: [constant ERR_INVALID_PARAMETER] if the size is negative, or [constant ERR_OUT_OF_MEMORY] if allocations fail. Use [method size] to find the actual size of the array after resize.  
+         */
         resize(new_size: int64): int64
         
         /** Clears the array. This is equivalent to using [method resize] with a size of `0`. */
@@ -6225,7 +5938,7 @@ declare module "godot" {
          *  The absolute value of [param begin] and [param end] will be clamped to the array size, so the default value for [param end] makes it slice to the size of the array by default (i.e. `arr.slice(1)` is a shorthand for `arr.slice(1, arr.size())`).  
          *  If either [param begin] or [param end] are negative, they will be relative to the end of the array (i.e. `arr.slice(0, -2)` is a shorthand for `arr.slice(0, arr.size() - 2)`).  
          */
-        slice(begin: int64, end: int64 = 2147483647): PackedColorArray
+        slice(begin: int64, end?: int64 /* = 2147483647 */): PackedColorArray
         
         /** Returns a [PackedByteArray] with each color encoded as bytes. */
         to_byte_array(): PackedByteArray
@@ -6237,19 +5950,22 @@ declare module "godot" {
          *      
          *  **Note:** Calling [method bsearch] on an unsorted array results in unexpected behavior.  
          */
-        bsearch(value: Color, before: boolean = true): int64
+        bsearch(value: Color, before?: boolean /* = true */): int64
         
         /** Creates a copy of the array, and returns it. */
         duplicate(): PackedColorArray
         
         /** Searches the array for a value and returns its index or `-1` if not found. Optionally, the initial search index can be passed. */
-        find(value: Color, from: int64 = 0): int64
+        find(value: Color, from?: int64 /* = 0 */): int64
         
         /** Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array. */
-        rfind(value: Color, from: int64 = -1): int64
+        rfind(value: Color, from?: int64 /* = -1 */): int64
         
         /** Returns the number of times an element is in the array. */
         count(value: Color): int64
+        
+        /** Removes the first occurrence of a value from the array and returns `true`. If the value does not exist in the array, nothing happens and `false` is returned. To remove an element by index, use [method remove_at] instead. */
+        erase(value: Color): boolean
         static EQUAL(left: PackedColorArray | Color[], right: PackedColorArray | Color[]): boolean
         static NOT_EQUAL(left: PackedColorArray | Color[], right: PackedColorArray | Color[]): boolean
     }
@@ -7223,7 +6939,7 @@ declare module "godot" {
         /** MIDI message sent to reset a MIDI device to its default state, as if it was just turned on. It should not be sent when the MIDI device is being turned on. */
         MIDI_MESSAGE_SYSTEM_RESET = 255,
     }
-    enum GError {
+    enum Error {
         /** Methods that return [enum Error] return [constant OK] when no error occurred.  
          *  Since [constant OK] has value `0`, and all other error constants are positive integers, it can also be used in boolean checks.  
          *    
@@ -7495,7 +7211,7 @@ declare module "godot" {
         /** Hints that a property is an [Array] with the stored type specified in the hint string. */
         PROPERTY_HINT_ARRAY_TYPE = 31,
         
-        /** Hints that a property is a [Dictionary] with the stored types specified in the hint string. */
+        /** Hints that a property is a [Dictionary] with the stored types specified in the hint string. The hint string contains the key and value types separated by a semicolon (e.g. `"int;String"`). */
         PROPERTY_HINT_DICTIONARY_TYPE = 38,
         
         /** Hints that a string property is a locale code. Editing it will show a locale dialog for picking language and country. */
@@ -7858,84 +7574,84 @@ declare module "godot" {
     /** Returns the sine of angle [param angle_rad] in radians.  
      *    
      */
-    static function sin(angle_rad: float64): float64
+    function sin(angle_rad: float64): float64
     
     /** Returns the cosine of angle [param angle_rad] in radians.  
      *    
      */
-    static function cos(angle_rad: float64): float64
+    function cos(angle_rad: float64): float64
     
     /** Returns the tangent of angle [param angle_rad] in radians.  
      *    
      */
-    static function tan(angle_rad: float64): float64
+    function tan(angle_rad: float64): float64
     
     /** Returns the hyperbolic sine of [param x].  
      *    
      */
-    static function sinh(x: float64): float64
+    function sinh(x: float64): float64
     
     /** Returns the hyperbolic cosine of [param x] in radians.  
      *    
      */
-    static function cosh(x: float64): float64
+    function cosh(x: float64): float64
     
     /** Returns the hyperbolic tangent of [param x].  
      *    
      */
-    static function tanh(x: float64): float64
+    function tanh(x: float64): float64
     
     /** Returns the arc sine of [param x] in radians. Use to get the angle of sine [param x]. [param x] will be clamped between `-1.0` and `1.0` (inclusive), in order to prevent [method asin] from returning [constant @GDScript.NAN].  
      *    
      */
-    static function asin(x: float64): float64
+    function asin(x: float64): float64
     
     /** Returns the arc cosine of [param x] in radians. Use to get the angle of cosine [param x]. [param x] will be clamped between `-1.0` and `1.0` (inclusive), in order to prevent [method acos] from returning [constant @GDScript.NAN].  
      *    
      */
-    static function acos(x: float64): float64
+    function acos(x: float64): float64
     
     /** Returns the arc tangent of [param x] in radians. Use it to get the angle from an angle's tangent in trigonometry.  
      *  The method cannot know in which quadrant the angle should fall. See [method atan2] if you have both `y` and [code skip-lint]x`.  
      *    
      *  If [param x] is between `-PI / 2` and `PI / 2` (inclusive), `atan(tan(x))` is equal to [param x].  
      */
-    static function atan(x: float64): float64
+    function atan(x: float64): float64
     
     /** Returns the arc tangent of `y/x` in radians. Use to get the angle of tangent `y/x`. To compute the value, the method takes into account the sign of both arguments in order to determine the quadrant.  
      *  Important note: The Y coordinate comes first, by convention.  
      *    
      */
-    static function atan2(y: float64, x: float64): float64
+    function atan2(y: float64, x: float64): float64
     
     /** Returns the hyperbolic arc (also called inverse) sine of [param x], returning a value in radians. Use it to get the angle from an angle's sine in hyperbolic space.  
      *    
      */
-    static function asinh(x: float64): float64
+    function asinh(x: float64): float64
     
     /** Returns the hyperbolic arc (also called inverse) cosine of [param x], returning a value in radians. Use it to get the angle from an angle's cosine in hyperbolic space if [param x] is larger or equal to 1. For values of [param x] lower than 1, it will return 0, in order to prevent [method acosh] from returning [constant @GDScript.NAN].  
      *    
      */
-    static function acosh(x: float64): float64
+    function acosh(x: float64): float64
     
     /** Returns the hyperbolic arc (also called inverse) tangent of [param x], returning a value in radians. Use it to get the angle from an angle's tangent in hyperbolic space if [param x] is between -1 and 1 (non-inclusive).  
      *  In mathematics, the inverse hyperbolic tangent is only defined for -1 < [param x] < 1 in the real set, so values equal or lower to -1 for [param x] return negative [constant @GDScript.INF] and values equal or higher than 1 return positive [constant @GDScript.INF] in order to prevent [method atanh] from returning [constant @GDScript.NAN].  
      *    
      */
-    static function atanh(x: float64): float64
+    function atanh(x: float64): float64
     
     /** Returns the square root of [param x], where [param x] is a non-negative number.  
      *    
      *      
      *  **Note:** Negative values of [param x] return NaN ("Not a Number"). in C#, if you need negative inputs, use `System.Numerics.Complex`.  
      */
-    static function sqrt(x: float64): float64
+    function sqrt(x: float64): float64
     
     /** Returns the floating-point remainder of [param x] divided by [param y], keeping the sign of [param x].  
      *    
      *  For the integer remainder operation, use the `%` operator.  
      */
-    static function fmod(x: float64, y: float64): float64
+    function fmod(x: float64, y: float64): float64
     
     /** Returns the floating-point modulus of [param x] divided by [param y], wrapping equally in positive and negative.  
      *    
@@ -7951,7 +7667,7 @@ declare module "godot" {
      *   1.5            0.0  |  0.0  
      *  [/codeblock]  
      */
-    static function fposmod(x: float64, y: float64): float64
+    function fposmod(x: float64, y: float64): float64
     
     /** Returns the integer modulus of [param x] divided by [param y] that wraps equally in positive and negative.  
      *    
@@ -7967,7 +7683,7 @@ declare module "godot" {
      *   3        0  |  0  
      *  [/codeblock]  
      */
-    static function posmod(x: int64, y: int64): int64
+    function posmod(x: int64, y: int64): int64
     
     /** Rounds [param x] downward (towards negative infinity), returning the largest whole number that is not more than [param x]. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].  
      *    
@@ -7975,19 +7691,19 @@ declare module "godot" {
      *      
      *  **Note:** For better type safety, use [method floorf], [method floori], [method Vector2.floor], [method Vector3.floor], or [method Vector4.floor].  
      */
-    static function floor(x: any): any
+    function floor(x: any): any
     
     /** Rounds [param x] downward (towards negative infinity), returning the largest whole number that is not more than [param x].  
      *  A type-safe version of [method floor], returning a [float].  
      */
-    static function floorf(x: float64): float64
+    function floorf(x: float64): float64
     
     /** Rounds [param x] downward (towards negative infinity), returning the largest whole number that is not more than [param x].  
      *  A type-safe version of [method floor], returning an [int].  
      *      
      *  **Note:** This function is  *not*  the same as `int(x)`, which rounds towards 0.  
      */
-    static function floori(x: float64): int64
+    function floori(x: float64): int64
     
     /** Rounds [param x] upward (towards positive infinity), returning the smallest whole number that is not less than [param x]. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].  
      *    
@@ -7995,17 +7711,17 @@ declare module "godot" {
      *      
      *  **Note:** For better type safety, use [method ceilf], [method ceili], [method Vector2.ceil], [method Vector3.ceil], or [method Vector4.ceil].  
      */
-    static function ceil(x: any): any
+    function ceil(x: any): any
     
     /** Rounds [param x] upward (towards positive infinity), returning the smallest whole number that is not less than [param x].  
      *  A type-safe version of [method ceil], returning a [float].  
      */
-    static function ceilf(x: float64): float64
+    function ceilf(x: float64): float64
     
     /** Rounds [param x] upward (towards positive infinity), returning the smallest whole number that is not less than [param x].  
      *  A type-safe version of [method ceil], returning an [int].  
      */
-    static function ceili(x: float64): int64
+    function ceili(x: float64): int64
     
     /** Rounds [param x] to the nearest whole number, with halfway cases rounded away from 0. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].  
      *    
@@ -8013,34 +7729,34 @@ declare module "godot" {
      *      
      *  **Note:** For better type safety, use [method roundf], [method roundi], [method Vector2.round], [method Vector3.round], or [method Vector4.round].  
      */
-    static function round(x: any): any
+    function round(x: any): any
     
     /** Rounds [param x] to the nearest whole number, with halfway cases rounded away from 0.  
      *  A type-safe version of [method round], returning a [float].  
      */
-    static function roundf(x: float64): float64
+    function roundf(x: float64): float64
     
     /** Rounds [param x] to the nearest whole number, with halfway cases rounded away from 0.  
      *  A type-safe version of [method round], returning an [int].  
      */
-    static function roundi(x: float64): int64
+    function roundi(x: float64): int64
     
     /** Returns the absolute value of a [Variant] parameter [param x] (i.e. non-negative value). Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].  
      *    
      *      
      *  **Note:** For better type safety, use [method absf], [method absi], [method Vector2.abs], [method Vector2i.abs], [method Vector3.abs], [method Vector3i.abs], [method Vector4.abs], or [method Vector4i.abs].  
      */
-    static function abs(x: any): any
+    function abs(x: any): any
     
     /** Returns the absolute value of float parameter [param x] (i.e. positive value).  
      *    
      */
-    static function absf(x: float64): float64
+    function absf(x: float64): float64
     
     /** Returns the absolute value of int parameter [param x] (i.e. positive value).  
      *    
      */
-    static function absi(x: int64): int64
+    function absi(x: int64): int64
     
     /** Returns the same type of [Variant] as [param x], with `-1` for negative values, `1` for positive values, and `0` for zeros. For `nan` values it returns 0.  
      *  Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].  
@@ -8048,17 +7764,17 @@ declare module "godot" {
      *      
      *  **Note:** For better type safety, use [method signf], [method signi], [method Vector2.sign], [method Vector2i.sign], [method Vector3.sign], [method Vector3i.sign], [method Vector4.sign], or [method Vector4i.sign].  
      */
-    static function sign(x: any): any
+    function sign(x: any): any
     
     /** Returns `-1.0` if [param x] is negative, `1.0` if [param x] is positive, and `0.0` if [param x] is zero. For `nan` values of [param x] it returns 0.0.  
      *    
      */
-    static function signf(x: float64): float64
+    function signf(x: float64): float64
     
     /** Returns `-1` if [param x] is negative, `1` if [param x] is positive, and `0` if [param x] is zero.  
      *    
      */
-    static function signi(x: int64): int64
+    function signi(x: int64): int64
     
     /** Returns the multiple of [param step] that is the closest to [param x]. This can also be used to round a floating-point number to an arbitrary number of decimals.  
      *  The returned value is the same type of [Variant] as [param step]. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].  
@@ -8067,25 +7783,25 @@ declare module "godot" {
      *      
      *  **Note:** For better type safety, use [method snappedf], [method snappedi], [method Vector2.snapped], [method Vector2i.snapped], [method Vector3.snapped], [method Vector3i.snapped], [method Vector4.snapped], or [method Vector4i.snapped].  
      */
-    static function snapped(x: any, step: any): any
+    function snapped(x: any, step: any): any
     
     /** Returns the multiple of [param step] that is the closest to [param x]. This can also be used to round a floating-point number to an arbitrary number of decimals.  
      *  A type-safe version of [method snapped], returning a [float].  
      *    
      */
-    static function snappedf(x: float64, step: float64): float64
+    function snappedf(x: float64, step: float64): float64
     
     /** Returns the multiple of [param step] that is the closest to [param x].  
      *  A type-safe version of [method snapped], returning an [int].  
      *    
      */
-    static function snappedi(x: float64, step: int64): int64
+    function snappedi(x: float64, step: int64): int64
     
     /** Returns the result of [param base] raised to the power of [param exp].  
      *  In GDScript, this is the equivalent of the `**` operator.  
      *    
      */
-    static function pow(base: float64, exp: float64): float64
+    function pow(base: float64, exp: float64): float64
     
     /** Returns the [url=https://en.wikipedia.org/wiki/Natural_logarithm]natural logarithm[/url] of [param x] (base [url=https://en.wikipedia.org/wiki/E_(mathematical_constant)] *e* [/url], with  *e*  being approximately 2.71828). This is the amount of time needed to reach a certain level of continuous growth.  
      *      
@@ -8094,34 +7810,34 @@ declare module "godot" {
      *      
      *  **Note:** The logarithm of `0` returns `-inf`, while negative values return `-nan`.  
      */
-    static function log(x: float64): float64
+    function log(x: float64): float64
     
     /** The natural exponential function. It raises the mathematical constant  *e*  to the power of [param x] and returns it.  
      *   *e*  has an approximate value of 2.71828, and can be obtained with `exp(1)`.  
      *  For exponents to other bases use the method [method pow].  
      *    
      */
-    static function exp(x: float64): float64
+    function exp(x: float64): float64
     
     /** Returns `true` if [param x] is a NaN ("Not a Number" or invalid) value. */
-    static function is_nan(x: float64): boolean
+    function is_nan(x: float64): boolean
     
     /** Returns `true` if [param x] is either positive infinity or negative infinity. */
-    static function is_inf(x: float64): boolean
+    function is_inf(x: float64): boolean
     
     /** Returns `true` if [param a] and [param b] are approximately equal to each other.  
      *  Here, "approximately equal" means that [param a] and [param b] are within a small internal epsilon of each other, which scales with the magnitude of the numbers.  
      *  Infinity values of the same sign are considered equal.  
      */
-    static function is_equal_approx(a: float64, b: float64): boolean
+    function is_equal_approx(a: float64, b: float64): boolean
     
     /** Returns `true` if [param x] is zero or almost zero. The comparison is done using a tolerance calculation with a small internal epsilon.  
      *  This function is faster than using [method is_equal_approx] with one value as zero.  
      */
-    static function is_zero_approx(x: float64): boolean
+    function is_zero_approx(x: float64): boolean
     
     /** Returns whether [param x] is a finite value, i.e. it is not [constant @GDScript.NAN], positive infinity, or negative infinity. */
-    static function is_finite(x: float64): boolean
+    function is_finite(x: float64): boolean
     
     /** Returns an "eased" value of [param x] based on an easing function defined with [param curve]. This easing function is based on an exponent. The [param curve] can be any floating-point number, with specific values leading to the following behaviors:  
      *  [codeblock lang=text]  
@@ -8136,12 +7852,12 @@ declare module "godot" {
      *  [url=https://raw.githubusercontent.com/godotengine/godot-docs/master/img/ease_cheatsheet.png]ease() curve values cheatsheet[/url]  
      *  See also [method smoothstep]. If you need to perform more advanced transitions, use [method Tween.interpolate_value].  
      */
-    static function ease(x: float64, curve: float64): float64
+    function ease(x: float64, curve: float64): float64
     
     /** Returns the position of the first non-zero digit, after the decimal point. Note that the maximum return value is 10, which is a design decision in the implementation.  
      *    
      */
-    static function step_decimals(x: float64): int64
+    function step_decimals(x: float64): int64
     
     /** Linearly interpolates between two values by the factor defined in [param weight]. To perform interpolation, [param weight] should be between `0.0` and `1.0` (inclusive). However, values outside this range are allowed and can be used to perform  *extrapolation* . If this is not desired, use [method clampf] to limit [param weight].  
      *  Both [param from] and [param to] must be the same type. Supported types: [int], [float], [Vector2], [Vector3], [Vector4], [Color], [Quaternion], [Basis], [Transform2D], [Transform3D].  
@@ -8150,38 +7866,38 @@ declare module "godot" {
      *      
      *  **Note:** For better type safety, use [method lerpf], [method Vector2.lerp], [method Vector3.lerp], [method Vector4.lerp], [method Color.lerp], [method Quaternion.slerp], [method Basis.slerp], [method Transform2D.interpolate_with], or [method Transform3D.interpolate_with].  
      */
-    static function lerp(from: any, to: any, weight: any): any
+    function lerp(from: any, to: any, weight: any): any
     
     /** Linearly interpolates between two values by the factor defined in [param weight]. To perform interpolation, [param weight] should be between `0.0` and `1.0` (inclusive). However, values outside this range are allowed and can be used to perform  *extrapolation* . If this is not desired, use [method clampf] on the result of this function.  
      *    
      *  See also [method inverse_lerp] which performs the reverse of this operation. To perform eased interpolation with [method lerp], combine it with [method ease] or [method smoothstep].  
      */
-    static function lerpf(from: float64, to: float64, weight: float64): float64
+    function lerpf(from: float64, to: float64, weight: float64): float64
     
     /** Cubic interpolates between two values by the factor defined in [param weight] with [param pre] and [param post] values. */
-    static function cubic_interpolate(from: float64, to: float64, pre: float64, post: float64, weight: float64): float64
+    function cubic_interpolate(from: float64, to: float64, pre: float64, post: float64, weight: float64): float64
     
     /** Cubic interpolates between two rotation values with shortest path by the factor defined in [param weight] with [param pre] and [param post] values. See also [method lerp_angle]. */
-    static function cubic_interpolate_angle(from: float64, to: float64, pre: float64, post: float64, weight: float64): float64
+    function cubic_interpolate_angle(from: float64, to: float64, pre: float64, post: float64, weight: float64): float64
     
     /** Cubic interpolates between two values by the factor defined in [param weight] with [param pre] and [param post] values.  
      *  It can perform smoother interpolation than [method cubic_interpolate] by the time values.  
      */
-    static function cubic_interpolate_in_time(from: float64, to: float64, pre: float64, post: float64, weight: float64, to_t: float64, pre_t: float64, post_t: float64): float64
+    function cubic_interpolate_in_time(from: float64, to: float64, pre: float64, post: float64, weight: float64, to_t: float64, pre_t: float64, post_t: float64): float64
     
     /** Cubic interpolates between two rotation values with shortest path by the factor defined in [param weight] with [param pre] and [param post] values. See also [method lerp_angle].  
      *  It can perform smoother interpolation than [method cubic_interpolate] by the time values.  
      */
-    static function cubic_interpolate_angle_in_time(from: float64, to: float64, pre: float64, post: float64, weight: float64, to_t: float64, pre_t: float64, post_t: float64): float64
+    function cubic_interpolate_angle_in_time(from: float64, to: float64, pre: float64, post: float64, weight: float64, to_t: float64, pre_t: float64, post_t: float64): float64
     
     /** Returns the point at the given [param t] on a one-dimensional [url=https://en.wikipedia.org/wiki/B%C3%A9zier_curve]Bézier curve[/url] defined by the given [param control_1], [param control_2], and [param end] points. */
-    static function bezier_interpolate(start: float64, control_1: float64, control_2: float64, end: float64, t: float64): float64
+    function bezier_interpolate(start: float64, control_1: float64, control_2: float64, end: float64, t: float64): float64
     
     /** Returns the derivative at the given [param t] on a one-dimensional [url=https://en.wikipedia.org/wiki/B%C3%A9zier_curve]Bézier curve[/url] defined by the given [param control_1], [param control_2], and [param end] points. */
-    static function bezier_derivative(start: float64, control_1: float64, control_2: float64, end: float64, t: float64): float64
+    function bezier_derivative(start: float64, control_1: float64, control_2: float64, end: float64, t: float64): float64
     
     /** Returns the difference between the two angles (in radians), in the range of `[-PI, +PI]`. When [param from] and [param to] are opposite, returns `-PI` if [param from] is smaller than [param to], or `PI` otherwise. */
-    static function angle_difference(from: float64, to: float64): float64
+    function angle_difference(from: float64, to: float64): float64
     
     /** Linearly interpolates between two angles (in radians) by a [param weight] value between 0.0 and 1.0.  
      *  Similar to [method lerp], but interpolates correctly when the angles wrap around [constant @GDScript.TAU]. To perform eased interpolation with [method lerp_angle], combine it with [method ease] or [method smoothstep].  
@@ -8189,13 +7905,13 @@ declare module "godot" {
      *      
      *  **Note:** This function lerps through the shortest path between [param from] and [param to]. However, when these two angles are approximately `PI + k * TAU` apart for any integer `k`, it's not obvious which way they lerp due to floating-point precision errors. For example, `lerp_angle(0, PI, weight)` lerps counter-clockwise, while `lerp_angle(0, PI + 5 * TAU, weight)` lerps clockwise.  
      */
-    static function lerp_angle(from: float64, to: float64, weight: float64): float64
+    function lerp_angle(from: float64, to: float64, weight: float64): float64
     
     /** Returns an interpolation or extrapolation factor considering the range specified in [param from] and [param to], and the interpolated value specified in [param weight]. The returned value will be between `0.0` and `1.0` if [param weight] is between [param from] and [param to] (inclusive). If [param weight] is located outside this range, then an extrapolation factor will be returned (return value lower than `0.0` or greater than `1.0`). Use [method clamp] on the result of [method inverse_lerp] if this is not desired.  
      *    
      *  See also [method lerp], which performs the reverse of this operation, and [method remap] to map a continuous series of values to another.  
      */
-    static function inverse_lerp(from: float64, to: float64, weight: float64): float64
+    function inverse_lerp(from: float64, to: float64, weight: float64): float64
     
     /** Maps a [param value] from range `[istart, istop]` to `[ostart, ostop]`. See also [method lerp] and [method inverse_lerp]. If [param value] is outside `[istart, istop]`, then the resulting value will also be outside `[ostart, ostop]`. If this is not desired, use [method clamp] on the result of this function.  
      *    
@@ -8203,7 +7919,7 @@ declare module "godot" {
      *      
      *  **Note:** If `istart == istop`, the return value is undefined (most likely NaN, INF, or -INF).  
      */
-    static function remap(value: float64, istart: float64, istop: float64, ostart: float64, ostop: float64): float64
+    function remap(value: float64, istart: float64, istop: float64, ostart: float64, ostop: float64): float64
     
     /** Returns a smooth cubic Hermite interpolation between `0` and `1`.  
      *  For positive ranges (when `from <= to`) the return value is `0` when `x <= from`, and `1` when `x >= to`. If [param x] lies between [param from] and [param to], the return value follows an S-shaped curve that smoothly transitions from `0` to `1`.  
@@ -8214,50 +7930,50 @@ declare module "godot" {
      *  [url=https://raw.githubusercontent.com/godotengine/godot-docs/master/img/smoothstep_ease_comparison.png]Comparison between smoothstep() and ease(x, -1.6521) return values[/url]  
      *  [url=https://raw.githubusercontent.com/godotengine/godot-docs/master/img/smoothstep_range.webp]Smoothstep() return values with positive, zero, and negative ranges[/url]  
      */
-    static function smoothstep(from: float64, to: float64, x: float64): float64
+    function smoothstep(from: float64, to: float64, x: float64): float64
     
     /** Moves [param from] toward [param to] by the [param delta] amount. Will not go past [param to].  
      *  Use a negative [param delta] value to move away.  
      *    
      */
-    static function move_toward(from: float64, to: float64, delta: float64): float64
+    function move_toward(from: float64, to: float64, delta: float64): float64
     
     /** Rotates [param from] toward [param to] by the [param delta] amount. Will not go past [param to].  
      *  Similar to [method move_toward], but interpolates correctly when the angles wrap around [constant @GDScript.TAU].  
      *  If [param delta] is negative, this function will rotate away from [param to], toward the opposite angle, and will not go past the opposite angle.  
      */
-    static function rotate_toward(from: float64, to: float64, delta: float64): float64
+    function rotate_toward(from: float64, to: float64, delta: float64): float64
     
     /** Converts an angle expressed in degrees to radians.  
      *    
      */
-    static function deg_to_rad(deg: float64): float64
+    function deg_to_rad(deg: float64): float64
     
     /** Converts an angle expressed in radians to degrees.  
      *    
      */
-    static function rad_to_deg(rad: float64): float64
+    function rad_to_deg(rad: float64): float64
     
     /** Converts from linear energy to decibels (audio). Since volume is not normally linear, this can be used to implement volume sliders that behave as expected.  
      *  **Example:** Change the Master bus's volume through a [Slider] node, which ranges from `0.0` to `1.0`:  
      *    
      */
-    static function linear_to_db(lin: float64): float64
+    function linear_to_db(lin: float64): float64
     
     /** Converts from decibels to linear energy (audio). */
-    static function db_to_linear(db: float64): float64
+    function db_to_linear(db: float64): float64
     
     /** Wraps the [Variant] [param value] between [param min] and [param max]. Can be used for creating loop-alike behavior or infinite surfaces.  
      *  Variant types [int] and [float] are supported. If any of the arguments is [float] this function returns a [float], otherwise it returns an [int].  
      *    
      */
-    static function wrap(value: any, min: any, max: any): any
+    function wrap(value: any, min: any, max: any): any
     
     /** Wraps the integer [param value] between [param min] and [param max]. Can be used for creating loop-alike behavior or infinite surfaces.  
      *    
      *    
      */
-    static function wrapi(value: int64, min: int64, max: int64): int64
+    function wrapi(value: int64, min: int64, max: int64): int64
     
     /** Wraps the float [param value] between [param min] and [param max]. Can be used for creating loop-alike behavior or infinite surfaces.  
      *    
@@ -8267,41 +7983,41 @@ declare module "godot" {
      *  **Note:** If [param min] is `0`, this is equivalent to [method fposmod], so prefer using that instead.  
      *  [method wrapf] is more flexible than using the [method fposmod] approach by giving the user control over the minimum value.  
      */
-    static function wrapf(value: float64, min: float64, max: float64): float64
+    function wrapf(value: float64, min: float64, max: float64): float64
     
     /** Returns the maximum of the given numeric values. This function can take any number of arguments.  
      *    
      *      
      *  **Note:** When using this on vectors it will  *not*  perform component-wise maximum, and will pick the largest value when compared using `x < y`. To perform component-wise maximum, use [method Vector2.max], [method Vector2i.max], [method Vector3.max], [method Vector3i.max], [method Vector4.max], and [method Vector4i.max].  
      */
-    static function max(...vargargs: any[]): any
+    function max(...varargs: any[]): any
     
     /** Returns the maximum of two [int] values.  
      *    
      */
-    static function maxi(a: int64, b: int64): int64
+    function maxi(a: int64, b: int64): int64
     
     /** Returns the maximum of two [float] values.  
      *    
      */
-    static function maxf(a: float64, b: float64): float64
+    function maxf(a: float64, b: float64): float64
     
     /** Returns the minimum of the given numeric values. This function can take any number of arguments.  
      *    
      *      
      *  **Note:** When using this on vectors it will  *not*  perform component-wise minimum, and will pick the smallest value when compared using `x < y`. To perform component-wise minimum, use [method Vector2.min], [method Vector2i.min], [method Vector3.min], [method Vector3i.min], [method Vector4.min], and [method Vector4i.min].  
      */
-    static function min(...vargargs: any[]): any
+    function min(...varargs: any[]): any
     
     /** Returns the minimum of two [int] values.  
      *    
      */
-    static function mini(a: int64, b: int64): int64
+    function mini(a: int64, b: int64): int64
     
     /** Returns the minimum of two [float] values.  
      *    
      */
-    static function minf(a: float64, b: float64): float64
+    function minf(a: float64, b: float64): float64
     
     /** Clamps the [param value], returning a [Variant] not less than [param min] and not more than [param max]. Any values that can be compared with the less than and greater than operators will work.  
      *    
@@ -8310,113 +8026,113 @@ declare module "godot" {
      *      
      *  **Note:** When using this on vectors it will  *not*  perform component-wise clamping, and will pick [param min] if `value < min` or [param max] if `value > max`. To perform component-wise clamping use the methods listed above.  
      */
-    static function clamp(value: any, min: any, max: any): any
+    function clamp(value: any, min: any, max: any): any
     
     /** Clamps the [param value], returning an [int] not less than [param min] and not more than [param max].  
      *    
      */
-    static function clampi(value: int64, min: int64, max: int64): int64
+    function clampi(value: int64, min: int64, max: int64): int64
     
     /** Clamps the [param value], returning a [float] not less than [param min] and not more than [param max].  
      *    
      */
-    static function clampf(value: float64, min: float64, max: float64): float64
+    function clampf(value: float64, min: float64, max: float64): float64
     
     /** Returns the smallest integer power of 2 that is greater than or equal to [param value].  
      *    
      *  **Warning:** Due to its implementation, this method returns `0` rather than `1` for values less than or equal to `0`, with an exception for [param value] being the smallest negative 64-bit integer (`-9223372036854775808`) in which case the [param value] is returned unchanged.  
      */
-    static function nearest_po2(value: int64): int64
+    function nearest_po2(value: int64): int64
     
     /** Wraps [param value] between `0` and the [param length]. If the limit is reached, the next value the function returns is decreased to the `0` side or increased to the [param length] side (like a triangle wave). If [param length] is less than zero, it becomes positive.  
      *    
      */
-    static function pingpong(value: float64, length: float64): float64
+    function pingpong(value: float64, length: float64): float64
     
     /** Randomizes the seed (or the internal state) of the random number generator. The current implementation uses a number based on the device's time.  
      *      
      *  **Note:** This function is called automatically when the project is run. If you need to fix the seed to have consistent, reproducible results, use [method seed] to initialize the random number generator.  
      */
-    static function randomize(): void
+    function randomize(): void
     
     /** Returns a random unsigned 32-bit integer. Use remainder to obtain a random value in the interval `[0, N - 1]` (where N is smaller than 2^32).  
      *    
      */
-    static function randi(): int64
+    function randi(): int64
     
     /** Returns a random floating-point value between `0.0` and `1.0` (inclusive).  
      *    
      */
-    static function randf(): float64
+    function randf(): float64
     
     /** Returns a random signed 32-bit integer between [param from] and [param to] (inclusive). If [param to] is lesser than [param from], they are swapped.  
      *    
      */
-    static function randi_range(from: int64, to: int64): int64
+    function randi_range(from: int64, to: int64): int64
     
     /** Returns a random floating-point value between [param from] and [param to] (inclusive).  
      *    
      */
-    static function randf_range(from: float64, to: float64): float64
+    function randf_range(from: float64, to: float64): float64
     
     /** Returns a [url=https://en.wikipedia.org/wiki/Normal_distribution]normally-distributed[/url], pseudo-random floating-point value from the specified [param mean] and a standard [param deviation]. This is also known as a Gaussian distribution.  
      *      
      *  **Note:** This method uses the [url=https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform]Box-Muller transform[/url] algorithm.  
      */
-    static function randfn(mean: float64, deviation: float64): float64
+    function randfn(mean: float64, deviation: float64): float64
     
     /** Sets the seed for the random number generator to [param base]. Setting the seed manually can ensure consistent, repeatable results for most random functions.  
      *    
      */
-    static function seed(base: int64): void
+    function seed(base: int64): void
     
     /** Given a [param seed], returns a [PackedInt64Array] of size `2`, where its first element is the randomized [int] value, and the second element is the same as [param seed]. Passing the same [param seed] consistently returns the same array.  
      *      
      *  **Note:** "Seed" here refers to the internal state of the pseudo random number generator, currently implemented as a 64 bit integer.  
      *    
      */
-    static function rand_from_seed(seed: int64): PackedInt64Array
+    function rand_from_seed(seed: int64): PackedInt64Array
     
     /** Returns a [WeakRef] instance holding a weak reference to [param obj]. Returns an empty [WeakRef] instance if [param obj] is `null`. Prints an error and returns `null` if [param obj] is neither [Object]-derived nor `null`.  
      *  A weak reference to an object is not enough to keep the object alive: when the only remaining references to a referent are weak references, garbage collection is free to destroy the referent and reuse its memory for something else. However, until the object is actually destroyed the weak reference may return the object even if there are no strong references to it.  
      */
-    static function weakref(obj: any): any
+    function weakref(obj: any): any
     
     /** Returns the internal type of the given [param variable], using the [enum Variant.Type] values.  
      *    
      *  See also [method type_string].  
      */
-    // [INVALID_NAME]: static function typeof(variable: any): int64
+    // [INVALID_NAME]: function typeof(variable: any): int64
     
     /** Converts the given [param variant] to the given [param type], using the [enum Variant.Type] values. This method is generous with how it handles types, it can automatically convert between array types, convert numeric [String]s to [int], and converting most things to [String].  
      *  If the type conversion cannot be done, this method will return the default value for that type, for example converting [Rect2] to [Vector2] will always return [constant Vector2.ZERO]. This method will never show error messages as long as [param type] is a valid Variant type.  
      *  The returned value is a [Variant], but the data inside and its type will be the same as the requested type.  
      *    
      */
-    static function type_convert(variant: any, type: int64): any
+    function type_convert(variant: any, type: int64): any
     
     /** Converts one or more arguments of any [Variant] type to a [String] in the best way possible.  
      *    
      */
-    static function str(...vargargs: any[]): string
+    function str(...varargs: any[]): string
     
     /** Returns a human-readable name for the given [enum Error] code.  
      *    
      */
-    static function error_string(error: int64): string
+    function error_string(error: int64): string
     
     /** Returns a human-readable name of the given [param type], using the [enum Variant.Type] values.  
      *    
      *  See also [method typeof].  
      */
-    static function type_string(type: int64): string
+    function type_string(type: int64): string
     
     /** Converts one or more arguments of any type to string in the best way possible and prints them to the console.  
      *    
      *      
      *  **Note:** Consider using [method push_error] and [method push_warning] to print error and warning messages instead of [method print] or [method print_rich]. This distinguishes them from print messages used for debugging purposes, while also displaying a stack trace when an error or warning is printed. See also [member Engine.print_to_stdout] and [member ProjectSettings.application/run/disable_stdout].  
      */
-    static function print(...vargargs: any[]): void
+    function print(...varargs: any[]): void
     
     /** Converts one or more arguments of any type to string in the best way possible and prints them to the console.  
      *  The following BBCode tags are supported: `b`, `i`, `u`, `s`, `indent`, `code`, `url`, `center`, `right`, `color`, `bgcolor`, `fgcolor`.  
@@ -8430,44 +8146,44 @@ declare module "godot" {
      *      
      *  **Note:** Output displayed in the editor supports clickable [code skip-lint][url=address]text[/url]` tags. The [code skip-lint][url]` tag's `address` value is handled by [method OS.shell_open] when clicked.  
      */
-    static function print_rich(...vargargs: any[]): void
+    function print_rich(...varargs: any[]): void
     
     /** Prints one or more arguments to strings in the best way possible to standard error line.  
      *    
      */
-    static function printerr(...vargargs: any[]): void
+    function printerr(...varargs: any[]): void
     
     /** Prints one or more arguments to the console with a tab between each argument.  
      *    
      */
-    static function printt(...vargargs: any[]): void
+    function printt(...varargs: any[]): void
     
     /** Prints one or more arguments to the console with a space between each argument.  
      *    
      */
-    static function prints(...vargargs: any[]): void
+    function prints(...varargs: any[]): void
     
     /** Prints one or more arguments to strings in the best way possible to the OS terminal. Unlike [method print], no newline is automatically added at the end.  
      *      
      *  **Note:** The OS terminal is  *not*  the same as the editor's Output dock. The output sent to the OS terminal can be seen when running Godot from a terminal. On Windows, this requires using the `console.exe` executable.  
      *    
      */
-    static function printraw(...vargargs: any[]): void
+    function printraw(...varargs: any[]): void
     
     /** If verbose mode is enabled ([method OS.is_stdout_verbose] returning `true`), converts one or more arguments of any type to string in the best way possible and prints them to the console. */
-    static function print_verbose(...vargargs: any[]): void
+    function print_verbose(...varargs: any[]): void
     
     /** Pushes an error message to Godot's built-in debugger and to the OS terminal.  
      *    
      *      
      *  **Note:** This function does not pause project execution. To print an error message and pause project execution in debug builds, use `assert(false, "test error")` instead.  
      */
-    static function push_error(...vargargs: any[]): void
+    function push_error(...varargs: any[]): void
     
     /** Pushes a warning message to Godot's built-in debugger and to the OS terminal.  
      *    
      */
-    static function push_warning(...vargargs: any[]): void
+    function push_warning(...varargs: any[]): void
     
     /** Converts a [Variant] [param variable] to a formatted [String] that can then be parsed using [method str_to_var].  
      *    
@@ -8481,12 +8197,12 @@ declare module "godot" {
      *      
      *  **Note:** Converting [Signal] or [Callable] is not supported and will result in an empty value for these types, regardless of their data.  
      */
-    static function var_to_str(variable: any): string
+    function var_to_str(variable: any): string
     
     /** Converts a formatted [param string] that was returned by [method var_to_str] to the original [Variant].  
      *    
      */
-    static function str_to_var(string_: string): any
+    function str_to_var(string_: string): any
     
     /** Encodes a [Variant] value to a byte array, without encoding objects. Deserialization can be done with [method bytes_to_var].  
      *      
@@ -8494,53 +8210,53 @@ declare module "godot" {
      *      
      *  **Note:** Encoding [Callable] is not supported and will result in an empty value, regardless of the data.  
      */
-    static function var_to_bytes(variable: any): PackedByteArray
+    function var_to_bytes(variable: any): PackedByteArray
     
     /** Decodes a byte array back to a [Variant] value, without decoding objects.  
      *      
      *  **Note:** If you need object deserialization, see [method bytes_to_var_with_objects].  
      */
-    static function bytes_to_var(bytes: PackedByteArray | byte[] | ArrayBuffer): any
+    function bytes_to_var(bytes: PackedByteArray | byte[] | ArrayBuffer): any
     
     /** Encodes a [Variant] value to a byte array. Encoding objects is allowed (and can potentially include executable code). Deserialization can be done with [method bytes_to_var_with_objects].  
      *      
      *  **Note:** Encoding [Callable] is not supported and will result in an empty value, regardless of the data.  
      */
-    static function var_to_bytes_with_objects(variable: any): PackedByteArray
+    function var_to_bytes_with_objects(variable: any): PackedByteArray
     
     /** Decodes a byte array back to a [Variant] value. Decoding objects is allowed.  
      *  **Warning:** Deserialized object can contain code which gets executed. Do not use this option if the serialized object comes from untrusted sources to avoid potential security threats (remote code execution).  
      */
-    static function bytes_to_var_with_objects(bytes: PackedByteArray | byte[] | ArrayBuffer): any
+    function bytes_to_var_with_objects(bytes: PackedByteArray | byte[] | ArrayBuffer): any
     
     /** Returns the integer hash of the passed [param variable].  
      *    
      */
-    static function hash(variable: any): int64
+    function hash(variable: any): int64
     
     /** Returns the [Object] that corresponds to [param instance_id]. All Objects have a unique instance ID. See also [method Object.get_instance_id].  
      *    
      */
-    static function instance_from_id(instance_id: int64): Object
+    function instance_from_id(instance_id: int64): Object
     
     /** Returns `true` if the Object that corresponds to [param id] is a valid object (e.g. has not been deleted from memory). All Objects have a unique instance ID. */
-    static function is_instance_id_valid(id: int64): boolean
+    function is_instance_id_valid(id: int64): boolean
     
     /** Returns `true` if [param instance] is a valid Object (e.g. has not been deleted from memory). */
-    static function is_instance_valid(instance: any): boolean
+    function is_instance_valid(instance: any): boolean
     
     /** Allocates a unique ID which can be used by the implementation to construct an RID. This is used mainly from native extensions to implement servers. */
-    static function rid_allocate_id(): int64
+    function rid_allocate_id(): int64
     
     /** Creates an RID from a [param base]. This is used mainly from native extensions to build servers. */
-    static function rid_from_int64(base: int64): RID
+    function rid_from_int64(base: int64): RID
     
     /** Returns `true`, for value types, if [param a] and [param b] share the same value. Returns `true`, for reference types, if the references of [param a] and [param b] are the same.  
      *    
      *  These are [Variant] value types: `null`, [bool], [int], [float], [String], [StringName], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i], [Rect2], [Rect2i], [Transform2D], [Transform3D], [Plane], [Quaternion], [AABB], [Basis], [Projection], [Color], [NodePath], [RID], [Callable] and [Signal].  
      *  These are [Variant] reference types: [Object], [Dictionary], [Array], [PackedByteArray], [PackedInt32Array], [PackedInt64Array], [PackedFloat32Array], [PackedFloat64Array], [PackedStringArray], [PackedVector2Array], [PackedVector3Array], [PackedVector4Array], and [PackedColorArray].  
      */
-    static function is_same(a: any, b: any): boolean
+    function is_same(a: any, b: any): boolean
     
     /** shorthand for getting project settings */
     function GLOBAL_GET(entry_path: StringName): any

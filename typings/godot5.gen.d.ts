@@ -1,171 +1,27 @@
 // AUTO-GENERATED
 /// <reference no-default-lib="true"/>
 declare module "godot" {
-    /** Draws a stereo correct visibility mask.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrvisibilitymask.html  
-     */
-    class OpenXRVisibilityMask<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
-        constructor(identifier?: any)
-    }
-    /** An optimized translation, used by default for CSV Translations.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_optimizedtranslation.html  
-     */
-    class OptimizedTranslation extends Translation {
-        constructor(identifier?: any)
-        /** Generates and sets an optimized translation from the given [Translation] resource.  
-         *      
-         *  **Note:** This method is intended to be used in the editor. It does nothing when called from an exported project.  
-         */
-        generate(from: Translation): void
-    }
-    /** A button that brings up a dropdown with selectable options when pressed.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_optionbutton.html  
-     */
-    class OptionButton<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
-        constructor(identifier?: any)
-        /** Adds an item, with text [param label] and (optionally) [param id]. If no [param id] is passed, the item index will be used as the item's ID. New items are appended at the end. */
-        add_item(label: string, id: int64 = -1): void
-        
-        /** Adds an item, with a [param texture] icon, text [param label] and (optionally) [param id]. If no [param id] is passed, the item index will be used as the item's ID. New items are appended at the end. */
-        add_icon_item(texture: Texture2D, label: string, id: int64 = -1): void
-        
-        /** Sets the text of the item at index [param idx]. */
-        set_item_text(idx: int64, text: string): void
-        
-        /** Sets the icon of the item at index [param idx]. */
-        set_item_icon(idx: int64, texture: Texture2D): void
-        
-        /** Sets whether the item at index [param idx] is disabled.  
-         *  Disabled items are drawn differently in the dropdown and are not selectable by the user. If the current selected item is set as disabled, it will remain selected.  
-         */
-        set_item_disabled(idx: int64, disabled: boolean): void
-        
-        /** Sets the ID of the item at index [param idx]. */
-        set_item_id(idx: int64, id: int64): void
-        
-        /** Sets the metadata of an item. Metadata may be of any type and can be used to store extra information about an item, such as an external string ID. */
-        set_item_metadata(idx: int64, metadata: any): void
-        
-        /** Sets the tooltip of the item at index [param idx]. */
-        set_item_tooltip(idx: int64, tooltip: string): void
-        
-        /** Returns the text of the item at index [param idx]. */
-        get_item_text(idx: int64): string
-        
-        /** Returns the icon of the item at index [param idx]. */
-        get_item_icon(idx: int64): Texture2D
-        
-        /** Returns the ID of the item at index [param idx]. */
-        get_item_id(idx: int64): int64
-        
-        /** Returns the index of the item with the given [param id]. */
-        get_item_index(id: int64): int64
-        
-        /** Retrieves the metadata of an item. Metadata may be any type and can be used to store extra information about an item, such as an external string ID. */
-        get_item_metadata(idx: int64): any
-        
-        /** Returns the tooltip of the item at index [param idx]. */
-        get_item_tooltip(idx: int64): string
-        
-        /** Returns `true` if the item at index [param idx] is disabled. */
-        is_item_disabled(idx: int64): boolean
-        
-        /** Returns `true` if the item at index [param idx] is marked as a separator. */
-        is_item_separator(idx: int64): boolean
-        
-        /** Adds a separator to the list of items. Separators help to group items, and can optionally be given a [param text] header. A separator also gets an index assigned, and is appended at the end of the item list. */
-        add_separator(text: string = ''): void
-        
-        /** Clears all the items in the [OptionButton]. */
-        clear(): void
-        
-        /** Selects an item by index and makes it the current item. This will work even if the item is disabled.  
-         *  Passing `-1` as the index deselects any currently selected item.  
-         */
-        select(idx: int64): void
-        
-        /** Returns the ID of the selected item, or `-1` if no item is selected. */
-        get_selected_id(): int64
-        
-        /** Gets the metadata of the selected item. Metadata for items can be set using [method set_item_metadata]. */
-        get_selected_metadata(): any
-        
-        /** Removes the item at index [param idx]. */
-        remove_item(idx: int64): void
-        
-        /** Returns the [PopupMenu] contained in this button.  
-         *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member Window.visible] property.  
-         */
-        get_popup(): PopupMenu
-        
-        /** Adjusts popup position and sizing for the [OptionButton], then shows the [PopupMenu]. Prefer this over using `get_popup().popup()`. */
-        show_popup(): void
-        
-        /** Returns `true` if this button contains at least one item which is not disabled, or marked as a separator. */
-        has_selectable_items(): boolean
-        
-        /** Returns the index of the first item which is not disabled, or marked as a separator. If [param from_last] is `true`, the items will be searched in reverse order.  
-         *  Returns `-1` if no item is found.  
-         */
-        get_selectable_item(from_last: boolean = false): int64
-        
-        /** If `true`, shortcuts are disabled and cannot be used to trigger the button. */
-        set_disable_shortcuts(disabled: boolean): void
-        
-        /** The index of the currently selected item, or `-1` if no item is selected. */
-        get selected(): int64
-        set selected(value: int64)
-        
-        /** If `true`, minimum size will be determined by the longest item's text, instead of the currently selected one's.  
-         *      
-         *  **Note:** For performance reasons, the minimum size doesn't update immediately when adding, removing or modifying items.  
-         */
-        get fit_to_longest_item(): boolean
-        set fit_to_longest_item(value: boolean)
-        
-        /** If `true`, the currently selected item can be selected again. */
-        get allow_reselect(): boolean
-        set allow_reselect(value: boolean)
-        
-        /** The number of items to select from. */
-        get item_count(): any /*Items,popup/item_*/
-        set item_count(value: any /*Items,popup/item_*/)
-        
-        /** Emitted when the current item has been changed by the user. The index of the item selected is passed as argument.  
-         *  [member allow_reselect] must be enabled to reselect an item.  
-         */
-        readonly item_selected: Signal1<int64>
-        
-        /** Emitted when the user navigates to an item using the [member ProjectSettings.input/ui_up] or [member ProjectSettings.input/ui_down] input actions. The index of the item selected is passed as argument. */
-        readonly item_focused: Signal1<int64>
-    }
-    class OrphanResourcesDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
     /** Creates packages that can be loaded into a running project.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pckpacker.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pckpacker.html  
      */
     class PCKPacker extends RefCounted {
         constructor(identifier?: any)
         /** Creates a new PCK file at the file path [param pck_path]. The `.pck` file extension isn't added automatically, so it should be part of [param pck_path] (even though it's not required). */
-        pck_start(pck_path: string, alignment: int64 = 32, key: string = '0000000000000000000000000000000000000000000000000000000000000000', encrypt_directory: boolean = false): GError
+        pck_start(pck_path: string, alignment?: int64 /* = 32 */, key?: string /* = '0000000000000000000000000000000000000000000000000000000000000000' */, encrypt_directory?: boolean /* = false */): Error
         
         /** Adds the [param source_path] file to the current PCK package at the [param target_path] internal path. The `res://` prefix for [param target_path] is optional and stripped internally. */
-        add_file(target_path: string, source_path: string, encrypt: boolean = false): GError
+        add_file(target_path: string, source_path: string, encrypt?: boolean /* = false */): Error
         
         /** Registers a file removal of the [param target_path] internal path to the PCK. This is mainly used for patches. If the file at this path has been loaded from a previous PCK, it will be removed. The `res://` prefix for [param target_path] is optional and stripped internally. */
-        add_file_removal(target_path: string): GError
+        add_file_removal(target_path: string): Error
         
         /** Writes the files specified using all [method add_file] calls since the last flush. If [param verbose] is `true`, a list of files added will be printed to the console for easier debugging. */
-        flush(verbose: boolean = false): GError
+        flush(verbose?: boolean /* = false */): Error
     }
     /** Efficiently packs and serializes [Array] or [Dictionary].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packeddatacontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packeddatacontainer.html  
      */
     class PackedDataContainer extends Resource {
         constructor(identifier?: any)
@@ -177,7 +33,7 @@ declare module "godot" {
          *      
          *  **Note:** Subsequent calls to this method will overwrite the existing data.  
          */
-        pack(value: any): GError
+        pack(value: any): Error
         
         /** Returns the size of the packed container (see [method Array.size] and [method Dictionary.size]). */
         size(): int64
@@ -186,7 +42,7 @@ declare module "godot" {
     }
     /** An internal class used by [PackedDataContainer] to pack nested arrays and dictionaries.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packeddatacontainerref.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packeddatacontainerref.html  
      */
     class PackedDataContainerRef extends RefCounted {
         constructor(identifier?: any)
@@ -222,15 +78,15 @@ declare module "godot" {
     }
     /** An abstraction of a serialized scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packedscene.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packedscene.html  
      */
-    class PackedScene extends Resource {
+    class PackedScene<T extends Node = Node> extends Resource {
         constructor(identifier?: any)
         /** Packs the [param path] node, and all owned sub-nodes, into this [PackedScene]. Any existing data will be cleared. See [member Node.owner]. */
-        pack(path: Node): GError
+        pack(path: T): Error
         
         /** Instantiates the scene's node hierarchy. Triggers child scene instantiation(s). Triggers a [constant Node.NOTIFICATION_SCENE_INSTANTIATED] notification on the root node. */
-        instantiate(edit_state: PackedScene.GenEditState = 0): Node
+        instantiate(edit_state?: PackedScene.GenEditState /* = 0 */): T
         
         /** Returns `true` if the scene file has nodes. */
         can_instantiate(): boolean
@@ -240,15 +96,9 @@ declare module "godot" {
         get _bundled(): GDictionary
         set _bundled(value: GDictionary)
     }
-    class PackedSceneEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class PackedSceneEditorTranslationParserPlugin extends EditorTranslationParserPlugin {
-        constructor(identifier?: any)
-    }
     /** Abstraction and base class for packet-based protocols.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packetpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packetpeer.html  
      */
     class PacketPeer extends RefCounted {
         constructor(identifier?: any)
@@ -256,21 +106,21 @@ declare module "godot" {
          *  Internally, this uses the same decoding mechanism as the [method @GlobalScope.bytes_to_var] method.  
          *  **Warning:** Deserialized objects can contain code which gets executed. Do not use this option if the serialized object comes from untrusted sources to avoid potential security threats such as remote code execution.  
          */
-        get_var(allow_objects: boolean = false): any
+        get_var(allow_objects?: boolean /* = false */): any
         
         /** Sends a [Variant] as a packet. If [param full_objects] is `true`, encoding objects is allowed (and can potentially include code).  
          *  Internally, this uses the same encoding mechanism as the [method @GlobalScope.var_to_bytes] method.  
          */
-        put_var(var_: any, full_objects: boolean = false): GError
+        put_var(var_: any, full_objects?: boolean /* = false */): Error
         
         /** Gets a raw packet. */
         get_packet(): PackedByteArray
         
         /** Sends a raw packet. */
-        put_packet(buffer: PackedByteArray | byte[] | ArrayBuffer): GError
+        put_packet(buffer: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Returns the error state of the last packet received (via [method get_packet] and [method get_var]). */
-        get_packet_error(): GError
+        get_packet_error(): Error
         
         /** Returns the number of packets currently available in the ring-buffer. */
         get_available_packet_count(): int64
@@ -301,7 +151,7 @@ declare module "godot" {
     }
     /** DTLS packet peer.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packetpeerdtls.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packetpeerdtls.html  
      */
     class PacketPeerDTLS extends PacketPeer {
         constructor(identifier?: any)
@@ -309,7 +159,7 @@ declare module "godot" {
         poll(): void
         
         /** Connects a [param packet_peer] beginning the DTLS handshake using the underlying [PacketPeerUDP] which must be connected (see [method PacketPeerUDP.connect_to_host]). You can optionally specify the [param client_options] to be used while verifying the TLS connections. See [method TLSOptions.client] and [method TLSOptions.client_unsafe]. */
-        connect_to_peer(packet_peer: PacketPeerUDP, hostname: string, client_options: TLSOptions = undefined): GError
+        connect_to_peer(packet_peer: PacketPeerUDP, hostname: string, client_options?: TLSOptions /* = undefined */): Error
         
         /** Returns the status of the connection. See [enum Status] for values. */
         get_status(): PacketPeerDTLS.Status
@@ -317,17 +167,17 @@ declare module "godot" {
         /** Disconnects this peer, terminating the DTLS session. */
         disconnect_from_peer(): void
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_packetpeerextension.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_packetpeerextension.html */
     class PacketPeerExtension extends PacketPeer {
         constructor(identifier?: any)
-        /* gdvirtual */ _get_packet(r_buffer: int64, r_buffer_size: int64): GError
-        /* gdvirtual */ _put_packet(p_buffer: int64, p_buffer_size: int64): GError
+        /* gdvirtual */ _get_packet(r_buffer: int64, r_buffer_size: int64): Error
+        /* gdvirtual */ _put_packet(p_buffer: int64, p_buffer_size: int64): Error
         /* gdvirtual */ _get_available_packet_count(): int64
         /* gdvirtual */ _get_max_packet_size(): int64
     }
     /** Wrapper to use a PacketPeer over a StreamPeer.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packetpeerstream.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packetpeerstream.html  
      */
     class PacketPeerStream extends PacketPeer {
         constructor(identifier?: any)
@@ -342,7 +192,7 @@ declare module "godot" {
     }
     /** UDP packet peer.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_packetpeerudp.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_packetpeerudp.html  
      */
     class PacketPeerUDP extends PacketPeer {
         constructor(identifier?: any)
@@ -351,7 +201,7 @@ declare module "godot" {
          *  If [param bind_address] is set to `"0.0.0.0"` (for IPv4) or `"::"` (for IPv6), the peer will be bound to all available addresses matching that IP type.  
          *  If [param bind_address] is set to any valid address (e.g. `"192.168.1.101"`, `"::1"`, etc.), the peer will only be bound to the interface with that address (or fail if no interface with the given address exists).  
          */
-        bind(port: int64, bind_address: string = '*', recv_buf_size: int64 = 65536): GError
+        bind(port: int64, bind_address?: string /* = '*' */, recv_buf_size?: int64 /* = 65536 */): Error
         
         /** Closes the [PacketPeerUDP]'s underlying UDP socket. */
         close(): void
@@ -361,7 +211,7 @@ declare module "godot" {
          *  **Note:** [method wait] can't be interrupted once it has been called. This can be worked around by allowing the other party to send a specific "death pill" packet like this:  
          *    
          */
-        wait(): GError
+        wait(): Error
         
         /** Returns whether this [PacketPeerUDP] is bound to an address and can receive packets. */
         is_bound(): boolean
@@ -370,7 +220,7 @@ declare module "godot" {
          *      
          *  **Note:** Connecting to the remote peer does not help to protect from malicious attacks like IP spoofing, etc. Think about using an encryption technique like TLS or DTLS if you feel like your application is transferring sensitive information.  
          */
-        connect_to_host(host: string, port: int64): GError
+        connect_to_host(host: string, port: int64): Error
         
         /** Returns `true` if the UDP socket is open and has been connected to a remote address. See [method connect_to_host]. */
         is_socket_connected(): boolean
@@ -388,7 +238,7 @@ declare module "godot" {
          *      
          *  **Note:** [method set_broadcast_enabled] must be enabled before sending packets to a broadcast address (e.g. `255.255.255.255`).  
          */
-        set_dest_address(host: string, port: int64): GError
+        set_dest_address(host: string, port: int64): Error
         
         /** Enable or disable sending of broadcast packets (e.g. `set_dest_address("255.255.255.255", 4343)`. This option is disabled by default.  
          *      
@@ -401,28 +251,28 @@ declare module "godot" {
          *      
          *  **Note:** Some Android devices might require the `CHANGE_WIFI_MULTICAST_STATE` permission for multicast to work.  
          */
-        join_multicast_group(multicast_address: string, interface_name: string): GError
+        join_multicast_group(multicast_address: string, interface_name: string): Error
         
         /** Removes the interface identified by [param interface_name] from the multicast group specified by [param multicast_address]. */
-        leave_multicast_group(multicast_address: string, interface_name: string): GError
+        leave_multicast_group(multicast_address: string, interface_name: string): Error
     }
     /** A GUI control that displays a [StyleBox].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_panel.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_panel.html  
      */
-    class Panel<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class Panel<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
     }
     /** A container that keeps its child controls within the area of a [StyleBox].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_panelcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_panelcontainer.html  
      */
-    class PanelContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class PanelContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
     }
     /** A material that provides a special texture to a [Sky], usually an HDR panorama.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_panoramaskymaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_panoramaskymaterial.html  
      */
     class PanoramaSkyMaterial extends Material {
         constructor(identifier?: any)
@@ -438,14 +288,11 @@ declare module "godot" {
         get energy_multiplier(): float64
         set energy_multiplier(value: float64)
     }
-    class PanoramaSkyMaterialConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
-    }
     /** A node used to create a parallax scrolling background.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_parallax2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_parallax2d.html  
      */
-    class Parallax2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Parallax2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         _camera_moved(transform: Transform2D, screen_offset: Vector2, adj_screen_offset: Vector2): void
         
@@ -496,9 +343,9 @@ declare module "godot" {
     }
     /** A node used to create a parallax scrolling background.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_parallaxbackground.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_parallaxbackground.html  
      */
-    class ParallaxBackground<Map extends Record<string, Node> = Record<string, Node>> extends CanvasLayer<Map> {
+    class ParallaxBackground<Map extends Record<string, Node> = {}> extends CanvasLayer<Map> {
         constructor(identifier?: any)
         _camera_moved(_unnamed_arg0: Transform2D, _unnamed_arg1: Vector2, _unnamed_arg2: Vector2): void
         
@@ -526,14 +373,11 @@ declare module "godot" {
         get scroll_ignore_camera_zoom(): boolean
         set scroll_ignore_camera_zoom(value: boolean)
     }
-    class ParallaxBackgroundEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A parallax scrolling layer to be used with [ParallaxBackground].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_parallaxlayer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_parallaxlayer.html  
      */
-    class ParallaxLayer<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class ParallaxLayer<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Multiplies the ParallaxLayer's motion. If an axis is set to `0`, it will not scroll. */
         get motion_scale(): Vector2
@@ -553,6 +397,22 @@ declare module "godot" {
          */
         get motion_mirroring(): Vector2
         set motion_mirroring(value: Vector2)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_parentnim.html */
+    class ParentNim<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_parentrust.html */
+    class ParentRust<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_parentswift.html */
+    class ParentSwift<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
+    }
+    /** @link https://docs.godotengine.org/en/latest/classes/class_parentv.html */
+    class ParentV<Map extends Record<string, Node> = {}> extends Node2D<Map> {
+        constructor(identifier?: any)
     }
     namespace ParticleProcessMaterial {
         enum Parameter {
@@ -678,7 +538,7 @@ declare module "godot" {
     }
     /** Holds a particle configuration for [GPUParticles2D] or [GPUParticles3D] nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_particleprocessmaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_particleprocessmaterial.html  
      */
     class ParticleProcessMaterial extends Material {
         constructor(identifier?: any)
@@ -1235,69 +1095,45 @@ declare module "godot" {
          *      
          *  **Note:** This signal is only emitted inside the editor for performance reasons.  
          */
-        readonly emission_shape_changed: Signal0
-    }
-    class ParticleProcessMaterialConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
-    }
-    class Particles2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends ParticlesEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class Particles3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends ParticlesEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class Particles3DEmissionShapeGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
-    class ParticlesEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly emission_shape_changed: Signal<() => void>
     }
     /** Contains a [Curve2D] path for [PathFollow2D] nodes to follow.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_path2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_path2d.html  
      */
-    class Path2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Path2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** A [Curve2D] describing the path. */
         get curve(): Curve2D
         set curve(value: Curve2D)
     }
-    class Path2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends HBoxContainer<Map> {
-        constructor(identifier?: any)
-        _update_toolbar(): void
-        _clear_curve_points(_unnamed_arg0: Path2D): void
-        _restore_curve_points(_unnamed_arg0: Path2D, _unnamed_arg1: PackedVector2Array | Vector2[]): void
-    }
-    class Path2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Contains a [Curve3D] path for [PathFollow3D] nodes to follow.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_path3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_path3d.html  
      */
-    class Path3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class Path3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** A [Curve3D] describing the path. */
         get curve(): Curve3D
         set curve(value: Curve3D)
         
+        /** The custom color to use to draw the shape in the editor.  
+         *  If set to `Color(0.0, 0.0, 0.0)` (by default), the color set in EditorSettings is used.  
+         */
+        get debug_custom_color(): Color
+        set debug_custom_color(value: Color)
+        
         /** Emitted when the [member curve] changes. */
-        readonly curve_changed: Signal0
-    }
-    class Path3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-        _update_toolbar(): void
-        _clear_curve_points(): void
-        _restore_curve_points(_unnamed_arg0: PackedVector3Array | Vector3[]): void
-    }
-    class Path3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
+        readonly curve_changed: Signal<() => void>
+        
+        /** Emitted when the [member debug_custom_color] changes. */
+        readonly debug_color_changed: Signal<() => void>
     }
     /** Point sampler for a [Path2D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pathfollow2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pathfollow2d.html  
      */
-    class PathFollow2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class PathFollow2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** The distance along the path, in pixels. Changing this value sets this node's position to a point within the path. */
         get progress(): float64
@@ -1352,9 +1188,9 @@ declare module "godot" {
     }
     /** Point sampler for a [Path3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pathfollow3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pathfollow3d.html  
      */
-    class PathFollow3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class PathFollow3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Correct the [param transform]. [param rotation_mode] implicitly specifies how posture (forward, up and sideway direction) is calculated. */
         static correct_posture(transform: Transform3D, rotation_mode: PathFollow3D.RotationMode): Transform3D
@@ -1402,9 +1238,9 @@ declare module "godot" {
     }
     /** A [RigidBody2D]-derived node used to make [Bone2D]s in a [Skeleton2D] react to physics.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicalbone2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicalbone2d.html  
      */
-    class PhysicalBone2D<Map extends Record<string, Node> = Record<string, Node>> extends RigidBody2D<Map> {
+    class PhysicalBone2D<Map extends Record<string, Node> = {}> extends RigidBody2D<Map> {
         constructor(identifier?: any)
         /** Returns the first [Joint2D] child node, if one exists. This is mainly a helper function to make it easier to get the [Joint2D] that the [PhysicalBone2D] is autoconfiguring. */
         get_joint(): Joint2D
@@ -1465,9 +1301,9 @@ declare module "godot" {
     }
     /** A physics body used to make bones in a [Skeleton3D] react to physics.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicalbone3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicalbone3d.html  
      */
-    class PhysicalBone3D<Map extends Record<string, Node> = Record<string, Node>> extends PhysicsBody3D<Map> {
+    class PhysicalBone3D<Map extends Record<string, Node> = {}> extends PhysicsBody3D<Map> {
         constructor(identifier?: any)
         /** Called during physics processing, allowing you to read and safely modify the simulation state for the object. By default, it is called before the standard force integration, but the [member custom_integrator] property allows you to disable the standard force integration and do fully custom force integration for a body. */
         /* gdvirtual */ _integrate_forces(state: PhysicsDirectBodyState3D): void
@@ -1482,7 +1318,7 @@ declare module "godot" {
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_integrate_forces" functions otherwise).  
          *  [param position] is the offset from the PhysicsBone3D origin in global coordinates.  
          */
-        apply_impulse(impulse: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        apply_impulse(impulse: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Returns `true` if the PhysicsBone3D is allowed to simulate physics. */
         get_simulate_physics(): boolean
@@ -1566,17 +1402,11 @@ declare module "godot" {
         get can_sleep(): boolean
         set can_sleep(value: boolean)
     }
-    class PhysicalBone3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class PhysicalBone3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Node that can be the parent of [PhysicalBone3D] and can apply the simulation results to [Skeleton3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicalbonesimulator3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicalbonesimulator3d.html  
      */
-    class PhysicalBoneSimulator3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class PhysicalBoneSimulator3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** Returns a boolean that indicates whether the [PhysicalBoneSimulator3D] is running and simulating. */
         is_simulating_physics(): boolean
@@ -1587,7 +1417,7 @@ declare module "godot" {
         /** Tells the [PhysicalBone3D] nodes in the Skeleton to start simulating and reacting to the physics world.  
          *  Optionally, a list of bone names can be passed-in, allowing only the passed-in bones to be simulated.  
          */
-        physical_bones_start_simulation(bones: GArray = []): void
+        physical_bones_start_simulation(bones?: GArray /* = [] */): void
         
         /** Adds a collision exception to the physical bone.  
          *  Works just like the [RigidBody3D] node.  
@@ -1601,7 +1431,7 @@ declare module "godot" {
     }
     /** A material that defines a sky for a [Sky] resource by a set of physical properties.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicalskymaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicalskymaterial.html  
      */
     class PhysicalSkyMaterial extends Material {
         constructor(identifier?: any)
@@ -1649,14 +1479,11 @@ declare module "godot" {
         get night_sky(): Texture2D
         set night_sky(value: Texture2D)
     }
-    class PhysicalSkyMaterialConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
-    }
     /** Abstract base class for 2D game objects affected by physics.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsbody2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsbody2d.html  
      */
-    class PhysicsBody2D<Map extends Record<string, Node> = Record<string, Node>> extends CollisionObject2D<Map> {
+    class PhysicsBody2D<Map extends Record<string, Node> = {}> extends CollisionObject2D<Map> {
         constructor(identifier?: any)
         /** Moves the body along the vector [param motion]. In order to be frame rate independent in [method Node._physics_process] or [method Node._process], [param motion] should be computed using `delta`.  
          *  Returns a [KinematicCollision2D], which contains information about the collision when stopped, or when touching another body along the motion.  
@@ -1664,7 +1491,7 @@ declare module "godot" {
          *  [param safe_margin] is the extra margin used for collision recovery (see [member CharacterBody2D.safe_margin] for more details).  
          *  If [param recovery_as_collision] is `true`, any depenetration from the recovery phase is also reported as a collision; this is used e.g. by [CharacterBody2D] for improving floor detection during floor snapping.  
          */
-        move_and_collide(motion: Vector2, test_only: boolean = false, safe_margin: float64 = 0.08, recovery_as_collision: boolean = false): KinematicCollision2D
+        move_and_collide(motion: Vector2, test_only?: boolean /* = false */, safe_margin?: float64 /* = 0.08 */, recovery_as_collision?: boolean /* = false */): KinematicCollision2D
         
         /** Checks for collisions without moving the body. In order to be frame rate independent in [method Node._physics_process] or [method Node._process], [param motion] should be computed using `delta`.  
          *  Virtually sets the node's position, scale and rotation to that of the given [Transform2D], then tries to move the body along the vector [param motion]. Returns `true` if a collision would stop the body from moving along the whole path.  
@@ -1672,7 +1499,7 @@ declare module "godot" {
          *  [param safe_margin] is the extra margin used for collision recovery (see [member CharacterBody2D.safe_margin] for more details).  
          *  If [param recovery_as_collision] is `true`, any depenetration from the recovery phase is also reported as a collision; this is useful for checking whether the body would  *touch*  any other bodies.  
          */
-        test_move(from: Transform2D, motion: Vector2, collision: KinematicCollision2D = undefined, safe_margin: float64 = 0.08, recovery_as_collision: boolean = false): boolean
+        test_move(from: Transform2D, motion: Vector2, collision?: KinematicCollision2D /* = undefined */, safe_margin?: float64 /* = 0.08 */, recovery_as_collision?: boolean /* = false */): boolean
         
         /** Returns the gravity vector computed from all sources that can affect the body, including all gravity overrides from [Area2D] nodes and the global world gravity. */
         get_gravity(): Vector2
@@ -1688,9 +1515,9 @@ declare module "godot" {
     }
     /** Abstract base class for 3D game objects affected by physics.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsbody3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsbody3d.html  
      */
-    class PhysicsBody3D<Map extends Record<string, Node> = Record<string, Node>> extends CollisionObject3D<Map> {
+    class PhysicsBody3D<Map extends Record<string, Node> = {}> extends CollisionObject3D<Map> {
         constructor(identifier?: any)
         /** Moves the body along the vector [param motion]. In order to be frame rate independent in [method Node._physics_process] or [method Node._process], [param motion] should be computed using `delta`.  
          *  The body will stop if it collides. Returns a [KinematicCollision3D], which contains information about the collision when stopped, or when touching another body along the motion.  
@@ -1699,7 +1526,7 @@ declare module "godot" {
          *  If [param recovery_as_collision] is `true`, any depenetration from the recovery phase is also reported as a collision; this is used e.g. by [CharacterBody3D] for improving floor detection during floor snapping.  
          *  [param max_collisions] allows to retrieve more than one collision result.  
          */
-        move_and_collide(motion: Vector3, test_only: boolean = false, safe_margin: float64 = 0.001, recovery_as_collision: boolean = false, max_collisions: int64 = 1): KinematicCollision3D
+        move_and_collide(motion: Vector3, test_only?: boolean /* = false */, safe_margin?: float64 /* = 0.001 */, recovery_as_collision?: boolean /* = false */, max_collisions?: int64 /* = 1 */): KinematicCollision3D
         
         /** Checks for collisions without moving the body. In order to be frame rate independent in [method Node._physics_process] or [method Node._process], [param motion] should be computed using `delta`.  
          *  Virtually sets the node's position, scale and rotation to that of the given [Transform3D], then tries to move the body along the vector [param motion]. Returns `true` if a collision would stop the body from moving along the whole path.  
@@ -1708,7 +1535,7 @@ declare module "godot" {
          *  If [param recovery_as_collision] is `true`, any depenetration from the recovery phase is also reported as a collision; this is useful for checking whether the body would  *touch*  any other bodies.  
          *  [param max_collisions] allows to retrieve more than one collision result.  
          */
-        test_move(from: Transform3D, motion: Vector3, collision: KinematicCollision3D = undefined, safe_margin: float64 = 0.001, recovery_as_collision: boolean = false, max_collisions: int64 = 1): boolean
+        test_move(from: Transform3D, motion: Vector3, collision?: KinematicCollision3D /* = undefined */, safe_margin?: float64 /* = 0.001 */, recovery_as_collision?: boolean /* = false */, max_collisions?: int64 /* = 1 */): boolean
         
         /** Returns the gravity vector computed from all sources that can affect the body, including all gravity overrides from [Area3D] nodes and the global world gravity. */
         get_gravity(): Vector3
@@ -1754,7 +1581,7 @@ declare module "godot" {
     }
     /** Provides direct access to a physics body in the [PhysicsServer2D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectbodystate2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectbodystate2d.html  
      */
     class PhysicsDirectBodyState2D extends Object {
         constructor(identifier?: any)
@@ -1778,17 +1605,17 @@ declare module "godot" {
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        apply_impulse(impulse: Vector2, position: Vector2 = Vector2.ZERO): void
+        apply_impulse(impulse: Vector2, position?: Vector2 /* = Vector2.ZERO */): void
         
         /** Applies a directional force without affecting rotation. A force is time dependent and meant to be applied every physics update.  
          *  This is equivalent to using [method apply_force] at the body's center of mass.  
          */
-        apply_central_force(force: Vector2 = Vector2.ZERO): void
+        apply_central_force(force?: Vector2 /* = Vector2.ZERO */): void
         
         /** Applies a positioned force to the body. A force is time dependent and meant to be applied every physics update.  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        apply_force(force: Vector2, position: Vector2 = Vector2.ZERO): void
+        apply_force(force: Vector2, position?: Vector2 /* = Vector2.ZERO */): void
         
         /** Applies a rotational force without affecting position. A force is time dependent and meant to be applied every physics update.  
          *      
@@ -1799,12 +1626,12 @@ declare module "godot" {
         /** Adds a constant directional force without affecting rotation that keeps being applied over time until cleared with `constant_force = Vector2(0, 0)`.  
          *  This is equivalent to using [method add_constant_force] at the body's center of mass.  
          */
-        add_constant_central_force(force: Vector2 = Vector2.ZERO): void
+        add_constant_central_force(force?: Vector2 /* = Vector2.ZERO */): void
         
         /** Adds a constant positioned force to the body that keeps being applied over time until cleared with `constant_force = Vector2(0, 0)`.  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        add_constant_force(force: Vector2, position: Vector2 = Vector2.ZERO): void
+        add_constant_force(force: Vector2, position?: Vector2 /* = Vector2.ZERO */): void
         
         /** Adds a constant rotational force without affecting position that keeps being applied over time until cleared with `constant_torque = 0`. */
         add_constant_torque(torque: float64): void
@@ -1916,7 +1743,7 @@ declare module "godot" {
     }
     /** Provides virtual methods that can be overridden to create custom [PhysicsDirectBodyState2D] implementations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectbodystate2dextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectbodystate2dextension.html  
      */
     class PhysicsDirectBodyState2DExtension extends PhysicsDirectBodyState2D {
         constructor(identifier?: any)
@@ -2054,7 +1881,7 @@ declare module "godot" {
     }
     /** Provides direct access to a physics body in the [PhysicsServer3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectbodystate3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectbodystate3d.html  
      */
     class PhysicsDirectBodyState3D extends Object {
         constructor(identifier?: any)
@@ -2065,13 +1892,13 @@ declare module "godot" {
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
          *  This is equivalent to using [method apply_impulse] at the body's center of mass.  
          */
-        apply_central_impulse(impulse: Vector3 = new Vector3(0, 0, 0)): void
+        apply_central_impulse(impulse?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Applies a positioned impulse to the body.  
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        apply_impulse(impulse: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        apply_impulse(impulse: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Applies a rotational impulse to the body without affecting the position.  
          *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
@@ -2083,12 +1910,12 @@ declare module "godot" {
         /** Applies a directional force without affecting rotation. A force is time dependent and meant to be applied every physics update.  
          *  This is equivalent to using [method apply_force] at the body's center of mass.  
          */
-        apply_central_force(force: Vector3 = new Vector3(0, 0, 0)): void
+        apply_central_force(force?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Applies a positioned force to the body. A force is time dependent and meant to be applied every physics update.  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        apply_force(force: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        apply_force(force: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Applies a rotational force without affecting position. A force is time dependent and meant to be applied every physics update.  
          *      
@@ -2099,12 +1926,12 @@ declare module "godot" {
         /** Adds a constant directional force without affecting rotation that keeps being applied over time until cleared with `constant_force = Vector3(0, 0, 0)`.  
          *  This is equivalent to using [method add_constant_force] at the body's center of mass.  
          */
-        add_constant_central_force(force: Vector3 = new Vector3(0, 0, 0)): void
+        add_constant_central_force(force?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Adds a constant positioned force to the body that keeps being applied over time until cleared with `constant_force = Vector3(0, 0, 0)`.  
          *  [param position] is the offset from the body origin in global coordinates.  
          */
-        add_constant_force(force: Vector3, position: Vector3 = new Vector3(0, 0, 0)): void
+        add_constant_force(force: Vector3, position?: Vector3 /* = new Vector3(0, 0, 0) */): void
         
         /** Adds a constant rotational force without affecting position that keeps being applied over time until cleared with `constant_torque = Vector3(0, 0, 0)`. */
         add_constant_torque(torque: Vector3): void
@@ -2220,7 +2047,7 @@ declare module "godot" {
     }
     /** Provides virtual methods that can be overridden to create custom [PhysicsDirectBodyState3D] implementations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectbodystate3dextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectbodystate3dextension.html  
      */
     class PhysicsDirectBodyState3DExtension extends PhysicsDirectBodyState3D {
         constructor(identifier?: any)
@@ -2273,7 +2100,7 @@ declare module "godot" {
     }
     /** Provides direct access to a physics space in the [PhysicsServer2D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectspacestate2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectspacestate2d.html  
      */
     class PhysicsDirectSpaceState2D extends Object {
         constructor(identifier?: any)
@@ -2286,7 +2113,7 @@ declare module "godot" {
          *      
          *  **Note:** [ConcavePolygonShape2D]s and [CollisionPolygon2D]s in `Segments` build mode are not solid shapes. Therefore, they will not be detected.  
          */
-        intersect_point(parameters: PhysicsPointQueryParameters2D, max_results: int64 = 32): GArray
+        intersect_point(parameters: PhysicsPointQueryParameters2D, max_results?: int64 /* = 32 */): GArray
         
         /** Intersects a ray in a given space. Ray position and other parameters are defined through [PhysicsRayQueryParameters2D]. The returned object is a dictionary with the following fields:  
          *  `collider`: The colliding object.  
@@ -2306,7 +2133,7 @@ declare module "godot" {
          *  `shape`: The shape index of the colliding shape.  
          *  The number of intersections can be limited with the [param max_results] parameter, to reduce the processing time.  
          */
-        intersect_shape(parameters: PhysicsShapeQueryParameters2D, max_results: int64 = 32): GArray
+        intersect_shape(parameters: PhysicsShapeQueryParameters2D, max_results?: int64 /* = 32 */): GArray
         
         /** Checks how far a [Shape2D] can move without colliding. All the parameters for the query, including the shape and the motion, are supplied through a [PhysicsShapeQueryParameters2D] object.  
          *  Returns an array with the safe and unsafe proportions (between 0 and 1) of the motion. The safe proportion is the maximum fraction of the motion that can be made without a collision. The unsafe proportion is the minimum fraction of the distance that must be moved for a collision. If no collision is detected a result of `[1.0, 1.0]` will be returned.  
@@ -2318,7 +2145,7 @@ declare module "godot" {
         /** Checks the intersections of a shape, given through a [PhysicsShapeQueryParameters2D] object, against the space. The resulting array contains a list of points where the shape intersects another. Like with [method intersect_shape], the number of returned results can be limited to save processing time.  
          *  Returned points are a list of pairs of contact points. For each pair the first one is in the shape passed in [PhysicsShapeQueryParameters2D] object, second one is in the collided shape from the physics space.  
          */
-        collide_shape(parameters: PhysicsShapeQueryParameters2D, max_results: int64 = 32): GArray
+        collide_shape(parameters: PhysicsShapeQueryParameters2D, max_results?: int64 /* = 32 */): GArray
         
         /** Checks the intersections of a shape, given through a [PhysicsShapeQueryParameters2D] object, against the space. If it collides with more than one shape, the nearest one is selected. If the shape did not intersect anything, then an empty dictionary is returned instead.  
          *      
@@ -2334,7 +2161,7 @@ declare module "godot" {
     }
     /** Provides virtual methods that can be overridden to create custom [PhysicsDirectSpaceState2D] implementations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectspacestate2dextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectspacestate2dextension.html  
      */
     class PhysicsDirectSpaceState2DExtension extends PhysicsDirectSpaceState2D {
         constructor(identifier?: any)
@@ -2348,7 +2175,7 @@ declare module "godot" {
     }
     /** Provides direct access to a physics space in the [PhysicsServer3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectspacestate3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectspacestate3d.html  
      */
     class PhysicsDirectSpaceState3D extends Object {
         constructor(identifier?: any)
@@ -2359,7 +2186,7 @@ declare module "godot" {
          *  `shape`: The shape index of the colliding shape.  
          *  The number of intersections can be limited with the [param max_results] parameter, to reduce the processing time.  
          */
-        intersect_point(parameters: PhysicsPointQueryParameters3D, max_results: int64 = 32): GArray
+        intersect_point(parameters: PhysicsPointQueryParameters3D, max_results?: int64 /* = 32 */): GArray
         
         /** Intersects a ray in a given space. Ray position and other parameters are defined through [PhysicsRayQueryParameters3D]. The returned object is a dictionary with the following fields:  
          *  `collider`: The colliding object.  
@@ -2384,7 +2211,7 @@ declare module "godot" {
          *      
          *  **Note:** This method does not take into account the `motion` property of the object.  
          */
-        intersect_shape(parameters: PhysicsShapeQueryParameters3D, max_results: int64 = 32): GArray
+        intersect_shape(parameters: PhysicsShapeQueryParameters3D, max_results?: int64 /* = 32 */): GArray
         
         /** Checks how far a [Shape3D] can move without colliding. All the parameters for the query, including the shape, are supplied through a [PhysicsShapeQueryParameters3D] object.  
          *  Returns an array with the safe and unsafe proportions (between 0 and 1) of the motion. The safe proportion is the maximum fraction of the motion that can be made without a collision. The unsafe proportion is the minimum fraction of the distance that must be moved for a collision. If no collision is detected a result of `[1.0, 1.0]` will be returned.  
@@ -2398,7 +2225,7 @@ declare module "godot" {
          *      
          *  **Note:** This method does not take into account the `motion` property of the object.  
          */
-        collide_shape(parameters: PhysicsShapeQueryParameters3D, max_results: int64 = 32): GArray
+        collide_shape(parameters: PhysicsShapeQueryParameters3D, max_results?: int64 /* = 32 */): GArray
         
         /** Checks the intersections of a shape, given through a [PhysicsShapeQueryParameters3D] object, against the space. If it collides with more than one shape, the nearest one is selected. The returned object is a dictionary containing the following fields:  
          *  `collider_id`: The colliding object's ID.  
@@ -2415,7 +2242,7 @@ declare module "godot" {
     }
     /** Provides virtual methods that can be overridden to create custom [PhysicsDirectSpaceState3D] implementations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsdirectspacestate3dextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsdirectspacestate3dextension.html  
      */
     class PhysicsDirectSpaceState3DExtension extends PhysicsDirectSpaceState3D {
         constructor(identifier?: any)
@@ -2430,7 +2257,7 @@ declare module "godot" {
     }
     /** Holds physics-related properties of a surface, namely its roughness and bounciness.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsmaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsmaterial.html  
      */
     class PhysicsMaterial extends Resource {
         constructor(identifier?: any)
@@ -2455,7 +2282,7 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsDirectSpaceState2D.intersect_point].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicspointqueryparameters2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicspointqueryparameters2d.html  
      */
     class PhysicsPointQueryParameters2D extends RefCounted {
         constructor(identifier?: any)
@@ -2469,7 +2296,7 @@ declare module "godot" {
         get canvas_instance_id(): int64
         set canvas_instance_id(value: int64)
         
-        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -2490,7 +2317,7 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsDirectSpaceState3D.intersect_point].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicspointqueryparameters3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicspointqueryparameters3d.html  
      */
     class PhysicsPointQueryParameters3D extends RefCounted {
         constructor(identifier?: any)
@@ -2498,7 +2325,7 @@ declare module "godot" {
         get position(): Vector3
         set position(value: Vector3)
         
-        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -2519,14 +2346,14 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsDirectSpaceState2D.intersect_ray].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsrayqueryparameters2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsrayqueryparameters2d.html  
      */
     class PhysicsRayQueryParameters2D extends RefCounted {
         constructor(identifier?: any)
         /** Returns a new, pre-configured [PhysicsRayQueryParameters2D] object. Use it to quickly create query parameters using the most common options.  
          *    
          */
-        static create(from: Vector2, to: Vector2, collision_mask: int64 = 4294967295, exclude: GArray = []): PhysicsRayQueryParameters2D
+        static create(from: Vector2, to: Vector2, collision_mask?: int64 /* = 4294967295 */, exclude?: GArray /* = [] */): PhysicsRayQueryParameters2D
         
         /** The starting point of the ray being queried for, in global coordinates. */
         get from(): Vector2
@@ -2536,7 +2363,7 @@ declare module "godot" {
         get to(): Vector2
         set to(value: Vector2)
         
-        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -2561,14 +2388,14 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsDirectSpaceState3D.intersect_ray].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsrayqueryparameters3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsrayqueryparameters3d.html  
      */
     class PhysicsRayQueryParameters3D extends RefCounted {
         constructor(identifier?: any)
         /** Returns a new, pre-configured [PhysicsRayQueryParameters3D] object. Use it to quickly create query parameters using the most common options.  
          *    
          */
-        static create(from: Vector3, to: Vector3, collision_mask: int64 = 4294967295, exclude: GArray = []): PhysicsRayQueryParameters3D
+        static create(from: Vector3, to: Vector3, collision_mask?: int64 /* = 4294967295 */, exclude?: GArray /* = [] */): PhysicsRayQueryParameters3D
         
         /** The starting point of the ray being queried for, in global coordinates. */
         get from(): Vector3
@@ -2578,7 +2405,7 @@ declare module "godot" {
         get to(): Vector3
         set to(value: Vector3)
         
-        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -2607,7 +2434,7 @@ declare module "godot" {
     }
     /** Provides virtual methods that can be overridden to create custom [PhysicsServer2D] implementations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsserver2dextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsserver2dextension.html  
      */
     class PhysicsServer2DExtension extends PhysicsServer2D {
         constructor(identifier?: any)
@@ -3075,7 +2902,7 @@ declare module "godot" {
     }
     /** Provides virtual methods that can be overridden to create custom [PhysicsServer3D] implementations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsserver3dextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsserver3dextension.html  
      */
     class PhysicsServer3DExtension extends PhysicsServer3D {
         constructor(identifier?: any)
@@ -3272,7 +3099,7 @@ declare module "godot" {
     }
     /** A class used to provide [method PhysicsServer3DExtension._soft_body_update_rendering_server] with a rendering handler for soft bodies.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsserver3drenderingserverhandler.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsserver3drenderingserverhandler.html  
      */
     class PhysicsServer3DRenderingServerHandler extends Object {
         constructor(identifier?: any)
@@ -3302,11 +3129,11 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsDirectSpaceState2D.intersect_shape].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsshapequeryparameters2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsshapequeryparameters2d.html  
      */
     class PhysicsShapeQueryParameters2D extends RefCounted {
         constructor(identifier?: any)
-        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -3349,11 +3176,11 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsDirectSpaceState3D.intersect_shape].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicsshapequeryparameters3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicsshapequeryparameters3d.html  
      */
     class PhysicsShapeQueryParameters3D extends RefCounted {
         constructor(identifier?: any)
-        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The physics layers the query will detect (as a bitmask). By default, all collision layers are detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -3396,7 +3223,7 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsServer2D.body_test_motion].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicstestmotionparameters2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicstestmotionparameters2d.html  
      */
     class PhysicsTestMotionParameters2D extends RefCounted {
         constructor(identifier?: any)
@@ -3434,7 +3261,7 @@ declare module "godot" {
     }
     /** Provides parameters for [method PhysicsServer3D.body_test_motion].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicstestmotionparameters3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicstestmotionparameters3d.html  
      */
     class PhysicsTestMotionParameters3D extends RefCounted {
         constructor(identifier?: any)
@@ -3476,7 +3303,7 @@ declare module "godot" {
     }
     /** Describes the motion and collision result from [method PhysicsServer2D.body_test_motion].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicstestmotionresult2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicstestmotionresult2d.html  
      */
     class PhysicsTestMotionResult2D extends RefCounted {
         constructor(identifier?: any)
@@ -3521,7 +3348,7 @@ declare module "godot" {
     }
     /** Describes the motion and collision result from [method PhysicsServer3D.body_test_motion].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_physicstestmotionresult3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_physicstestmotionresult3d.html  
      */
     class PhysicsTestMotionResult3D extends RefCounted {
         constructor(identifier?: any)
@@ -3541,37 +3368,37 @@ declare module "godot" {
         get_collision_count(): int64
         
         /** Returns the point of collision in global coordinates given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collision_point(collision_index: int64 = 0): Vector3
+        get_collision_point(collision_index?: int64 /* = 0 */): Vector3
         
         /** Returns the colliding body's shape's normal at the point of collision given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collision_normal(collision_index: int64 = 0): Vector3
+        get_collision_normal(collision_index?: int64 /* = 0 */): Vector3
         
         /** Returns the colliding body's velocity given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collider_velocity(collision_index: int64 = 0): Vector3
+        get_collider_velocity(collision_index?: int64 /* = 0 */): Vector3
         
         /** Returns the unique instance ID of the colliding body's attached [Object] given a collision index (the deepest collision by default), if a collision occurred. See [method Object.get_instance_id]. */
-        get_collider_id(collision_index: int64 = 0): int64
+        get_collider_id(collision_index?: int64 /* = 0 */): int64
         
         /** Returns the colliding body's [RID] used by the [PhysicsServer3D] given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collider_rid(collision_index: int64 = 0): RID
+        get_collider_rid(collision_index?: int64 /* = 0 */): RID
         
         /** Returns the colliding body's attached [Object] given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collider(collision_index: int64 = 0): Object
+        get_collider(collision_index?: int64 /* = 0 */): Object
         
         /** Returns the colliding body's shape index given a collision index (the deepest collision by default), if a collision occurred. See [CollisionObject3D]. */
-        get_collider_shape(collision_index: int64 = 0): int64
+        get_collider_shape(collision_index?: int64 /* = 0 */): int64
         
         /** Returns the moving object's colliding shape given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collision_local_shape(collision_index: int64 = 0): int64
+        get_collision_local_shape(collision_index?: int64 /* = 0 */): int64
         
         /** Returns the length of overlap along the collision normal given a collision index (the deepest collision by default), if a collision occurred. */
-        get_collision_depth(collision_index: int64 = 0): float64
+        get_collision_depth(collision_index?: int64 /* = 0 */): float64
     }
     /** A physics joint that attaches two 2D physics bodies at a single point, allowing them to freely rotate.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pinjoint2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pinjoint2d.html  
      */
-    class PinJoint2D<Map extends Record<string, Node> = Record<string, Node>> extends Joint2D<Map> {
+    class PinJoint2D<Map extends Record<string, Node> = {}> extends Joint2D<Map> {
         constructor(identifier?: any)
         /** The higher this value, the more the bond to the pinned partner can flex. */
         get softness(): float64
@@ -3611,9 +3438,9 @@ declare module "godot" {
     }
     /** A physics joint that attaches two 3D physics bodies at a single point, allowing them to freely rotate.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pinjoint3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pinjoint3d.html  
      */
-    class PinJoint3D<Map extends Record<string, Node> = Record<string, Node>> extends Joint3D<Map> {
+    class PinJoint3D<Map extends Record<string, Node> = {}> extends Joint3D<Map> {
         constructor(identifier?: any)
         /** Sets the value of the specified parameter. */
         set_param(param: PinJoint3D.Param, value: float64): void
@@ -3635,28 +3462,28 @@ declare module "godot" {
     }
     /** A [Cubemap] without image data.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdercubemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdercubemap.html  
      */
     class PlaceholderCubemap extends PlaceholderTextureLayered {
         constructor(identifier?: any)
     }
     /** A [CubemapArray] without image data.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdercubemaparray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdercubemaparray.html  
      */
     class PlaceholderCubemapArray extends PlaceholderTextureLayered {
         constructor(identifier?: any)
     }
     /** Placeholder class for a material.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdermaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdermaterial.html  
      */
     class PlaceholderMaterial extends Material {
         constructor(identifier?: any)
     }
     /** Placeholder class for a mesh.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdermesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdermesh.html  
      */
     class PlaceholderMesh extends Mesh {
         constructor(identifier?: any)
@@ -3666,7 +3493,7 @@ declare module "godot" {
     }
     /** Placeholder class for a 2-dimensional texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdertexture2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdertexture2d.html  
      */
     class PlaceholderTexture2D extends Texture2D {
         constructor(identifier?: any)
@@ -3676,14 +3503,14 @@ declare module "godot" {
     }
     /** Placeholder class for a 2-dimensional texture array.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdertexture2darray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdertexture2darray.html  
      */
     class PlaceholderTexture2DArray extends PlaceholderTextureLayered {
         constructor(identifier?: any)
     }
     /** Placeholder class for a 3-dimensional texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdertexture3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdertexture3d.html  
      */
     class PlaceholderTexture3D extends Texture3D {
         constructor(identifier?: any)
@@ -3693,7 +3520,7 @@ declare module "godot" {
     }
     /** Placeholder class for a 2-dimensional texture array.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_placeholdertexturelayered.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_placeholdertexturelayered.html  
      */
     class PlaceholderTextureLayered extends TextureLayered {
         constructor(identifier?: any)
@@ -3719,7 +3546,7 @@ declare module "godot" {
     }
     /** Class representing a planar [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_planemesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_planemesh.html  
      */
     class PlaneMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -3743,15 +3570,11 @@ declare module "godot" {
         get orientation(): int64
         set orientation(value: int64)
     }
-    class PluginConfigDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly plugin_ready: Signal2<string, string>
-    }
     /** Positional 2D light source.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pointlight2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pointlight2d.html  
      */
-    class PointLight2D<Map extends Record<string, Node> = Record<string, Node>> extends Light2D<Map> {
+    class PointLight2D<Map extends Record<string, Node> = {}> extends Light2D<Map> {
         constructor(identifier?: any)
         /** [Texture2D] used for the light's appearance. */
         get texture(): Texture2D | any /*-AnimatedTexture*/ | any /*-AtlasTexture*/ | any /*-CameraTexture*/ | any /*-CanvasTexture*/ | any /*-MeshTexture*/ | any /*-Texture2DRD*/ | any /*-ViewportTexture*/
@@ -3771,16 +3594,16 @@ declare module "godot" {
     }
     /** Mesh with a single Point primitive.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_pointmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_pointmesh.html  
      */
     class PointMesh extends PrimitiveMesh {
         constructor(identifier?: any)
     }
     /** A 2D polygon.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_polygon2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_polygon2d.html  
      */
-    class Polygon2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Polygon2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Adds a bone with the specified [param path] and [param weights]. */
         add_bone(path: NodePath | string, weights: PackedFloat32Array | float32[]): void
@@ -3868,24 +3691,9 @@ declare module "godot" {
         get internal_vertex_count(): int64
         set internal_vertex_count(value: int64)
     }
-    class Polygon2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditor<Map> {
-        constructor(identifier?: any)
-        _update_bone_list(): void
-        _update_polygon_editing_state(): void
-    }
-    class Polygon2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class Polygon3DEditor<Map extends Record<string, Node> = Record<string, Node>> extends HBoxContainer<Map> {
-        constructor(identifier?: any)
-        _polygon_draw(): void
-    }
-    class Polygon3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Flat 2D polygon shape for use with occlusion culling in [OccluderInstance3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_polygonoccluder3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_polygonoccluder3d.html  
      */
     class PolygonOccluder3D extends Occluder3D {
         constructor(identifier?: any)
@@ -3897,7 +3705,7 @@ declare module "godot" {
         get polygon(): PackedVector2Array
         set polygon(value: PackedVector2Array | Vector2[])
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_polygonpathfinder.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_polygonpathfinder.html */
     class PolygonPathFinder extends Resource {
         constructor(identifier?: any)
         /** Sets up [PolygonPathFinder] with an array of points that define the vertices of the polygon, and an array of indices that determine the edges of the polygon.  
@@ -3921,25 +3729,25 @@ declare module "godot" {
     }
     /** Base class for contextual windows and panels with fixed position.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_popup.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_popup.html  
      */
-    class Popup<Map extends Record<string, Node> = Record<string, Node>> extends Window<Map> {
+    class Popup<Map extends Record<string, Node> = {}> extends Window<Map> {
         constructor(identifier?: any)
         /** Emitted when the popup is hidden. */
-        readonly popup_hide: Signal0
+        readonly popup_hide: Signal<() => void>
     }
     /** A modal window used to display a list of options.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_popupmenu.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_popupmenu.html  
      */
-    class PopupMenu<Map extends Record<string, Node> = Record<string, Node>> extends Popup<Map> {
+    class PopupMenu<Map extends Record<string, Node> = {}> extends Popup<Map> {
         constructor(identifier?: any)
         /** Checks the provided [param event] against the [PopupMenu]'s shortcuts and accelerators, and activates the first item with matching events. If [param for_global_only] is `true`, only shortcuts and accelerators with `global` set to `true` will be called.  
          *  Returns `true` if an item was successfully activated.  
          *      
          *  **Note:** Certain [Control]s, such as [MenuButton], will call this method automatically.  
          */
-        activate_item_by_event(event: InputEvent, for_global_only: boolean = false): boolean
+        activate_item_by_event(event: InputEvent, for_global_only?: boolean /* = false */): boolean
         
         /** Returns `true` if the system native menu is supported and currently used by this [PopupMenu]. */
         is_native_menu(): boolean
@@ -3949,36 +3757,36 @@ declare module "godot" {
          *      
          *  **Note:** The provided [param id] is used only in [signal id_pressed] and [signal id_focused] signals. It's not related to the `index` arguments in e.g. [method set_item_checked].  
          */
-        add_item(label: string, id: int64 = -1, accel: Key = 0): void
+        add_item(label: string, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Adds a new item with text [param label] and icon [param texture].  
          *  An [param id] can optionally be provided, as well as an accelerator ([param accel]). If no [param id] is provided, one will be created from the index. If no [param accel] is provided, then the default value of 0 (corresponding to [constant @GlobalScope.KEY_NONE]) will be assigned to the item (which means it won't have any accelerator). See [method get_item_accelerator] for more info on accelerators.  
          */
-        add_icon_item(texture: Texture2D, label: string, id: int64 = -1, accel: Key = 0): void
+        add_icon_item(texture: Texture2D, label: string, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Adds a new checkable item with text [param label].  
          *  An [param id] can optionally be provided, as well as an accelerator ([param accel]). If no [param id] is provided, one will be created from the index. If no [param accel] is provided, then the default value of 0 (corresponding to [constant @GlobalScope.KEY_NONE]) will be assigned to the item (which means it won't have any accelerator). See [method get_item_accelerator] for more info on accelerators.  
          *      
          *  **Note:** Checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See [method set_item_checked] for more info on how to control it.  
          */
-        add_check_item(label: string, id: int64 = -1, accel: Key = 0): void
+        add_check_item(label: string, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Adds a new checkable item with text [param label] and icon [param texture].  
          *  An [param id] can optionally be provided, as well as an accelerator ([param accel]). If no [param id] is provided, one will be created from the index. If no [param accel] is provided, then the default value of 0 (corresponding to [constant @GlobalScope.KEY_NONE]) will be assigned to the item (which means it won't have any accelerator). See [method get_item_accelerator] for more info on accelerators.  
          *      
          *  **Note:** Checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See [method set_item_checked] for more info on how to control it.  
          */
-        add_icon_check_item(texture: Texture2D, label: string, id: int64 = -1, accel: Key = 0): void
+        add_icon_check_item(texture: Texture2D, label: string, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Adds a new radio check button with text [param label].  
          *  An [param id] can optionally be provided, as well as an accelerator ([param accel]). If no [param id] is provided, one will be created from the index. If no [param accel] is provided, then the default value of 0 (corresponding to [constant @GlobalScope.KEY_NONE]) will be assigned to the item (which means it won't have any accelerator). See [method get_item_accelerator] for more info on accelerators.  
          *      
          *  **Note:** Checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See [method set_item_checked] for more info on how to control it.  
          */
-        add_radio_check_item(label: string, id: int64 = -1, accel: Key = 0): void
+        add_radio_check_item(label: string, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Same as [method add_icon_check_item], but uses a radio check button. */
-        add_icon_radio_check_item(texture: Texture2D, label: string, id: int64 = -1, accel: Key = 0): void
+        add_icon_radio_check_item(texture: Texture2D, label: string, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Adds a new multistate item with text [param label].  
          *  Contrarily to normal binary items, multistate items can have more than two states, as defined by [param max_states]. The default value is defined by [param default_state].  
@@ -3987,54 +3795,54 @@ declare module "godot" {
          *      
          *  **Note:** Multistate items don't update their state automatically and must be done manually. See [method toggle_item_multistate], [method set_item_multistate] and [method get_item_multistate] for more info on how to control it.  
          */
-        add_multistate_item(label: string, max_states: int64, default_state: int64 = 0, id: int64 = -1, accel: Key = 0): void
+        add_multistate_item(label: string, max_states: int64, default_state?: int64 /* = 0 */, id?: int64 /* = -1 */, accel?: Key /* = 0 */): void
         
         /** Adds a [Shortcut].  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          *  If [param allow_echo] is `true`, the shortcut can be activated with echo events.  
          */
-        add_shortcut(shortcut: Shortcut, id: int64 = -1, global: boolean = false, allow_echo: boolean = false): void
+        add_shortcut(shortcut: Shortcut, id?: int64 /* = -1 */, global?: boolean /* = false */, allow_echo?: boolean /* = false */): void
         
         /** Adds a new item and assigns the specified [Shortcut] and icon [param texture] to it. Sets the label of the checkbox to the [Shortcut]'s name.  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          *  If [param allow_echo] is `true`, the shortcut can be activated with echo events.  
          */
-        add_icon_shortcut(texture: Texture2D, shortcut: Shortcut, id: int64 = -1, global: boolean = false, allow_echo: boolean = false): void
+        add_icon_shortcut(texture: Texture2D, shortcut: Shortcut, id?: int64 /* = -1 */, global?: boolean /* = false */, allow_echo?: boolean /* = false */): void
         
         /** Adds a new checkable item and assigns the specified [Shortcut] to it. Sets the label of the checkbox to the [Shortcut]'s name.  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          *      
          *  **Note:** Checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See [method set_item_checked] for more info on how to control it.  
          */
-        add_check_shortcut(shortcut: Shortcut, id: int64 = -1, global: boolean = false): void
+        add_check_shortcut(shortcut: Shortcut, id?: int64 /* = -1 */, global?: boolean /* = false */): void
         
         /** Adds a new checkable item and assigns the specified [Shortcut] and icon [param texture] to it. Sets the label of the checkbox to the [Shortcut]'s name.  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          *      
          *  **Note:** Checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See [method set_item_checked] for more info on how to control it.  
          */
-        add_icon_check_shortcut(texture: Texture2D, shortcut: Shortcut, id: int64 = -1, global: boolean = false): void
+        add_icon_check_shortcut(texture: Texture2D, shortcut: Shortcut, id?: int64 /* = -1 */, global?: boolean /* = false */): void
         
         /** Adds a new radio check button and assigns a [Shortcut] to it. Sets the label of the checkbox to the [Shortcut]'s name.  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          *      
          *  **Note:** Checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See [method set_item_checked] for more info on how to control it.  
          */
-        add_radio_check_shortcut(shortcut: Shortcut, id: int64 = -1, global: boolean = false): void
+        add_radio_check_shortcut(shortcut: Shortcut, id?: int64 /* = -1 */, global?: boolean /* = false */): void
         
         /** Same as [method add_icon_check_shortcut], but uses a radio check button. */
-        add_icon_radio_check_shortcut(texture: Texture2D, shortcut: Shortcut, id: int64 = -1, global: boolean = false): void
+        add_icon_radio_check_shortcut(texture: Texture2D, shortcut: Shortcut, id?: int64 /* = -1 */, global?: boolean /* = false */): void
         
         /** Adds an item that will act as a submenu of the parent [PopupMenu] node when clicked. The [param submenu] argument must be the name of an existing [PopupMenu] that has been added as a child to this node. This submenu will be shown when the item is clicked, hovered for long enough, or activated using the `ui_select` or `ui_right` input actions.  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          */
-        add_submenu_item(label: string, submenu: string, id: int64 = -1): void
+        add_submenu_item(label: string, submenu: string, id?: int64 /* = -1 */): void
         
         /** Adds an item that will act as a submenu of the parent [PopupMenu] node when clicked. This submenu will be shown when the item is clicked, hovered for long enough, or activated using the `ui_select` or `ui_right` input actions.  
          *  [param submenu] must be either child of this [PopupMenu] or has no parent node (in which case it will be automatically added as a child). If the [param submenu] popup has another parent, this method will fail.  
          *  An [param id] can optionally be provided. If no [param id] is provided, one will be created from the index.  
          */
-        add_submenu_node_item(label: string, submenu: PopupMenu, id: int64 = -1): void
+        add_submenu_node_item(label: string, submenu: PopupMenu, id?: int64 /* = -1 */): void
         
         /** Sets the text of the item at the given [param index]. */
         set_item_text(index: int64, text: string): void
@@ -4044,6 +3852,11 @@ declare module "godot" {
         
         /** Sets language code of item's text used for line-breaking and text shaping algorithms, if left empty current locale is used instead. */
         set_item_language(index: int64, language: string): void
+        
+        /** Sets the auto translate mode of the item at the given [param index].  
+         *  Items use [constant Node.AUTO_TRANSLATE_MODE_INHERIT] by default, which uses the same auto translate mode as the [PopupMenu] itself.  
+         */
+        set_item_auto_translate_mode(index: int64, mode: Node.AutoTranslateMode): void
         
         /** Replaces the [Texture2D] icon of the item at the given [param index]. */
         set_item_icon(index: int64, icon: Texture2D): void
@@ -4093,7 +3906,7 @@ declare module "godot" {
         set_item_tooltip(index: int64, tooltip: string): void
         
         /** Sets a [Shortcut] for the item at the given [param index]. */
-        set_item_shortcut(index: int64, shortcut: Shortcut, global: boolean = false): void
+        set_item_shortcut(index: int64, shortcut: Shortcut, global?: boolean /* = false */): void
         
         /** Sets the horizontal offset of the item at the given [param index]. */
         set_item_indent(index: int64, indent: int64): void
@@ -4121,6 +3934,9 @@ declare module "godot" {
         
         /** Returns item's text language code. */
         get_item_language(index: int64): string
+        
+        /** Returns the auto translate mode of the item at the given [param index]. */
+        get_item_auto_translate_mode(index: int64): Node.AutoTranslateMode
         
         /** Returns the icon of the item at the given [param index]. */
         get_item_icon(index: int64): Texture2D
@@ -4210,10 +4026,10 @@ declare module "godot" {
         /** Adds a separator between items. Separators also occupy an index, which you can set by using the [param id] parameter.  
          *  A [param label] can optionally be provided, which will appear at the center of the separator.  
          */
-        add_separator(label: string = '', id: int64 = -1): void
+        add_separator(label?: string /* = '' */, id?: int64 /* = -1 */): void
         
         /** Removes all items from the [PopupMenu]. If [param free_submenus] is `true`, the submenu nodes are automatically freed. */
-        clear(free_submenus: boolean = false): void
+        clear(free_submenus?: boolean /* = false */): void
         
         /** Returns `true` if the menu is bound to the special system menu. */
         is_system_menu(): boolean
@@ -4257,22 +4073,22 @@ declare module "godot" {
          *      
          *  **Note:** If [param id] is negative (either explicitly or due to overflow), this will return the corresponding index instead.  
          */
-        readonly id_pressed: Signal1<int64>
+        readonly id_pressed: Signal<(id: int64) => void>
         
         /** Emitted when the user navigated to an item of some [param id] using the [member ProjectSettings.input/ui_up] or [member ProjectSettings.input/ui_down] input action. */
-        readonly id_focused: Signal1<int64>
+        readonly id_focused: Signal<(id: int64) => void>
         
         /** Emitted when an item of some [param index] is pressed or its accelerator is activated. */
-        readonly index_pressed: Signal1<int64>
+        readonly index_pressed: Signal<(index: int64) => void>
         
         /** Emitted when any item is added, modified or removed. */
-        readonly menu_changed: Signal0
+        readonly menu_changed: Signal<() => void>
     }
     /** A popup with a panel background.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_popuppanel.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_popuppanel.html  
      */
-    class PopupPanel<Map extends Record<string, Node> = Record<string, Node>> extends Popup<Map> {
+    class PopupPanel<Map extends Record<string, Node> = {}> extends Popup<Map> {
         constructor(identifier?: any)
     }
     namespace PortableCompressedTexture2D {
@@ -4283,11 +4099,12 @@ declare module "godot" {
             COMPRESSION_MODE_S3TC = 3,
             COMPRESSION_MODE_ETC2 = 4,
             COMPRESSION_MODE_BPTC = 5,
+            COMPRESSION_MODE_ASTC = 6,
         }
     }
     /** Provides a compressed texture for disk and/or VRAM in a way that is portable.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_portablecompressedtexture2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_portablecompressedtexture2d.html  
      */
     class PortableCompressedTexture2D extends Texture2D {
         constructor(identifier?: any)
@@ -4295,7 +4112,7 @@ declare module "godot" {
          *  [param normal_map] is recommended to ensure optimum quality if this image will be used as a normal map.  
          *  If lossy compression is requested, the quality setting can optionally be provided. This maps to Lossy WebP compression quality.  
          */
-        create_from_image(image: Image, compression_mode: PortableCompressedTexture2D.CompressionMode, normal_map: boolean = false, lossy_quality: float64 = 0.8): void
+        create_from_image(image: Image, compression_mode: PortableCompressedTexture2D.CompressionMode, normal_map?: boolean /* = false */, lossy_quality?: float64 /* = 0.8 */): void
         
         /** Return the image format used (valid after initialized). */
         get_format(): Image.Format
@@ -4321,18 +4138,9 @@ declare module "godot" {
         get keep_compressed_buffer(): boolean
         set keep_compressed_buffer(value: boolean)
     }
-    class PostImportPluginSkeletonRenamer extends EditorScenePostImportPlugin {
-        constructor(identifier?: any)
-    }
-    class PostImportPluginSkeletonRestFixer extends EditorScenePostImportPlugin {
-        constructor(identifier?: any)
-    }
-    class PostImportPluginSkeletonTrackOrganizer extends EditorScenePostImportPlugin {
-        constructor(identifier?: any)
-    }
     /** Base class for all primitive meshes. Handles applying a [Material] to a primitive mesh.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_primitivemesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_primitivemesh.html  
      */
     class PrimitiveMesh extends Mesh {
         constructor(identifier?: any)
@@ -4374,7 +4182,7 @@ declare module "godot" {
     }
     /** Class representing a prism-shaped [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_prismmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_prismmesh.html  
      */
     class PrismMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -4400,7 +4208,7 @@ declare module "godot" {
     }
     /** A material that defines a simple sky for a [Sky] resource.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_proceduralskymaterial.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_proceduralskymaterial.html  
      */
     class ProceduralSkyMaterial extends Material {
         constructor(identifier?: any)
@@ -4460,9 +4268,6 @@ declare module "godot" {
         get energy_multiplier(): float64
         set energy_multiplier(value: float64)
     }
-    class ProceduralSkyMaterialConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
-    }
     namespace ProgressBar {
         enum FillMode {
             /** The progress bar fills from begin to end horizontally, according to the language direction. If [method Control.is_layout_rtl] returns `false`, it fills from left to right, and if it returns `true`, it fills from right to left. */
@@ -4480,9 +4285,9 @@ declare module "godot" {
     }
     /** A control used for visual representation of a percentage.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_progressbar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_progressbar.html  
      */
-    class ProgressBar<Map extends Record<string, Node> = Record<string, Node>> extends Range<Map> {
+    class ProgressBar<Map extends Record<string, Node> = {}> extends Range<Map> {
         constructor(identifier?: any)
         /** The fill direction. See [enum FillMode] for possible values. */
         get fill_mode(): int64
@@ -4500,31 +4305,9 @@ declare module "godot" {
         get editor_preview_indeterminate(): boolean
         set editor_preview_indeterminate(value: boolean)
     }
-    class ProgressDialog<Map extends Record<string, Node> = Record<string, Node>> extends CenterContainer<Map> {
-        constructor(identifier?: any)
-    }
-    class ProjectExportDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        get_current_preset(): EditorExportPreset
-        get export_path(): string
-        set export_path(value: string)
-    }
-    class ProjectExportTextureFormatError<Map extends Record<string, Node> = Record<string, Node>> extends HBoxContainer<Map> {
-        constructor(identifier?: any)
-        readonly texture_format_enabled: Signal0
-    }
-    class ProjectSettingsEditor<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-        queue_save(): void
-        _update_action_map_editor(): void
-    }
-    class PropertySelector<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly selected: Signal1<string>
-    }
     /** Interpolates an [Object]'s property over time.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_propertytweener.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_propertytweener.html  
      */
     class PropertyTweener extends Tweener {
         constructor(identifier?: any)
@@ -4561,14 +4344,14 @@ declare module "godot" {
     }
     /** Class representing a square mesh facing the camera.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_quadmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_quadmesh.html  
      */
     class QuadMesh extends PlaneMesh {
         constructor(identifier?: any)
     }
     /** Flat plane shape for use with occlusion culling in [OccluderInstance3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_quadoccluder3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_quadoccluder3d.html  
      */
     class QuadOccluder3D extends Occluder3D {
         constructor(identifier?: any)
@@ -4576,13 +4359,9 @@ declare module "godot" {
         get size(): Vector2
         set size(value: Vector2)
     }
-    class QuickOpenResultContainer<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        readonly result_clicked: Signal0
-    }
     /** Attachment format (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdattachmentformat.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdattachmentformat.html  
      */
     class RDAttachmentFormat extends RefCounted {
         constructor(identifier?: any)
@@ -4600,7 +4379,7 @@ declare module "godot" {
     }
     /** Framebuffer pass attachment description (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdframebufferpass.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdframebufferpass.html  
      */
     class RDFramebufferPass extends RefCounted {
         /** Attachment is unused. */
@@ -4629,7 +4408,7 @@ declare module "godot" {
     }
     /** Pipeline color blend state (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdpipelinecolorblendstate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdpipelinecolorblendstate.html  
      */
     class RDPipelineColorBlendState extends RefCounted {
         constructor(identifier?: any)
@@ -4651,7 +4430,7 @@ declare module "godot" {
     }
     /** Pipeline color blend state attachment (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdpipelinecolorblendstateattachment.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdpipelinecolorblendstateattachment.html  
      */
     class RDPipelineColorBlendStateAttachment extends RefCounted {
         constructor(identifier?: any)
@@ -4704,7 +4483,7 @@ declare module "godot" {
     }
     /** Pipeline depth/stencil state (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdpipelinedepthstencilstate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdpipelinedepthstencilstate.html  
      */
     class RDPipelineDepthStencilState extends RefCounted {
         constructor(identifier?: any)
@@ -4794,7 +4573,7 @@ declare module "godot" {
     }
     /** Pipeline multisample state (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdpipelinemultisamplestate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdpipelinemultisamplestate.html  
      */
     class RDPipelineMultisampleState extends RefCounted {
         constructor(identifier?: any)
@@ -4824,7 +4603,7 @@ declare module "godot" {
     }
     /** Pipeline rasterization state (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdpipelinerasterizationstate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdpipelinerasterizationstate.html  
      */
     class RDPipelineRasterizationState extends RefCounted {
         constructor(identifier?: any)
@@ -4874,7 +4653,7 @@ declare module "godot" {
     }
     /** Pipeline specialization constant (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdpipelinespecializationconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdpipelinespecializationconstant.html  
      */
     class RDPipelineSpecializationConstant extends RefCounted {
         constructor(identifier?: any)
@@ -4888,7 +4667,7 @@ declare module "godot" {
     }
     /** Sampler state (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdsamplerstate.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdsamplerstate.html  
      */
     class RDSamplerState extends RefCounted {
         constructor(identifier?: any)
@@ -4956,15 +4735,15 @@ declare module "godot" {
     }
     /** Compiled shader file in SPIR-V form (used by [RenderingDevice]). Not to be confused with Godot's own [Shader].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdshaderfile.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdshaderfile.html  
      */
     class RDShaderFile extends Resource {
         constructor(identifier?: any)
         /** Sets the SPIR-V [param bytecode] that will be compiled for the specified [param version]. */
-        set_bytecode(bytecode: RDShaderSPIRV, version: StringName = ''): void
+        set_bytecode(bytecode: RDShaderSPIRV, version?: StringName /* = '' */): void
         
         /** Returns the SPIR-V intermediate representation for the specified shader [param version]. */
-        get_spirv(version: StringName = ''): RDShaderSPIRV
+        get_spirv(version?: StringName /* = '' */): RDShaderSPIRV
         
         /** Returns the list of compiled versions for this shader. */
         get_version_list(): GArray
@@ -4977,7 +4756,7 @@ declare module "godot" {
     }
     /** SPIR-V intermediate representation as part of a [RDShaderFile] (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdshaderspirv.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdshaderspirv.html  
      */
     class RDShaderSPIRV extends Resource {
         constructor(identifier?: any)
@@ -5035,7 +4814,7 @@ declare module "godot" {
     }
     /** Shader source code (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdshadersource.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdshadersource.html  
      */
     class RDShaderSource extends RefCounted {
         constructor(identifier?: any)
@@ -5074,7 +4853,7 @@ declare module "godot" {
     }
     /** Texture format (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdtextureformat.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdtextureformat.html  
      */
     class RDTextureFormat extends RefCounted {
         constructor(identifier?: any)
@@ -5132,7 +4911,7 @@ declare module "godot" {
     }
     /** Texture view (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdtextureview.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdtextureview.html  
      */
     class RDTextureView extends RefCounted {
         constructor(identifier?: any)
@@ -5158,7 +4937,7 @@ declare module "godot" {
     }
     /** Shader uniform (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rduniform.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rduniform.html  
      */
     class RDUniform extends RefCounted {
         constructor(identifier?: any)
@@ -5180,7 +4959,7 @@ declare module "godot" {
     }
     /** Vertex attribute (used by [RenderingDevice]).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rdvertexattribute.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rdvertexattribute.html  
      */
     class RDVertexAttribute extends RefCounted {
         constructor(identifier?: any)
@@ -5206,7 +4985,7 @@ declare module "godot" {
     }
     /** Provides methods for generating pseudo-random numbers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_randomnumbergenerator.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_randomnumbergenerator.html  
      */
     class RandomNumberGenerator extends RefCounted {
         constructor(identifier?: any)
@@ -5220,7 +4999,7 @@ declare module "godot" {
          *      
          *  **Note:** This method uses the [url=https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform]Box-Muller transform[/url] algorithm.  
          */
-        randfn(mean: float64 = 0, deviation: float64 = 1): float64
+        randfn(mean?: float64 /* = 0 */, deviation?: float64 /* = 1 */): float64
         
         /** Returns a pseudo-random float between [param from] and [param to] (inclusive). */
         randf_range(from: float64, to: float64): float64
@@ -5260,9 +5039,9 @@ declare module "godot" {
     }
     /** Abstract base class for controls that represent a number within a range.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_range.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_range.html  
      */
-    class Range<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class Range<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Called when the [Range]'s value is changed (following the same conditions as [signal value_changed]). */
         /* gdvirtual */ _value_changed(new_value: float64): void
@@ -5320,16 +5099,16 @@ declare module "godot" {
          *      
          *  **Note:** Unlike signals such as [signal LineEdit.text_changed], [signal value_changed] is also emitted when [param value] is set directly via code.  
          */
-        readonly value_changed: Signal1<float64>
+        readonly value_changed: Signal<(value: float64) => void>
         
         /** Emitted when [member min_value], [member max_value], [member page], or [member step] change. */
-        readonly changed: Signal0
+        readonly changed: Signal<() => void>
     }
     /** A ray in 2D space, used to find the first [CollisionObject2D] it intersects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_raycast2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_raycast2d.html  
      */
-    class RayCast2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class RayCast2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns whether any object is intersecting with the ray's vector (considering the vector length). */
         is_colliding(): boolean
@@ -5397,7 +5176,7 @@ declare module "godot" {
         get target_position(): Vector2
         set target_position(value: Vector2)
         
-        /** The ray's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The ray's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -5415,9 +5194,9 @@ declare module "godot" {
     }
     /** A ray in 3D space, used to find the first object it intersects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_raycast3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_raycast3d.html  
      */
-    class RayCast3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class RayCast3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns whether any object is intersecting with the ray's vector (considering the vector length). */
         is_colliding(): boolean
@@ -5491,7 +5270,7 @@ declare module "godot" {
         get target_position(): Vector3
         set target_position(value: Vector3)
         
-        /** The ray's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/4.4/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
+        /** The ray's collision mask. Only objects in at least one collision layer enabled in the mask will be detected. See [url=https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#collision-layers-and-masks]Collision layers and masks[/url] in the documentation for more information. */
         get collision_mask(): int64
         set collision_mask(value: int64)
         
@@ -5521,12 +5300,9 @@ declare module "godot" {
         get debug_shape_thickness(): int64
         set debug_shape_thickness(value: int64)
     }
-    class RayCast3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** A 2D rectangle shape used for physics collision.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_rectangleshape2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rectangleshape2d.html  
      */
     class RectangleShape2D extends Shape2D {
         constructor(identifier?: any)
@@ -5536,7 +5312,7 @@ declare module "godot" {
     }
     /** Base class for reference-counted objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_refcounted.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_refcounted.html  
      */
     class RefCounted extends Object {
         constructor(identifier?: any)
@@ -5560,9 +5336,9 @@ declare module "godot" {
     }
     /** A rectangle hint for designing UIs.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_referencerect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_referencerect.html  
      */
-    class ReferenceRect<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class ReferenceRect<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Sets the border color of the [ReferenceRect]. */
         get border_color(): Color
@@ -5597,9 +5373,9 @@ declare module "godot" {
     }
     /** Captures its surroundings to create fast, accurate reflections from a given point.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_reflectionprobe.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_reflectionprobe.html  
      */
-    class ReflectionProbe<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class ReflectionProbe<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Sets how frequently the [ReflectionProbe] is updated. Can be [constant UPDATE_ONCE] or [constant UPDATE_ALWAYS]. */
         get update_mode(): int64
@@ -5675,38 +5451,35 @@ declare module "godot" {
         get ambient_color_energy(): float64
         set ambient_color_energy(value: float64)
     }
-    class ReflectionProbeGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Class for searching text for patterns using regular expressions.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_regex.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_regex.html  
      */
     class RegEx extends RefCounted {
         constructor(identifier?: any)
         /** Creates and compiles a new [RegEx] object. See also [method compile]. */
-        static create_from_string(pattern: string, show_error: boolean = true): RegEx
+        static create_from_string(pattern: string, show_error?: boolean /* = true */): RegEx
         
         /** This method resets the state of the object, as if it was freshly created. Namely, it unassigns the regular expression of this object. */
         clear(): void
         
         /** Compiles and assign the search pattern to use. Returns [constant OK] if the compilation is successful. If compilation fails, returns [constant FAILED] and when [param show_error] is `true`, details are printed to standard output. */
-        compile(pattern: string, show_error: boolean = true): GError
+        compile(pattern: string, show_error?: boolean /* = true */): Error
         
         /** Searches the text for the compiled pattern. Returns a [RegExMatch] container of the first matching result if found, otherwise `null`.  
          *  The region to search within can be specified with [param offset] and [param end]. This is useful when searching for another match in the same [param subject] by calling this method again after a previous success. Note that setting these parameters differs from passing over a shortened string. For example, the start anchor `^` is not affected by [param offset], and the character before [param offset] will be checked for the word boundary `\b`.  
          */
-        search(subject: string, offset: int64 = 0, end: int64 = -1): RegExMatch
+        search(subject: string, offset?: int64 /* = 0 */, end?: int64 /* = -1 */): RegExMatch
         
         /** Searches the text for the compiled pattern. Returns an array of [RegExMatch] containers for each non-overlapping result. If no results were found, an empty array is returned instead.  
          *  The region to search within can be specified with [param offset] and [param end]. This is useful when searching for another match in the same [param subject] by calling this method again after a previous success. Note that setting these parameters differs from passing over a shortened string. For example, the start anchor `^` is not affected by [param offset], and the character before [param offset] will be checked for the word boundary `\b`.  
          */
-        search_all(subject: string, offset: int64 = 0, end: int64 = -1): GArray
+        search_all(subject: string, offset?: int64 /* = 0 */, end?: int64 /* = -1 */): GArray
         
         /** Searches the text for the compiled pattern and replaces it with the specified string. Escapes and backreferences such as `$1` and `$name` are expanded and resolved. By default, only the first instance is replaced, but it can be changed for all instances (global replacement).  
          *  The region to search within can be specified with [param offset] and [param end]. This is useful when searching for another match in the same [param subject] by calling this method again after a previous success. Note that setting these parameters differs from passing over a shortened string. For example, the start anchor `^` is not affected by [param offset], and the character before [param offset] will be checked for the word boundary `\b`.  
          */
-        sub(subject: string, replacement: string, all: boolean = false, offset: int64 = 0, end: int64 = -1): string
+        sub(subject: string, replacement: string, all?: boolean /* = false */, offset?: int64 /* = 0 */, end?: int64 /* = -1 */): string
         
         /** Returns whether this object has a valid search pattern assigned. */
         is_valid(): boolean
@@ -5722,7 +5495,7 @@ declare module "godot" {
     }
     /** Contains the results of a [RegEx] search.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_regexmatch.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_regexmatch.html  
      */
     class RegExMatch extends RefCounted {
         constructor(identifier?: any)
@@ -5732,17 +5505,17 @@ declare module "godot" {
         /** Returns the substring of the match from the source string. Capturing groups can be retrieved by providing its group number as an integer or its string name (if it's a named group). The default value of 0 refers to the whole pattern.  
          *  Returns an empty string if the group did not match or doesn't exist.  
          */
-        get_string(name: any = <any> {}): string
+        get_string(name?: any /* = <any> {} */): string
         
         /** Returns the starting position of the match within the source string. The starting position of capturing groups can be retrieved by providing its group number as an integer or its string name (if it's a named group). The default value of 0 refers to the whole pattern.  
          *  Returns -1 if the group did not match or doesn't exist.  
          */
-        get_start(name: any = <any> {}): int64
+        get_start(name?: any /* = <any> {} */): int64
         
         /** Returns the end position of the match within the source string. The end position of capturing groups can be retrieved by providing its group number as an integer or its string name (if it's a named group). The default value of 0 refers to the whole pattern.  
          *  Returns -1 if the group did not match or doesn't exist.  
          */
-        get_end(name: any = <any> {}): int64
+        get_end(name?: any /* = <any> {} */): int64
         
         /** The source string used with the search pattern to find this matching result. */
         get subject(): string
@@ -5755,9 +5528,9 @@ declare module "godot" {
     }
     /** RemoteTransform2D pushes its own [Transform2D] to another [Node2D] derived node in the scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_remotetransform2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_remotetransform2d.html  
      */
-    class RemoteTransform2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class RemoteTransform2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** [RemoteTransform2D] caches the remote node. It may not notice if the remote node disappears; [method force_update_cache] forces it to update the cache again. */
         force_update_cache(): void
@@ -5784,9 +5557,9 @@ declare module "godot" {
     }
     /** RemoteTransform3D pushes its own [Transform3D] to another [Node3D] derived Node in the scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_remotetransform3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_remotetransform3d.html  
      */
-    class RemoteTransform3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class RemoteTransform3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** [RemoteTransform3D] caches the remote node. It may not notice if the remote node disappears; [method force_update_cache] forces it to update the cache again. */
         force_update_cache(): void
@@ -5811,22 +5584,9 @@ declare module "godot" {
         get update_scale(): boolean
         set update_scale(value: boolean)
     }
-    class RenameDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        rename(): void
-    }
-    class RenderBufferCustomDataRD extends RefCounted {
-        constructor(identifier?: any)
-    }
-    class RenderBufferDataForwardClustered extends RenderBufferCustomDataRD {
-        constructor(identifier?: any)
-    }
-    class RenderBuffersGI extends RenderBufferCustomDataRD {
-        constructor(identifier?: any)
-    }
     /** Abstract render data object, holds frame data related to rendering a single frame of a viewport.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderdata.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderdata.html  
      */
     class RenderData extends Object {
         constructor(identifier?: any)
@@ -5844,7 +5604,7 @@ declare module "godot" {
     }
     /** This class allows for a RenderData implementation to be made in GDExtension.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderdataextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderdataextension.html  
      */
     class RenderDataExtension extends RenderData {
         constructor(identifier?: any)
@@ -5864,14 +5624,14 @@ declare module "godot" {
      *      
      *  **Note:** This is an internal rendering server object, do not instantiate this from script.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderdatard.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderdatard.html  
      */
     class RenderDataRD extends RenderData {
         constructor(identifier?: any)
     }
     /** Abstract scene buffers object, created for each viewport for which 3D rendering is done.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenebuffers.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenebuffers.html  
      */
     class RenderSceneBuffers extends RefCounted {
         constructor(identifier?: any)
@@ -5880,7 +5640,7 @@ declare module "godot" {
     }
     /** Configuration object used to setup a [RenderSceneBuffers] object.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenebuffersconfiguration.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenebuffersconfiguration.html  
      */
     class RenderSceneBuffersConfiguration extends RefCounted {
         constructor(identifier?: any)
@@ -5926,7 +5686,7 @@ declare module "godot" {
     }
     /** This class allows for a RenderSceneBuffer implementation to be made in GDExtension.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenebuffersextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenebuffersextension.html  
      */
     class RenderSceneBuffersExtension extends RenderSceneBuffers {
         constructor(identifier?: any)
@@ -5947,7 +5707,7 @@ declare module "godot" {
     }
     /** Render scene buffer implementation for the RenderingDevice based renderers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenebuffersrd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenebuffersrd.html  
      */
     class RenderSceneBuffersRD extends RenderSceneBuffers {
         constructor(identifier?: any)
@@ -5984,30 +5744,30 @@ declare module "godot" {
         /** Returns the color texture we are rendering 3D content to. If multiview is used this will be a texture array with all views.  
          *  If [param msaa] is `true` and MSAA is enabled, this returns the MSAA variant of the buffer.  
          */
-        get_color_texture(msaa: boolean = false): RID
+        get_color_texture(msaa?: boolean /* = false */): RID
         
         /** Returns the specified layer from the color texture we are rendering 3D content to.  
          *  If [param msaa] is `true` and MSAA is enabled, this returns the MSAA variant of the buffer.  
          */
-        get_color_layer(layer: int64, msaa: boolean = false): RID
+        get_color_layer(layer: int64, msaa?: boolean /* = false */): RID
         
         /** Returns the depth texture we are rendering 3D content to. If multiview is used this will be a texture array with all views.  
          *  If [param msaa] is `true` and MSAA is enabled, this returns the MSAA variant of the buffer.  
          */
-        get_depth_texture(msaa: boolean = false): RID
+        get_depth_texture(msaa?: boolean /* = false */): RID
         
         /** Returns the specified layer from the depth texture we are rendering 3D content to.  
          *  If [param msaa] is `true` and MSAA is enabled, this returns the MSAA variant of the buffer.  
          */
-        get_depth_layer(layer: int64, msaa: boolean = false): RID
+        get_depth_layer(layer: int64, msaa?: boolean /* = false */): RID
         
         /** Returns the velocity texture we are rendering 3D content to. If multiview is used this will be a texture array with all views.  
          *  If [param msaa] is **true** and MSAA is enabled, this returns the MSAA variant of the buffer.  
          */
-        get_velocity_texture(msaa: boolean = false): RID
+        get_velocity_texture(msaa?: boolean /* = false */): RID
         
         /** Returns the specified layer from the velocity texture we are rendering 3D content to. */
-        get_velocity_layer(layer: int64, msaa: boolean = false): RID
+        get_velocity_layer(layer: int64, msaa?: boolean /* = false */): RID
         
         /** Returns the render target associated with this buffers object. */
         get_render_target(): RID
@@ -6044,7 +5804,7 @@ declare module "godot" {
     }
     /** Abstract render data object, holds scene data related to rendering a single frame of a viewport.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenedata.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenedata.html  
      */
     class RenderSceneData extends Object {
         constructor(identifier?: any)
@@ -6077,7 +5837,7 @@ declare module "godot" {
     }
     /** This class allows for a RenderSceneData implementation to be made in GDExtension.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenedataextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenedataextension.html  
      */
     class RenderSceneDataExtension extends RenderSceneData {
         constructor(identifier?: any)
@@ -6101,7 +5861,7 @@ declare module "godot" {
     }
     /** Render scene data implementation for the RenderingDevice based renderers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderscenedatard.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderscenedatard.html  
      */
     class RenderSceneDataRD extends RenderSceneData {
         constructor(identifier?: any)
@@ -6283,7 +6043,7 @@ declare module "godot" {
             /** 8-bit-per-channel signed integer red/green/blue channel data format. Values are in the `[-127, 127]` range. */
             DATA_FORMAT_R8G8B8_SINT = 27,
             
-            /** 8-bit-per-channel unsigned floating-point red/green/blue/blue channel data format with normalized value and non-linear sRGB encoding. Values are in the `[0.0, 1.0]` range. */
+            /** 8-bit-per-channel unsigned floating-point red/green/blue channel data format with normalized value and non-linear sRGB encoding. Values are in the `[0.0, 1.0]` range. */
             DATA_FORMAT_R8G8B8_SRGB = 28,
             
             /** 8-bit-per-channel unsigned floating-point blue/green/red channel data format with normalized value. Values are in the `[0.0, 1.0]` range. */
@@ -7467,6 +7227,12 @@ declare module "godot" {
             PIPELINE_SPECIALIZATION_CONSTANT_TYPE_FLOAT = 2,
         }
         enum Features {
+            /** Support for MetalFX spatial upscaling. */
+            SUPPORTS_METALFX_SPATIAL = 3,
+            
+            /** Support for MetalFX temporal upscaling. */
+            SUPPORTS_METALFX_TEMPORAL = 4,
+            
             /** Features support for buffer device address extension. */
             SUPPORTS_BUFFER_DEVICE_ADDRESS = 6,
         }
@@ -7704,7 +7470,7 @@ declare module "godot" {
     }
     /** Abstraction for working with modern low-level graphics APIs.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_renderingdevice.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_renderingdevice.html  
      */
     class RenderingDevice extends Object {
         /** Returned by functions that return an ID if a value is invalid. */
@@ -7719,7 +7485,7 @@ declare module "godot" {
          *      
          *  **Note:** Not to be confused with [method RenderingServer.texture_2d_create], which creates the Godot-specific [Texture2D] resource as opposed to the graphics API's own texture type.  
          */
-        texture_create(format: RDTextureFormat, view: RDTextureView, data: GArray = []): RID
+        texture_create(format: RDTextureFormat, view: RDTextureView, data?: GArray /* = [] */): RID
         
         /** Creates a shared texture using the specified [param view] and the texture information from [param with_texture]. */
         texture_create_shared(view: RDTextureView, with_texture: RID): RID
@@ -7729,7 +7495,7 @@ declare module "godot" {
          *      
          *  **Note:** Layer slicing is only supported for 2D texture arrays, not 3D textures or cubemaps.  
          */
-        texture_create_shared_from_slice(view: RDTextureView, with_texture: RID, layer: int64, mipmap: int64, mipmaps: int64 = 1, slice_type: RenderingDevice.TextureSliceType = 0): RID
+        texture_create_shared_from_slice(view: RDTextureView, with_texture: RID, layer: int64, mipmap: int64, mipmaps?: int64 /* = 1 */, slice_type?: RenderingDevice.TextureSliceType /* = 0 */): RID
         
         /** Returns an RID for an existing [param image] (`VkImage`) with the given [param type], [param format], [param samples], [param usage_flags], [param width], [param height], [param depth], and [param layers]. This can be used to allow Godot to render onto foreign images. */
         texture_create_from_extension(type: RenderingDevice.TextureType, format: RenderingDevice.DataFormat, samples: RenderingDevice.TextureSamples, usage_flags: RenderingDevice.TextureUsageBits, image: int64, width: int64, height: int64, depth: int64, layers: int64): RID
@@ -7742,7 +7508,7 @@ declare module "godot" {
          *      
          *  **Note:** The existing [param texture] requires the [constant TEXTURE_USAGE_CAN_UPDATE_BIT] to be updatable.  
          */
-        texture_update(texture: RID, layer: int64, data: PackedByteArray | byte[] | ArrayBuffer): GError
+        texture_update(texture: RID, layer: int64, data: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Returns the [param texture] data for the specified [param layer] as raw binary data. For 2D textures (which only have one layer), [param layer] must be `0`.  
          *      
@@ -7761,7 +7527,7 @@ declare module "godot" {
          *  **Note:** Downloading large textures can have a prohibitive cost for real-time even when using the asynchronous method due to hardware bandwidth limitations. When dealing with large resources, you can adjust settings such as [member ProjectSettings.rendering/rendering_device/staging_buffer/texture_download_region_size_px] and [member ProjectSettings.rendering/rendering_device/staging_buffer/block_size_kb] to improve the transfer speed at the cost of extra memory.  
          *    
          */
-        texture_get_data_async(texture: RID, layer: int64, callback: Callable): GError
+        texture_get_data_async(texture: RID, layer: int64, callback: Callable): Error
         
         /** Returns `true` if the specified [param format] is supported for the given [param usage_flags], `false` otherwise. */
         texture_is_format_supported_for_usage(format: RenderingDevice.DataFormat, usage_flags: RenderingDevice.TextureUsageBits): boolean
@@ -7793,13 +7559,13 @@ declare module "godot" {
          *      
          *  **Note:** [param from_texture] and [param to_texture] must be of the same type (color or depth).  
          */
-        texture_copy(from_texture: RID, to_texture: RID, from_pos: Vector3, to_pos: Vector3, size: Vector3, src_mipmap: int64, dst_mipmap: int64, src_layer: int64, dst_layer: int64): GError
+        texture_copy(from_texture: RID, to_texture: RID, from_pos: Vector3, to_pos: Vector3, size: Vector3, src_mipmap: int64, dst_mipmap: int64, src_layer: int64, dst_layer: int64): Error
         
         /** Clears the specified [param texture] by replacing all of its pixels with the specified [param color]. [param base_mipmap] and [param mipmap_count] determine which mipmaps of the texture are affected by this clear operation, while [param base_layer] and [param layer_count] determine which layers of a 3D texture (or texture array) are affected by this clear operation. For 2D textures (which only have one layer by design), [param base_layer] must be `0` and [param layer_count] must be `1`.  
          *      
          *  **Note:** [param texture] can't be cleared while a draw list that uses it as part of a framebuffer is being created. Ensure the draw list is finalized (and that the color/depth texture using it is not set to [constant FINAL_ACTION_CONTINUE]) to clear this texture.  
          */
-        texture_clear(texture: RID, color: Color, base_mipmap: int64, mipmap_count: int64, base_layer: int64, layer_count: int64): GError
+        texture_clear(texture: RID, color: Color, base_mipmap: int64, mipmap_count: int64, base_layer: int64, layer_count: int64): Error
         
         /** Resolves the [param from_texture] texture onto [param to_texture] with multisample antialiasing enabled. This must be used when rendering a framebuffer for MSAA to work. Returns [constant @GlobalScope.OK] if successful, [constant @GlobalScope.ERR_INVALID_PARAMETER] otherwise.  
          *      
@@ -7817,7 +7583,7 @@ declare module "godot" {
          *      
          *  **Note:** [param to_texture] texture must **not** be multisampled and must also be 2D (or a slice of a 3D/cubemap texture).  
          */
-        texture_resolve_multisample(from_texture: RID, to_texture: RID): GError
+        texture_resolve_multisample(from_texture: RID, to_texture: RID): Error
         
         /** Returns the data format used to create this texture. */
         texture_get_format(texture: RID): RDTextureFormat
@@ -7831,31 +7597,31 @@ declare module "godot" {
         /** Creates a new framebuffer format with the specified [param attachments] and [param view_count]. Returns the new framebuffer's unique framebuffer format ID.  
          *  If [param view_count] is greater than or equal to `2`, enables multiview which is used for VR rendering. This requires support for the Vulkan multiview extension.  
          */
-        framebuffer_format_create(attachments: GArray, view_count: int64 = 1): int64
+        framebuffer_format_create(attachments: GArray, view_count?: int64 /* = 1 */): int64
         
         /** Creates a multipass framebuffer format with the specified [param attachments], [param passes] and [param view_count] and returns its ID. If [param view_count] is greater than or equal to `2`, enables multiview which is used for VR rendering. This requires support for the Vulkan multiview extension. */
-        framebuffer_format_create_multipass(attachments: GArray, passes: GArray, view_count: int64 = 1): int64
+        framebuffer_format_create_multipass(attachments: GArray, passes: GArray, view_count?: int64 /* = 1 */): int64
         
         /** Creates a new empty framebuffer format with the specified number of [param samples] and returns its ID. */
-        framebuffer_format_create_empty(samples: RenderingDevice.TextureSamples = 0): int64
+        framebuffer_format_create_empty(samples?: RenderingDevice.TextureSamples /* = 0 */): int64
         
         /** Returns the number of texture samples used for the given framebuffer [param format] ID (returned by [method framebuffer_get_format]). */
-        framebuffer_format_get_texture_samples(format: int64, render_pass: int64 = 0): RenderingDevice.TextureSamples
+        framebuffer_format_get_texture_samples(format: int64, render_pass?: int64 /* = 0 */): RenderingDevice.TextureSamples
         
         /** Creates a new framebuffer. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        framebuffer_create(textures: GArray, validate_with_format: int64 = -1, view_count: int64 = 1): RID
+        framebuffer_create(textures: GArray, validate_with_format?: int64 /* = -1 */, view_count?: int64 /* = 1 */): RID
         
         /** Creates a new multipass framebuffer. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        framebuffer_create_multipass(textures: GArray, passes: GArray, validate_with_format: int64 = -1, view_count: int64 = 1): RID
+        framebuffer_create_multipass(textures: GArray, passes: GArray, validate_with_format?: int64 /* = -1 */, view_count?: int64 /* = 1 */): RID
         
         /** Creates a new empty framebuffer. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        framebuffer_create_empty(size: Vector2i, samples: RenderingDevice.TextureSamples = 0, validate_with_format: int64 = -1): RID
+        framebuffer_create_empty(size: Vector2i, samples?: RenderingDevice.TextureSamples /* = 0 */, validate_with_format?: int64 /* = -1 */): RID
         
         /** Returns the format ID of the framebuffer specified by the [param framebuffer] RID. This ID is guaranteed to be unique for the same formats and does not need to be freed. */
         framebuffer_get_format(framebuffer: RID): int64
@@ -7874,18 +7640,18 @@ declare module "godot" {
         /** It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        vertex_buffer_create(size_bytes: int64, data: PackedByteArray | byte[] | ArrayBuffer = [], creation_bits: RenderingDevice.BufferCreationBits = 0): RID
+        vertex_buffer_create(size_bytes: int64, data?: PackedByteArray | byte[] | ArrayBuffer /* = [] */, creation_bits?: RenderingDevice.BufferCreationBits /* = 0 */): RID
         
         /** Creates a new vertex format with the specified [param vertex_descriptions]. Returns a unique vertex format ID corresponding to the newly created vertex format. */
         vertex_format_create(vertex_descriptions: GArray): int64
         
         /** Creates a vertex array based on the specified buffers. Optionally, [param offsets] (in bytes) may be defined for each buffer. */
-        vertex_array_create(vertex_count: int64, vertex_format: int64, src_buffers: GArray, offsets: PackedInt64Array | int64[] = []): RID
+        vertex_array_create(vertex_count: int64, vertex_format: int64, src_buffers: GArray, offsets?: PackedInt64Array | int64[] /* = [] */): RID
         
         /** Creates a new index buffer. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        index_buffer_create(size_indices: int64, format: RenderingDevice.IndexBufferFormat, data: PackedByteArray | byte[] | ArrayBuffer = [], use_restart_indices: boolean = false, creation_bits: RenderingDevice.BufferCreationBits = 0): RID
+        index_buffer_create(size_indices: int64, format: RenderingDevice.IndexBufferFormat, data?: PackedByteArray | byte[] | ArrayBuffer /* = [] */, use_restart_indices?: boolean /* = false */, creation_bits?: RenderingDevice.BufferCreationBits /* = 0 */): RID
         
         /** Creates a new index array. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
@@ -7895,22 +7661,22 @@ declare module "godot" {
         /** Compiles a SPIR-V from the shader source code in [param shader_source] and returns the SPIR-V as a [RDShaderSPIRV]. This intermediate language shader is portable across different GPU models and driver versions, but cannot be run directly by GPUs until compiled into a binary shader using [method shader_compile_binary_from_spirv].  
          *  If [param allow_cache] is `true`, make use of the shader cache generated by Godot. This avoids a potentially lengthy shader compilation step if the shader is already in cache. If [param allow_cache] is `false`, Godot's shader cache is ignored and the shader will always be recompiled.  
          */
-        shader_compile_spirv_from_source(shader_source: RDShaderSource, allow_cache: boolean = true): RDShaderSPIRV
+        shader_compile_spirv_from_source(shader_source: RDShaderSource, allow_cache?: boolean /* = true */): RDShaderSPIRV
         
         /** Compiles a binary shader from [param spirv_data] and returns the compiled binary data as a [PackedByteArray]. This compiled shader is specific to the GPU model and driver version used; it will not work on different GPU models or even different driver versions. See also [method shader_compile_spirv_from_source].  
          *  [param name] is an optional human-readable name that can be given to the compiled shader for organizational purposes.  
          */
-        shader_compile_binary_from_spirv(spirv_data: RDShaderSPIRV, name: string = ''): PackedByteArray
+        shader_compile_binary_from_spirv(spirv_data: RDShaderSPIRV, name?: string /* = '' */): PackedByteArray
         
         /** Creates a new shader instance from SPIR-V intermediate code. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method. See also [method shader_compile_spirv_from_source] and [method shader_create_from_bytecode].  
          */
-        shader_create_from_spirv(spirv_data: RDShaderSPIRV, name: string = ''): RID
+        shader_create_from_spirv(spirv_data: RDShaderSPIRV, name?: string /* = '' */): RID
         
         /** Creates a new shader instance from a binary compiled shader. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method. See also [method shader_compile_binary_from_spirv] and [method shader_create_from_spirv].  
          */
-        shader_create_from_bytecode(binary_data: PackedByteArray | byte[] | ArrayBuffer, placeholder_rid: RID = new RID()): RID
+        shader_create_from_bytecode(binary_data: PackedByteArray | byte[] | ArrayBuffer, placeholder_rid?: RID /* = new RID() */): RID
         
         /** Create a placeholder RID by allocating an RID without initializing it for use in [method shader_create_from_bytecode]. This allows you to create an RID for a shader and pass it around, but defer compiling the shader to a later time. */
         shader_create_placeholder(): RID
@@ -7921,17 +7687,17 @@ declare module "godot" {
         /** Creates a new uniform buffer. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        uniform_buffer_create(size_bytes: int64, data: PackedByteArray | byte[] | ArrayBuffer = [], creation_bits: RenderingDevice.BufferCreationBits = 0): RID
+        uniform_buffer_create(size_bytes: int64, data?: PackedByteArray | byte[] | ArrayBuffer /* = [] */, creation_bits?: RenderingDevice.BufferCreationBits /* = 0 */): RID
         
         /** Creates a [url=https://vkguide.dev/docs/chapter-4/storage_buffers/]storage buffer[/url] with the specified [param data] and [param usage]. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        storage_buffer_create(size_bytes: int64, data: PackedByteArray | byte[] | ArrayBuffer = [], usage: RenderingDevice.StorageBufferUsage = 0, creation_bits: RenderingDevice.BufferCreationBits = 0): RID
+        storage_buffer_create(size_bytes: int64, data?: PackedByteArray | byte[] | ArrayBuffer /* = [] */, usage?: RenderingDevice.StorageBufferUsage /* = 0 */, creation_bits?: RenderingDevice.BufferCreationBits /* = 0 */): RID
         
         /** Creates a new texture buffer. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        texture_buffer_create(size_bytes: int64, format: RenderingDevice.DataFormat, data: PackedByteArray | byte[] | ArrayBuffer = []): RID
+        texture_buffer_create(size_bytes: int64, format: RenderingDevice.DataFormat, data?: PackedByteArray | byte[] | ArrayBuffer /* = [] */): RID
         
         /** Creates a new uniform set. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
@@ -7947,7 +7713,7 @@ declare module "godot" {
          *  - a draw list is currently active (created by [method draw_list_begin])  
          *  - a compute list is currently active (created by [method compute_list_begin])  
          */
-        buffer_copy(src_buffer: RID, dst_buffer: RID, src_offset: int64, dst_offset: int64, size: int64): GError
+        buffer_copy(src_buffer: RID, dst_buffer: RID, src_offset: int64, dst_offset: int64, size: int64): Error
         
         /** Updates a region of [param size_bytes] bytes, starting at [param offset], in the buffer, with the specified [param data].  
          *  Prints an error if:  
@@ -7955,7 +7721,7 @@ declare module "godot" {
          *  - a draw list is currently active (created by [method draw_list_begin])  
          *  - a compute list is currently active (created by [method compute_list_begin])  
          */
-        buffer_update(buffer: RID, offset: int64, size_bytes: int64, data: PackedByteArray | byte[] | ArrayBuffer): GError
+        buffer_update(buffer: RID, offset: int64, size_bytes: int64, data: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Clears the contents of the [param buffer], clearing [param size_bytes] bytes, starting at [param offset].  
          *  Prints an error if:  
@@ -7964,13 +7730,13 @@ declare module "godot" {
          *  - a draw list is currently active (created by [method draw_list_begin])  
          *  - a compute list is currently active (created by [method compute_list_begin])  
          */
-        buffer_clear(buffer: RID, offset: int64, size_bytes: int64): GError
+        buffer_clear(buffer: RID, offset: int64, size_bytes: int64): Error
         
         /** Returns a copy of the data of the specified [param buffer], optionally [param offset_bytes] and [param size_bytes] can be set to copy only a portion of the buffer.  
          *      
          *  **Note:** This method will block the GPU from working until the data is retrieved. Refer to [method buffer_get_data_async] for an alternative that returns the data in more performant way.  
          */
-        buffer_get_data(buffer: RID, offset_bytes: int64 = 0, size_bytes: int64 = 0): PackedByteArray
+        buffer_get_data(buffer: RID, offset_bytes?: int64 /* = 0 */, size_bytes?: int64 /* = 0 */): PackedByteArray
         
         /** Asynchronous version of [method buffer_get_data]. RenderingDevice will call [param callback] in a certain amount of frames with the data the buffer had at the time of the request.  
          *      
@@ -7979,7 +7745,7 @@ declare module "godot" {
          *  **Note:** Downloading large buffers can have a prohibitive cost for real-time even when using the asynchronous method due to hardware bandwidth limitations. When dealing with large resources, you can adjust settings such as [member ProjectSettings.rendering/rendering_device/staging_buffer/block_size_kb] to improve the transfer speed at the cost of extra memory.  
          *    
          */
-        buffer_get_data_async(buffer: RID, callback: Callable, offset_bytes: int64 = 0, size_bytes: int64 = 0): GError
+        buffer_get_data_async(buffer: RID, callback: Callable, offset_bytes?: int64 /* = 0 */, size_bytes?: int64 /* = 0 */): Error
         
         /** Returns the address of the given [param buffer] which can be passed to shaders in any way to access underlying data. Buffer must have been created with this feature enabled.  
          *      
@@ -7990,7 +7756,7 @@ declare module "godot" {
         /** Creates a new render pipeline. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        render_pipeline_create(shader: RID, framebuffer_format: int64, vertex_format: int64, primitive: RenderingDevice.RenderPrimitive, rasterization_state: RDPipelineRasterizationState, multisample_state: RDPipelineMultisampleState, stencil_state: RDPipelineDepthStencilState, color_blend_state: RDPipelineColorBlendState, dynamic_state_flags: RenderingDevice.PipelineDynamicStateFlags = 0, for_render_pass: int64 = 0, specialization_constants: GArray = []): RID
+        render_pipeline_create(shader: RID, framebuffer_format: int64, vertex_format: int64, primitive: RenderingDevice.RenderPrimitive, rasterization_state: RDPipelineRasterizationState, multisample_state: RDPipelineMultisampleState, stencil_state: RDPipelineDepthStencilState, color_blend_state: RDPipelineColorBlendState, dynamic_state_flags?: RenderingDevice.PipelineDynamicStateFlags /* = 0 */, for_render_pass?: int64 /* = 0 */, specialization_constants?: GArray /* = [] */): RID
         
         /** Returns `true` if the render pipeline specified by the [param render_pipeline] RID is valid, `false` otherwise. */
         render_pipeline_is_valid(render_pipeline: RID): boolean
@@ -7998,7 +7764,7 @@ declare module "godot" {
         /** Creates a new compute pipeline. It can be accessed with the RID that is returned.  
          *  Once finished with your RID, you will want to free the RID using the RenderingDevice's [method free_rid] method.  
          */
-        compute_pipeline_create(shader: RID, specialization_constants: GArray = []): RID
+        compute_pipeline_create(shader: RID, specialization_constants?: GArray /* = [] */): RID
         
         /** Returns `true` if the compute pipeline specified by the [param compute_pipeline] RID is valid, `false` otherwise. */
         compute_pipeline_is_valid(compute_pipeline: RID): boolean
@@ -8007,25 +7773,25 @@ declare module "godot" {
          *      
          *  **Note:** Only the main [RenderingDevice] returned by [method RenderingServer.get_rendering_device] has a width. If called on a local [RenderingDevice], this method prints an error and returns [constant INVALID_ID].  
          */
-        screen_get_width(screen: int64 = 0): int64
+        screen_get_width(screen?: int64 /* = 0 */): int64
         
         /** Returns the window height matching the graphics API context for the given window ID (in pixels). Despite the parameter being named [param screen], this returns the  *window*  size. See also [method screen_get_width].  
          *      
          *  **Note:** Only the main [RenderingDevice] returned by [method RenderingServer.get_rendering_device] has a height. If called on a local [RenderingDevice], this method prints an error and returns [constant INVALID_ID].  
          */
-        screen_get_height(screen: int64 = 0): int64
+        screen_get_height(screen?: int64 /* = 0 */): int64
         
         /** Returns the framebuffer format of the given screen.  
          *      
          *  **Note:** Only the main [RenderingDevice] returned by [method RenderingServer.get_rendering_device] has a format. If called on a local [RenderingDevice], this method prints an error and returns [constant INVALID_ID].  
          */
-        screen_get_framebuffer_format(screen: int64 = 0): int64
+        screen_get_framebuffer_format(screen?: int64 /* = 0 */): int64
         
         /** High-level variant of [method draw_list_begin], with the parameters automatically being adjusted for drawing onto the window specified by the [param screen] ID.  
          *      
          *  **Note:** Cannot be used with local RenderingDevices, as these don't have a screen. If called on a local RenderingDevice, [method draw_list_begin_for_screen] returns [constant INVALID_ID].  
          */
-        draw_list_begin_for_screen(screen: int64 = 0, clear_color: Color = new Color(0, 0, 0, 1)): int64
+        draw_list_begin_for_screen(screen?: int64 /* = 0 */, clear_color?: Color /* = new Color(0, 0, 0, 1) */): int64
         
         /** Starts a list of raster drawing commands created with the `draw_*` methods. The returned value should be passed to other `draw_list_*` functions.  
          *  Multiple draw lists cannot be created at the same time; you must finish the previous draw list first using [method draw_list_end].  
@@ -8036,10 +7802,10 @@ declare module "godot" {
          *  It does not affect rendering behavior and can be set to 0. It is recommended to use [enum BreadcrumbMarker] enumerations for consistency but it's not required. It is also possible to use bitwise operations to add extra data. e.g.  
          *    
          */
-        draw_list_begin(framebuffer: RID, draw_flags: RenderingDevice.DrawFlags = 0, clear_color_values: PackedColorArray | Color[] = [], clear_depth_value: float64 = 1, clear_stencil_value: int64 = 0, region: Rect2 = new Rect2(0, 0, 0, 0), breadcrumb: int64 = 0): int64
+        draw_list_begin(framebuffer: RID, draw_flags?: RenderingDevice.DrawFlags /* = 0 */, clear_color_values?: PackedColorArray | Color[] /* = [] */, clear_depth_value?: float64 /* = 1 */, clear_stencil_value?: int64 /* = 0 */, region?: Rect2 /* = new Rect2(0, 0, 0, 0) */, breadcrumb?: int64 /* = 0 */): int64
         
         /** This method does nothing and always returns an empty [PackedInt64Array]. */
-        draw_list_begin_split(framebuffer: RID, splits: int64, initial_color_action: RenderingDevice.InitialAction, final_color_action: RenderingDevice.FinalAction, initial_depth_action: RenderingDevice.InitialAction, final_depth_action: RenderingDevice.FinalAction, clear_color_values: PackedColorArray | Color[] = [], clear_depth: float64 = 1, clear_stencil: int64 = 0, region: Rect2 = new Rect2(0, 0, 0, 0), storage_textures: GArray = []): PackedInt64Array
+        draw_list_begin_split(framebuffer: RID, splits: int64, initial_color_action: RenderingDevice.InitialAction, final_color_action: RenderingDevice.FinalAction, initial_depth_action: RenderingDevice.InitialAction, final_depth_action: RenderingDevice.FinalAction, clear_color_values?: PackedColorArray | Color[] /* = [] */, clear_depth?: float64 /* = 1 */, clear_stencil?: int64 /* = 0 */, region?: Rect2 /* = new Rect2(0, 0, 0, 0) */, storage_textures?: GArray /* = [] */): PackedInt64Array
         
         /** Sets blend constants for the specified [param draw_list] to [param color]. Blend constants are used only if the graphics pipeline is created with [constant DYNAMIC_STATE_BLEND_CONSTANTS] flag set. */
         draw_list_set_blend_constants(draw_list: int64, color: Color): void
@@ -8060,16 +7826,16 @@ declare module "godot" {
         draw_list_set_push_constant(draw_list: int64, buffer: PackedByteArray | byte[] | ArrayBuffer, size_bytes: int64): void
         
         /** Submits [param draw_list] for rendering on the GPU. This is the raster equivalent to [method compute_list_dispatch]. */
-        draw_list_draw(draw_list: int64, use_indices: boolean, instances: int64, procedural_vertex_count: int64 = 0): void
+        draw_list_draw(draw_list: int64, use_indices: boolean, instances: int64, procedural_vertex_count?: int64 /* = 0 */): void
         
         /** Submits [param draw_list] for rendering on the GPU with the given parameters stored in the [param buffer] at [param offset]. Parameters being integers: vertex count, instance count, first vertex, first instance. And when using indices: index count, instance count, first index, vertex offset, first instance. Buffer must have been created with [constant STORAGE_BUFFER_USAGE_DISPATCH_INDIRECT] flag. */
-        draw_list_draw_indirect(draw_list: int64, use_indices: boolean, buffer: RID, offset: int64 = 0, draw_count: int64 = 1, stride: int64 = 0): void
+        draw_list_draw_indirect(draw_list: int64, use_indices: boolean, buffer: RID, offset?: int64 /* = 0 */, draw_count?: int64 /* = 1 */, stride?: int64 /* = 0 */): void
         
         /** Creates a scissor rectangle and enables it for the specified [param draw_list]. Scissor rectangles are used for clipping by discarding fragments that fall outside a specified rectangular portion of the screen. See also [method draw_list_disable_scissor].  
          *      
          *  **Note:** The specified [param rect] is automatically intersected with the screen's dimensions, which means it cannot exceed the screen's dimensions.  
          */
-        draw_list_enable_scissor(draw_list: int64, rect: Rect2 = new Rect2(0, 0, 0, 0)): void
+        draw_list_enable_scissor(draw_list: int64, rect?: Rect2 /* = new Rect2(0, 0, 0, 0) */): void
         
         /** Removes and disables the scissor rectangle for the specified [param draw_list]. See also [method draw_list_enable_scissor]. */
         draw_list_disable_scissor(draw_list: int64): void
@@ -8158,7 +7924,7 @@ declare module "godot" {
         sync(): void
         
         /** This method does nothing. */
-        barrier(from: RenderingDevice.BarrierMask = 32767, to: RenderingDevice.BarrierMask = 32767): void
+        barrier(from?: RenderingDevice.BarrierMask /* = 32767 */, to?: RenderingDevice.BarrierMask /* = 32767 */): void
         
         /** This method does nothing. */
         full_barrier(): void
@@ -8213,7 +7979,7 @@ declare module "godot" {
          *  - [method get_device_allocation_count]  
          *  - [method get_device_memory_by_object_type]  
          *  - [method get_device_allocs_by_object_type]  
-         *  This is only used by Vulkan in debug builds. Godot must also be started with the `--extra-gpu-memory-tracking` [url=https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html]command line argument[/url].  
+         *  This is only used by Vulkan in debug builds. Godot must also be started with the `--extra-gpu-memory-tracking` [url=https://docs.godotengine.org/en/latest/tutorials/editor/command_line_tutorial.html]command line argument[/url].  
          */
         get_driver_and_device_memory_report(): string
         
@@ -8224,12 +7990,12 @@ declare module "godot" {
          *  - SWAPCHAIN_KHR  
          *  - COMMAND_POOL  
          *  Thus if e.g. `get_tracked_object_name(5)` returns "COMMAND_POOL", then `get_device_memory_by_object_type(5)` returns the bytes used by the GPU for command pools.  
-         *  This is only used by Vulkan in debug builds. Godot must also be started with the `--extra-gpu-memory-tracking` [url=https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html]command line argument[/url].  
+         *  This is only used by Vulkan in debug builds. Godot must also be started with the `--extra-gpu-memory-tracking` [url=https://docs.godotengine.org/en/latest/tutorials/editor/command_line_tutorial.html]command line argument[/url].  
          */
         get_tracked_object_name(type_index: int64): string
         
         /** Returns how many types of trackable objects are.  
-         *  This is only used by Vulkan in debug builds. Godot must also be started with the `--extra-gpu-memory-tracking` [url=https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html]command line argument[/url].  
+         *  This is only used by Vulkan in debug builds. Godot must also be started with the `--extra-gpu-memory-tracking` [url=https://docs.godotengine.org/en/latest/tutorials/editor/command_line_tutorial.html]command line argument[/url].  
          */
         get_tracked_object_type_count(): int64
         
@@ -8277,19 +8043,9 @@ declare module "godot" {
          */
         get_device_allocs_by_object_type(type: int64): int64
     }
-    class ReparentDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        _cancel(): void
-        readonly reparent: Signal2<NodePath | string, boolean>
-    }
-    class ReplicationEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _update_config(): void
-        _update_value(property: NodePath | string, column: int64, value: int64): void
-    }
     /** Base class for serializable objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resource.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resource.html  
      */
     class Resource extends RefCounted {
         constructor(identifier?: any)
@@ -8360,7 +8116,7 @@ declare module "godot" {
          *      
          *  **Note:** For custom resources, this method will fail if [method Object._init] has been defined with required parameters.  
          */
-        duplicate(subresources: boolean = false): Resource
+        duplicate(subresources?: boolean /* = false */): Resource
         
         /** If `true`, the resource is duplicated for each instance of all scenes using it. At run-time, the resource can be modified in one scene without affecting other instances (see [method PackedScene.instantiate]).  
          *      
@@ -8397,13 +8153,10 @@ declare module "godot" {
          *      
          *  **Note:** This signal is not emitted automatically for properties of custom resources. If necessary, a setter needs to be created to emit the signal.  
          */
-        readonly changed: Signal0
+        readonly changed: Signal<() => void>
         
         /** Emitted by a newly duplicated resource with [member resource_local_to_scene] set to `true`. */
-        readonly setup_local_to_scene_requested: Signal0
-    }
-    class ResourceFormatImporterSaver extends ResourceFormatSaver {
-        constructor(identifier?: any)
+        readonly setup_local_to_scene_requested: Signal<() => void>
     }
     namespace ResourceFormatLoader {
         enum CacheMode {
@@ -8425,7 +8178,7 @@ declare module "godot" {
     }
     /** Loads a specific resource type from a file.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceformatloader.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceformatloader.html  
      */
     class ResourceFormatLoader extends RefCounted {
         constructor(identifier?: any)
@@ -8464,7 +8217,7 @@ declare module "godot" {
         /** If implemented, renames dependencies within the given resource and saves it. [param renames] is a dictionary `{ String => String }` mapping old dependency paths to new paths.  
          *  Returns [constant OK] on success, or an [enum Error] constant in case of failure.  
          */
-        /* gdvirtual */ _rename_dependencies(path: string, renames: GDictionary): GError
+        /* gdvirtual */ _rename_dependencies(path: string, renames: GDictionary): Error
         /* gdvirtual */ _exists(path: string): boolean
         /* gdvirtual */ _get_classes_used(path: string): PackedStringArray
         
@@ -8475,17 +8228,17 @@ declare module "godot" {
     }
     /** Saves a specific resource type to a file.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceformatsaver.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceformatsaver.html  
      */
     class ResourceFormatSaver extends RefCounted {
         constructor(identifier?: any)
         /** Saves the given resource object to a file at the target [param path]. [param flags] is a bitmask composed with [enum ResourceSaver.SaverFlags] constants.  
          *  Returns [constant OK] on success, or an [enum Error] constant in case of failure.  
          */
-        /* gdvirtual */ _save(resource: Resource, path: string, flags: int64): GError
+        /* gdvirtual */ _save(resource: Resource, path: string, flags: int64): Error
         
         /** Sets a new UID for the resource at the given [param path]. Returns [constant OK] on success, or an [enum Error] constant in case of failure. */
-        /* gdvirtual */ _set_uid(path: string, uid: int64): GError
+        /* gdvirtual */ _set_uid(path: string, uid: int64): Error
         
         /** Returns whether the given resource object can be saved by this saver. */
         /* gdvirtual */ _recognize(resource: Resource): boolean
@@ -8509,77 +8262,77 @@ declare module "godot" {
     }
     /** Base class for resource importers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporter.html  
      */
     class ResourceImporter extends RefCounted {
         constructor(identifier?: any)
     }
     /** Imports a bitmap font in the BMFont (`.fnt`) format.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterbmfont.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterbmfont.html  
      */
     class ResourceImporterBMFont extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a [BitMap] resource (2D array of boolean values).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterbitmap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterbitmap.html  
      */
     class ResourceImporterBitMap extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports comma-separated values  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimportercsvtranslation.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimportercsvtranslation.html  
      */
     class ResourceImporterCSVTranslation extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a TTF, TTC, OTF, OTC, WOFF or WOFF2 font file for font rendering that adapts to any size.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterdynamicfont.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterdynamicfont.html  
      */
     class ResourceImporterDynamicFont extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a image for use in scripting, with no rendering capabilities.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterimage.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterimage.html  
      */
     class ResourceImporterImage extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a bitmap font where all glyphs have the same width and height.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterimagefont.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterimagefont.html  
      */
     class ResourceImporterImageFont extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a 3-dimensional texture ([Texture3D]), a [Texture2DArray], a [Cubemap] or a [CubemapArray].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterlayeredtexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterlayeredtexture.html  
      */
     class ResourceImporterLayeredTexture extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports an MP3 audio file for playback.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimportermp3.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimportermp3.html  
      */
     class ResourceImporterMP3 extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports an OBJ 3D model as an independent [Mesh] or scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterobj.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterobj.html  
      */
     class ResourceImporterOBJ extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports an Ogg Vorbis audio file for playback.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporteroggvorbis.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporteroggvorbis.html  
      */
     class ResourceImporterOggVorbis extends ResourceImporter {
         constructor(identifier?: any)
@@ -8591,44 +8344,44 @@ declare module "godot" {
     }
     /** Imports a glTF, FBX, Collada or Blender 3D scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterscene.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterscene.html  
      */
     class ResourceImporterScene extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports native GLSL shaders (not Godot shaders) as a [RDShaderFile].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimportershaderfile.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimportershaderfile.html  
      */
     class ResourceImporterShaderFile extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports an image for use in 2D or 3D rendering.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimportertexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimportertexture.html  
      */
     class ResourceImporterTexture extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a collection of textures from a PNG image into an optimized [AtlasTexture] for 2D rendering.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimportertextureatlas.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimportertextureatlas.html  
      */
     class ResourceImporterTextureAtlas extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** Imports a WAV audio file for playback.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourceimporterwav.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourceimporterwav.html  
      */
     class ResourceImporterWAV extends ResourceImporter {
         constructor(identifier?: any)
     }
     /** A node used to preload sub-resources inside a scene.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_resourcepreloader.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_resourcepreloader.html  
      */
-    class ResourcePreloader<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class ResourcePreloader<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Adds a resource to the preloader with the given [param name]. If a resource with the given [param name] already exists, the new resource will be renamed to "[param name] N" where N is an incrementing number starting from 2. */
         add_resource(name: StringName, resource: Resource): void
@@ -8650,14 +8403,6 @@ declare module "godot" {
         get resources(): GArray
         set resources(value: GArray)
     }
-    class ResourcePreloaderEditor<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
-        constructor(identifier?: any)
-        _update_library(): void
-        _remove_resource(to_remove: string): void
-    }
-    class ResourcePreloaderEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     namespace RetargetModifier3D {
         enum TransformFlag {
             /** If set, allows to retarget the position. */
@@ -8675,9 +8420,9 @@ declare module "godot" {
     }
     /** A modifier to transfer parent skeleton poses (or global poses) to child skeletons in model space with different rests.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_retargetmodifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_retargetmodifier3d.html  
      */
-    class RetargetModifier3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class RetargetModifier3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** Sets [constant TRANSFORM_FLAG_POSITION] into [member enable]. */
         set_position_enabled(enabled: boolean): void
@@ -8725,7 +8470,7 @@ declare module "godot" {
     }
     /** Represents a straight ribbon-shaped [PrimitiveMesh] with variable width.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_ribbontrailmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_ribbontrailmesh.html  
      */
     class RibbonTrailMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -8755,7 +8500,7 @@ declare module "godot" {
     }
     /** A custom effect for a [RichTextLabel].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_richtexteffect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_richtexteffect.html  
      */
     class RichTextEffect extends Resource {
         constructor(identifier?: any)
@@ -8824,9 +8569,9 @@ declare module "godot" {
     }
     /** A control for displaying text that can contain different font styles, images, and basic formatting.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_richtextlabel.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_richtextlabel.html  
      */
-    class RichTextLabel<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class RichTextLabel<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Returns the text without BBCode mark-up. */
         get_parsed_text(): string
@@ -8841,10 +8586,10 @@ declare module "godot" {
          *  If [param pad] is set, and the image is smaller than the size specified by [param width] and [param height], the image padding is added to match the size instead of upscaling.  
          *  If [param size_in_percent] is set, [param width] and [param height] values are percentages of the control width instead of pixels.  
          */
-        add_image(image: Texture2D, width: int64 = 0, height: int64 = 0, color: Color = new Color(1, 1, 1, 1), inline_align: InlineAlignment = 5, region: Rect2 = new Rect2(0, 0, 0, 0), key: any = <any> {}, pad: boolean = false, tooltip: string = '', size_in_percent: boolean = false): void
+        add_image(image: Texture2D, width?: int64 /* = 0 */, height?: int64 /* = 0 */, color?: Color /* = new Color(1, 1, 1, 1) */, inline_align?: InlineAlignment /* = 5 */, region?: Rect2 /* = new Rect2(0, 0, 0, 0) */, key?: any /* = <any> {} */, pad?: boolean /* = false */, tooltip?: string /* = '' */, size_in_percent?: boolean /* = false */): void
         
         /** Updates the existing images with the key [param key]. Only properties specified by [param mask] bits are updated. See [method add_image]. */
-        update_image(key: any, mask: RichTextLabel.ImageUpdateMask, image: Texture2D, width: int64 = 0, height: int64 = 0, color: Color = new Color(1, 1, 1, 1), inline_align: InlineAlignment = 5, region: Rect2 = new Rect2(0, 0, 0, 0), pad: boolean = false, tooltip: string = '', size_in_percent: boolean = false): void
+        update_image(key: any, mask: RichTextLabel.ImageUpdateMask, image: Texture2D, width?: int64 /* = 0 */, height?: int64 /* = 0 */, color?: Color /* = new Color(1, 1, 1, 1) */, inline_align?: InlineAlignment /* = 5 */, region?: Rect2 /* = new Rect2(0, 0, 0, 0) */, pad?: boolean /* = false */, tooltip?: string /* = '' */, size_in_percent?: boolean /* = false */): void
         
         /** Adds a newline tag to the tag stack. */
         newline(): void
@@ -8853,7 +8598,7 @@ declare module "godot" {
          *  The [param paragraph] argument is the index of the paragraph to remove, it can take values in the interval `[0, get_paragraph_count() - 1]`.  
          *  If [param no_invalidate] is set to `true`, cache for the subsequent paragraphs is not invalidated. Use it for faster updates if deleted paragraph is fully self-contained (have no unclosed tags), or this call is part of the complex edit operation and [method invalidate_paragraph] will be called at the end of operation.  
          */
-        remove_paragraph(paragraph: int64, no_invalidate: boolean = false): boolean
+        remove_paragraph(paragraph: int64, no_invalidate?: boolean /* = false */): boolean
         
         /** Invalidates [param paragraph] and all subsequent paragraphs cache. */
         invalidate_paragraph(paragraph: int64): boolean
@@ -8861,7 +8606,7 @@ declare module "godot" {
         /** Adds a [code skip-lint][font]` tag to the tag stack. Overrides default fonts for its duration.  
          *  Passing `0` to [param font_size] will use the existing default font size.  
          */
-        push_font(font: Font, font_size: int64 = 0): void
+        push_font(font: Font, font_size?: int64 /* = 0 */): void
         
         /** Adds a [code skip-lint][font_size]` tag to the tag stack. Overrides default font size for its duration. */
         push_font_size(font_size: int64): void
@@ -8891,20 +8636,20 @@ declare module "godot" {
         push_outline_color(color: Color): void
         
         /** Adds a [code skip-lint][p]` tag to the tag stack. */
-        push_paragraph(alignment: HorizontalAlignment, base_direction: Control.TextDirection = 0, language: string = '', st_parser: TextServer.StructuredTextParser = 0, justification_flags: TextServer.JustificationFlag = 163, tab_stops: PackedFloat32Array | float32[] = []): void
+        push_paragraph(alignment: HorizontalAlignment, base_direction?: Control.TextDirection /* = 0 */, language?: string /* = '' */, st_parser?: TextServer.StructuredTextParser /* = 0 */, justification_flags?: TextServer.JustificationFlag /* = 163 */, tab_stops?: PackedFloat32Array | float32[] /* = [] */): void
         
         /** Adds an [code skip-lint][indent]` tag to the tag stack. Multiplies [param level] by current [member tab_size] to determine new margin length. */
         push_indent(level: int64): void
         
         /** Adds [code skip-lint][ol]` or [code skip-lint][ul]` tag to the tag stack. Multiplies [param level] by current [member tab_size] to determine new margin length. */
-        push_list(level: int64, type: RichTextLabel.ListType, capitalize: boolean, bullet: string = '•'): void
+        push_list(level: int64, type: RichTextLabel.ListType, capitalize: boolean, bullet?: string /* = '•' */): void
         
         /** Adds a meta tag to the tag stack. Similar to the BBCode [code skip-lint][url=something]{text}[/url]`, but supports non-[String] metadata types.  
          *  If [member meta_underlined] is `true`, meta tags display an underline. This behavior can be customized with [param underline_mode].  
          *      
          *  **Note:** Meta tags do nothing by default when clicked. To assign behavior when clicked, connect [signal meta_clicked] to a function that is called when the meta tag is clicked.  
          */
-        push_meta(data: any, underline_mode: RichTextLabel.MetaUnderline = 1, tooltip: string = ''): void
+        push_meta(data: any, underline_mode?: RichTextLabel.MetaUnderline /* = 1 */, tooltip?: string /* = '' */): void
         
         /** Adds a [code skip-lint][hint]` tag to the tag stack. Same as BBCode [code skip-lint][hint=something]{text}[/hint]`. */
         push_hint(description: string): void
@@ -8919,16 +8664,16 @@ declare module "godot" {
         push_strikethrough(): void
         
         /** Adds a [code skip-lint][table=columns,inline_align]` tag to the tag stack. Use [method set_table_column_expand] to set column expansion ratio. Use [method push_cell] to add cells. */
-        push_table(columns: int64, inline_align: InlineAlignment = 0, align_to_row: int64 = -1): void
+        push_table(columns: int64, inline_align?: InlineAlignment /* = 0 */, align_to_row?: int64 /* = -1 */): void
         
         /** Adds a [code skip-lint][dropcap]` tag to the tag stack. Drop cap (dropped capital) is a decorative element at the beginning of a paragraph that is larger than the rest of the text. */
-        push_dropcap(string_: string, font: Font, size: int64, dropcap_margins: Rect2 = new Rect2(0, 0, 0, 0), color: Color = new Color(1, 1, 1, 1), outline_size: int64 = 0, outline_color: Color = new Color(0, 0, 0, 0)): void
+        push_dropcap(string_: string, font: Font, size: int64, dropcap_margins?: Rect2 /* = new Rect2(0, 0, 0, 0) */, color?: Color /* = new Color(1, 1, 1, 1) */, outline_size?: int64 /* = 0 */, outline_color?: Color /* = new Color(0, 0, 0, 0) */): void
         
         /** Edits the selected column's expansion options. If [param expand] is `true`, the column expands in proportion to its expansion ratio versus the other columns' ratios.  
          *  For example, 2 columns with ratios 3 and 4 plus 70 pixels in available width would expand 30 and 40 pixels, respectively.  
          *  If [param expand] is `false`, the column will not contribute to the total ratio.  
          */
-        set_table_column_expand(column: int64, expand: boolean, ratio: int64 = 1, shrink: boolean = true): void
+        set_table_column_expand(column: int64, expand: boolean, ratio?: int64 /* = 1 */, shrink?: boolean /* = true */): void
         
         /** Sets color of a table cell. Separate colors for alternating rows can be specified. */
         set_cell_row_background_color(odd_row_bg: Color, even_row_bg: Color): void
@@ -8945,10 +8690,16 @@ declare module "godot" {
         /** Adds a [code skip-lint][cell]` tag to the tag stack. Must be inside a [code skip-lint][table]` tag. See [method push_table] for details. Use [method set_table_column_expand] to set column expansion ratio, [method set_cell_border_color] to set cell border, [method set_cell_row_background_color] to set cell background, [method set_cell_size_override] to override cell size, and [method set_cell_padding] to set padding. */
         push_cell(): void
         
-        /** Adds a [code skip-lint][fgcolor]` tag to the tag stack. */
+        /** Adds a [code skip-lint][fgcolor]` tag to the tag stack.  
+         *      
+         *  **Note:** The foreground color has padding applied by default, which is controlled using [theme_item text_highlight_h_padding] and [theme_item text_highlight_v_padding]. This can lead to overlapping highlights if foreground colors are placed on neighboring lines/columns, so consider setting those theme items to `0` if you want to avoid this.  
+         */
         push_fgcolor(fgcolor: Color): void
         
-        /** Adds a [code skip-lint][bgcolor]` tag to the tag stack. */
+        /** Adds a [code skip-lint][bgcolor]` tag to the tag stack.  
+         *      
+         *  **Note:** The background color has padding applied by default, which is controlled using [theme_item text_highlight_h_padding] and [theme_item text_highlight_v_padding]. This can lead to overlapping highlights if background colors are placed on neighboring lines/columns, so consider setting those theme items to `0` if you want to avoid this.  
+         */
         push_bgcolor(bgcolor: Color): void
         
         /** Adds a custom effect tag to the tag stack. The effect does not need to be in [member custom_effects]. The environment is directly passed to the effect. */
@@ -9102,6 +8853,9 @@ declare module "godot" {
          */
         install_effect(effect: any): void
         
+        /** Reloads custom effects. Useful when [member custom_effects] is modified manually. */
+        reload_effects(): void
+        
         /** Returns the [PopupMenu] of this [RichTextLabel]. By default, this menu is displayed when right-clicking on the [RichTextLabel].  
          *  You can add custom menu items or remove standard ones. Make sure your IDs don't conflict with the standard ones (see [enum MenuItems]). For example:  
          *    
@@ -9144,6 +8898,10 @@ declare module "godot" {
         /** If set to something other than [constant TextServer.AUTOWRAP_OFF], the text gets wrapped inside the node's bounding rectangle. To see how each mode behaves, see [enum TextServer.AutowrapMode]. */
         get autowrap_mode(): int64
         set autowrap_mode(value: int64)
+        
+        /** Autowrap space trimming flags. See [constant TextServer.BREAK_TRIM_START_EDGE_SPACES] and [constant TextServer.BREAK_TRIM_END_EDGE_SPACES] for more info. */
+        get autowrap_trim_flags(): int64
+        set autowrap_trim_flags(value: int64)
         
         /** The number of spaces associated with a single tab length. Does not affect `\t` in text tags, only indent tags. */
         get tab_size(): int64
@@ -9248,18 +9006,279 @@ declare module "godot" {
          *  For example, the following method can be connected to [signal meta_clicked] to open clicked URLs using the user's default web browser:  
          *    
          */
-        readonly meta_clicked: Signal1<any>
+        readonly meta_clicked: Signal<(meta: any) => void>
         
         /** Triggers when the mouse enters a meta tag. */
-        readonly meta_hover_started: Signal1<any>
+        readonly meta_hover_started: Signal<(meta: any) => void>
         
         /** Triggers when the mouse exits a meta tag. */
-        readonly meta_hover_ended: Signal1<any>
+        readonly meta_hover_ended: Signal<(meta: any) => void>
         
         /** Triggered when the document is fully loaded.  
          *      
          *  **Note:** This can happen before the text is processed for drawing. Scrolling values may not be valid until the document is drawn for the first time after this signal.  
          */
-        readonly finished: Signal0
+        readonly finished: Signal<() => void>
+    }
+    namespace RigidBody2D {
+        enum FreezeMode {
+            /** Static body freeze mode (default). The body is not affected by gravity and forces. It can be only moved by user code and doesn't collide with other bodies along its path. */
+            FREEZE_MODE_STATIC = 0,
+            
+            /** Kinematic body freeze mode. Similar to [constant FREEZE_MODE_STATIC], but collides with other bodies along its path when moved. Useful for a frozen body that needs to be animated. */
+            FREEZE_MODE_KINEMATIC = 1,
+        }
+        enum CenterOfMassMode {
+            /** In this mode, the body's center of mass is calculated automatically based on its shapes. This assumes that the shapes' origins are also their center of mass. */
+            CENTER_OF_MASS_MODE_AUTO = 0,
+            
+            /** In this mode, the body's center of mass is set through [member center_of_mass]. Defaults to the body's origin position. */
+            CENTER_OF_MASS_MODE_CUSTOM = 1,
+        }
+        enum DampMode {
+            /** In this mode, the body's damping value is added to any value set in areas or the default value. */
+            DAMP_MODE_COMBINE = 0,
+            
+            /** In this mode, the body's damping value replaces any value set in areas or the default value. */
+            DAMP_MODE_REPLACE = 1,
+        }
+        enum CCDMode {
+            /** Continuous collision detection disabled. This is the fastest way to detect body collisions, but can miss small, fast-moving objects. */
+            CCD_MODE_DISABLED = 0,
+            
+            /** Continuous collision detection enabled using raycasting. This is faster than shapecasting but less precise. */
+            CCD_MODE_CAST_RAY = 1,
+            
+            /** Continuous collision detection enabled using shapecasting. This is the slowest CCD method and the most precise. */
+            CCD_MODE_CAST_SHAPE = 2,
+        }
+    }
+    /** A 2D physics body that is moved by a physics simulation.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_rigidbody2d.html  
+     */
+    class RigidBody2D<Map extends Record<string, Node> = {}> extends PhysicsBody2D<Map> {
+        constructor(identifier?: any)
+        /** Called during physics processing, allowing you to read and safely modify the simulation state for the object. By default, it is called before the standard force integration, but the [member custom_integrator] property allows you to disable the standard force integration and do fully custom force integration for a body. */
+        /* gdvirtual */ _integrate_forces(state: PhysicsDirectBodyState2D): void
+        
+        /** Returns the number of contacts this body has with other bodies. By default, this returns 0 unless bodies are configured to monitor contacts (see [member contact_monitor]).  
+         *      
+         *  **Note:** To retrieve the colliding bodies, use [method get_colliding_bodies].  
+         */
+        get_contact_count(): int64
+        
+        /** Sets the body's velocity on the given axis. The velocity in the given vector axis will be set as the given vector length. This is useful for jumping behavior. */
+        set_axis_velocity(axis_velocity: Vector2): void
+        
+        /** Applies a directional impulse without affecting rotation.  
+         *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
+         *  This is equivalent to using [method apply_impulse] at the body's center of mass.  
+         */
+        apply_central_impulse(impulse?: Vector2 /* = Vector2.ZERO */): void
+        
+        /** Applies a positioned impulse to the body.  
+         *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
+         *  [param position] is the offset from the body origin in global coordinates.  
+         */
+        apply_impulse(impulse: Vector2, position?: Vector2 /* = Vector2.ZERO */): void
+        
+        /** Applies a rotational impulse to the body without affecting the position.  
+         *  An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).  
+         *      
+         *  **Note:** [member inertia] is required for this to work. To have [member inertia], an active [CollisionShape2D] must be a child of the node, or you can manually set [member inertia].  
+         */
+        apply_torque_impulse(torque: float64): void
+        
+        /** Applies a directional force without affecting rotation. A force is time dependent and meant to be applied every physics update.  
+         *  This is equivalent to using [method apply_force] at the body's center of mass.  
+         */
+        apply_central_force(force: Vector2): void
+        
+        /** Applies a positioned force to the body. A force is time dependent and meant to be applied every physics update.  
+         *  [param position] is the offset from the body origin in global coordinates.  
+         */
+        apply_force(force: Vector2, position?: Vector2 /* = Vector2.ZERO */): void
+        
+        /** Applies a rotational force without affecting position. A force is time dependent and meant to be applied every physics update.  
+         *      
+         *  **Note:** [member inertia] is required for this to work. To have [member inertia], an active [CollisionShape2D] must be a child of the node, or you can manually set [member inertia].  
+         */
+        apply_torque(torque: float64): void
+        
+        /** Adds a constant directional force without affecting rotation that keeps being applied over time until cleared with `constant_force = Vector2(0, 0)`.  
+         *  This is equivalent to using [method add_constant_force] at the body's center of mass.  
+         */
+        add_constant_central_force(force: Vector2): void
+        
+        /** Adds a constant positioned force to the body that keeps being applied over time until cleared with `constant_force = Vector2(0, 0)`.  
+         *  [param position] is the offset from the body origin in global coordinates.  
+         */
+        add_constant_force(force: Vector2, position?: Vector2 /* = Vector2.ZERO */): void
+        
+        /** Adds a constant rotational force without affecting position that keeps being applied over time until cleared with `constant_torque = 0`. */
+        add_constant_torque(torque: float64): void
+        
+        /** Returns a list of the bodies colliding with this one. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions.  
+         *      
+         *  **Note:** The result of this test is not immediate after moving objects. For performance, list of collisions is updated once per frame and before the physics step. Consider using signals instead.  
+         */
+        get_colliding_bodies(): GArray
+        
+        /** The body's mass. */
+        get mass(): float64
+        set mass(value: float64)
+        
+        /** The physics material override for the body.  
+         *  If a material is assigned to this property, it will be used instead of any other physics material, such as an inherited one.  
+         */
+        get physics_material_override(): PhysicsMaterial
+        set physics_material_override(value: PhysicsMaterial)
+        
+        /** Multiplies the gravity applied to the body. The body's gravity is calculated from the [member ProjectSettings.physics/2d/default_gravity] project setting and/or any additional gravity vector applied by [Area2D]s. */
+        get gravity_scale(): float64
+        set gravity_scale(value: float64)
+        
+        /** Defines the way the body's center of mass is set. See [enum CenterOfMassMode] for possible values. */
+        get center_of_mass_mode(): int64
+        set center_of_mass_mode(value: int64)
+        
+        /** The body's custom center of mass, relative to the body's origin position, when [member center_of_mass_mode] is set to [constant CENTER_OF_MASS_MODE_CUSTOM]. This is the balanced point of the body, where applied forces only cause linear acceleration. Applying forces outside of the center of mass causes angular acceleration.  
+         *  When [member center_of_mass_mode] is set to [constant CENTER_OF_MASS_MODE_AUTO] (default value), the center of mass is automatically computed.  
+         */
+        get center_of_mass(): Vector2
+        set center_of_mass(value: Vector2)
+        
+        /** The body's moment of inertia. This is like mass, but for rotation: it determines how much torque it takes to rotate the body. The moment of inertia is usually computed automatically from the mass and the shapes, but this property allows you to set a custom value.  
+         *  If set to `0`, inertia is automatically computed (default value).  
+         *      
+         *  **Note:** This value does not change when inertia is automatically computed. Use [PhysicsServer2D] to get the computed inertia.  
+         *    
+         */
+        get inertia(): float64
+        set inertia(value: float64)
+        
+        /** If `true`, the body will not move and will not calculate forces until woken up by another body through, for example, a collision, or by using the [method apply_impulse] or [method apply_force] methods. */
+        get sleeping(): boolean
+        set sleeping(value: boolean)
+        
+        /** If `true`, the body can enter sleep mode when there is no movement. See [member sleeping]. */
+        get can_sleep(): boolean
+        set can_sleep(value: boolean)
+        
+        /** If `true`, the body cannot rotate. Gravity and forces only apply linear movement. */
+        get lock_rotation(): boolean
+        set lock_rotation(value: boolean)
+        
+        /** If `true`, the body is frozen. Gravity and forces are not applied anymore.  
+         *  See [member freeze_mode] to set the body's behavior when frozen.  
+         *  For a body that is always frozen, use [StaticBody2D] or [AnimatableBody2D] instead.  
+         */
+        get freeze(): boolean
+        set freeze(value: boolean)
+        
+        /** The body's freeze mode. Can be used to set the body's behavior when [member freeze] is enabled. See [enum FreezeMode] for possible values.  
+         *  For a body that is always frozen, use [StaticBody2D] or [AnimatableBody2D] instead.  
+         */
+        get freeze_mode(): int64
+        set freeze_mode(value: int64)
+        
+        /** If `true`, the standard force integration (like gravity or damping) will be disabled for this body. Other than collision response, the body will only move as determined by the [method _integrate_forces] method, if that virtual method is overridden.  
+         *  Setting this property will call the method [method PhysicsServer2D.body_set_omit_force_integration] internally.  
+         */
+        get custom_integrator(): boolean
+        set custom_integrator(value: boolean)
+        
+        /** Continuous collision detection mode.  
+         *  Continuous collision detection tries to predict where a moving body will collide instead of moving it and correcting its movement after collision. Continuous collision detection is slower, but more precise and misses fewer collisions with small, fast-moving objects. Raycasting and shapecasting methods are available. See [enum CCDMode] for details.  
+         */
+        get continuous_cd(): int64
+        set continuous_cd(value: int64)
+        
+        /** If `true`, the RigidBody2D will emit signals when it collides with another body.  
+         *      
+         *  **Note:** By default the maximum contacts reported is set to 0, meaning nothing will be recorded, see [member max_contacts_reported].  
+         */
+        get contact_monitor(): boolean
+        set contact_monitor(value: boolean)
+        
+        /** The maximum number of contacts that will be recorded. Requires a value greater than 0 and [member contact_monitor] to be set to `true` to start to register contacts. Use [method get_contact_count] to retrieve the count or [method get_colliding_bodies] to retrieve bodies that have been collided with.  
+         *      
+         *  **Note:** The number of contacts is different from the number of collisions. Collisions between parallel edges will result in two contacts (one at each end), and collisions between parallel faces will result in four contacts (one at each corner).  
+         */
+        get max_contacts_reported(): int64
+        set max_contacts_reported(value: int64)
+        
+        /** The body's linear velocity in pixels per second. Can be used sporadically, but **don't set this every frame**, because physics may run in another thread and runs at a different granularity. Use [method _integrate_forces] as your process loop for precise control of the body state. */
+        get linear_velocity(): Vector2
+        set linear_velocity(value: Vector2)
+        
+        /** Defines how [member linear_damp] is applied. See [enum DampMode] for possible values. */
+        get linear_damp_mode(): int64
+        set linear_damp_mode(value: int64)
+        
+        /** Damps the body's movement. By default, the body will use the [member ProjectSettings.physics/2d/default_linear_damp] setting or any value override set by an [Area2D] the body is in. Depending on [member linear_damp_mode], you can set [member linear_damp] to be added to or to replace the body's damping value.  
+         *  See [member ProjectSettings.physics/2d/default_linear_damp] for more details about damping.  
+         */
+        get linear_damp(): float64
+        set linear_damp(value: float64)
+        
+        /** The body's rotational velocity in  *radians*  per second. */
+        get angular_velocity(): float64
+        set angular_velocity(value: float64)
+        
+        /** Defines how [member angular_damp] is applied. See [enum DampMode] for possible values. */
+        get angular_damp_mode(): int64
+        set angular_damp_mode(value: int64)
+        
+        /** Damps the body's rotation. By default, the body will use the [member ProjectSettings.physics/2d/default_angular_damp] setting or any value override set by an [Area2D] the body is in. Depending on [member angular_damp_mode], you can set [member angular_damp] to be added to or to replace the body's damping value.  
+         *  See [member ProjectSettings.physics/2d/default_angular_damp] for more details about damping.  
+         */
+        get angular_damp(): float64
+        set angular_damp(value: float64)
+        
+        /** The body's total constant positional forces applied during each physics update.  
+         *  See [method add_constant_force] and [method add_constant_central_force].  
+         */
+        get constant_force(): Vector2
+        set constant_force(value: Vector2)
+        
+        /** The body's total constant rotational forces applied during each physics update.  
+         *  See [method add_constant_torque].  
+         */
+        get constant_torque(): float64
+        set constant_torque(value: float64)
+        
+        /** Emitted when one of this RigidBody2D's [Shape2D]s collides with another [PhysicsBody2D] or [TileMap]'s [Shape2D]s. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
+         *  [param body_rid] the [RID] of the other [PhysicsBody2D] or [TileSet]'s [CollisionObject2D] used by the [PhysicsServer2D].  
+         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
+         *  [param body_shape_index] the index of the [Shape2D] of the other [PhysicsBody2D] or [TileMap] used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))`.  
+         *  [param local_shape_index] the index of the [Shape2D] of this RigidBody2D used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `self.shape_owner_get_owner(self.shape_find_owner(local_shape_index))`.  
+         */
+        readonly body_shape_entered: Signal<(body_rid: RID, body: Node, body_shape_index: int64, local_shape_index: int64) => void>
+        
+        /** Emitted when the collision between one of this RigidBody2D's [Shape2D]s and another [PhysicsBody2D] or [TileMap]'s [Shape2D]s ends. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
+         *  [param body_rid] the [RID] of the other [PhysicsBody2D] or [TileSet]'s [CollisionObject2D] used by the [PhysicsServer2D].  
+         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
+         *  [param body_shape_index] the index of the [Shape2D] of the other [PhysicsBody2D] or [TileMap] used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))`.  
+         *  [param local_shape_index] the index of the [Shape2D] of this RigidBody2D used by the [PhysicsServer2D]. Get the [CollisionShape2D] node with `self.shape_owner_get_owner(self.shape_find_owner(local_shape_index))`.  
+         */
+        readonly body_shape_exited: Signal<(body_rid: RID, body: Node, body_shape_index: int64, local_shape_index: int64) => void>
+        
+        /** Emitted when a collision with another [PhysicsBody2D] or [TileMap] occurs. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
+         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
+         */
+        readonly body_entered: Signal<(body: Node) => void>
+        
+        /** Emitted when the collision with another [PhysicsBody2D] or [TileMap] ends. Requires [member contact_monitor] to be set to `true` and [member max_contacts_reported] to be set high enough to detect all the collisions. [TileMap]s are detected if the [TileSet] has Collision [Shape2D]s.  
+         *  [param body] the [Node], if it exists in the tree, of the other [PhysicsBody2D] or [TileMap].  
+         */
+        readonly body_exited: Signal<(body: Node) => void>
+        
+        /** Emitted when the physics engine changes the body's sleeping state.  
+         *      
+         *  **Note:** Changing the value [member sleeping] will not trigger this signal. It is only emitted if the sleeping state is changed by the physics engine or `emit_signal("sleeping_state_changed")` is used.  
+         */
+        readonly sleeping_state_changed: Signal<() => void>
     }
 }

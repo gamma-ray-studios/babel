@@ -1,366 +1,9 @@
 // AUTO-GENERATED
 /// <reference no-default-lib="true"/>
 declare module "godot" {
-    /** Represents a gamepad button being pressed or released.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventjoypadbutton.html  
-     */
-    class InputEventJoypadButton extends InputEvent {
-        constructor(identifier?: any)
-        /** Button identifier. One of the [enum JoyButton] button constants. */
-        get button_index(): int64
-        set button_index(value: int64)
-        get pressure(): float64
-        set pressure(value: float64)
-        
-        /** If `true`, the button's state is pressed. If `false`, the button's state is released. */
-        get pressed(): boolean
-        set pressed(value: boolean)
-    }
-    /** Represents axis motions (such as joystick or analog triggers) from a gamepad.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventjoypadmotion.html  
-     */
-    class InputEventJoypadMotion extends InputEvent {
-        constructor(identifier?: any)
-        /** Axis identifier. Use one of the [enum JoyAxis] axis constants. */
-        get axis(): int64
-        set axis(value: int64)
-        
-        /** Current position of the joystick on the given axis. The value ranges from `-1.0` to `1.0`. A value of `0` means the axis is in its resting position. */
-        get axis_value(): float64
-        set axis_value(value: float64)
-    }
-    /** Represents a key on a keyboard being pressed or released.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventkey.html  
-     */
-    class InputEventKey extends InputEventWithModifiers {
-        constructor(identifier?: any)
-        /** Returns the Latin keycode combined with modifier keys such as [kbd]Shift[/kbd] or [kbd]Alt[/kbd]. See also [InputEventWithModifiers].  
-         *  To get a human-readable representation of the [InputEventKey] with modifiers, use `OS.get_keycode_string(event.get_keycode_with_modifiers())` where `event` is the [InputEventKey].  
-         */
-        get_keycode_with_modifiers(): Key
-        
-        /** Returns the physical keycode combined with modifier keys such as [kbd]Shift[/kbd] or [kbd]Alt[/kbd]. See also [InputEventWithModifiers].  
-         *  To get a human-readable representation of the [InputEventKey] with modifiers, use `OS.get_keycode_string(event.get_physical_keycode_with_modifiers())` where `event` is the [InputEventKey].  
-         */
-        get_physical_keycode_with_modifiers(): Key
-        
-        /** Returns the localized key label combined with modifier keys such as [kbd]Shift[/kbd] or [kbd]Alt[/kbd]. See also [InputEventWithModifiers].  
-         *  To get a human-readable representation of the [InputEventKey] with modifiers, use `OS.get_keycode_string(event.get_key_label_with_modifiers())` where `event` is the [InputEventKey].  
-         */
-        get_key_label_with_modifiers(): Key
-        
-        /** Returns a [String] representation of the event's [member keycode] and modifiers. */
-        as_text_keycode(): string
-        
-        /** Returns a [String] representation of the event's [member physical_keycode] and modifiers. */
-        as_text_physical_keycode(): string
-        
-        /** Returns a [String] representation of the event's [member key_label] and modifiers. */
-        as_text_key_label(): string
-        
-        /** Returns a [String] representation of the event's [member location]. This will be a blank string if the event is not specific to a location. */
-        as_text_location(): string
-        
-        /** If `true`, the key's state is pressed. If `false`, the key's state is released. */
-        get pressed(): boolean
-        set pressed(value: boolean)
-        
-        /** Latin label printed on the key in the current keyboard layout, which corresponds to one of the [enum Key] constants.  
-         *  To get a human-readable representation of the [InputEventKey], use `OS.get_keycode_string(event.keycode)` where `event` is the [InputEventKey].  
-         *  [codeblock lang=text]  
-         *      +-----+ +-----+  
-         *      | Q   | | Q   | - "Q" - keycode  
-         *      |   Й | |  ض | - "Й" and "ض" - key_label  
-         *      +-----+ +-----+  
-         *  [/codeblock]  
-         */
-        get keycode(): int64
-        set keycode(value: int64)
-        
-        /** Represents the physical location of a key on the 101/102-key US QWERTY keyboard, which corresponds to one of the [enum Key] constants.  
-         *  To get a human-readable representation of the [InputEventKey], use [method OS.get_keycode_string] in combination with [method DisplayServer.keyboard_get_keycode_from_physical]:  
-         *    
-         */
-        get physical_keycode(): int64
-        set physical_keycode(value: int64)
-        
-        /** Represents the localized label printed on the key in the current keyboard layout, which corresponds to one of the [enum Key] constants or any valid Unicode character.  
-         *  For keyboard layouts with a single label on the key, it is equivalent to [member keycode].  
-         *  To get a human-readable representation of the [InputEventKey], use `OS.get_keycode_string(event.key_label)` where `event` is the [InputEventKey].  
-         *  [codeblock lang=text]  
-         *      +-----+ +-----+  
-         *      | Q   | | Q   | - "Q" - keycode  
-         *      |   Й | |  ض | - "Й" and "ض" - key_label  
-         *      +-----+ +-----+  
-         *  [/codeblock]  
-         */
-        get key_label(): int64
-        set key_label(value: int64)
-        
-        /** The key Unicode character code (when relevant), shifted by modifier keys. Unicode character codes for composite characters and complex scripts may not be available unless IME input mode is active. See [method Window.set_ime_active] for more information. */
-        get unicode(): int64
-        set unicode(value: int64)
-        
-        /** Represents the location of a key which has both left and right versions, such as [kbd]Shift[/kbd] or [kbd]Alt[/kbd]. */
-        get location(): int64
-        set location(value: int64)
-        
-        /** If `true`, the key was already pressed before this event. An echo event is a repeated key event sent when the user is holding down the key.  
-         *      
-         *  **Note:** The rate at which echo events are sent is typically around 20 events per second (after holding down the key for roughly half a second). However, the key repeat delay/speed can be changed by the user or disabled entirely in the operating system settings. To ensure your project works correctly on all configurations, do not assume the user has a specific key repeat configuration in your project's behavior.  
-         */
-        get echo(): boolean
-        set echo(value: boolean)
-    }
-    /** Represents a MIDI message from a MIDI device, such as a musical keyboard.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventmidi.html  
-     */
-    class InputEventMIDI extends InputEvent {
-        constructor(identifier?: any)
-        /** The MIDI channel of this message, ranging from `0` to `15`. MIDI channel `9` is reserved for percussion instruments. */
-        get channel(): int64
-        set channel(value: int64)
-        
-        /** Represents the type of MIDI message (see the [enum MIDIMessage] enum).  
-         *  For more information, see the [url=https://www.midi.org/specifications-old/item/table-2-expanded-messages-list-status-bytes]MIDI message status byte list chart[/url].  
-         */
-        get message(): int64
-        set message(value: int64)
-        
-        /** The pitch index number of this MIDI message. This value ranges from `0` to `127`.  
-         *  On a piano, the **middle C** is `60`, followed by a **C-sharp** (`61`), then a **D** (`62`), and so on. Each octave is split in offsets of 12. See the "MIDI note number" column of the [url=https://en.wikipedia.org/wiki/Piano_key_frequencies]piano key frequency chart[/url] a full list.  
-         */
-        get pitch(): int64
-        set pitch(value: int64)
-        
-        /** The velocity of the MIDI message. This value ranges from `0` to `127`. For a musical keyboard, this corresponds to how quickly the key was pressed, and is rarely above `110` in practice.  
-         *      
-         *  **Note:** Some MIDI devices may send a [constant MIDI_MESSAGE_NOTE_ON] message with `0` velocity and expect it to be treated the same as a [constant MIDI_MESSAGE_NOTE_OFF] message. If necessary, this can be handled with a few lines of code:  
-         *    
-         */
-        get velocity(): int64
-        set velocity(value: int64)
-        
-        /** The instrument (also called  *program*  or  *preset* ) used on this MIDI message. This value ranges from `0` to `127`.  
-         *  To see what each value means, refer to the [url=https://en.wikipedia.org/wiki/General_MIDI#Program_change_events]General MIDI's instrument list[/url]. Keep in mind that the list is off by 1 because it does not begin from 0. A value of `0` corresponds to the acoustic grand piano.  
-         */
-        get instrument(): int64
-        set instrument(value: int64)
-        
-        /** The strength of the key being pressed. This value ranges from `0` to `127`.  
-         *      
-         *  **Note:** For many devices, this value is always `0`. Other devices such as musical keyboards may simulate pressure by changing the [member velocity], instead.  
-         */
-        get pressure(): int64
-        set pressure(value: int64)
-        
-        /** The unique number of the controller, if [member message] is [constant MIDI_MESSAGE_CONTROL_CHANGE], otherwise this is `0`. This value can be used to identify sliders for volume, balance, and panning, as well as switches and pedals on the MIDI device. See the [url=https://en.wikipedia.org/wiki/General_MIDI#Controller_events]General MIDI specification[/url] for a small list. */
-        get controller_number(): int64
-        set controller_number(value: int64)
-        
-        /** The value applied to the controller. If [member message] is [constant MIDI_MESSAGE_CONTROL_CHANGE], this value ranges from `0` to `127`, otherwise it is `0`. See also [member controller_value]. */
-        get controller_value(): int64
-        set controller_value(value: int64)
-    }
-    /** Represents a magnifying touch gesture.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventmagnifygesture.html  
-     */
-    class InputEventMagnifyGesture extends InputEventGesture {
-        constructor(identifier?: any)
-        /** The amount (or delta) of the event. This value is closer to `1.0` the slower the gesture is performed. */
-        get factor(): float64
-        set factor(value: float64)
-    }
-    /** Base input event type for mouse events.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventmouse.html  
-     */
-    class InputEventMouse extends InputEventWithModifiers {
-        constructor(identifier?: any)
-        /** The mouse button mask identifier, one of or a bitwise combination of the [enum MouseButton] button masks. */
-        get button_mask(): int64
-        set button_mask(value: int64)
-        
-        /** When received in [method Node._input] or [method Node._unhandled_input], returns the mouse's position in the [Viewport] this [Node] is in using the coordinate system of this [Viewport].  
-         *  When received in [method Control._gui_input], returns the mouse's position in the [Control] using the local coordinate system of the [Control].  
-         */
-        get position(): Vector2
-        set position(value: Vector2)
-        
-        /** When received in [method Node._input] or [method Node._unhandled_input], returns the mouse's position in the root [Viewport] using the coordinate system of the root [Viewport].  
-         *  When received in [method Control._gui_input], returns the mouse's position in the [CanvasLayer] that the [Control] is in using the coordinate system of the [CanvasLayer].  
-         */
-        get global_position(): Vector2
-        set global_position(value: Vector2)
-    }
-    /** Represents a mouse button being pressed or released.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventmousebutton.html  
-     */
-    class InputEventMouseButton extends InputEventMouse {
-        constructor(identifier?: any)
-        /** The amount (or delta) of the event. When used for high-precision scroll events, this indicates the scroll amount (vertical or horizontal). This is only supported on some platforms; the reported sensitivity varies depending on the platform. May be `0` if not supported. */
-        get factor(): float64
-        set factor(value: float64)
-        
-        /** The mouse button identifier, one of the [enum MouseButton] button or button wheel constants. */
-        get button_index(): int64
-        set button_index(value: int64)
-        
-        /** If `true`, the mouse button event has been canceled. */
-        get canceled(): boolean
-        set canceled(value: boolean)
-        
-        /** If `true`, the mouse button's state is pressed. If `false`, the mouse button's state is released. */
-        get pressed(): boolean
-        set pressed(value: boolean)
-        
-        /** If `true`, the mouse button's state is a double-click. */
-        get double_click(): boolean
-        set double_click(value: boolean)
-    }
-    /** Represents a mouse or a pen movement.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventmousemotion.html  
-     */
-    class InputEventMouseMotion extends InputEventMouse {
-        constructor(identifier?: any)
-        /** Represents the angles of tilt of the pen. Positive X-coordinate value indicates a tilt to the right. Positive Y-coordinate value indicates a tilt toward the user. Ranges from `-1.0` to `1.0` for both axes. */
-        get tilt(): Vector2
-        set tilt(value: Vector2)
-        
-        /** Represents the pressure the user puts on the pen. Ranges from `0.0` to `1.0`. */
-        get pressure(): float64
-        set pressure(value: float64)
-        
-        /** Returns `true` when using the eraser end of a stylus pen.  
-         *      
-         *  **Note:** This property is implemented on Linux, macOS and Windows.  
-         */
-        get pen_inverted(): boolean
-        set pen_inverted(value: boolean)
-        
-        /** The mouse position relative to the previous position (position at the last frame).  
-         *      
-         *  **Note:** Since [InputEventMouseMotion] may only be emitted when the mouse moves, it is not possible to reliably detect when the mouse has stopped moving by checking this property. A separate, short timer may be necessary.  
-         *      
-         *  **Note:** [member relative] is automatically scaled according to the content scale factor, which is defined by the project's stretch mode settings. This means mouse sensitivity will appear different depending on resolution when using [member relative] in a script that handles mouse aiming with the [constant Input.MOUSE_MODE_CAPTURED] mouse mode. To avoid this, use [member screen_relative] instead.  
-         */
-        get relative(): Vector2
-        set relative(value: Vector2)
-        
-        /** The unscaled mouse position relative to the previous position in the coordinate system of the screen (position at the last frame).  
-         *      
-         *  **Note:** Since [InputEventMouseMotion] may only be emitted when the mouse moves, it is not possible to reliably detect when the mouse has stopped moving by checking this property. A separate, short timer may be necessary.  
-         *      
-         *  **Note:** This coordinate is  *not*  scaled according to the content scale factor or calls to [method InputEvent.xformed_by]. This should be preferred over [member relative] for mouse aiming when using the [constant Input.MOUSE_MODE_CAPTURED] mouse mode, regardless of the project's stretch mode.  
-         */
-        get screen_relative(): Vector2
-        set screen_relative(value: Vector2)
-        
-        /** The mouse velocity in pixels per second.  
-         *      
-         *  **Note:** [member velocity] is automatically scaled according to the content scale factor, which is defined by the project's stretch mode settings. This means mouse sensitivity will appear different depending on resolution when using [member velocity] in a script that handles mouse aiming with the [constant Input.MOUSE_MODE_CAPTURED] mouse mode. To avoid this, use [member screen_velocity] instead.  
-         */
-        get velocity(): Vector2
-        set velocity(value: Vector2)
-        
-        /** The unscaled mouse velocity in pixels per second in screen coordinates. This velocity is  *not*  scaled according to the content scale factor or calls to [method InputEvent.xformed_by]. This should be preferred over [member velocity] for mouse aiming when using the [constant Input.MOUSE_MODE_CAPTURED] mouse mode, regardless of the project's stretch mode. */
-        get screen_velocity(): Vector2
-        set screen_velocity(value: Vector2)
-    }
-    /** Represents a panning touch gesture.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventpangesture.html  
-     */
-    class InputEventPanGesture extends InputEventGesture {
-        constructor(identifier?: any)
-        /** Panning amount since last pan event. */
-        get delta(): Vector2
-        set delta(value: Vector2)
-    }
-    /** Represents a screen drag event.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventscreendrag.html  
-     */
-    class InputEventScreenDrag extends InputEventFromWindow {
-        constructor(identifier?: any)
-        /** The drag event index in the case of a multi-drag event. */
-        get index(): int64
-        set index(value: int64)
-        
-        /** Represents the angles of tilt of the pen. Positive X-coordinate value indicates a tilt to the right. Positive Y-coordinate value indicates a tilt toward the user. Ranges from `-1.0` to `1.0` for both axes. */
-        get tilt(): Vector2
-        set tilt(value: Vector2)
-        
-        /** Represents the pressure the user puts on the pen. Ranges from `0.0` to `1.0`. */
-        get pressure(): float64
-        set pressure(value: float64)
-        
-        /** Returns `true` when using the eraser end of a stylus pen. */
-        get pen_inverted(): boolean
-        set pen_inverted(value: boolean)
-        
-        /** The drag position in the viewport the node is in, using the coordinate system of this viewport. */
-        get position(): Vector2
-        set position(value: Vector2)
-        
-        /** The drag position relative to the previous position (position at the last frame).  
-         *      
-         *  **Note:** [member relative] is automatically scaled according to the content scale factor, which is defined by the project's stretch mode settings. This means touch sensitivity will appear different depending on resolution when using [member relative] in a script that handles touch aiming. To avoid this, use [member screen_relative] instead.  
-         */
-        get relative(): Vector2
-        set relative(value: Vector2)
-        
-        /** The unscaled drag position relative to the previous position in screen coordinates (position at the last frame). This position is  *not*  scaled according to the content scale factor or calls to [method InputEvent.xformed_by]. This should be preferred over [member relative] for touch aiming regardless of the project's stretch mode. */
-        get screen_relative(): Vector2
-        set screen_relative(value: Vector2)
-        
-        /** The drag velocity.  
-         *      
-         *  **Note:** [member velocity] is automatically scaled according to the content scale factor, which is defined by the project's stretch mode settings. This means touch sensitivity will appear different depending on resolution when using [member velocity] in a script that handles touch aiming. To avoid this, use [member screen_velocity] instead.  
-         */
-        get velocity(): Vector2
-        set velocity(value: Vector2)
-        
-        /** The unscaled drag velocity in pixels per second in screen coordinates. This velocity is  *not*  scaled according to the content scale factor or calls to [method InputEvent.xformed_by]. This should be preferred over [member velocity] for touch aiming regardless of the project's stretch mode. */
-        get screen_velocity(): Vector2
-        set screen_velocity(value: Vector2)
-    }
-    /** Represents a screen touch event.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventscreentouch.html  
-     */
-    class InputEventScreenTouch extends InputEventFromWindow {
-        constructor(identifier?: any)
-        /** The touch index in the case of a multi-touch event. One index = one finger. */
-        get index(): int64
-        set index(value: int64)
-        
-        /** The touch position in the viewport the node is in, using the coordinate system of this viewport. */
-        get position(): Vector2
-        set position(value: Vector2)
-        
-        /** If `true`, the touch event has been canceled. */
-        get canceled(): boolean
-        set canceled(value: boolean)
-        
-        /** If `true`, the touch's state is pressed. If `false`, the touch's state is released. */
-        get pressed(): boolean
-        set pressed(value: boolean)
-        
-        /** If `true`, the touch's state is a double tap. */
-        get double_tap(): boolean
-        set double_tap(value: boolean)
-    }
     /** Represents a triggered keyboard [Shortcut].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventshortcut.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_inputeventshortcut.html  
      */
     class InputEventShortcut extends InputEvent {
         constructor(identifier?: any)
@@ -370,7 +13,7 @@ declare module "godot" {
     }
     /** Abstract base class for input events affected by modifier keys like [kbd]Shift[/kbd] and [kbd]Alt[/kbd].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_inputeventwithmodifiers.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_inputeventwithmodifiers.html  
      */
     class InputEventWithModifiers extends InputEventFromWindow {
         constructor(identifier?: any)
@@ -402,38 +45,29 @@ declare module "godot" {
         get meta_pressed(): boolean
         set meta_pressed(value: boolean)
     }
-    class InspectorDock<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        store_script_properties(_unnamed_arg0: Object): void
-        apply_script_properties(_unnamed_arg0: Object): void
-        readonly request_help: Signal0
-    }
-    class InstallGodotJSPresetConfirmationDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
     /** Placeholder for the root [Node] of a [PackedScene].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_instanceplaceholder.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_instanceplaceholder.html  
      */
-    class InstancePlaceholder<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class InstancePlaceholder<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Returns the list of properties that will be applied to the node when [method create_instance] is called.  
          *  If [param with_order] is `true`, a key named `.order` (note the leading period) is added to the dictionary. This `.order` key is an [Array] of [String] property names specifying the order in which properties will be applied (with index 0 being the first).  
          */
-        get_stored_values(with_order: boolean = false): GDictionary
+        get_stored_values(with_order?: boolean /* = false */): GDictionary
         
         /** Call this method to actually load in the node. The created node will be placed as a sibling  *above*  the [InstancePlaceholder] in the scene tree. The [Node]'s reference is also returned for convenience.  
          *      
          *  **Note:** [method create_instance] is not thread-safe. Use [method Object.call_deferred] if calling from a thread.  
          */
-        create_instance(replace: boolean = false, custom_scene: PackedScene = undefined): Node
+        create_instance(replace?: boolean /* = false */, custom_scene?: PackedScene /* = undefined */): Node
         
         /** Gets the path to the [PackedScene] resource file that is loaded by default when calling [method create_instance]. Not thread-safe. Use [method Object.call_deferred] if calling from a thread. */
         get_instance_path(): string
     }
     /** Creates an idle interval in a [Tween] animation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_intervaltweener.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_intervaltweener.html  
      */
     class IntervalTweener extends Tweener {
         constructor(identifier?: any)
@@ -459,18 +93,18 @@ declare module "godot" {
     }
     /** A vertical list of selectable items with one or multiple columns.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_itemlist.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_itemlist.html  
      */
-    class ItemList<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class ItemList<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Adds an item to the item list with specified text. Returns the index of an added item.  
          *  Specify an [param icon], or use `null` as the [param icon] for a list item with no icon.  
          *  If [param selectable] is `true`, the list item will be selectable.  
          */
-        add_item(text: string, icon: Texture2D = undefined, selectable: boolean = true): int64
+        add_item(text: string, icon?: Texture2D /* = undefined */, selectable?: boolean /* = true */): int64
         
         /** Adds an item to the item list with no text, only an icon. Returns the index of an added item. */
-        add_icon_item(icon: Texture2D, selectable: boolean = true): int64
+        add_icon_item(icon: Texture2D, selectable?: boolean /* = true */): int64
         
         /** Sets text of the item associated with the specified index. */
         set_item_text(idx: int64, text: string): void
@@ -558,7 +192,7 @@ declare module "godot" {
          *      
          *  **Note:** The returned value is unreliable if called right after modifying the [ItemList], before it redraws in the next frame.  
          */
-        get_item_rect(idx: int64, expand: boolean = true): Rect2
+        get_item_rect(idx: int64, expand?: boolean /* = true */): Rect2
         
         /** Sets whether the tooltip hint is enabled for specified item index. */
         set_item_tooltip_enabled(idx: int64, enable: boolean): void
@@ -576,7 +210,7 @@ declare module "godot" {
          *      
          *  **Note:** This method does not trigger the item selection signal.  
          */
-        select(idx: int64, single: boolean = true): void
+        select(idx: int64, single?: boolean /* = true */): void
         
         /** Ensures the item associated with the specified index is not selected. */
         deselect(idx: int64): void
@@ -610,7 +244,7 @@ declare module "godot" {
          *      
          *  **Note:** The returned value is unreliable if called right after modifying the [ItemList], before it redraws in the next frame.  
          */
-        get_item_at_position(position: Vector2, exact: boolean = false): int64
+        get_item_at_position(position: Vector2, exact?: boolean /* = false */): int64
         
         /** Ensure current selection is visible, adjusting the scroll position as necessary. */
         ensure_current_is_visible(): void
@@ -709,34 +343,34 @@ declare module "godot" {
         /** Emitted when specified item has been selected. Only applicable in single selection mode.  
          *  [member allow_reselect] must be enabled to reselect an item.  
          */
-        readonly item_selected: Signal1<int64>
+        readonly item_selected: Signal<(index: int64) => void>
         
         /** Emitted when any mouse click is issued within the rect of the list but on empty space.  
          *  [param at_position] is the click position in this control's local coordinate system.  
          */
-        readonly empty_clicked: Signal2<Vector2, int64>
+        readonly empty_clicked: Signal<(at_position: Vector2, mouse_button_index: int64) => void>
         
         /** Emitted when specified list item has been clicked with any mouse button.  
          *  [param at_position] is the click position in this control's local coordinate system.  
          */
-        readonly item_clicked: Signal3<int64, Vector2, int64>
+        readonly item_clicked: Signal<(index: int64, at_position: Vector2, mouse_button_index: int64) => void>
         
         /** Emitted when a multiple selection is altered on a list allowing multiple selection. */
-        readonly multi_selected: Signal2<int64, boolean>
+        readonly multi_selected: Signal<(index: int64, selected: boolean) => void>
         
         /** Emitted when specified list item is activated via double-clicking or by pressing [kbd]Enter[/kbd]. */
-        readonly item_activated: Signal1<int64>
+        readonly item_activated: Signal<(index: int64) => void>
     }
     /** Singleton that connects the engine with Android plugins to interface with native Android code.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_jnisingleton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_jnisingleton.html  
      */
     class JNISingleton extends Object {
         constructor(identifier?: any)
     }
     /** Helper class for creating and parsing JSON data.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_json.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_json.html  
      */
     class JSON extends Resource {
         constructor(identifier?: any)
@@ -749,7 +383,7 @@ declare module "godot" {
          *  **Example output:**  
          *    
          */
-        static stringify(data: any, indent: string = '', sort_keys: boolean = true, full_precision: boolean = false): string
+        static stringify(data: any, indent?: string /* = '' */, sort_keys?: boolean /* = true */, full_precision?: boolean /* = false */): string
         
         /** Attempts to parse the [param json_string] provided and returns the parsed data. Returns `null` if parse failed. */
         static parse_string(json_string: string): any
@@ -759,7 +393,7 @@ declare module "godot" {
          *  Non-static variant of [method parse_string], if you want custom error handling.  
          *  The optional [param keep_text] argument instructs the parser to keep a copy of the original text. This text can be obtained later by using the [method get_parsed_text] function and is used when saving the resource (instead of generating new text from [member data]).  
          */
-        parse(json_text: string, keep_text: boolean = false): GError
+        parse(json_text: string, keep_text?: boolean /* = false */): Error
         
         /** Return the text parsed by [method parse] (requires passing `keep_text` to [method parse]). */
         get_parsed_text(): string
@@ -775,14 +409,14 @@ declare module "godot" {
          *  You can convert a native value to a JSON string like this:  
          *    
          */
-        static from_native(variant: any, full_objects: boolean = false): any
+        static from_native(variant: any, full_objects?: boolean /* = false */): any
         
         /** Converts a JSON-compliant value that was created with [method from_native] back to native engine types.  
          *  By default, objects are ignored for security reasons, unless [param allow_objects] is `true`.  
          *  You can convert a JSON string back to a native value like this:  
          *    
          */
-        static to_native(json: any, allow_objects: boolean = false): any
+        static to_native(json: any, allow_objects?: boolean /* = false */): any
         
         /** Contains the parsed JSON data in [Variant] form. */
         get data(): any
@@ -808,17 +442,21 @@ declare module "godot" {
     }
     /** A helper to handle dictionaries which look like JSONRPC documents.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_jsonrpc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_jsonrpc.html  
      */
     class JSONRPC extends Object {
         constructor(identifier?: any)
-        set_scope(scope: string, target: Object): void
+        /** Registers a callback for the given method name.  
+         *  - [param name] The name that clients can use to access the callback.  
+         *  - [param callback] The callback which will handle the specific method.  
+         */
+        set_method(name: string, callback: Callable): void
         
         /** Given a Dictionary which takes the form of a JSON-RPC request: unpack the request and run it. Methods are resolved by looking at the field called "method" and looking for an equivalently named function in the JSONRPC object. If one is found that method is called.  
          *  To add new supported methods extend the JSONRPC class and call [method process_action] on your subclass.  
          *  [param action]: The action to be run, as a Dictionary in the form of a JSON-RPC request or notification.  
          */
-        process_action(action: any, recurse: boolean = false): any
+        process_action(action: any, recurse?: boolean /* = false */): any
         process_string(action: string): string
         
         /** Returns a dictionary in the form of a JSON-RPC request. Requests are sent to a server with the expectation of a response. The ID field is used for the server to specify which exact request it is responding to.  
@@ -845,11 +483,11 @@ declare module "godot" {
          *  - [param message]: A custom message about this error.  
          *  - [param id]: The request this error is a response to.  
          */
-        make_response_error(code: int64, message: string, id: any = <any> {}): GDictionary
+        make_response_error(code: int64, message: string, id?: any /* = <any> {} */): GDictionary
     }
     /** Represents a class from the Java Native Interface.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_javaclass.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_javaclass.html  
      */
     class JavaClass extends RefCounted {
         constructor(identifier?: any)
@@ -864,7 +502,7 @@ declare module "godot" {
     }
     /** Represents an object from the Java Native Interface.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_javaobject.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_javaobject.html  
      */
     class JavaObject extends RefCounted {
         constructor(identifier?: any)
@@ -873,16 +511,16 @@ declare module "godot" {
     }
     /** A wrapper class for web native JavaScript objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_javascriptobject.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_javascriptobject.html  
      */
     class JavaScriptObject extends RefCounted {
         constructor(identifier?: any)
     }
     /** Abstract base class for all 2D physics joints.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_joint2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_joint2d.html  
      */
-    class Joint2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Joint2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns the joint's internal [RID] from the [PhysicsServer2D]. */
         get_rid(): RID
@@ -907,9 +545,9 @@ declare module "godot" {
     }
     /** Abstract base class for all 3D physics joints.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_joint3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_joint3d.html  
      */
-    class Joint3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class Joint3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns the joint's internal [RID] from the [PhysicsServer3D]. */
         get_rid(): RID
@@ -934,12 +572,9 @@ declare module "godot" {
         get exclude_nodes_from_collision(): boolean
         set exclude_nodes_from_collision(value: boolean)
     }
-    class Joint3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Holds collision data from the movement of a [PhysicsBody2D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_kinematiccollision2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_kinematiccollision2d.html  
      */
     class KinematicCollision2D extends RefCounted {
         constructor(identifier?: any)
@@ -956,7 +591,7 @@ declare module "godot" {
         get_remainder(): Vector2
         
         /** Returns the collision angle according to [param up_direction], which is [constant Vector2.UP] by default. This value is always positive. */
-        get_angle(up_direction: Vector2 = new Vector2(0, -1)): float64
+        get_angle(up_direction?: Vector2 /* = new Vector2(0, -1) */): float64
         
         /** Returns the colliding body's length of overlap along the collision normal. */
         get_depth(): float64
@@ -984,7 +619,7 @@ declare module "godot" {
     }
     /** Holds collision data from the movement of a [PhysicsBody3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_kinematiccollision3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_kinematiccollision3d.html  
      */
     class KinematicCollision3D extends RefCounted {
         constructor(identifier?: any)
@@ -1001,46 +636,46 @@ declare module "godot" {
         get_collision_count(): int64
         
         /** Returns the point of collision in global coordinates given a collision index (the deepest collision by default). */
-        get_position(collision_index: int64 = 0): Vector3
+        get_position(collision_index?: int64 /* = 0 */): Vector3
         
         /** Returns the colliding body's shape's normal at the point of collision given a collision index (the deepest collision by default). */
-        get_normal(collision_index: int64 = 0): Vector3
+        get_normal(collision_index?: int64 /* = 0 */): Vector3
         
         /** Returns the collision angle according to [param up_direction], which is [constant Vector3.UP] by default. This value is always positive. */
-        get_angle(collision_index: int64 = 0, up_direction: Vector3 = Vector3.ZERO): float64
+        get_angle(collision_index?: int64 /* = 0 */, up_direction?: Vector3 /* = Vector3.ZERO */): float64
         
         /** Returns the moving object's colliding shape given a collision index (the deepest collision by default). */
-        get_local_shape(collision_index: int64 = 0): Object
+        get_local_shape(collision_index?: int64 /* = 0 */): Object
         
         /** Returns the colliding body's attached [Object] given a collision index (the deepest collision by default). */
-        get_collider(collision_index: int64 = 0): Object
+        get_collider(collision_index?: int64 /* = 0 */): Object
         
         /** Returns the unique instance ID of the colliding body's attached [Object] given a collision index (the deepest collision by default). See [method Object.get_instance_id]. */
-        get_collider_id(collision_index: int64 = 0): int64
+        get_collider_id(collision_index?: int64 /* = 0 */): int64
         
         /** Returns the colliding body's [RID] used by the [PhysicsServer3D] given a collision index (the deepest collision by default). */
-        get_collider_rid(collision_index: int64 = 0): RID
+        get_collider_rid(collision_index?: int64 /* = 0 */): RID
         
         /** Returns the colliding body's shape given a collision index (the deepest collision by default). */
-        get_collider_shape(collision_index: int64 = 0): Object
+        get_collider_shape(collision_index?: int64 /* = 0 */): Object
         
         /** Returns the colliding body's shape index given a collision index (the deepest collision by default). See [CollisionObject3D]. */
-        get_collider_shape_index(collision_index: int64 = 0): int64
+        get_collider_shape_index(collision_index?: int64 /* = 0 */): int64
         
         /** Returns the colliding body's velocity given a collision index (the deepest collision by default). */
-        get_collider_velocity(collision_index: int64 = 0): Vector3
+        get_collider_velocity(collision_index?: int64 /* = 0 */): Vector3
     }
     /** A control for displaying plain text.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_label.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_label.html  
      */
-    class Label<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class Label<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Returns the height of the line [param line].  
          *  If [param line] is set to `-1`, returns the biggest line height.  
          *  If there are no lines, returns font size in pixels.  
          */
-        get_line_height(line: int64 = -1): int64
+        get_line_height(line?: int64 /* = -1 */): int64
         
         /** Returns the number of lines of text the Label has. */
         get_line_count(): int64
@@ -1073,6 +708,10 @@ declare module "godot" {
         /** If set to something other than [constant TextServer.AUTOWRAP_OFF], the text gets wrapped inside the node's bounding rectangle. If you resize the node, it will change its height automatically to show all the text. To see how each mode behaves, see [enum TextServer.AutowrapMode]. */
         get autowrap_mode(): int64
         set autowrap_mode(value: int64)
+        
+        /** Autowrap space trimming flags. See [constant TextServer.BREAK_TRIM_START_EDGE_SPACES] and [constant TextServer.BREAK_TRIM_END_EDGE_SPACES] for more info. */
+        get autowrap_trim_flags(): int64
+        set autowrap_trim_flags(value: int64)
         
         /** Line fill alignment rules. See [enum TextServer.JustificationFlag] for more information. */
         get justification_flags(): int64
@@ -1185,9 +824,9 @@ declare module "godot" {
     }
     /** A node for displaying plain text in 3D space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_label3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_label3d.html  
      */
-    class Label3D<Map extends Record<string, Node> = Record<string, Node>> extends GeometryInstance3D<Map> {
+    class Label3D<Map extends Record<string, Node> = {}> extends GeometryInstance3D<Map> {
         constructor(identifier?: any)
         /** If `true`, the specified flag will be enabled. See [enum Label3D.DrawFlags] for a list of flags. */
         set_draw_flag(flag: Label3D.DrawFlags, enabled: boolean): void
@@ -1222,7 +861,7 @@ declare module "godot" {
         get no_depth_test(): boolean
         set no_depth_test(value: boolean)
         
-        /** If `true`, the label is rendered at the same size regardless of distance. */
+        /** If `true`, the label is rendered at the same size regardless of distance. The label's size on screen is the same as if the camera was `1.0` units away from the label's origin, regardless of the actual distance from the camera. The [Camera3D]'s field of view (or [member Camera3D.size] when in orthogonal/frustum mode) still affects the size the label is drawn at. */
         get fixed_size(): boolean
         set fixed_size(value: boolean)
         
@@ -1314,6 +953,10 @@ declare module "godot" {
         get autowrap_mode(): int64
         set autowrap_mode(value: int64)
         
+        /** Autowrap space trimming flags. See [constant TextServer.BREAK_TRIM_START_EDGE_SPACES] and [constant TextServer.BREAK_TRIM_END_EDGE_SPACES] for more info. */
+        get autowrap_trim_flags(): int64
+        set autowrap_trim_flags(value: int64)
+        
         /** Line fill alignment rules. See [enum TextServer.JustificationFlag] for more information. */
         get justification_flags(): int64
         set justification_flags(value: int64)
@@ -1338,12 +981,9 @@ declare module "godot" {
         get structured_text_bidi_override_options(): GArray
         set structured_text_bidi_override_options(value: GArray)
     }
-    class Label3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Provides common settings to customize the text in a [Label].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_labelsettings.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_labelsettings.html  
      */
     class LabelSettings extends Resource {
         constructor(identifier?: any)
@@ -1411,9 +1051,9 @@ declare module "godot" {
     }
     /** Casts light in a 2D environment.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_light2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_light2d.html  
      */
-    class Light2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Light2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Sets the light's height, which is used in 2D normal mapping. See [member PointLight2D.height] and [member DirectionalLight2D.height]. */
         set_height(height: float64): void
@@ -1571,9 +1211,9 @@ declare module "godot" {
     }
     /** Provides a base class for different kinds of light nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_light3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_light3d.html  
      */
-    class Light3D<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class Light3D<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Sets the value of the specified [enum Light3D.Param] parameter. */
         set_param(param: Light3D.Param, value: float64): void
@@ -1603,7 +1243,7 @@ declare module "godot" {
         get light_temperature(): float64
         set light_temperature(value: float64)
         
-        /** The light's color. An  *overbright*  color can be used to achieve a result equivalent to increasing the light's [member light_energy]. */
+        /** The light's color in the nonlinear sRGB color space. An  *overbright*  color can be used to achieve a result equivalent to increasing the light's [member light_energy]. */
         get light_color(): Color
         set light_color(value: Color)
         
@@ -1733,14 +1373,11 @@ declare module "godot" {
         get editor_only(): boolean
         set editor_only(value: boolean)
     }
-    class Light3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Occludes light cast by a Light2D, casting shadows.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lightoccluder2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lightoccluder2d.html  
      */
-    class LightOccluder2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class LightOccluder2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** The [OccluderPolygon2D] used to compute the shadow. */
         get occluder(): OccluderPolygon2D
@@ -1753,12 +1390,6 @@ declare module "godot" {
         /** The LightOccluder2D's occluder light mask. The LightOccluder2D will cast shadows only from Light2D(s) that have the same light mask(s). */
         get occluder_light_mask(): int64
         set occluder_light_mask(value: int64)
-    }
-    class LightOccluder2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditor<Map> {
-        constructor(identifier?: any)
-    }
-    class LightOccluder2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditorPlugin<Map> {
-        constructor(identifier?: any)
     }
     namespace LightmapGI {
         enum BakeQuality {
@@ -1846,9 +1477,9 @@ declare module "godot" {
     }
     /** Computes and stores baked lightmaps for fast global illumination.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lightmapgi.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lightmapgi.html  
      */
-    class LightmapGI<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class LightmapGI<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** The quality preset to use when baking lightmaps. This affects bake times, but output file sizes remain mostly identical across quality levels.  
          *  To further speed up bake times, decrease [member bounces], disable [member use_denoiser] and/or decrease [member texel_scale].  
@@ -1980,7 +1611,7 @@ declare module "godot" {
     }
     /** Contains baked lightmap and dynamic object probe data for [LightmapGI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lightmapgidata.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lightmapgidata.html  
      */
     class LightmapGIData extends Resource {
         constructor(identifier?: any)
@@ -2018,33 +1649,23 @@ declare module "godot" {
         get light_textures(): GArray
         set light_textures(value: GArray)
     }
-    class LightmapGIEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-        _bake(): void
-    }
-    class LightmapGIGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Represents a single manually placed probe for dynamic object lighting with [LightmapGI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lightmapprobe.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lightmapprobe.html  
      */
-    class LightmapProbe<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
-        constructor(identifier?: any)
-    }
-    class LightmapProbeGizmoPlugin extends EditorNode3DGizmoPlugin {
+    class LightmapProbe<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
     }
     /** Abstract class extended by lightmappers, for use in [LightmapGI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lightmapper.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lightmapper.html  
      */
     class Lightmapper extends RefCounted {
         constructor(identifier?: any)
     }
     /** The built-in GPU-based lightmapper for use with [LightmapGI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lightmapperrd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lightmapperrd.html  
      */
     class LightmapperRD extends Lightmapper {
         constructor(identifier?: any)
@@ -2083,9 +1704,9 @@ declare module "godot" {
     }
     /** A 2D polyline that can optionally be textured.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_line2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_line2d.html  
      */
-    class Line2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Line2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Overwrites the position of the point at the given [param index] with the supplied [param position]. */
         set_point_position(index: int64, position: Vector2): void
@@ -2099,7 +1720,7 @@ declare module "godot" {
         /** Adds a point with the specified [param position] relative to the polyline's own position. If no [param index] is provided, the new point will be added to the end of the points array.  
          *  If [param index] is given, the new point is inserted before the existing point identified by index [param index]. The indices of the points after the new point get increased by 1. The provided [param index] must not exceed the number of existing points in the polyline. See [method get_point_count].  
          */
-        add_point(position: Vector2, index: int64 = -1): void
+        add_point(position: Vector2, index?: int64 /* = -1 */): void
         
         /** Removes the point at index [param index] from the polyline. */
         remove_point(index: int64): void
@@ -2170,12 +1791,6 @@ declare module "godot" {
          */
         get antialiased(): boolean
         set antialiased(value: boolean)
-    }
-    class Line2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditor<Map> {
-        constructor(identifier?: any)
-    }
-    class Line2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditorPlugin<Map> {
-        constructor(identifier?: any)
     }
     namespace LineEdit {
         enum MenuItems {
@@ -2308,9 +1923,9 @@ declare module "godot" {
     }
     /** An input field for single-line text.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lineedit.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lineedit.html  
      */
-    class LineEdit<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class LineEdit<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Returns `true` if the user has text in the [url=https://en.wikipedia.org/wiki/Input_method]Input Method Editor[/url] (IME). */
         has_ime_text(): boolean
@@ -2338,7 +1953,7 @@ declare module "godot" {
         /** Selects characters inside [LineEdit] between [param from] and [param to]. By default, [param from] is at the beginning and [param to] at the end.  
          *    
          */
-        select(from: int64 = 0, to: int64 = -1): void
+        select(from?: int64 /* = 0 */, to?: int64 /* = -1 */): void
         
         /** Selects the whole [String]. */
         select_all(): void
@@ -2531,16 +2146,16 @@ declare module "godot" {
         set structured_text_bidi_override_options(value: GArray)
         
         /** Emitted when the text changes. */
-        readonly text_changed: Signal1<string>
+        readonly text_changed: Signal<(new_text: string) => void>
         
         /** Emitted when appending text that overflows the [member max_length]. The appended text is truncated to fit [member max_length], and the part that couldn't fit is passed as the [param rejected_substring] argument. */
-        readonly text_change_rejected: Signal1<string>
+        readonly text_change_rejected: Signal<(rejected_substring: string) => void>
         
         /** Emitted when the user presses the `ui_text_submit` action (by default: [kbd]Enter[/kbd] or [kbd]Kp Enter[/kbd]) while the [LineEdit] has focus. */
-        readonly text_submitted: Signal1<string>
+        readonly text_submitted: Signal<(new_text: string) => void>
         
         /** Emitted when the [LineEdit] switches in or out of edit mode. */
-        readonly editing_toggled: Signal1<boolean>
+        readonly editing_toggled: Signal<(toggled_on: boolean) => void>
     }
     namespace LinkButton {
         enum UnderlineMode {
@@ -2556,9 +2171,9 @@ declare module "godot" {
     }
     /** A button that represents a link.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_linkbutton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_linkbutton.html  
      */
-    class LinkButton<Map extends Record<string, Node> = Record<string, Node>> extends BaseButton<Map> {
+    class LinkButton<Map extends Record<string, Node> = {}> extends BaseButton<Map> {
         constructor(identifier?: any)
         /** The button's text that will be displayed inside the button's area. */
         get text(): string
@@ -2590,11 +2205,6 @@ declare module "godot" {
         get structured_text_bidi_override_options(): GArray
         set structured_text_bidi_override_options(value: GArray)
     }
-    class LocalizationEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        update_translations(): void
-        readonly localization_changed: Signal0
-    }
     namespace LookAtModifier3D {
         enum OriginFrom {
             /** The bone rest position of the bone specified in [member bone] is used as origin. */
@@ -2615,9 +2225,9 @@ declare module "godot" {
     }
     /** The [LookAtModifier3D] rotates a bone to look at a target.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_lookatmodifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_lookatmodifier3d.html  
      */
-    class LookAtModifier3D<Map extends Record<string, Node> = Record<string, Node>> extends SkeletonModifier3D<Map> {
+    class LookAtModifier3D<Map extends Record<string, Node> = {}> extends SkeletonModifier3D<Map> {
         constructor(identifier?: any)
         /** Returns the remaining seconds of the time-based interpolation. */
         get_interpolation_remaining(): float64
@@ -2768,7 +2378,7 @@ declare module "godot" {
     }
     /** Abstract base class for the game's main loop.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_mainloop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_mainloop.html  
      */
     class MainLoop extends Object {
         /** Notification received from the OS when the application is exceeding its allocated memory.  
@@ -2841,23 +2451,20 @@ declare module "godot" {
         /* gdvirtual */ _finalize(): void
         
         /** Emitted when a user responds to a permission request. */
-        readonly on_request_permissions_result: Signal2<string, boolean>
-    }
-    class ManagedCallableMiddleman extends Object {
-        constructor(identifier?: any)
+        readonly on_request_permissions_result: Signal<(permission: string, granted: boolean) => void>
     }
     /** A container that keeps a margin around its child controls.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_margincontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_margincontainer.html  
      */
-    class MarginContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
+    class MarginContainer<Map extends Record<string, Node> = {}> extends Container<Map> {
         constructor(identifier?: any)
     }
     /** Generic 2D position hint for editing.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_marker2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_marker2d.html  
      */
-    class Marker2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class Marker2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Size of the gizmo cross that appears in the editor. */
         get gizmo_extents(): float64
@@ -2865,20 +2472,17 @@ declare module "godot" {
     }
     /** Generic 3D position hint for editing.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_marker3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_marker3d.html  
      */
-    class Marker3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class Marker3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Size of the gizmo cross that appears in the editor. */
         get gizmo_extents(): float64
         set gizmo_extents(value: float64)
     }
-    class Marker3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Virtual base class for applying visual properties to an object, such as color and roughness.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_material.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_material.html  
      */
     class Material extends Resource {
         /** Maximum value for the [member render_priority] parameter. */
@@ -2924,14 +2528,11 @@ declare module "godot" {
         get next_pass(): Material
         set next_pass(value: Material)
     }
-    class MaterialEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A horizontal menu bar that creates a menu for each [PopupMenu] child.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_menubar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_menubar.html  
      */
-    class MenuBar<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class MenuBar<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** If `true`, shortcuts are disabled and cannot be used to trigger the button. */
         set_disable_shortcuts(disabled: boolean): void
@@ -3000,9 +2601,9 @@ declare module "godot" {
     }
     /** A button that brings up a [PopupMenu] when clicked.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_menubutton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_menubutton.html  
      */
-    class MenuButton<Map extends Record<string, Node> = Record<string, Node>> extends Button<Map> {
+    class MenuButton<Map extends Record<string, Node> = {}> extends Button<Map> {
         constructor(identifier?: any)
         /** Returns the [PopupMenu] contained in this button.  
          *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member Window.visible] property.  
@@ -3024,7 +2625,7 @@ declare module "godot" {
         set item_count(value: any /*Items,popup/item_*/)
         
         /** Emitted when the [PopupMenu] of this MenuButton is about to show. */
-        readonly about_to_popup: Signal0
+        readonly about_to_popup: Signal<() => void>
     }
     namespace Mesh {
         enum PrimitiveType {
@@ -3211,7 +2812,7 @@ declare module "godot" {
     }
     /** A [Resource] that contains vertex array-based geometry.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_mesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_mesh.html  
      */
     class Mesh extends Resource {
         constructor(identifier?: any)
@@ -3297,7 +2898,7 @@ declare module "godot" {
          *  If [param clean] is `true` (default), duplicate and interior vertices are removed automatically. You can set it to `false` to make the process faster if not needed.  
          *  If [param simplify] is `true`, the geometry can be further simplified to reduce the number of vertices. Disabled by default.  
          */
-        create_convex_shape(clean: boolean = true, simplify: boolean = false): ConvexPolygonShape3D
+        create_convex_shape(clean?: boolean /* = true */, simplify?: boolean /* = false */): ConvexPolygonShape3D
         
         /** Calculate an outline mesh at a defined offset (margin) from the original mesh.  
          *      
@@ -3323,7 +2924,7 @@ declare module "godot" {
     }
     /** Parameters to be used with a [Mesh] convex decomposition operation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_meshconvexdecompositionsettings.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_meshconvexdecompositionsettings.html  
      */
     class MeshConvexDecompositionSettings extends RefCounted {
         constructor(identifier?: any)
@@ -3381,7 +2982,7 @@ declare module "godot" {
     }
     /** Helper tool to access and edit [Mesh] data.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_meshdatatool.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_meshdatatool.html  
      */
     class MeshDataTool extends RefCounted {
         constructor(identifier?: any)
@@ -3391,10 +2992,10 @@ declare module "godot" {
         /** Uses specified surface of given [Mesh] to populate data for MeshDataTool.  
          *  Requires [Mesh] with primitive type [constant Mesh.PRIMITIVE_TRIANGLES].  
          */
-        create_from_surface(mesh: ArrayMesh, surface: int64): GError
+        create_from_surface(mesh: ArrayMesh, surface: int64): Error
         
         /** Adds a new surface to specified [Mesh] with edited data. */
-        commit_to_surface(mesh: ArrayMesh, compression_flags: int64 = 0): GError
+        commit_to_surface(mesh: ArrayMesh, compression_flags?: int64 /* = 0 */): Error
         
         /** Returns the [Mesh]'s format as a combination of the [enum Mesh.ArrayFormat] flags. For example, a mesh containing both vertices and normals would return a format of `3` because [constant Mesh.ARRAY_FORMAT_VERTEX] is `1` and [constant Mesh.ARRAY_FORMAT_NORMAL] is `2`. */
         get_format(): int64
@@ -3508,14 +3109,11 @@ declare module "godot" {
         /** Returns the material assigned to the [Mesh]. */
         get_material(): Material
     }
-    class MeshEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Node used for displaying a [Mesh] in 2D.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_meshinstance2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_meshinstance2d.html  
      */
-    class MeshInstance2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class MeshInstance2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** The [Mesh] that will be drawn by the [MeshInstance2D]. */
         get mesh(): Mesh
@@ -3526,13 +3124,13 @@ declare module "godot" {
         set texture(value: Texture2D)
         
         /** Emitted when the [member texture] is changed. */
-        readonly texture_changed: Signal0
+        readonly texture_changed: Signal<() => void>
     }
     /** Node that instances meshes into a scenario.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_meshinstance3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_meshinstance3d.html  
      */
-    class MeshInstance3D<Map extends Record<string, Node> = Record<string, Node>> extends GeometryInstance3D<Map> {
+    class MeshInstance3D<Map extends Record<string, Node> = {}> extends GeometryInstance3D<Map> {
         constructor(identifier?: any)
         /** Returns the internal [SkinReference] containing the skeleton's [RID] attached to this RID. See also [method Resource.get_rid], [method SkinReference.get_skeleton], and [method RenderingServer.instance_attach_skeleton]. */
         get_skin_reference(): SkinReference
@@ -3564,10 +3162,10 @@ declare module "godot" {
          *  If [param clean] is `true` (default), duplicate and interior vertices are removed automatically. You can set it to `false` to make the process faster if not needed.  
          *  If [param simplify] is `true`, the geometry can be further simplified to reduce the number of vertices. Disabled by default.  
          */
-        create_convex_collision(clean: boolean = true, simplify: boolean = false): void
+        create_convex_collision(clean?: boolean /* = true */, simplify?: boolean /* = false */): void
         
         /** This helper creates a [StaticBody3D] child node with multiple [ConvexPolygonShape3D] collision shapes calculated from the mesh geometry via convex decomposition. The convex decomposition operation can be controlled with parameters from the optional [param settings]. */
-        create_multiple_convex_collisions(settings: MeshConvexDecompositionSettings = undefined): void
+        create_multiple_convex_collisions(settings?: MeshConvexDecompositionSettings /* = undefined */): void
         
         /** Returns the number of blend shapes available. Produces an error if [member mesh] is `null`. */
         get_blend_shape_count(): int64
@@ -3587,12 +3185,12 @@ declare module "godot" {
         /** Takes a snapshot from the current [ArrayMesh] with all blend shapes applied according to their current weights and bakes it to the provided [param existing] mesh. If no [param existing] mesh is provided a new [ArrayMesh] is created, baked and returned. Mesh surface materials are not copied.  
          *  **Performance:** [Mesh] data needs to be received from the GPU, stalling the [RenderingServer] in the process.  
          */
-        bake_mesh_from_current_blend_shape_mix(existing: ArrayMesh = undefined): ArrayMesh
+        bake_mesh_from_current_blend_shape_mix(existing?: ArrayMesh /* = undefined */): ArrayMesh
         
         /** Takes a snapshot of the current animated skeleton pose of the skinned mesh and bakes it to the provided [param existing] mesh. If no [param existing] mesh is provided a new [ArrayMesh] is created, baked, and returned. Requires a skeleton with a registered skin to work. Blendshapes are ignored. Mesh surface materials are not copied.  
          *  **Performance:** [Mesh] data needs to be retrieved from the GPU, stalling the [RenderingServer] in the process.  
          */
-        bake_mesh_from_current_skeleton_pose(existing: ArrayMesh = undefined): ArrayMesh
+        bake_mesh_from_current_skeleton_pose(existing?: ArrayMesh /* = undefined */): ArrayMesh
         
         /** The [Mesh] resource for the instance. */
         get mesh(): Mesh
@@ -3606,18 +3204,9 @@ declare module "godot" {
         get skeleton(): NodePath
         set skeleton(value: NodePath | string)
     }
-    class MeshInstance3DEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class MeshInstance3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class MeshInstance3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Library of meshes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_meshlibrary.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_meshlibrary.html  
      */
     class MeshLibrary extends Resource {
         constructor(identifier?: any)
@@ -3701,15 +3290,9 @@ declare module "godot" {
         /** Gets an unused ID for a new item. */
         get_last_unused_item_id(): int64
     }
-    class MeshLibraryEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class MeshLibraryEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Simple texture that uses a mesh to draw itself.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_meshtexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_meshtexture.html  
      */
     class MeshTexture extends Texture2D {
         constructor(identifier?: any)
@@ -3727,7 +3310,7 @@ declare module "godot" {
     }
     /** Interpolates an abstract value and supplies it to a method called over time.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_methodtweener.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_methodtweener.html  
      */
     class MethodTweener extends Tweener {
         constructor(identifier?: any)
@@ -3742,9 +3325,9 @@ declare module "godot" {
     }
     /** An internal editor class intended for keeping the data of unrecognized nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_missingnode.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_missingnode.html  
      */
-    class MissingNode<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class MissingNode<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** The name of the class this node was supposed to be (see [method Object.get_class]). */
         get original_class(): string
@@ -3760,7 +3343,7 @@ declare module "godot" {
     }
     /** An internal editor class intended for keeping the data of unrecognized resources.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_missingresource.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_missingresource.html  
      */
     class MissingResource extends Resource {
         constructor(identifier?: any)
@@ -3774,7 +3357,7 @@ declare module "godot" {
     }
     /** Generic mobile VR implementation.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_mobilevrinterface.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_mobilevrinterface.html  
      */
     class MobileVRInterface extends XRInterface {
         constructor(identifier?: any)
@@ -3826,7 +3409,7 @@ declare module "godot" {
     }
     /** Abstract class for non-real-time video recording encoders.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_moviewriter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_moviewriter.html  
      */
     class MovieWriter extends Object {
         constructor(identifier?: any)
@@ -3841,11 +3424,11 @@ declare module "godot" {
          */
         /* gdvirtual */ _handles_file(path: string): boolean
         
-        /** Called once before the engine starts writing video and audio data. [param movie_size] is the width and height of the video to save. [param fps] is the number of frames per second specified in the project settings or using the `--fixed-fps <fps>` [url=https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html]command line argument[/url]. */
-        /* gdvirtual */ _write_begin(movie_size: Vector2i, fps: int64, base_path: string): GError
+        /** Called once before the engine starts writing video and audio data. [param movie_size] is the width and height of the video to save. [param fps] is the number of frames per second specified in the project settings or using the `--fixed-fps <fps>` [url=https://docs.godotengine.org/en/latest/tutorials/editor/command_line_tutorial.html]command line argument[/url]. */
+        /* gdvirtual */ _write_begin(movie_size: Vector2i, fps: int64, base_path: string): Error
         
         /** Called at the end of every rendered frame. The [param frame_image] and [param audio_frame_block] function arguments should be written to. */
-        /* gdvirtual */ _write_frame(frame_image: Image, audio_frame_block: int64): GError
+        /* gdvirtual */ _write_frame(frame_image: Image, audio_frame_block: int64): Error
         
         /** Called when the engine finishes writing. This occurs when the engine quits by pressing the window manager's close button, or when [method SceneTree.quit] is called.  
          *      
@@ -3858,12 +3441,6 @@ declare module "godot" {
          *  **Note:** [method add_writer] must be called early enough in the engine initialization to work, as movie writing is designed to start at the same time as the rest of the engine.  
          */
         static add_writer(writer: MovieWriter): void
-    }
-    class MovieWriterMJPEG extends MovieWriter {
-        constructor(identifier?: any)
-    }
-    class MovieWriterPNGWAV extends MovieWriter {
-        constructor(identifier?: any)
     }
     namespace MultiMesh {
         enum TransformFormat {
@@ -3883,7 +3460,7 @@ declare module "godot" {
     }
     /** Provides high-performance drawing of a mesh multiple times using GPU instancing.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multimesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multimesh.html  
      */
     class MultiMesh extends Resource {
         constructor(identifier?: any)
@@ -3992,17 +3569,11 @@ declare module "godot" {
         get physics_interpolation_quality(): int64
         set physics_interpolation_quality(value: int64)
     }
-    class MultiMeshEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class MultiMeshEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Node that instances a [MultiMesh] in 2D.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multimeshinstance2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multimeshinstance2d.html  
      */
-    class MultiMeshInstance2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class MultiMeshInstance2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** The [MultiMesh] that will be drawn by the [MultiMeshInstance2D]. */
         get multimesh(): MultiMesh
@@ -4013,13 +3584,13 @@ declare module "godot" {
         set texture(value: Texture2D)
         
         /** Emitted when the [member texture] is changed. */
-        readonly texture_changed: Signal0
+        readonly texture_changed: Signal<() => void>
     }
     /** Node that instances a [MultiMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multimeshinstance3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multimeshinstance3d.html  
      */
-    class MultiMeshInstance3D<Map extends Record<string, Node> = Record<string, Node>> extends GeometryInstance3D<Map> {
+    class MultiMeshInstance3D<Map extends Record<string, Node> = {}> extends GeometryInstance3D<Map> {
         constructor(identifier?: any)
         /** The [MultiMesh] resource that will be used and shared among all instances of the [MultiMeshInstance3D]. */
         get multimesh(): MultiMesh
@@ -4039,7 +3610,7 @@ declare module "godot" {
     }
     /** High-level multiplayer API interface.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multiplayerapi.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multiplayerapi.html  
      */
     class MultiplayerAPI extends RefCounted {
         constructor(identifier?: any)
@@ -4062,25 +3633,25 @@ declare module "godot" {
          *      
          *  **Note:** This method results in RPCs being called, so they will be executed in the same context of this function (e.g. `_process`, `physics`, [Thread]).  
          */
-        poll(): GError
+        poll(): Error
         
         /** Sends an RPC to the target [param peer]. The given [param method] will be called on the remote [param object] with the provided [param arguments]. The RPC may also be called locally depending on the implementation and RPC configuration. See [method Node.rpc] and [method Node.rpc_config].  
          *      
          *  **Note:** Prefer using [method Node.rpc], [method Node.rpc_id], or `my_method.rpc(peer, arg1, arg2, ...)` (in GDScript), since they are faster. This method is mostly useful in conjunction with [MultiplayerAPIExtension] when extending or replacing the multiplayer capabilities.  
          */
-        rpc(peer: int64, object: Object, method: StringName, arguments_: GArray = []): GError
+        rpc(peer: int64, object: Object, method: StringName, arguments_?: GArray /* = [] */): Error
         
         /** Notifies the MultiplayerAPI of a new [param configuration] for the given [param object]. This method is used internally by [SceneTree] to configure the root path for this MultiplayerAPI (passing `null` and a valid [NodePath] as [param configuration]). This method can be further used by MultiplayerAPI implementations to provide additional features, refer to specific implementation (e.g. [SceneMultiplayer]) for details on how they use it.  
          *      
          *  **Note:** This method is mostly relevant when extending or overriding the MultiplayerAPI behavior via [MultiplayerAPIExtension].  
          */
-        object_configuration_add(object: Object, configuration: any): GError
+        object_configuration_add(object: Object, configuration: any): Error
         
         /** Notifies the MultiplayerAPI to remove a [param configuration] for the given [param object]. This method is used internally by [SceneTree] to configure the root path for this MultiplayerAPI (passing `null` and an empty [NodePath] as [param configuration]). This method can be further used by MultiplayerAPI implementations to provide additional features, refer to specific implementation (e.g. [SceneMultiplayer]) for details on how they use it.  
          *      
          *  **Note:** This method is mostly relevant when extending or overriding the MultiplayerAPI behavior via [MultiplayerAPIExtension].  
          */
-        object_configuration_remove(object: Object, configuration: any): GError
+        object_configuration_remove(object: Object, configuration: any): Error
         
         /** Returns the peer IDs of all connected peers of this MultiplayerAPI's [member multiplayer_peer]. */
         get_peers(): PackedInt32Array
@@ -4099,28 +3670,28 @@ declare module "godot" {
         set multiplayer_peer(value: MultiplayerPeer)
         
         /** Emitted when this MultiplayerAPI's [member multiplayer_peer] connects with a new peer. ID is the peer ID of the new peer. Clients get notified when other clients connect to the same server. Upon connecting to a server, a client also receives this signal for the server (with ID being 1). */
-        readonly peer_connected: Signal1<int64>
+        readonly peer_connected: Signal<(id: int64) => void>
         
         /** Emitted when this MultiplayerAPI's [member multiplayer_peer] disconnects from a peer. Clients get notified when other clients disconnect from the same server. */
-        readonly peer_disconnected: Signal1<int64>
+        readonly peer_disconnected: Signal<(id: int64) => void>
         
         /** Emitted when this MultiplayerAPI's [member multiplayer_peer] successfully connected to a server. Only emitted on clients. */
-        readonly connected_to_server: Signal0
+        readonly connected_to_server: Signal<() => void>
         
         /** Emitted when this MultiplayerAPI's [member multiplayer_peer] fails to establish a connection to a server. Only emitted on clients. */
-        readonly connection_failed: Signal0
+        readonly connection_failed: Signal<() => void>
         
         /** Emitted when this MultiplayerAPI's [member multiplayer_peer] disconnects from server. Only emitted on clients. */
-        readonly server_disconnected: Signal0
+        readonly server_disconnected: Signal<() => void>
     }
     /** Base class used for extending the [MultiplayerAPI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multiplayerapiextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multiplayerapiextension.html  
      */
     class MultiplayerAPIExtension extends MultiplayerAPI {
         constructor(identifier?: any)
         /** Callback for [method MultiplayerAPI.poll]. */
-        /* gdvirtual */ _poll(): GError
+        /* gdvirtual */ _poll(): Error
         
         /** Called when the [member MultiplayerAPI.multiplayer_peer] is set. */
         /* gdvirtual */ _set_multiplayer_peer(multiplayer_peer: MultiplayerPeer): void
@@ -4135,23 +3706,16 @@ declare module "godot" {
         /* gdvirtual */ _get_peer_ids(): PackedInt32Array
         
         /** Callback for [method MultiplayerAPI.rpc]. */
-        /* gdvirtual */ _rpc(peer: int64, object: Object, method: StringName, args: GArray): GError
+        /* gdvirtual */ _rpc(peer: int64, object: Object, method: StringName, args: GArray): Error
         
         /** Callback for [method MultiplayerAPI.get_remote_sender_id]. */
         /* gdvirtual */ _get_remote_sender_id(): int64
         
         /** Callback for [method MultiplayerAPI.object_configuration_add]. */
-        /* gdvirtual */ _object_configuration_add(object: Object, configuration: any): GError
+        /* gdvirtual */ _object_configuration_add(object: Object, configuration: any): Error
         
         /** Callback for [method MultiplayerAPI.object_configuration_remove]. */
-        /* gdvirtual */ _object_configuration_remove(object: Object, configuration: any): GError
-    }
-    class MultiplayerEditorDebugger extends EditorDebuggerPlugin {
-        constructor(identifier?: any)
-        readonly open_request: Signal1<string>
-    }
-    class MultiplayerEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        /* gdvirtual */ _object_configuration_remove(object: Object, configuration: any): Error
     }
     namespace MultiplayerPeer {
         enum ConnectionStatus {
@@ -4177,7 +3741,7 @@ declare module "godot" {
     }
     /** Abstract class for specialized [PacketPeer]s used by the [MultiplayerAPI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multiplayerpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multiplayerpeer.html  
      */
     class MultiplayerPeer extends PacketPeer {
         /** Packets are sent to all connected peers. */
@@ -4208,7 +3772,7 @@ declare module "godot" {
         close(): void
         
         /** Disconnects the given [param peer] from this host. If [param force] is `true` the [signal peer_disconnected] signal will not be emitted for this peer. */
-        disconnect_peer(peer: int64, force: boolean = false): void
+        disconnect_peer(peer: int64, force?: boolean /* = false */): void
         
         /** Returns the current state of the connection. See [enum ConnectionStatus]. */
         get_connection_status(): MultiplayerPeer.ConnectionStatus
@@ -4238,22 +3802,22 @@ declare module "godot" {
         set transfer_channel(value: int64)
         
         /** Emitted when a remote peer connects. */
-        readonly peer_connected: Signal1<int64>
+        readonly peer_connected: Signal<(id: int64) => void>
         
         /** Emitted when a remote peer has disconnected. */
-        readonly peer_disconnected: Signal1<int64>
+        readonly peer_disconnected: Signal<(id: int64) => void>
     }
     /** Class that can be inherited to implement custom multiplayer API networking layers via GDExtension.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multiplayerpeerextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multiplayerpeerextension.html  
      */
     class MultiplayerPeerExtension extends MultiplayerPeer {
         constructor(identifier?: any)
         /** Called when a packet needs to be received by the [MultiplayerAPI], with [param r_buffer_size] being the size of the binary [param r_buffer] in bytes. */
-        /* gdvirtual */ _get_packet(r_buffer: int64, r_buffer_size: int64): GError
+        /* gdvirtual */ _get_packet(r_buffer: int64, r_buffer_size: int64): Error
         
         /** Called when a packet needs to be sent by the [MultiplayerAPI], with [param p_buffer_size] being the size of the binary [param p_buffer] in bytes. */
-        /* gdvirtual */ _put_packet(p_buffer: int64, p_buffer_size: int64): GError
+        /* gdvirtual */ _put_packet(p_buffer: int64, p_buffer_size: int64): Error
         
         /** Called when the available packet count is internally requested by the [MultiplayerAPI]. */
         /* gdvirtual */ _get_available_packet_count(): int64
@@ -4265,7 +3829,7 @@ declare module "godot" {
         /* gdvirtual */ _get_packet_script(): PackedByteArray
         
         /** Called when a packet needs to be sent by the [MultiplayerAPI], if [method _put_packet] isn't implemented. Use this when extending this class via GDScript. */
-        /* gdvirtual */ _put_packet_script(p_buffer: PackedByteArray | byte[] | ArrayBuffer): GError
+        /* gdvirtual */ _put_packet_script(p_buffer: PackedByteArray | byte[] | ArrayBuffer): Error
         
         /** Called to get the channel over which the next available packet was received. See [method MultiplayerPeer.get_packet_channel]. */
         /* gdvirtual */ _get_packet_channel(): int64
@@ -4320,9 +3884,9 @@ declare module "godot" {
     }
     /** Automatically replicates spawnable nodes from the authority to other multiplayer peers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multiplayerspawner.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multiplayerspawner.html  
      */
-    class MultiplayerSpawner<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class MultiplayerSpawner<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Adds a scene path to spawnable scenes, making it automatically replicated from the multiplayer authority to other peers when added as children of the node pointed by [member spawn_path]. */
         add_spawnable_scene(path: string): void
@@ -4340,7 +3904,7 @@ declare module "godot" {
          *      
          *  **Note:** Spawnable scenes are spawned automatically. [method spawn] is only needed for custom spawns.  
          */
-        spawn(data: any = <any> {}): Node
+        spawn(data?: any /* = <any> {} */): Node
         get _spawnable_scenes(): PackedStringArray
         set _spawnable_scenes(value: PackedStringArray | string[])
         
@@ -4362,10 +3926,10 @@ declare module "godot" {
         set spawn_function(value: Callable)
         
         /** Emitted when a spawnable scene or custom spawn was despawned by the multiplayer authority. Only called on remote peers. */
-        readonly despawned: Signal1<Node>
+        readonly despawned: Signal<(node: Node) => void>
         
         /** Emitted when a spawnable scene or custom spawn was spawned by the multiplayer authority. Only called on remote peers. */
-        readonly spawned: Signal1<Node>
+        readonly spawned: Signal<(node: Node) => void>
     }
     namespace MultiplayerSynchronizer {
         enum VisibilityUpdateMode {
@@ -4381,12 +3945,12 @@ declare module "godot" {
     }
     /** Synchronizes properties from the multiplayer authority to the remote peers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_multiplayersynchronizer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_multiplayersynchronizer.html  
      */
-    class MultiplayerSynchronizer<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class MultiplayerSynchronizer<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Updates the visibility of [param for_peer] according to visibility filters. If [param for_peer] is `0` (the default), all peers' visibilties are updated. */
-        update_visibility(for_peer: int64 = 0): void
+        update_visibility(for_peer?: int64 /* = 0 */): void
         
         /** Adds a peer visibility filter for this synchronizer.  
          *  [param filter] should take a peer ID [int] and return a [bool].  
@@ -4429,17 +3993,17 @@ declare module "godot" {
         set public_visibility(value: boolean)
         
         /** Emitted when a new synchronization state is received by this synchronizer after the properties have been updated. */
-        readonly synchronized: Signal0
+        readonly synchronized: Signal<() => void>
         
         /** Emitted when a new delta synchronization state is received by this synchronizer after the properties have been updated. */
-        readonly delta_synchronized: Signal0
+        readonly delta_synchronized: Signal<() => void>
         
         /** Emitted when visibility of [param for_peer] is updated. See [method update_visibility]. */
-        readonly visibility_changed: Signal1<int64>
+        readonly visibility_changed: Signal<(for_peer: int64) => void>
     }
     /** A binary [Semaphore] for synchronization of multiple [Thread]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_mutex.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_mutex.html  
      */
     class Mutex extends RefCounted {
         constructor(identifier?: any)
@@ -4464,9 +4028,9 @@ declare module "godot" {
     }
     /** A 2D agent used to pathfind to a position while avoiding obstacles.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationagent2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationagent2d.html  
      */
-    class NavigationAgent2D<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class NavigationAgent2D<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this agent on the [NavigationServer2D]. */
         get_rid(): RID
@@ -4645,13 +4209,13 @@ declare module "godot" {
          *  - because navigation map has changed.  
          *  - because agent pushed further away from the current path segment than the [member path_max_distance].  
          */
-        readonly path_changed: Signal0
+        readonly path_changed: Signal<() => void>
         
         /** Signals that the agent reached the target, i.e. the agent moved within [member target_desired_distance] of the [member target_position]. This signal is emitted only once per loaded path.  
          *  This signal will be emitted just before [signal navigation_finished] when the target is reachable.  
          *  It may not always be possible to reach the target but it should always be possible to reach the final position. See [method get_final_position].  
          */
-        readonly target_reached: Signal0
+        readonly target_reached: Signal<() => void>
         
         /** Signals that the agent reached a waypoint. Emitted when the agent moves within [member path_desired_distance] of the next position of the path.  
          *  The details dictionary may contain the following keys depending on the value of [member path_metadata_flags]:  
@@ -4660,7 +4224,7 @@ declare module "godot" {
          *  - `rid`: The [RID] of the containing navigation primitive (region or link).  
          *  - `owner`: The object which manages the containing navigation primitive (region or link).  
          */
-        readonly waypoint_reached: Signal1<GDictionary>
+        readonly waypoint_reached: Signal<(details: GDictionary) => void>
         
         /** Signals that the agent reached a navigation link. Emitted when the agent moves within [member path_desired_distance] of the next position of the path when that position is a navigation link.  
          *  The details dictionary may contain the following keys depending on the value of [member path_metadata_flags]:  
@@ -4671,21 +4235,21 @@ declare module "godot" {
          *  - `link_entry_position`: If `owner` is available and the owner is a [NavigationLink2D], it will contain the global position of the link's point the agent is entering.  
          *  - `link_exit_position`: If `owner` is available and the owner is a [NavigationLink2D], it will contain the global position of the link's point which the agent is exiting.  
          */
-        readonly link_reached: Signal1<GDictionary>
+        readonly link_reached: Signal<(details: GDictionary) => void>
         
         /** Signals that the agent's navigation has finished. If the target is reachable, navigation ends when the target is reached. If the target is unreachable, navigation ends when the last waypoint of the path is reached. This signal is emitted only once per loaded path.  
          *  This signal will be emitted just after [signal target_reached] when the target is reachable.  
          */
-        readonly navigation_finished: Signal0
+        readonly navigation_finished: Signal<() => void>
         
         /** Notifies when the collision avoidance velocity is calculated. Emitted every update as long as [member avoidance_enabled] is `true` and the agent has a navigation map. */
-        readonly velocity_computed: Signal1<Vector2>
+        readonly velocity_computed: Signal<(safe_velocity: Vector2) => void>
     }
     /** A 3D agent used to pathfind to a position while avoiding obstacles.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationagent3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationagent3d.html  
      */
-    class NavigationAgent3D<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class NavigationAgent3D<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this agent on the [NavigationServer3D]. */
         get_rid(): RID
@@ -4878,13 +4442,13 @@ declare module "godot" {
          *  - because navigation map has changed.  
          *  - because agent pushed further away from the current path segment than the [member path_max_distance].  
          */
-        readonly path_changed: Signal0
+        readonly path_changed: Signal<() => void>
         
         /** Signals that the agent reached the target, i.e. the agent moved within [member target_desired_distance] of the [member target_position]. This signal is emitted only once per loaded path.  
          *  This signal will be emitted just before [signal navigation_finished] when the target is reachable.  
          *  It may not always be possible to reach the target but it should always be possible to reach the final position. See [method get_final_position].  
          */
-        readonly target_reached: Signal0
+        readonly target_reached: Signal<() => void>
         
         /** Signals that the agent reached a waypoint. Emitted when the agent moves within [member path_desired_distance] of the next position of the path.  
          *  The details dictionary may contain the following keys depending on the value of [member path_metadata_flags]:  
@@ -4893,7 +4457,7 @@ declare module "godot" {
          *  - `rid`: The [RID] of the containing navigation primitive (region or link).  
          *  - `owner`: The object which manages the containing navigation primitive (region or link).  
          */
-        readonly waypoint_reached: Signal1<GDictionary>
+        readonly waypoint_reached: Signal<(details: GDictionary) => void>
         
         /** Signals that the agent reached a navigation link. Emitted when the agent moves within [member path_desired_distance] of the next position of the path when that position is a navigation link.  
          *  The details dictionary may contain the following keys depending on the value of [member path_metadata_flags]:  
@@ -4904,21 +4468,21 @@ declare module "godot" {
          *  - `link_entry_position`: If `owner` is available and the owner is a [NavigationLink3D], it will contain the global position of the link's point the agent is entering.  
          *  - `link_exit_position`: If `owner` is available and the owner is a [NavigationLink3D], it will contain the global position of the link's point which the agent is exiting.  
          */
-        readonly link_reached: Signal1<GDictionary>
+        readonly link_reached: Signal<(details: GDictionary) => void>
         
         /** Signals that the agent's navigation has finished. If the target is reachable, navigation ends when the target is reached. If the target is unreachable, navigation ends when the last waypoint of the path is reached. This signal is emitted only once per loaded path.  
          *  This signal will be emitted just after [signal target_reached] when the target is reachable.  
          */
-        readonly navigation_finished: Signal0
+        readonly navigation_finished: Signal<() => void>
         
         /** Notifies when the collision avoidance velocity is calculated. Emitted every update as long as [member avoidance_enabled] is `true` and the agent has a navigation map. */
-        readonly velocity_computed: Signal1<Vector3>
+        readonly velocity_computed: Signal<(safe_velocity: Vector3) => void>
     }
     /** A link between two positions on [NavigationRegion2D]s that agents can be routed through.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationlink2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationlink2d.html  
      */
-    class NavigationLink2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class NavigationLink2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this link on the [NavigationServer2D]. */
         get_rid(): RID
@@ -4981,17 +4545,11 @@ declare module "godot" {
         get travel_cost(): float64
         set travel_cost(value: float64)
     }
-    class NavigationLink2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class NavigationLink2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A link between two positions on [NavigationRegion3D]s that agents can be routed through.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationlink3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationlink3d.html  
      */
-    class NavigationLink3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class NavigationLink3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this link on the [NavigationServer3D]. */
         get_rid(): RID
@@ -5054,9 +4612,6 @@ declare module "godot" {
         get travel_cost(): float64
         set travel_cost(value: float64)
     }
-    class NavigationLink3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     namespace NavigationMesh {
         enum SamplePartitionType {
             /** Watershed partitioning. Generally the best choice if you precompute the navigation mesh, use this if you have large open areas. */
@@ -5100,7 +4655,7 @@ declare module "godot" {
     }
     /** A navigation mesh that defines traversable areas and obstacles.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationmesh.html  
      */
     class NavigationMesh extends Resource {
         constructor(identifier?: any)
@@ -5257,15 +4812,9 @@ declare module "godot" {
         get filter_baking_aabb_offset(): Vector3
         set filter_baking_aabb_offset(value: Vector3)
     }
-    class NavigationMeshEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class NavigationMeshEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Container for parsed source geometry data used in navigation mesh baking.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationmeshsourcegeometrydata2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationmeshsourcegeometrydata2d.html  
      */
     class NavigationMeshSourceGeometryData2D extends Resource {
         constructor(identifier?: any)
@@ -5307,7 +4856,7 @@ declare module "godot" {
     }
     /** Container for parsed source geometry data used in navigation mesh baking.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationmeshsourcegeometrydata3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationmeshsourcegeometrydata3d.html  
      */
     class NavigationMeshSourceGeometryData3D extends Resource {
         constructor(identifier?: any)
@@ -5349,9 +4898,9 @@ declare module "godot" {
     }
     /** 2D obstacle used to affect navigation mesh baking or constrain velocities of avoidance controlled agents.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationobstacle2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationobstacle2d.html  
      */
-    class NavigationObstacle2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class NavigationObstacle2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this obstacle on the [NavigationServer2D]. */
         get_rid(): RID
@@ -5399,17 +4948,11 @@ declare module "godot" {
         get avoidance_layers(): int64
         set avoidance_layers(value: int64)
     }
-    class NavigationObstacle2DEditor<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditor<Map> {
-        constructor(identifier?: any)
-    }
-    class NavigationObstacle2DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** 3D obstacle used to affect navigation mesh baking or constrain velocities of avoidance controlled agents.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationobstacle3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationobstacle3d.html  
      */
-    class NavigationObstacle3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class NavigationObstacle3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this obstacle on the [NavigationServer3D]. */
         get_rid(): RID
@@ -5467,12 +5010,6 @@ declare module "godot" {
         get use_3d_avoidance(): boolean
         set use_3d_avoidance(value: boolean)
     }
-    class NavigationObstacle3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class NavigationObstacle3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     namespace NavigationPathQueryParameters2D {
         enum PathfindingAlgorithm {
             /** The path query uses the default A* pathfinding algorithm. */
@@ -5507,7 +5044,7 @@ declare module "godot" {
     }
     /** Provides parameters for 2D navigation path queries.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationpathqueryparameters2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationpathqueryparameters2d.html  
      */
     class NavigationPathQueryParameters2D extends RefCounted {
         constructor(identifier?: any)
@@ -5548,6 +5085,20 @@ declare module "godot" {
         /** The path simplification amount in worlds units. */
         get simplify_epsilon(): float64
         set simplify_epsilon(value: float64)
+        
+        /** The list of region [RID]s that will be excluded from the path query. Use [method NavigationRegion2D.get_rid] to get the [RID] associated with a [NavigationRegion2D] node.  
+         *      
+         *  **Note:** The returned array is copied and any changes to it will not update the original property value. To update the value you need to modify the returned array, and then set it to the property again.  
+         */
+        get excluded_regions(): GArray
+        set excluded_regions(value: GArray)
+        
+        /** The list of region [RID]s that will be included by the path query. Use [method NavigationRegion2D.get_rid] to get the [RID] associated with a [NavigationRegion2D] node. If left empty all regions are included. If a region ends up being both included and excluded at the same time it will be excluded.  
+         *      
+         *  **Note:** The returned array is copied and any changes to it will not update the original property value. To update the value you need to modify the returned array, and then set it to the property again.  
+         */
+        get included_regions(): GArray
+        set included_regions(value: GArray)
     }
     namespace NavigationPathQueryParameters3D {
         enum PathfindingAlgorithm {
@@ -5583,7 +5134,7 @@ declare module "godot" {
     }
     /** Provides parameters for 3D navigation path queries.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationpathqueryparameters3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationpathqueryparameters3d.html  
      */
     class NavigationPathQueryParameters3D extends RefCounted {
         constructor(identifier?: any)
@@ -5624,6 +5175,20 @@ declare module "godot" {
         /** The path simplification amount in worlds units. */
         get simplify_epsilon(): float64
         set simplify_epsilon(value: float64)
+        
+        /** The list of region [RID]s that will be excluded from the path query. Use [method NavigationRegion3D.get_rid] to get the [RID] associated with a [NavigationRegion3D] node.  
+         *      
+         *  **Note:** The returned array is copied and any changes to it will not update the original property value. To update the value you need to modify the returned array, and then set it to the property again.  
+         */
+        get excluded_regions(): GArray
+        set excluded_regions(value: GArray)
+        
+        /** The list of region [RID]s that will be included by the path query. Use [method NavigationRegion3D.get_rid] to get the [RID] associated with a [NavigationRegion3D] node. If left empty all regions are included. If a region ends up being both included and excluded at the same time it will be excluded.  
+         *      
+         *  **Note:** The returned array is copied and any changes to it will not update the original property value. To update the value you need to modify the returned array, and then set it to the property again.  
+         */
+        get included_regions(): GArray
+        set included_regions(value: GArray)
     }
     namespace NavigationPathQueryResult2D {
         enum PathSegmentType {
@@ -5636,7 +5201,7 @@ declare module "godot" {
     }
     /** Represents the result of a 2D pathfinding query.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationpathqueryresult2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationpathqueryresult2d.html  
      */
     class NavigationPathQueryResult2D extends RefCounted {
         constructor(identifier?: any)
@@ -5670,7 +5235,7 @@ declare module "godot" {
     }
     /** Represents the result of a 3D pathfinding query.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationpathqueryresult3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationpathqueryresult3d.html  
      */
     class NavigationPathQueryResult3D extends RefCounted {
         constructor(identifier?: any)
@@ -5735,7 +5300,7 @@ declare module "godot" {
     }
     /** A 2D navigation mesh that describes a traversable surface for pathfinding.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationpolygon.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationpolygon.html  
      */
     class NavigationPolygon extends Resource {
         constructor(identifier?: any)
@@ -5839,17 +5404,11 @@ declare module "godot" {
         get baking_rect_offset(): Vector2
         set baking_rect_offset(value: Vector2)
     }
-    class NavigationPolygonEditor<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditor<Map> {
-        constructor(identifier?: any)
-    }
-    class NavigationPolygonEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends AbstractPolygon2DEditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** A traversable 2D region that [NavigationAgent2D]s can use for pathfinding.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationregion2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationregion2d.html  
      */
-    class NavigationRegion2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class NavigationRegion2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this region on the [NavigationServer2D]. Combined with [method NavigationServer2D.map_get_closest_point_owner] can be used to identify the [NavigationRegion2D] closest to a point on the merged navigation map. */
         get_rid(): RID
@@ -5870,7 +5429,7 @@ declare module "godot" {
         get_region_rid(): RID
         
         /** Bakes the [NavigationPolygon]. If [param on_thread] is set to `true` (default), the baking is done on a separate thread. */
-        bake_navigation_polygon(on_thread: boolean = true): void
+        bake_navigation_polygon(on_thread?: boolean /* = true */): void
         
         /** Returns `true` when the [NavigationPolygon] is being baked on a background thread. */
         is_baking(): boolean
@@ -5904,16 +5463,16 @@ declare module "godot" {
         set travel_cost(value: float64)
         
         /** Emitted when the used navigation polygon is replaced or changes to the internals of the current navigation polygon are committed. */
-        readonly navigation_polygon_changed: Signal0
+        readonly navigation_polygon_changed: Signal<() => void>
         
         /** Emitted when a navigation polygon bake operation is completed. */
-        readonly bake_finished: Signal0
+        readonly bake_finished: Signal<() => void>
     }
     /** A traversable 3D region that [NavigationAgent3D]s can use for pathfinding.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_navigationregion3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_navigationregion3d.html  
      */
-    class NavigationRegion3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class NavigationRegion3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns the [RID] of this region on the [NavigationServer3D]. Combined with [method NavigationServer3D.map_get_closest_point_owner] can be used to identify the [NavigationRegion3D] closest to a point on the merged navigation map. */
         get_rid(): RID
@@ -5934,7 +5493,7 @@ declare module "godot" {
         get_region_rid(): RID
         
         /** Bakes the [NavigationMesh]. If [param on_thread] is set to `true` (default), the baking is done on a separate thread. Baking on separate thread is useful because navigation baking is not a cheap operation. When it is completed, it automatically sets the new [NavigationMesh]. Please note that baking on separate thread may be very slow if geometry is parsed from meshes as async access to each mesh involves heavy synchronization. Also, please note that baking on a separate thread is automatically disabled on operating systems that cannot use threads (such as Web with threads disabled). */
-        bake_navigation_mesh(on_thread: boolean = true): void
+        bake_navigation_mesh(on_thread?: boolean /* = true */): void
         
         /** Returns `true` when the [NavigationMesh] is being baked on a background thread. */
         is_baking(): boolean
@@ -5967,13 +5526,10 @@ declare module "godot" {
         set travel_cost(value: float64)
         
         /** Notifies when the [NavigationMesh] has changed. */
-        readonly navigation_mesh_changed: Signal0
+        readonly navigation_mesh_changed: Signal<() => void>
         
         /** Notifies when the navigation mesh bake operation is completed. */
-        readonly bake_finished: Signal0
-    }
-    class NavigationRegion3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
+        readonly bake_finished: Signal<() => void>
     }
     namespace NinePatchRect {
         enum AxisStretchMode {
@@ -5989,9 +5545,9 @@ declare module "godot" {
     }
     /** A control that displays a texture by keeping its corners intact, but tiling its edges and center.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_ninepatchrect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_ninepatchrect.html  
      */
-    class NinePatchRect<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class NinePatchRect<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Sets the size of the margin on the specified [enum Side] to [param value] pixels. */
         set_patch_margin(margin: Side, value: int64): void
@@ -6036,7 +5592,7 @@ declare module "godot" {
         set axis_stretch_vertical(value: int64)
         
         /** Emitted when the node's texture changes. */
-        readonly texture_changed: Signal0
+        readonly texture_changed: Signal<() => void>
     }
     namespace Node {
         enum ProcessMode {
@@ -6086,7 +5642,7 @@ declare module "godot" {
             PHYSICS_INTERPOLATION_MODE_OFF = 2,
         }
         enum DuplicateFlags {
-            /** Duplicate the node's signal connections. */
+            /** Duplicate the node's signal connections that are connected with the [constant Object.CONNECT_PERSIST] flag. */
             DUPLICATE_SIGNALS = 1,
             
             /** Duplicate the node's groups. */
@@ -6123,7 +5679,7 @@ declare module "godot" {
     }
     /** Base class for all scene objects.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_node.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_node.html  
      */
     class Node<Map extends Record<string, Node> = {}> extends Object {
         // TypeScript's inference won't directly match against a generic parameter. The generic parameter has to
@@ -6408,21 +5964,21 @@ declare module "godot" {
          *      
          *  **Note:** If this node is internal, the added sibling will be internal too (see [method add_child]'s `internal` parameter).  
          */
-        add_sibling(sibling: Node, force_readable_name: boolean = false): void
+        add_sibling(sibling: Node, force_readable_name?: boolean /* = false */): void
         set_name(name: string): void
         get_name(): StringName
         
         /** Adds a child [param node]. Nodes can have any number of children, but every child must have a unique name. Child nodes are automatically deleted when the parent node is deleted, so an entire scene can be removed by deleting its topmost node.  
          *  If [param force_readable_name] is `true`, improves the readability of the added [param node]. If not named, the [param node] is renamed to its type, and if it shares [member name] with a sibling, a number is suffixed more appropriately. This operation is very slow. As such, it is recommended leaving this to `false`, which assigns a dummy name featuring `@` in both situations.  
-         *  If [param internal] is different than [constant INTERNAL_MODE_DISABLED], the child will be added as internal node. These nodes are ignored by methods like [method get_children], unless their parameter `include_internal` is `true`. The intended usage is to hide the internal nodes from the user, so the user won't accidentally delete or modify them. Used by some GUI nodes, e.g. [ColorPicker]. See [enum InternalMode] for available modes.  
+         *  If [param internal] is different than [constant INTERNAL_MODE_DISABLED], the child will be added as internal node. These nodes are ignored by methods like [method get_children], unless their parameter `include_internal` is `true`. It also prevents these nodes being duplicated with their parent. The intended usage is to hide the internal nodes from the user, so the user won't accidentally delete or modify them. Used by some GUI nodes, e.g. [ColorPicker]. See [enum InternalMode] for available modes.  
          *      
          *  **Note:** If [param node] already has a parent, this method will fail. Use [method remove_child] first to remove [param node] from its current parent. For example:  
          *    
          *  If you need the child node to be added below a specific node in the list of children, use [method add_sibling] instead of this method.  
          *      
-         *  **Note:** If you want a child to be persisted to a [PackedScene], you must set [member owner] in addition to calling [method add_child]. This is typically relevant for [url=https://docs.godotengine.org/en/4.4/tutorials/plugins/running_code_in_the_editor.html]tool scripts[/url] and [url=https://docs.godotengine.org/en/4.4/tutorials/plugins/editor/index.html]editor plugins[/url]. If [method add_child] is called without setting [member owner], the newly added [Node] will not be visible in the scene tree, though it will be visible in the 2D/3D view.  
+         *  **Note:** If you want a child to be persisted to a [PackedScene], you must set [member owner] in addition to calling [method add_child]. This is typically relevant for [url=https://docs.godotengine.org/en/latest/tutorials/plugins/running_code_in_the_editor.html]tool scripts[/url] and [url=https://docs.godotengine.org/en/latest/tutorials/plugins/editor/index.html]editor plugins[/url]. If [method add_child] is called without setting [member owner], the newly added [Node] will not be visible in the scene tree, though it will be visible in the 2D/3D view.  
          */
-        add_child(node: Node, force_readable_name: boolean = false, internal: Node.InternalMode = 0): void
+        add_child(node: Node, force_readable_name?: boolean /* = false */, internal?: Node.InternalMode /* = 0 */): void
         
         /** Removes a child [param node]. The [param node], along with its children, are **not** deleted. To delete a node, see [method queue_free].  
          *      
@@ -6433,17 +5989,17 @@ declare module "godot" {
         /** Changes the parent of this [Node] to the [param new_parent]. The node needs to already have a parent. The node's [member owner] is preserved if its owner is still reachable from the new location (i.e., the node is still a descendant of the new parent after the operation).  
          *  If [param keep_global_transform] is `true`, the node's global transform will be preserved if supported. [Node2D], [Node3D] and [Control] support this argument (but [Control] keeps only position).  
          */
-        reparent(new_parent: Node, keep_global_transform: boolean = true): void
+        reparent(new_parent: Node, keep_global_transform?: boolean /* = true */): void
         
         /** Returns the number of children of this node.  
          *  If [param include_internal] is `false`, internal children are not counted (see [method add_child]'s `internal` parameter).  
          */
-        get_child_count(include_internal: boolean = false): int64
+        get_child_count(include_internal?: boolean /* = false */): int64
         
         /** Returns all children of this node inside an [Array].  
          *  If [param include_internal] is `false`, excludes internal children from the returned array (see [method add_child]'s `internal` parameter).  
          */
-        get_children(include_internal: boolean = false): GArray
+        get_children(include_internal?: boolean /* = false */): GArray
         
         /** Fetches a child node by its index. Each child node has an index relative its siblings (see [method get_index]). The first child is at index 0. Negative values can also be used to start from the end of the list. This method can be used in combination with [method get_child_count] to iterate over this node's children. If no child exists at the given index, this method returns `null` and an error is generated.  
          *  If [param include_internal] is `false`, internal children are ignored (see [method add_child]'s `internal` parameter).  
@@ -6451,7 +6007,7 @@ declare module "godot" {
          *      
          *  **Note:** To fetch a node by [NodePath], use [method get_node].  
          */
-        get_child(idx: int64, include_internal: boolean = false): Node
+        get_child(idx: int64, include_internal?: boolean /* = false */): Node
         
         /** Returns `true` if the [param path] points to a valid node. See also [method get_node]. */
         has_node(path: NodePath | string): boolean
@@ -6475,11 +6031,11 @@ declare module "godot" {
          *  The following calls will return a valid node:  
          *    
          */
-        get_node<Path extends StaticNodePath<Map>>(path: Path): ResolveNodePath<Map, Path>
+        get_node<Path extends StaticNodePath<Map>, Default = never>(path: Path): ResolveNodePath<Map, Path, Default>
         get_node(path: NodePath | string): Node
         
         /** Fetches a node by [NodePath]. Similar to [method get_node], but does not generate an error if [param path] does not point to a valid node. */
-        get_node_or_null<Path extends StaticNodePath<Map>>(path: Path): null | ResolveNodePath<Map, Path>
+        get_node_or_null<Path extends StaticNodePath<Map>, Default = never>(path: Path): null | ResolveNodePath<Map, Path, Default>
         get_node_or_null(path: NodePath | string): null | Node
         
         /** Returns this node's parent node, or `null` if the node doesn't have a parent. */
@@ -6493,7 +6049,7 @@ declare module "godot" {
          *      
          *  **Note:** To find all descendant nodes matching a pattern or a class type, see [method find_children].  
          */
-        find_child(pattern: string, recursive: boolean = true, owned: boolean = true): Node
+        find_child(pattern: string, recursive?: boolean /* = true */, owned?: boolean /* = true */): Node
         
         /** Finds all descendants of this node whose names match [param pattern], returning an empty [Array] if no match is found. The matching is done against node names,  *not*  their paths, through [method String.match]. As such, it is case-sensitive, `"*"` matches zero or more characters, and `"?"` matches any single character.  
          *  If [param type] is not empty, only ancestors inheriting from [param type] are included (see [method Object.is_class]).  
@@ -6504,7 +6060,7 @@ declare module "godot" {
          *      
          *  **Note:** To find a single descendant node matching a pattern, see [method find_child].  
          */
-        find_children(pattern: string, type: string = '', recursive: boolean = true, owned: boolean = true): GArray
+        find_children(pattern: string, type?: string /* = '' */, recursive?: boolean /* = true */, owned?: boolean /* = true */): GArray
         
         /** Finds the first ancestor of this node whose [member name] matches [param pattern], returning `null` if no match is found. The matching is done through [method String.match]. As such, it is case-sensitive, `"*"` matches zero or more characters, and `"?"` matches any single character. See also [method find_child] and [method find_children].  
          *      
@@ -6544,7 +6100,7 @@ declare module "godot" {
          *      
          *  **Note:** If you get a relative path which starts from a unique node, the path may be longer than a normal relative path, due to the addition of the unique node's name.  
          */
-        get_path_to(node: Node, use_unique_path: boolean = false): NodePath
+        get_path_to(node: Node, use_unique_path?: boolean /* = false */): NodePath
         
         /** Adds the node to the [param group]. Groups can be helpful to organize a subset of nodes, for example `"enemies"` or `"collectables"`. See notes in the description, and the group methods in [SceneTree].  
          *  If [param persistent] is `true`, the group will be stored when saved inside a [PackedScene]. All groups created and displayed in the Node dock are persistent.  
@@ -6553,7 +6109,7 @@ declare module "godot" {
          *      
          *  **Note:** [SceneTree]'s group methods will  *not*  work on this node if not inside the tree (see [method is_inside_tree]).  
          */
-        add_to_group(group: StringName, persistent: boolean = false): void
+        add_to_group(group: StringName, persistent?: boolean /* = false */): void
         
         /** Removes the node from the given [param group]. Does nothing if the node is not in the [param group]. See also notes in the description, and the [SceneTree]'s group methods. */
         remove_from_group(group: StringName): void
@@ -6579,7 +6135,7 @@ declare module "godot" {
         /** Returns this node's order among its siblings. The first node's index is `0`. See also [method get_child].  
          *  If [param include_internal] is `false`, returns the index ignoring internal children. The first, non-internal child will have an index of `0` (see [method add_child]'s `internal` parameter).  
          */
-        get_index(include_internal: boolean = false): int64
+        get_index(include_internal?: boolean /* = false */): int64
         
         /** Prints the node and its children to the console, recursively. The node does not have to be inside the tree. This method outputs [NodePath]s relative to this node, and is good for copy/pasting into [method get_node]. See also [method print_tree_pretty].  
          *  May print, for example:  
@@ -6639,7 +6195,7 @@ declare module "godot" {
         /** Calls the given [param method] name, passing [param args] as arguments, on this node and all of its children, recursively.  
          *  If [param parent_first] is `true`, the method is called on this node first, then on all of its children. If `false`, the children's methods are called first.  
          */
-        propagate_call(method: StringName, args: GArray = [], parent_first: boolean = false): void
+        propagate_call(method: StringName, args?: GArray /* = [] */, parent_first?: boolean /* = false */): void
         
         /** If set to `true`, enables physics (fixed framerate) processing. When a node is being processed, it will receive a [constant NOTIFICATION_PHYSICS_PROCESS] at a fixed (usually 60 FPS, see [member Engine.physics_ticks_per_second] to change) interval (and the [method _physics_process] callback will be called if it exists).  
          *      
@@ -6784,17 +6340,17 @@ declare module "godot" {
          */
         create_tween(): Tween
         
-        /** Duplicates the node, returning a new node with all of its properties, signals, groups, and children copied from the original. The behavior can be tweaked through the [param flags] (see [enum DuplicateFlags]).  
+        /** Duplicates the node, returning a new node with all of its properties, signals, groups, and children copied from the original. The behavior can be tweaked through the [param flags] (see [enum DuplicateFlags]). Internal nodes are not duplicated.  
          *      
          *  **Note:** For nodes with a [Script] attached, if [method Object._init] has been defined with required parameters, the duplicated node will not have a [Script].  
          */
-        duplicate(flags: int64 = 15): Node
+        duplicate(flags?: int64 /* = 15 */): Node
         
         /** Replaces this node by the given [param node]. All children of this node are moved to [param node].  
          *  If [param keep_groups] is `true`, the [param node] is added to the same groups that the replaced node is in (see [method add_to_group]).  
          *  **Warning:** The replaced node is removed from the tree, but it is **not** deleted. To prevent memory leaks, store a reference to the node in a variable, or use [method Object.free].  
          */
-        replace_by(node: Node, keep_groups: boolean = false): void
+        replace_by(node: Node, keep_groups?: boolean /* = false */): void
         
         /** If set to `true`, the node becomes a [InstancePlaceholder] when packed and instantiated from a [PackedScene]. See also [method get_scene_instance_load_placeholder]. */
         set_scene_instance_load_placeholder(load_placeholder: boolean): void
@@ -6833,7 +6389,7 @@ declare module "godot" {
          *  If [param recursive] is `true`, the given peer is recursively set as the authority for all children of this node.  
          *  **Warning:** This does **not** automatically replicate the new authority to other peers. It is the developer's responsibility to do so. You may replicate the new authority's information using [member MultiplayerSpawner.spawn_function], an RPC, or a [MultiplayerSynchronizer]. Furthermore, the parent's authority does **not** propagate to newly added children.  
          */
-        set_multiplayer_authority(id: int64, recursive: boolean = true): void
+        set_multiplayer_authority(id: int64, recursive?: boolean /* = true */): void
         
         /** Returns the peer ID of the multiplayer authority for this node. See [method set_multiplayer_authority]. */
         get_multiplayer_authority(): int64
@@ -6847,7 +6403,7 @@ declare module "godot" {
          *  - `call_local`: if `true`, the method will also be called locally;  
          *  - `channel`: an [int] representing the channel to send the RPC on.  
          *      
-         *  **Note:** In GDScript, this method corresponds to the [annotation @GDScript.@rpc] annotation, with various parameters passed (`@rpc(any)`, `@rpc(authority)`...). See also the [url=https://docs.godotengine.org/en/4.4/tutorials/networking/high_level_multiplayer.html]high-level multiplayer[/url] tutorial.  
+         *  **Note:** In GDScript, this method corresponds to the [annotation @GDScript.@rpc] annotation, with various parameters passed (`@rpc(any)`, `@rpc(authority)`...). See also the [url=https://docs.godotengine.org/en/latest/tutorials/networking/high_level_multiplayer.html]high-level multiplayer[/url] tutorial.  
          */
         rpc_config(method: StringName, config: any): void
         
@@ -6857,19 +6413,19 @@ declare module "godot" {
         /** Translates a [param message], using the translation catalogs configured in the Project Settings. Further [param context] can be specified to help with the translation. Note that most [Control] nodes automatically translate their strings, so this method is mostly useful for formatted strings or custom drawn text.  
          *  This method works the same as [method Object.tr], with the addition of respecting the [member auto_translate_mode] state.  
          *  If [method Object.can_translate_messages] is `false`, or no translation is available, this method returns the [param message] without changes. See [method Object.set_message_translation].  
-         *  For detailed examples, see [url=https://docs.godotengine.org/en/4.4/tutorials/i18n/internationalizing_games.html]Internationalizing games[/url].  
+         *  For detailed examples, see [url=https://docs.godotengine.org/en/latest/tutorials/i18n/internationalizing_games.html]Internationalizing games[/url].  
          */
-        atr(message: string, context: StringName = ''): string
+        atr(message: string, context?: StringName /* = '' */): string
         
         /** Translates a [param message] or [param plural_message], using the translation catalogs configured in the Project Settings. Further [param context] can be specified to help with the translation.  
          *  This method works the same as [method Object.tr_n], with the addition of respecting the [member auto_translate_mode] state.  
          *  If [method Object.can_translate_messages] is `false`, or no translation is available, this method returns [param message] or [param plural_message], without changes. See [method Object.set_message_translation].  
          *  The [param n] is the number, or amount, of the message's subject. It is used by the translation system to fetch the correct plural form for the current language.  
-         *  For detailed examples, see [url=https://docs.godotengine.org/en/4.4/tutorials/i18n/localization_using_gettext.html]Localization using gettext[/url].  
+         *  For detailed examples, see [url=https://docs.godotengine.org/en/latest/tutorials/i18n/localization_using_gettext.html]Localization using gettext[/url].  
          *      
          *  **Note:** Negative and [float] numbers may not properly apply to some countable subjects. It's recommended to handle these cases with [method atr].  
          */
-        atr_n(message: string, plural_message: StringName, n: int64, context: StringName = ''): string
+        atr_n(message: string, plural_message: StringName, n: int64, context?: StringName /* = '' */): string
         _set_property_pinned(property: string, pinned: boolean): void
         
         /** Sends a remote procedure call request for the given [param method] to peers on the network (and locally), sending additional arguments to the method called by the RPC. The call request will only be received by nodes with the same [NodePath], including the exact same [member name]. Behavior depends on the RPC configuration for the given [param method] (see [method rpc_config] and [annotation @GDScript.@rpc]). By default, methods are not exposed to RPCs.  
@@ -6877,18 +6433,18 @@ declare module "godot" {
          *      
          *  **Note:** You can only safely use RPCs on clients after you received the [signal MultiplayerAPI.connected_to_server] signal from the [MultiplayerAPI]. You also need to keep track of the connection state, either by the [MultiplayerAPI] signals like [signal MultiplayerAPI.server_disconnected] or by checking (`get_multiplayer().peer.get_connection_status() == CONNECTION_CONNECTED`).  
          */
-        rpc(method: StringName, ...vargargs: any[]): GError
+        rpc(method: StringName, ...varargs: any[]): Error
         
         /** Sends a [method rpc] to a specific peer identified by [param peer_id] (see [method MultiplayerPeer.set_target_peer]).  
          *  May return [constant OK] if the call is successful, [constant ERR_INVALID_PARAMETER] if the arguments passed in the [param method] do not match, [constant ERR_UNCONFIGURED] if the node's [member multiplayer] cannot be fetched (such as when the node is not inside the tree), [constant ERR_CONNECTION_ERROR] if [member multiplayer]'s connection is not available.  
          */
-        rpc_id(peer_id: int64, method: StringName, ...vargargs: any[]): GError
+        rpc_id(peer_id: int64, method: StringName, ...varargs: any[]): Error
         
         /** Refreshes the warnings displayed for this node in the Scene dock. Use [method _get_configuration_warnings] to customize the warning messages to display. */
         update_configuration_warnings(): void
         
         /** This function is similar to [method Object.call_deferred] except that the call will take place when the node thread group is processed. If the node thread group processes in sub-threads, then the call will be done on that thread, right before [constant NOTIFICATION_PROCESS] or [constant NOTIFICATION_PHYSICS_PROCESS], the [method _process] or [method _physics_process] or their internal versions are called. */
-        call_deferred_thread_group(method: StringName, ...vargargs: any[]): any
+        call_deferred_thread_group(method: StringName, ...varargs: any[]): any
         
         /** Similar to [method call_deferred_thread_group], but for setting properties. */
         set_deferred_thread_group(property: StringName, value: any): void
@@ -6897,7 +6453,7 @@ declare module "godot" {
         notify_deferred_thread_group(what: int64): void
         
         /** This function ensures that the calling of this function will succeed, no matter whether it's being done from a thread or not. If called from a thread that is not allowed to call the function, the call will become deferred. Otherwise, the call will go through directly. */
-        call_thread_safe(method: StringName, ...vargargs: any[]): any
+        call_thread_safe(method: StringName, ...varargs: any[]): any
         
         /** Similar to [method call_thread_safe], but for setting properties. */
         set_thread_safe(property: StringName, value: any): void
@@ -6978,64 +6534,64 @@ declare module "godot" {
         set editor_description(value: string)
         
         /** Emitted when the node is considered ready, after [method _ready] is called. */
-        readonly ready: Signal0
+        readonly ready: Signal<() => void>
         
         /** Emitted when the node's [member name] is changed, if the node is inside the tree. */
-        readonly renamed: Signal0
+        readonly renamed: Signal<() => void>
         
         /** Emitted when the node enters the tree.  
          *  This signal is emitted  *after*  the related [constant NOTIFICATION_ENTER_TREE] notification.  
          */
-        readonly tree_entered: Signal0
+        readonly tree_entered: Signal<() => void>
         
         /** Emitted when the node is just about to exit the tree. The node is still valid. As such, this is the right place for de-initialization (or a "destructor", if you will).  
          *  This signal is emitted  *after*  the node's [method _exit_tree], and  *before*  the related [constant NOTIFICATION_EXIT_TREE].  
          */
-        readonly tree_exiting: Signal0
+        readonly tree_exiting: Signal<() => void>
         
         /** Emitted after the node exits the tree and is no longer active.  
          *  This signal is emitted  *after*  the related [constant NOTIFICATION_EXIT_TREE] notification.  
          */
-        readonly tree_exited: Signal0
+        readonly tree_exited: Signal<() => void>
         
         /** Emitted when the child [param node] enters the [SceneTree], usually because this node entered the tree (see [signal tree_entered]), or [method add_child] has been called.  
          *  This signal is emitted  *after*  the child node's own [constant NOTIFICATION_ENTER_TREE] and [signal tree_entered].  
          */
-        readonly child_entered_tree: Signal1<Node>
+        readonly child_entered_tree: Signal<(node: Node) => void>
         
         /** Emitted when the child [param node] is about to exit the [SceneTree], usually because this node is exiting the tree (see [signal tree_exiting]), or because the child [param node] is being removed or freed.  
          *  When this signal is received, the child [param node] is still accessible inside the tree. This signal is emitted  *after*  the child node's own [signal tree_exiting] and [constant NOTIFICATION_EXIT_TREE].  
          */
-        readonly child_exiting_tree: Signal1<Node>
+        readonly child_exiting_tree: Signal<(node: Node) => void>
         
         /** Emitted when the list of children is changed. This happens when child nodes are added, moved or removed. */
-        readonly child_order_changed: Signal0
+        readonly child_order_changed: Signal<() => void>
         
         /** Emitted when this node is being replaced by the [param node], see [method replace_by].  
          *  This signal is emitted  *after*  [param node] has been added as a child of the original parent node, but  *before*  all original child nodes have been reparented to [param node].  
          */
-        readonly replacing_by: Signal1<Node>
+        readonly replacing_by: Signal<(node: Node) => void>
         
         /** Emitted when the node's editor description field changed. */
-        readonly editor_description_changed: Signal1<Node>
+        readonly editor_description_changed: Signal<(node: Node) => void>
         
         /** Emitted when an attribute of the node that is relevant to the editor is changed. Only emitted in the editor. */
-        readonly editor_state_changed: Signal0
+        readonly editor_state_changed: Signal<() => void>
     }
     /** A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and skew.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_node2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_node2d.html  
      */
-    class Node2D<Map extends Record<string, Node> = Record<string, Node>> extends CanvasItem<Map> {
+    class Node2D<Map extends Record<string, Node> = {}> extends CanvasItem<Map> {
         constructor(identifier?: any)
         /** Applies a rotation to the node, in radians, starting from its current rotation. */
         rotate(radians: float64): void
         
         /** Applies a local translation on the node's X axis based on the [method Node._process]'s [param delta]. If [param scaled] is `false`, normalizes the movement. */
-        move_local_x(delta: float64, scaled: boolean = false): void
+        move_local_x(delta: float64, scaled?: boolean /* = false */): void
         
         /** Applies a local translation on the node's Y axis based on the [method Node._process]'s [param delta]. If [param scaled] is `false`, normalizes the movement. */
-        move_local_y(delta: float64, scaled: boolean = false): void
+        move_local_y(delta: float64, scaled?: boolean /* = false */): void
         
         /** Translates the node by the given [param offset] in local coordinates. */
         translate(offset: Vector2): void
@@ -7126,37 +6682,43 @@ declare module "godot" {
     }
     namespace Node3D {
         enum RotationEditMode {
-            /** The rotation is edited using [Vector3] Euler angles. */
+            /** The rotation is edited using a [Vector3] in [url=https://en.wikipedia.org/wiki/Euler_angles]Euler angles[/url]. */
             ROTATION_EDIT_MODE_EULER = 0,
             
             /** The rotation is edited using a [Quaternion]. */
             ROTATION_EDIT_MODE_QUATERNION = 1,
             
-            /** The rotation is edited using a [Basis]. In this mode, [member scale] can't be edited separately. */
+            /** The rotation is edited using a [Basis]. In this mode, the raw [member basis]'s axes can be freely modified, but the [member scale] property is not available. */
             ROTATION_EDIT_MODE_BASIS = 2,
         }
     }
-    /** Most basic 3D game object, parent of all 3D-related nodes.  
+    /** Base object in 3D space, inherited by all 3D nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_node3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_node3d.html  
      */
-    class Node3D<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
-        /** [Node3D] nodes receive this notification when their global transform changes. This means that either the current or a parent node changed its transform.  
-         *  In order for [constant NOTIFICATION_TRANSFORM_CHANGED] to work, users first need to ask for it, with [method set_notify_transform]. The notification is also sent if the node is in the editor context and it has at least one valid gizmo.  
+    class Node3D<Map extends Record<string, Node> = {}> extends Node<Map> {
+        /** Notification received when this node's [member global_transform] changes, if [method is_transform_notification_enabled] is `true`. See also [method set_notify_transform].  
+         *      
+         *  **Note:** Most 3D nodes such as [VisualInstance3D] or [CollisionObject3D] automatically enable this to function correctly.  
+         *      
+         *  **Note:** In the editor, nodes will propagate this notification to their children if a gizmo is attached (see [method add_gizmo]).  
          */
         static readonly NOTIFICATION_TRANSFORM_CHANGED = 2000
         
-        /** [Node3D] nodes receive this notification when they are registered to new [World3D] resource. */
+        /** Notification received when this node is registered to a new [World3D] (see [method get_world_3d]). */
         static readonly NOTIFICATION_ENTER_WORLD = 41
         
-        /** [Node3D] nodes receive this notification when they are unregistered from current [World3D] resource. */
+        /** Notification received when this node is unregistered from the current [World3D] (see [method get_world_3d]). */
         static readonly NOTIFICATION_EXIT_WORLD = 42
         
-        /** [Node3D] nodes receive this notification when their visibility changes. */
+        /** Notification received when this node's visibility changes (see [member visible] and [method is_visible_in_tree]).  
+         *  This notification is received  *before*  the related [signal visibility_changed] signal.  
+         */
         static readonly NOTIFICATION_VISIBILITY_CHANGED = 43
         
-        /** [Node3D] nodes receive this notification when their local transform changes. This is not received when the transform of a parent node is changed.  
-         *  In order for [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED] to work, users first need to ask for it, with [method set_notify_local_transform].  
+        /** Notification received when this node's [member transform] changes, if [method is_local_transform_notification_enabled] is `true`. This is not received when a parent [Node3D]'s [member transform] changes. See also [method set_notify_local_transform].  
+         *      
+         *  **Note:** Some 3D nodes such as [CSGShape3D] or [CollisionShape3D] automatically enable this to function correctly.  
          */
         static readonly NOTIFICATION_LOCAL_TRANSFORM_CHANGED = 44
         constructor(identifier?: any)
@@ -7168,259 +6730,283 @@ declare module "godot" {
          */
         get_global_transform_interpolated(): Transform3D
         
-        /** Returns the parent [Node3D], or `null` if no parent exists, the parent is not of type [Node3D], or [member top_level] is `true`.  
+        /** Returns the parent [Node3D] that directly affects this node's [member global_transform]. Returns `null` if no parent exists, the parent is not a [Node3D], or [member top_level] is `true`.  
          *      
-         *  **Note:** Calling this method is not equivalent to `get_parent() as Node3D`, which does not take [member top_level] into account.  
+         *  **Note:** This method is not always equivalent to [method Node.get_parent], which does not take [member top_level] into account.  
          */
         get_parent_node_3d(): Node3D
         
-        /** Sets whether the node ignores notification that its transformation (global or local) changed. */
+        /** If `true`, the node will not receive [constant NOTIFICATION_TRANSFORM_CHANGED] or [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED].  
+         *  It may useful to call this method when handling these notifications to prevent infinite recursion.  
+         */
         set_ignore_transform_notification(enabled: boolean): void
         
-        /** Sets whether the node uses a scale of `(1, 1, 1)` or its local transformation scale. Changes to the local transformation scale are preserved. */
+        /** If `true`, this node's [member global_transform] is automatically orthonormalized. This results in this node not appearing distorted, as if its global scale were set to [constant Vector3.ONE] (or its negative counterpart). See also [method is_scale_disabled] and [method orthonormalize].  
+         *      
+         *  **Note:** [member transform] is not affected by this setting.  
+         */
         set_disable_scale(disable: boolean): void
         
-        /** Returns whether this node uses a scale of `(1, 1, 1)` or its local transformation scale. */
+        /** Returns `true` if this node's [member global_transform] is automatically orthonormalized. This results in this node not appearing distorted, as if its global scale were set to [constant Vector3.ONE] (or its negative counterpart). See also [method set_disable_scale] and [method orthonormalize].  
+         *      
+         *  **Note:** [member transform] is not affected by this setting.  
+         */
         is_scale_disabled(): boolean
         
-        /** Returns the current [World3D] resource this [Node3D] node is registered to. */
+        /** Returns the [World3D] this node is registered to.  
+         *  Usually, this is the same as the world used by this node's viewport (see [method Node.get_viewport] and [method Viewport.find_world_3d]).  
+         */
         get_world_3d(): World3D
         
-        /** Forces the transform to update. Transform changes in physics are not instant for performance reasons. Transforms are accumulated and then set. Use this if you need an up-to-date transform when doing physics operations. */
+        /** Forces the node's [member global_transform] to update, by sending [constant NOTIFICATION_TRANSFORM_CHANGED]. Fails if the node is not inside the tree.  
+         *      
+         *  **Note:** For performance reasons, transform changes are usually accumulated and applied  *once*  at the end of the frame. The update propagates through [Node3D] children, as well. Therefore, use this method only when you need an up-to-date transform (such as during physics operations).  
+         */
         force_update_transform(): void
         
-        /** Updates all the [Node3D] gizmos attached to this node. */
+        /** Updates all the [EditorNode3DGizmo] objects attached to this node. Only works in the editor. */
         update_gizmos(): void
         
-        /** Attach an editor gizmo to this [Node3D].  
+        /** Attaches the given [param gizmo] to this node. Only works in the editor.  
          *      
-         *  **Note:** The gizmo object would typically be an instance of [EditorNode3DGizmo], but the argument type is kept generic to avoid creating a dependency on editor classes in [Node3D].  
+         *  **Note:** [param gizmo] should be an [EditorNode3DGizmo]. The argument type is [Node3DGizmo] to avoid depending on editor classes in [Node3D].  
          */
         add_gizmo(gizmo: Node3DGizmo): void
         
-        /** Returns all the gizmos attached to this [Node3D]. */
+        /** Returns all the [EditorNode3DGizmo] objects attached to this node. Only works in the editor. */
         get_gizmos(): GArray
         
-        /** Clear all gizmos attached to this [Node3D]. */
+        /** Clears all [EditorNode3DGizmo] objects attached to this node. Only works in the editor. */
         clear_gizmos(): void
         
-        /** Set subgizmo selection for this node in the editor.  
+        /** Selects the [param gizmo]'s subgizmo with the given [param id] and sets its transform. Only works in the editor.  
          *      
          *  **Note:** The gizmo object would typically be an instance of [EditorNode3DGizmo], but the argument type is kept generic to avoid creating a dependency on editor classes in [Node3D].  
          */
         set_subgizmo_selection(gizmo: Node3DGizmo, id: int64, transform: Transform3D): void
         
-        /** Clears subgizmo selection for this node in the editor. Useful when subgizmo IDs become invalid after a property change. */
+        /** Deselects all subgizmos for this node. Useful to call when the selected subgizmo may no longer exist after a property change. Only works in the editor. */
         clear_subgizmo_selection(): void
         
-        /** Returns `true` if the node is present in the [SceneTree], its [member visible] property is `true` and all its ancestors are also visible. If any ancestor is hidden, this node will not be visible in the scene tree.  
-         *  Visibility is checked only in parent nodes that inherit from [Node3D]. If the parent is of any other type (such as [Node], [AnimationPlayer], or [Node2D]), it is assumed to be visible.  
+        /** Returns `true` if this node is inside the scene tree and the [member visible] property is `true` for this node and all of its [Node3D] ancestors  *in sequence* . An ancestor of any other type (such as [Node] or [Node2D]) breaks the sequence. See also [method Node.get_parent].  
          *      
-         *  **Note:** This method does not take [member VisualInstance3D.layers] into account, so even if this method returns `true`, the node might end up not being rendered.  
+         *  **Note:** This method cannot take [member VisualInstance3D.layers] into account, so even if this method returns `true`, the node may not be rendered.  
          */
         is_visible_in_tree(): boolean
         
-        /** Enables rendering of this node. Changes [member visible] to `true`. */
+        /** Allows this node to be rendered. Equivalent to setting [member visible] to `true`. This is the opposite of [method hide]. */
         show(): void
         
-        /** Disables rendering of this node. Changes [member visible] to `false`. */
+        /** Prevents this node from being rendered. Equivalent to setting [member visible] to `false`. This is the opposite of [method show]. */
         hide(): void
         
-        /** Sets whether the node notifies about its local transformation changes. [Node3D] will not propagate this by default. */
+        /** If `true`, the node will receive [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED] whenever [member transform] changes.  
+         *      
+         *  **Note:** Some 3D nodes such as [CSGShape3D] or [CollisionShape3D] automatically enable this to function correctly.  
+         */
         set_notify_local_transform(enable: boolean): void
         
-        /** Returns whether node notifies about its local transformation changes. [Node3D] will not propagate this by default. */
+        /** Returns `true` if the node receives [constant NOTIFICATION_LOCAL_TRANSFORM_CHANGED] whenever [member transform] changes. This is enabled with [method set_notify_local_transform]. */
         is_local_transform_notification_enabled(): boolean
         
-        /** Sets whether the node notifies about its global and local transformation changes. [Node3D] will not propagate this by default, unless it is in the editor context and it has a valid gizmo. */
+        /** If `true`, the node will receive [constant NOTIFICATION_TRANSFORM_CHANGED] whenever [member global_transform] changes.  
+         *      
+         *  **Note:** Most 3D nodes such as [VisualInstance3D] or [CollisionObject3D] automatically enable this to function correctly.  
+         *      
+         *  **Note:** In the editor, nodes will propagate this notification to their children if a gizmo is attached (see [method add_gizmo]).  
+         */
         set_notify_transform(enable: boolean): void
         
-        /** Returns whether the node notifies about its global and local transformation changes. [Node3D] will not propagate this by default. */
+        /** Returns `true` if the node receives [constant NOTIFICATION_TRANSFORM_CHANGED] whenever [member global_transform] changes. This is enabled with [method set_notify_transform]. */
         is_transform_notification_enabled(): boolean
         
-        /** Rotates the local transformation around axis, a unit [Vector3], by specified angle in radians. */
+        /** Rotates this node's [member basis] around the [param axis] by the given [param angle], in radians. This operation is calculated in parent space (relative to the parent) and preserves the [member position]. */
         rotate(axis: Vector3, angle: float64): void
         
-        /** Rotates the global (world) transformation around axis, a unit [Vector3], by specified angle in radians. The rotation axis is in global coordinate system. */
+        /** Rotates this node's [member global_basis] around the global [param axis] by the given [param angle], in radians. This operation is calculated in global space (relative to the world) and preserves the [member global_position]. */
         global_rotate(axis: Vector3, angle: float64): void
         
-        /** Scales the global (world) transformation by the given [Vector3] scale factors. */
+        /** Scales this node's [member global_basis] by the given [param scale] factor. This operation is calculated in global space (relative to the world) and preserves the [member global_position].  
+         *      
+         *  **Note:** This method is not to be confused with the [member scale] property.  
+         */
         global_scale(scale: Vector3): void
         
-        /** Moves the global (world) transformation by [Vector3] offset. The offset is in global coordinate system. */
+        /** Adds the given translation [param offset] to the node's [member global_position] in global space (relative to the world). */
         global_translate(offset: Vector3): void
         
-        /** Rotates the local transformation around axis, a unit [Vector3], by specified angle in radians. The rotation axis is in object-local coordinate system. */
+        /** Rotates this node's [member basis] around the [param axis] by the given [param angle], in radians. This operation is calculated in local space (relative to this node) and preserves the [member position]. */
         rotate_object_local(axis: Vector3, angle: float64): void
         
-        /** Scales the local transformation by given 3D scale factors in object-local coordinate system. */
+        /** Scales this node's [member basis] by the given [param scale] factor. This operation is calculated in local space (relative to this node) and preserves the [member position]. */
         scale_object_local(scale: Vector3): void
         
-        /** Changes the node's position by the given offset [Vector3] in local space. */
+        /** Adds the given translation [param offset] to the node's position, in local space (relative to this node). */
         translate_object_local(offset: Vector3): void
         
-        /** Rotates the local transformation around the X axis by angle in radians. */
+        /** Rotates this node's [member basis] around the X axis by the given [param angle], in radians. This operation is calculated in parent space (relative to the parent) and preserves the [member position]. */
         rotate_x(angle: float64): void
         
-        /** Rotates the local transformation around the Y axis by angle in radians. */
+        /** Rotates this node's [member basis] around the Y axis by the given [param angle], in radians. This operation is calculated in parent space (relative to the parent) and preserves the [member position]. */
         rotate_y(angle: float64): void
         
-        /** Rotates the local transformation around the Z axis by angle in radians. */
+        /** Rotates this node's [member basis] around the Z axis by the given [param angle], in radians. This operation is calculated in parent space (relative to the parent) and preserves the [member position]. */
         rotate_z(angle: float64): void
         
-        /** Changes the node's position by the given offset [Vector3].  
-         *  Note that the translation [param offset] is affected by the node's scale, so if scaled by e.g. `(10, 1, 1)`, a translation by an offset of `(2, 0, 0)` would actually add 20 (`2 * 10`) to the X coordinate.  
+        /** Adds the given translation [param offset] to the node's position, in local space (relative to this node).  
+         *      
+         *  **Note:** Prefer using [method translate_object_local], instead, as this method may be changed in a future release.  
+         *      
+         *  **Note:** Despite the naming convention, this operation is **not** calculated in parent space for compatibility reasons. To translate in parent space, add [param offset] to the [member position] (`node_3d.position += offset`).  
          */
         translate(offset: Vector3): void
         
-        /** Resets this node's transformations (like scale, skew and taper) preserving its rotation and translation by performing Gram-Schmidt orthonormalization on this node's [Transform3D]. */
+        /** Orthonormalizes this node's [member basis]. This method sets this node's [member scale] to [constant Vector3.ONE] (or its negative counterpart), but preserves the [member position] and [member rotation]. See also [method Transform3D.orthonormalized]. */
         orthonormalize(): void
         
-        /** Reset all transformations for this node (sets its [Transform3D] to the identity matrix). */
+        /** Sets this node's [member transform] to [constant Transform3D.IDENTITY], which resets all transformations in parent space ([member position], [member rotation], and [member scale]). */
         set_identity(): void
         
-        /** Rotates the node so that the local forward axis (-Z, [constant Vector3.FORWARD]) points toward the [param target] position.  
+        /** Rotates the node so that the local forward axis (-Z, [constant Vector3.FORWARD]) points toward the [param target] position. This operation is calculated in global space (relative to the world).  
          *  The local up axis (+Y) points as close to the [param up] vector as possible while staying perpendicular to the local forward axis. The resulting transform is orthogonal, and the scale is preserved. Non-uniform scaling may not work correctly.  
-         *  The [param target] position cannot be the same as the node's position, the [param up] vector cannot be zero.  
-         *  The [param target] and the [param up] cannot be [constant Vector3.ZERO], and shouldn't be colinear to avoid unintended rotation around local Z axis.  
-         *  Operations take place in global space, which means that the node must be in the scene tree.  
+         *  The [param target] position cannot be the same as the node's position, the [param up] vector cannot be [constant Vector3.ZERO]. Furthermore, the direction from the node's position to the [param target] position cannot be parallel to the [param up] vector, to avoid unintended rotation around the local Z axis.  
          *  If [param use_model_front] is `true`, the +Z axis (asset front) is treated as forward (implies +X is left) and points toward the [param target] position. By default, the -Z axis (camera forward) is treated as forward (implies +X is right).  
+         *      
+         *  **Note:** This method fails if the node is not in the scene tree. If necessary, use [method look_at_from_position] instead.  
          */
-        look_at(target: Vector3, up: Vector3 = Vector3.ZERO, use_model_front: boolean = false): void
+        look_at(target: Vector3, up?: Vector3 /* = Vector3.ZERO */, use_model_front?: boolean /* = false */): void
         
-        /** Moves the node to the specified [param position], and then rotates the node to point toward the [param target] as per [method look_at]. Operations take place in global space. */
-        look_at_from_position(position: Vector3, target: Vector3, up: Vector3 = Vector3.ZERO, use_model_front: boolean = false): void
+        /** Moves the node to the specified [param position], then rotates the node to point toward the [param target] position, similar to [method look_at]. This operation is calculated in global space (relative to the world). */
+        look_at_from_position(position: Vector3, target: Vector3, up?: Vector3 /* = Vector3.ZERO */, use_model_front?: boolean /* = false */): void
         
-        /** Transforms [param global_point] from world space to this node's local space. */
+        /** Returns the [param global_point] converted from global space to this node's local space. This is the opposite of [method to_global]. */
         to_local(global_point: Vector3): Vector3
         
-        /** Transforms [param local_point] from this node's local space to world space. */
+        /** Returns the [param local_point] converted from this node's local space to global space. This is the opposite of [method to_local]. */
         to_global(local_point: Vector3): Vector3
         
-        /** Local space [Transform3D] of this node, with respect to the parent node. */
+        /** The local transformation of this node, in parent space (relative to the parent node). Contains and represents this node's [member position], [member rotation], and [member scale]. */
         get transform(): Transform3D
         set transform(value: Transform3D)
         
-        /** World3D space (global) [Transform3D] of this node. */
+        /** The transformation of this node, in global space (relative to the world). Contains and represents this node's [member global_position], [member global_rotation], and global scale.  
+         *      
+         *  **Note:** If the node is not inside the tree, getting this property fails and returns [constant Transform3D.IDENTITY].  
+         */
         get global_transform(): Transform3D
         set global_transform(value: Transform3D)
         
-        /** Local position or translation of this node relative to the parent. This is equivalent to `transform.origin`. */
+        /** Position (translation) of this node in parent space (relative to the parent node). This is equivalent to the [member transform]'s [member Transform3D.origin]. */
         get position(): Vector3
         set position(value: Vector3)
         
-        /** Rotation part of the local transformation in radians, specified in terms of Euler angles. The angles construct a rotation in the order specified by the [member rotation_order] property.  
+        /** Rotation of this node as [url=https://en.wikipedia.org/wiki/Euler_angles]Euler angles[/url], in radians and in parent space (relative to the parent node). This value is obtained from [member basis]'s rotation.  
+         *  - The [member Vector3.x] is the angle around the local X axis (pitch);  
+         *  - The [member Vector3.y] is the angle around the local Y axis (yaw);  
+         *  - The [member Vector3.z] is the angle around the local Z axis (roll).  
+         *  The order of each consecutive rotation can be changed with [member rotation_order] (see [enum EulerOrder] constants). By default, the YXZ convention is used ([constant EULER_ORDER_YXZ]).  
          *      
-         *  **Note:** In the mathematical sense, rotation is a matrix and not a vector. The three Euler angles, which are the three independent parameters of the Euler-angle parametrization of the rotation matrix, are stored in a [Vector3] data structure not because the rotation is a vector, but only because [Vector3] exists as a convenient data-structure to store 3 floating-point numbers. Therefore, applying affine operations on the rotation "vector" is not meaningful.  
-         *      
-         *  **Note:** This property is edited in the inspector in degrees. If you want to use degrees in a script, use [member rotation_degrees].  
+         *  **Note:** This property is edited in degrees in the inspector. If you want to use degrees in a script, use [member rotation_degrees].  
          */
         get rotation(): Vector3
         set rotation(value: Vector3)
         
-        /** Helper property to access [member rotation] in degrees instead of radians. */
+        /** The [member rotation] of this node, in degrees instead of radians.  
+         *      
+         *  **Note:** This is **not** the property available in the Inspector dock.  
+         */
         get rotation_degrees(): Vector3
         set rotation_degrees(value: Vector3)
         
-        /** Access to the node rotation as a [Quaternion]. This property is ideal for tweening complex rotations. */
+        /** Rotation of this node represented as a [Quaternion] in parent space (relative to the parent node). This value is obtained from [member basis]'s rotation.  
+         *      
+         *  **Note:** Quaternions are much more suitable for 3D math but are less intuitive. Setting this property can be useful for interpolation (see [method Quaternion.slerp]).  
+         */
         get quaternion(): Quaternion
         set quaternion(value: Quaternion)
         
-        /** Basis of the [member transform] property. Represents the rotation, scale, and shear of this node. */
+        /** Basis of the [member transform] property. Represents the rotation, scale, and shear of this node in parent space (relative to the parent node). */
         get basis(): Basis
         set basis(value: Basis)
         
-        /** Scale part of the local transformation.  
+        /** Scale of this node in local space (relative to this node). This value is obtained from [member basis]'s scale.  
          *      
-         *  **Note:** Mixed negative scales in 3D are not decomposable from the transformation matrix. Due to the way scale is represented with transformation matrices in Godot, the scale values will either be all positive or all negative.  
-         *      
-         *  **Note:** Not all nodes are visually scaled by the [member scale] property. For example, [Light3D]s are not visually affected by [member scale].  
+         *  **Note:** The behavior of some 3D node types is not affected by this property. These include [Light3D], [Camera3D], [AudioStreamPlayer3D], and more.  
+         *  **Warning:** The scale's components must either be all positive or all negative, and **not** exactly `0.0`. Otherwise, it won't be possible to obtain the scale from the [member basis]. This may cause the intended scale to be lost when reloaded from disk, and potentially other unstable behavior.  
          */
         get scale(): Vector3
         set scale(value: Vector3)
         
-        /** Specify how rotation (and scale) will be presented in the editor. */
+        /** How this node's rotation and scale are displayed in the Inspector dock. */
         get rotation_edit_mode(): int64
         set rotation_edit_mode(value: int64)
         
-        /** Specify the axis rotation order of the [member rotation] property. The final orientation is constructed by rotating the Euler angles in the order specified by this property. */
+        /** The axis rotation order of the [member rotation] property. The final orientation is calculated by rotating around the local X, Y, and Z axis in this order. */
         get rotation_order(): int64
         set rotation_order(value: int64)
         
-        /** If `true`, the node will not inherit its transformations from its parent. Node transformations are only in global space. */
+        /** If `true`, the node does not inherit its transformations from its parent. As such, node transformations will only be in global space, which also means that [member global_transform] and [member transform] will be identical. */
         get top_level(): boolean
         set top_level(value: boolean)
         
-        /** Global position of this node. This is equivalent to `global_transform.origin`. */
+        /** Global position (translation) of this node in global space (relative to the world). This is equivalent to the [member global_transform]'s [member Transform3D.origin].  
+         *      
+         *  **Note:** If the node is not inside the tree, getting this property fails and returns [constant Vector3.ZERO].  
+         */
         get global_position(): Vector3
         set global_position(value: Vector3)
         
-        /** Global basis of this node. This is equivalent to `global_transform.basis`. */
+        /** Basis of the [member global_transform] property. Represents the rotation, scale, and shear of this node in global space (relative to the world).  
+         *      
+         *  **Note:** If the node is not inside the tree, getting this property fails and returns [constant Basis.IDENTITY].  
+         */
         get global_basis(): Basis
         set global_basis(value: Basis)
         
-        /** Rotation part of the global transformation in radians, specified in terms of YXZ-Euler angles in the format (X angle, Y angle, Z angle).  
+        /** Global rotation of this node as [url=https://en.wikipedia.org/wiki/Euler_angles]Euler angles[/url], in radians and in global space (relative to the world). This value is obtained from [member global_basis]'s rotation.  
+         *  - The [member Vector3.x] is the angle around the global X axis (pitch);  
+         *  - The [member Vector3.y] is the angle around the global Y axis (yaw);  
+         *  - The [member Vector3.z] is the angle around the global Z axis (roll).  
          *      
-         *  **Note:** In the mathematical sense, rotation is a matrix and not a vector. The three Euler angles, which are the three independent parameters of the Euler-angle parametrization of the rotation matrix, are stored in a [Vector3] data structure not because the rotation is a vector, but only because [Vector3] exists as a convenient data-structure to store 3 floating-point numbers. Therefore, applying affine operations on the rotation "vector" is not meaningful.  
+         *  **Note:** Unlike [member rotation], this property always follows the YXZ convention ([constant EULER_ORDER_YXZ]).  
+         *      
+         *  **Note:** If the node is not inside the tree, getting this property fails and returns [constant Vector3.ZERO].  
          */
         get global_rotation(): Vector3
         set global_rotation(value: Vector3)
         
-        /** Helper property to access [member global_rotation] in degrees instead of radians. */
+        /** The [member global_rotation] of this node, in degrees instead of radians.  
+         *      
+         *  **Note:** If the node is not inside the tree, getting this property fails and returns [constant Vector3.ZERO].  
+         */
         get global_rotation_degrees(): Vector3
         set global_rotation_degrees(value: Vector3)
         
-        /** If `true`, this node is drawn. The node is only visible if all of its ancestors are visible as well (in other words, [method is_visible_in_tree] must return `true`). */
+        /** If `true`, this node can be visible. The node is only rendered when all of its ancestors are visible, as well. That means [method is_visible_in_tree] must return `true`. */
         get visible(): boolean
         set visible(value: boolean)
         
-        /** Defines the visibility range parent for this node and its subtree. The visibility parent must be a GeometryInstance3D. Any visual instance will only be visible if the visibility parent (and all of its visibility ancestors) is hidden by being closer to the camera than its own [member GeometryInstance3D.visibility_range_begin]. Nodes hidden via the [member Node3D.visible] property are essentially removed from the visibility dependency tree, so dependent instances will not take the hidden node or its ancestors into account. */
+        /** Path to the visibility range parent for this node and its descendants. The visibility parent must be a [GeometryInstance3D].  
+         *  Any visual instance will only be visible if the visibility parent (and all of its visibility ancestors) is hidden by being closer to the camera than its own [member GeometryInstance3D.visibility_range_begin]. Nodes hidden via the [member Node3D.visible] property are essentially removed from the visibility dependency tree, so dependent instances will not take the hidden node or its descendants into account.  
+         */
         get visibility_parent(): NodePath
         set visibility_parent(value: NodePath | string)
         
-        /** Emitted when node visibility changes. */
-        readonly visibility_changed: Signal0
-    }
-    class Node3DEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _get_editor_data(_unnamed_arg0: Object): Object
-        _request_gizmo(_unnamed_arg0: Object): void
-        _request_gizmo_for_id(_unnamed_arg0: int64): void
-        _set_subgizmo_selection(_unnamed_arg0: Object, _unnamed_arg1: Node3DGizmo, _unnamed_arg2: int64, _unnamed_arg3: Transform3D): void
-        _clear_subgizmo_selection(_unnamed_arg0: Object): void
-        _refresh_menu_icons(): void
-        update_all_gizmos(_unnamed_arg0: Node): void
-        update_transform_gizmo(): void
-        readonly transform_key_request: Signal0
-        readonly item_lock_status_changed: Signal0
-        readonly item_group_status_changed: Signal0
-    }
-    class Node3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class Node3DEditorViewport<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-        readonly toggle_maximize_view: Signal1<Object>
-        readonly clicked: Signal0
-    }
-    class Node3DEditorViewportContainer<Map extends Record<string, Node> = Record<string, Node>> extends Container<Map> {
-        constructor(identifier?: any)
+        /** Emitted when this node's visibility changes (see [member visible] and [method is_visible_in_tree]).  
+         *  This signal is emitted  *after*  the related [constant NOTIFICATION_VISIBILITY_CHANGED] notification.  
+         */
+        readonly visibility_changed: Signal<() => void>
     }
     /** Abstract class to expose editor gizmos for [Node3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_node3dgizmo.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_node3dgizmo.html  
      */
     class Node3DGizmo extends RefCounted {
         constructor(identifier?: any)
     }
-    class NodeDock<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        _save_layout_to_config(_unnamed_arg0: ConfigFile, _unnamed_arg1: string): void
-        _load_layout_from_config(_unnamed_arg0: ConfigFile, _unnamed_arg1: string): void
-    }
     /** Abstract base class for noise generators.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_noise.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_noise.html  
      */
     class Noise extends Resource {
         constructor(identifier?: any)
@@ -7443,35 +7029,29 @@ declare module "godot" {
          *      
          *  **Note:** With [param normalize] set to `false`, the default implementation expects the noise generator to return values in the range `-1.0` to `1.0`.  
          */
-        get_image(width: int64, height: int64, invert: boolean = false, in_3d_space: boolean = false, normalize: boolean = true): Image
+        get_image(width: int64, height: int64, invert?: boolean /* = false */, in_3d_space?: boolean /* = false */, normalize?: boolean /* = true */): Image
         
         /** Returns an [Image] containing seamless 2D noise values.  
          *      
          *  **Note:** With [param normalize] set to `false`, the default implementation expects the noise generator to return values in the range `-1.0` to `1.0`.  
          */
-        get_seamless_image(width: int64, height: int64, invert: boolean = false, in_3d_space: boolean = false, skirt: float64 = 0.1, normalize: boolean = true): Image
+        get_seamless_image(width: int64, height: int64, invert?: boolean /* = false */, in_3d_space?: boolean /* = false */, skirt?: float64 /* = 0.1 */, normalize?: boolean /* = true */): Image
         
         /** Returns an [Array] of [Image]s containing 3D noise values for use with [method ImageTexture3D.create].  
          *      
          *  **Note:** With [param normalize] set to `false`, the default implementation expects the noise generator to return values in the range `-1.0` to `1.0`.  
          */
-        get_image_3d(width: int64, height: int64, depth: int64, invert: boolean = false, normalize: boolean = true): GArray
+        get_image_3d(width: int64, height: int64, depth: int64, invert?: boolean /* = false */, normalize?: boolean /* = true */): GArray
         
         /** Returns an [Array] of [Image]s containing seamless 3D noise values for use with [method ImageTexture3D.create].  
          *      
          *  **Note:** With [param normalize] set to `false`, the default implementation expects the noise generator to return values in the range `-1.0` to `1.0`.  
          */
-        get_seamless_image_3d(width: int64, height: int64, depth: int64, invert: boolean = false, skirt: float64 = 0.1, normalize: boolean = true): GArray
-    }
-    class NoiseEditorInspectorPlugin extends EditorInspectorPlugin {
-        constructor(identifier?: any)
-    }
-    class NoiseEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        get_seamless_image_3d(width: int64, height: int64, depth: int64, invert?: boolean /* = false */, skirt?: float64 /* = 0.1 */, normalize?: boolean /* = true */): GArray
     }
     /** A 2D texture filled with noise generated by a [Noise] object.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_noisetexture2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_noisetexture2d.html  
      */
     class NoiseTexture2D extends Texture2D {
         constructor(identifier?: any)
@@ -7538,7 +7118,7 @@ declare module "godot" {
     }
     /** A 3D texture filled with noise generated by a [Noise] object.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_noisetexture3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_noisetexture3d.html  
      */
     class NoiseTexture3D extends Texture3D {
         constructor(identifier?: any)
@@ -7590,12 +7170,9 @@ declare module "godot" {
     }
     /** A PBR (Physically Based Rendering) material to be used on 3D objects. Uses an ORM texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_ormmaterial3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_ormmaterial3d.html  
      */
     class ORMMaterial3D extends BaseMaterial3D {
-        constructor(identifier?: any)
-    }
-    class ORMMaterial3DConversionPlugin extends EditorResourceConversionPlugin {
         constructor(identifier?: any)
     }
     namespace Object {
@@ -7615,7 +7192,7 @@ declare module "godot" {
     }
     /** Base class for all other classes in the engine.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_object.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_object.html  
      */
     class Object {
         /** Notification received when the object is initialized, before its script is attached. Used internally. */
@@ -7694,7 +7271,7 @@ declare module "godot" {
          *  Example:  
          *    
          *      
-         *  **Note:** Alternatively, you can ignore [param iter] and use the object's state instead, see [url=https://docs.godotengine.org/en/4.4/tutorials/scripting/gdscript/gdscript_advanced.html#custom-iterators]online docs[/url] for an example. Note that in this case you will not be able to reuse the same iterator instance in nested loops. Also, make sure you reset the iterator state in this method if you want to reuse the same instance multiple times.  
+         *  **Note:** Alternatively, you can ignore [param iter] and use the object's state instead, see [url=https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_advanced.html#custom-iterators]online docs[/url] for an example. Note that in this case you will not be able to reuse the same iterator instance in nested loops. Also, make sure you reset the iterator state in this method if you want to reuse the same instance multiple times.  
          */
         /* gdvirtual */ _iter_init(iter: GArray): boolean
         
@@ -7788,7 +7365,7 @@ declare module "godot" {
          *  If [param reversed] is `true`, the call order is reversed.  
          *    
          */
-        notification(what: int64, reversed: boolean = false): void
+        notification(what: int64, reversed?: boolean /* = false */): void
         
         /** Returns a [String] representing the object. Defaults to `"<ClassName#RID>"`. Override [method _to_string] to customize the string representation of the object. */
         to_string(): string
@@ -7830,7 +7407,7 @@ declare module "godot" {
          *      
          *  **Note:** Metadata that has a name starting with an underscore (`_`) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.  
          */
-        get_meta(name: StringName, default_: any = <any> {}): any
+        get_meta(name: StringName, default_?: any /* = <any> {} */): any
         
         /** Returns `true` if a metadata entry is found with the given [param name]. See also [method get_meta], [method set_meta] and [method remove_meta].  
          *      
@@ -7846,7 +7423,7 @@ declare module "godot" {
         /** Adds a user-defined signal named [param signal]. Optional arguments for the signal can be added as an [Array] of dictionaries, each defining a `name` [String] and a `type` [int] (see [enum Variant.Type]). See also [method has_user_signal] and [method remove_user_signal].  
          *    
          */
-        add_user_signal(signal: string, arguments_: GArray = []): void
+        add_user_signal(signal: string, arguments_?: GArray /* = [] */): void
         
         /** Returns `true` if the given user-defined [param signal] name exists. Only signals added with [method add_user_signal] are included. See also [method remove_user_signal]. */
         has_user_signal(signal: StringName): boolean
@@ -7860,14 +7437,14 @@ declare module "godot" {
          *      
          *  **Note:** In C#, [param signal] must be in snake_case when referring to built-in Godot signals. Prefer using the names exposed in the `SignalName` class to avoid allocating a new [StringName] on each call.  
          */
-        emit_signal(signal: StringName, ...vargargs: any[]): GError
+        emit_signal(signal: StringName, ...varargs: any[]): Error
         
         /** Calls the [param method] on the object and returns the result. This method supports a variable number of arguments, so parameters can be passed as a comma separated list.  
          *    
          *      
          *  **Note:** In C#, [param method] must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the `MethodName` class to avoid allocating a new [StringName] on each call.  
          */
-        call(method: StringName, ...vargargs: any[]): any
+        call(method: StringName, ...varargs: any[]): any
         
         /** Calls the [param method] on the object during idle time. Always returns `null`, **not** the method's result.  
          *  Idle time happens mainly at the end of process and physics frames. In it, deferred calls will be run until there are none left, which means you can defer calls from other deferred calls and they'll still be run in the current idle time cycle. This means you should not call a method deferred from itself (or from a method called by it), as this causes infinite recursion the same way as if you had called the method directly.  
@@ -7880,7 +7457,7 @@ declare module "godot" {
          *  **Note:** If you're looking to delay the function call by a frame, refer to the [signal SceneTree.process_frame] and [signal SceneTree.physics_frame] signals.  
          *    
          */
-        call_deferred(method: StringName, ...vargargs: any[]): any
+        call_deferred(method: StringName, ...varargs: any[]): any
         
         /** Assigns [param value] to the given [param property], at the end of the current frame. This is equivalent to calling [method set] through [method call_deferred].  
          *    
@@ -7949,7 +7526,7 @@ declare module "godot" {
          *  When calling [method emit_signal] or [method Signal.emit], the signal parameters can be also passed. The examples below show the relationship between these signal parameters and bound parameters.  
          *    
          */
-        connect(signal: StringName, callable: Callable, flags: int64 = 0): GError
+        connect(signal: StringName, callable: Callable, flags?: int64 /* = 0 */): Error
         
         /** Disconnects a [param signal] by name from a given [param callable]. If the connection does not exist, generates an error. Use [method is_connected] to make sure that the connection exists. */
         disconnect(signal: StringName, callable: Callable): void
@@ -7983,22 +7560,22 @@ declare module "godot" {
         
         /** Translates a [param message], using the translation catalogs configured in the Project Settings. Further [param context] can be specified to help with the translation. Note that most [Control] nodes automatically translate their strings, so this method is mostly useful for formatted strings or custom drawn text.  
          *  If [method can_translate_messages] is `false`, or no translation is available, this method returns the [param message] without changes. See [method set_message_translation].  
-         *  For detailed examples, see [url=https://docs.godotengine.org/en/4.4/tutorials/i18n/internationalizing_games.html]Internationalizing games[/url].  
+         *  For detailed examples, see [url=https://docs.godotengine.org/en/latest/tutorials/i18n/internationalizing_games.html]Internationalizing games[/url].  
          *      
          *  **Note:** This method can't be used without an [Object] instance, as it requires the [method can_translate_messages] method. To translate strings in a static context, use [method TranslationServer.translate].  
          */
-        tr(message: StringName, context: StringName = ''): string
+        tr(message: StringName, context?: StringName /* = '' */): string
         
         /** Translates a [param message] or [param plural_message], using the translation catalogs configured in the Project Settings. Further [param context] can be specified to help with the translation.  
          *  If [method can_translate_messages] is `false`, or no translation is available, this method returns [param message] or [param plural_message], without changes. See [method set_message_translation].  
          *  The [param n] is the number, or amount, of the message's subject. It is used by the translation system to fetch the correct plural form for the current language.  
-         *  For detailed examples, see [url=https://docs.godotengine.org/en/4.4/tutorials/i18n/localization_using_gettext.html]Localization using gettext[/url].  
+         *  For detailed examples, see [url=https://docs.godotengine.org/en/latest/tutorials/i18n/localization_using_gettext.html]Localization using gettext[/url].  
          *      
          *  **Note:** Negative and [float] numbers may not properly apply to some countable subjects. It's recommended to handle these cases with [method tr].  
          *      
          *  **Note:** This method can't be used without an [Object] instance, as it requires the [method can_translate_messages] method. To translate strings in a static context, use [method TranslationServer.translate_plural].  
          */
-        tr_n(message: StringName, plural_message: StringName, n: int64, context: StringName = ''): string
+        tr_n(message: StringName, plural_message: StringName, n: int64, context?: StringName /* = '' */): string
         
         /** Returns the name of the translation domain used by [method tr] and [method tr_n]. See also [TranslationServer]. */
         get_translation_domain(): StringName
@@ -8016,14 +7593,14 @@ declare module "godot" {
          *      
          *  **Note:** When this signal is emitted, the new script is not initialized yet. If you need to access the new script, defer connections to this signal with [constant CONNECT_DEFERRED].  
          */
-        readonly script_changed: Signal0
+        readonly script_changed: Signal<() => void>
         
         /** Emitted when [method notify_property_list_changed] is called. */
-        readonly property_list_changed: Signal0
+        readonly property_list_changed: Signal<() => void>
     }
     /** Occluder shape resource for use with occlusion culling in [OccluderInstance3D].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_occluder3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_occluder3d.html  
      */
     class Occluder3D extends Resource {
         constructor(identifier?: any)
@@ -8035,9 +7612,9 @@ declare module "godot" {
     }
     /** Provides occlusion culling for 3D nodes, which improves performance in closed areas.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_occluderinstance3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_occluderinstance3d.html  
      */
-    class OccluderInstance3D<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class OccluderInstance3D<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Based on [param value], enables or disables the specified layer in the [member bake_mask], given a [param layer_number] between 1 and 32. */
         set_bake_mask_value(layer_number: int64, value: boolean): void
@@ -8069,13 +7646,6 @@ declare module "godot" {
         get bake_simplification_distance(): float64
         set bake_simplification_distance(value: float64)
     }
-    class OccluderInstance3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-        _bake(): void
-    }
-    class OccluderInstance3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     namespace OccluderPolygon2D {
         enum CullMode {
             /** Culling is disabled. See [member cull_mode]. */
@@ -8090,7 +7660,7 @@ declare module "godot" {
     }
     /** Defines a 2D polygon for LightOccluder2D.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_occluderpolygon2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_occluderpolygon2d.html  
      */
     class OccluderPolygon2D extends Resource {
         constructor(identifier?: any)
@@ -8108,14 +7678,14 @@ declare module "godot" {
     }
     /** A [MultiplayerPeer] which is always connected and acts as a server.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_offlinemultiplayerpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_offlinemultiplayerpeer.html  
      */
     class OfflineMultiplayerPeer extends MultiplayerPeer {
         constructor(identifier?: any)
     }
     /** A sequence of Ogg packets.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_oggpacketsequence.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_oggpacketsequence.html  
      */
     class OggPacketSequence extends Resource {
         constructor(identifier?: any)
@@ -8134,7 +7704,7 @@ declare module "godot" {
         get sampling_rate(): float64
         set sampling_rate(value: float64)
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_oggpacketsequenceplayback.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_oggpacketsequenceplayback.html */
     class OggPacketSequencePlayback extends RefCounted {
         constructor(identifier?: any)
     }
@@ -8149,9 +7719,9 @@ declare module "godot" {
     }
     /** Omnidirectional light, such as a light bulb or a candle.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_omnilight3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_omnilight3d.html  
      */
-    class OmniLight3D<Map extends Record<string, Node> = Record<string, Node>> extends Light3D<Map> {
+    class OmniLight3D<Map extends Record<string, Node> = {}> extends Light3D<Map> {
         constructor(identifier?: any)
         /** The light's radius. Note that the effectively lit area may appear to be smaller depending on the [member omni_attenuation] in use. No matter the [member omni_attenuation] in use, the light will never reach anything outside this radius.  
          *      
@@ -8188,7 +7758,7 @@ declare module "godot" {
     }
     /** Makes the OpenXR API available for GDExtension.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrapiextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrapiextension.html  
      */
     class OpenXRAPIExtension extends RefCounted {
         constructor(identifier?: any)
@@ -8240,6 +7810,9 @@ declare module "godot" {
         /** Returns `true` if OpenXR is running ([url=https://registry.khronos.org/OpenXR/specs/1.0/man/html/xrBeginSession.html]xrBeginSession[/url] was successfully called and the swapchains were created). */
         is_running(): boolean
         
+        /** Sets the reference space used by OpenXR to the given [url=https://registry.khronos.org/OpenXR/specs/1.0/man/html/XrSpace.html]XrSpace[/url] (cast to a `void *`). */
+        set_custom_play_space(space: int64): void
+        
         /** Returns the play space, which is an [url=https://registry.khronos.org/OpenXR/specs/1.0/man/html/XrSpace.html]XrSpace[/url] cast to an integer. */
         get_play_space(): int64
         
@@ -8262,16 +7835,22 @@ declare module "godot" {
         get_hand_tracker(hand_index: int64): int64
         
         /** Registers the given extension as a composition layer provider. */
-        register_composition_layer_provider(extension: OpenXRExtensionWrapperExtension): void
+        register_composition_layer_provider(extension: OpenXRExtensionWrapper): void
         
         /** Unregisters the given extension as a composition layer provider. */
-        unregister_composition_layer_provider(extension: OpenXRExtensionWrapperExtension): void
+        unregister_composition_layer_provider(extension: OpenXRExtensionWrapper): void
         
         /** Registers the given extension as a provider of additional data structures to projections views. */
-        register_projection_views_extension(extension: OpenXRExtensionWrapperExtension): void
+        register_projection_views_extension(extension: OpenXRExtensionWrapper): void
         
         /** Unregisters the given extension as a provider of additional data structures to projections views. */
-        unregister_projection_views_extension(extension: OpenXRExtensionWrapperExtension): void
+        unregister_projection_views_extension(extension: OpenXRExtensionWrapper): void
+        
+        /** Registers the given extension as modifying frame info via the [method OpenXRExtensionWrapper._set_frame_wait_info_and_get_next_pointer], [method OpenXRExtensionWrapper._set_view_locate_info_and_get_next_pointer], or [method OpenXRExtensionWrapper._set_frame_end_info_and_get_next_pointer] virtual methods. */
+        register_frame_info_extension(extension: OpenXRExtensionWrapper): void
+        
+        /** Unregisters the given extension as modifying frame info. */
+        unregister_frame_info_extension(extension: OpenXRExtensionWrapper): void
         
         /** Returns the near boundary value of the camera frustum.  
          *      
@@ -8345,7 +7924,7 @@ declare module "godot" {
     }
     /** An OpenXR action.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxraction.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxraction.html  
      */
     class OpenXRAction extends Resource {
         constructor(identifier?: any)
@@ -8363,14 +7942,14 @@ declare module "godot" {
     }
     /** Binding modifier that applies on individual actions related to an interaction profile.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxractionbindingmodifier.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxractionbindingmodifier.html  
      */
     class OpenXRActionBindingModifier extends OpenXRBindingModifier {
         constructor(identifier?: any)
     }
     /** Collection of [OpenXRActionSet] and [OpenXRInteractionProfile] resources for the OpenXR module.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxractionmap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxractionmap.html  
      */
     class OpenXRActionMap extends Resource {
         constructor(identifier?: any)
@@ -8417,7 +7996,7 @@ declare module "godot" {
     }
     /** Collection of [OpenXRAction] resources that make up an action set.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxractionset.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxractionset.html  
      */
     class OpenXRActionSet extends Resource {
         constructor(identifier?: any)
@@ -8444,7 +8023,7 @@ declare module "godot" {
     }
     /** The analog threshold binding modifier can modify a float input to a boolean input with specified thresholds.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxranalogthresholdmodifier.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxranalogthresholdmodifier.html  
      */
     class OpenXRAnalogThresholdModifier extends OpenXRActionBindingModifier {
         constructor(identifier?: any)
@@ -8466,7 +8045,7 @@ declare module "godot" {
     }
     /** Binding modifier base class.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrbindingmodifier.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrbindingmodifier.html  
      */
     class OpenXRBindingModifier extends Resource {
         constructor(identifier?: any)
@@ -8481,9 +8060,9 @@ declare module "godot" {
     }
     /** Binding modifier editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrbindingmodifiereditor.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrbindingmodifiereditor.html  
      */
-    class OpenXRBindingModifierEditor<Map extends Record<string, Node> = Record<string, Node>> extends PanelContainer<Map> {
+    class OpenXRBindingModifierEditor<Map extends Record<string, Node> = {}> extends PanelContainer<Map> {
         constructor(identifier?: any)
         /** Returns the [OpenXRBindingModifier] currently being edited. */
         get_binding_modifier(): OpenXRBindingModifier
@@ -8492,13 +8071,76 @@ declare module "godot" {
         setup(action_map: OpenXRActionMap, binding_modifier: OpenXRBindingModifier): void
         
         /** Signal emitted when the user presses the delete binding modifier button for this modifier. */
-        readonly binding_modifier_removed: Signal1<Object>
+        readonly binding_modifier_removed: Signal<(binding_modifier_editor: Object) => void>
+    }
+    namespace OpenXRCompositionLayer {
+        enum Filter {
+            /** Perform nearest-neighbor filtering when sampling the texture. */
+            FILTER_NEAREST = 0,
+            
+            /** Perform linear filtering when sampling the texture. */
+            FILTER_LINEAR = 1,
+            
+            /** Perform cubic filtering when sampling the texture. */
+            FILTER_CUBIC = 2,
+        }
+        enum MipmapMode {
+            /** Disable mipmapping.  
+             *      
+             *  **Note:** Mipmapping can only be disabled in the compatibility renderer.  
+             */
+            MIPMAP_MODE_DISABLED = 0,
+            
+            /** Use the mipmap of the nearest resolution. */
+            MIPMAP_MODE_NEAREST = 1,
+            
+            /** Use linear interpolation of the two mipmaps of the nearest resolution. */
+            MIPMAP_MODE_LINEAR = 2,
+        }
+        enum Wrap {
+            /** Clamp the texture to its specified border color. */
+            WRAP_CLAMP_TO_BORDER = 0,
+            
+            /** Clamp the texture to its edge color. */
+            WRAP_CLAMP_TO_EDGE = 1,
+            
+            /** Repeat the texture infinitely. */
+            WRAP_REPEAT = 2,
+            
+            /** Repeat the texture infinitely, mirroring it on each repeat. */
+            WRAP_MIRRORED_REPEAT = 3,
+            
+            /** Mirror the texture once and then clamp the texture to its edge color.  
+             *      
+             *  **Note:** This wrap mode is not available in the compatibility renderer.  
+             */
+            WRAP_MIRROR_CLAMP_TO_EDGE = 4,
+        }
+        enum Swizzle {
+            /** Maps a color channel to the value of the red channel. */
+            SWIZZLE_RED = 0,
+            
+            /** Maps a color channel to the value of the green channel. */
+            SWIZZLE_GREEN = 1,
+            
+            /** Maps a color channel to the value of the blue channel. */
+            SWIZZLE_BLUE = 2,
+            
+            /** Maps a color channel to the value of the alpha channel. */
+            SWIZZLE_ALPHA = 3,
+            
+            /** Maps a color channel to the value of zero. */
+            SWIZZLE_ZERO = 4,
+            
+            /** Maps a color channel to the value of one. */
+            SWIZZLE_ONE = 5,
+        }
     }
     /** The parent class of all OpenXR composition layer nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrcompositionlayer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrcompositionlayer.html  
      */
-    class OpenXRCompositionLayer<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class OpenXRCompositionLayer<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns a [JavaObject] representing an `android.view.Surface` if [member use_android_surface] is enabled and OpenXR has created the surface. Otherwise, this will return `null`.  
          *      
@@ -8551,12 +8193,89 @@ declare module "godot" {
          */
         get enable_hole_punch(): boolean
         set enable_hole_punch(value: boolean)
+        
+        /** The minification filter of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_min_filter(): int64
+        set swapchain_state_min_filter(value: int64)
+        
+        /** The magnification filter of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_mag_filter(): int64
+        set swapchain_state_mag_filter(value: int64)
+        
+        /** The mipmap mode of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_mipmap_mode(): int64
+        set swapchain_state_mipmap_mode(value: int64)
+        
+        /** The horizontal wrap mode of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_horizontal_wrap(): int64
+        set swapchain_state_horizontal_wrap(value: int64)
+        
+        /** The vertical wrap mode of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_vertical_wrap(): int64
+        set swapchain_state_vertical_wrap(value: int64)
+        
+        /** The swizzle value for the red channel of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_red_swizzle(): int64
+        set swapchain_state_red_swizzle(value: int64)
+        
+        /** The swizzle value for the green channel of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_green_swizzle(): int64
+        set swapchain_state_green_swizzle(value: int64)
+        
+        /** The swizzle value for the blue channel of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_blue_swizzle(): int64
+        set swapchain_state_blue_swizzle(value: int64)
+        
+        /** The swizzle value for the alpha channel of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_alpha_swizzle(): int64
+        set swapchain_state_alpha_swizzle(value: int64)
+        
+        /** The max anisotropy of the swapchain state.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_max_anisotropy(): float64
+        set swapchain_state_max_anisotropy(value: float64)
+        
+        /** The border color of the swapchain state that is used when the wrap mode clamps to the border.  
+         *      
+         *  **Note:** This property only has an effect on devices that support the OpenXR XR_FB_swapchain_update_state OpenGLES/Vulkan extensions.  
+         */
+        get swapchain_state_border_color(): Color
+        set swapchain_state_border_color(value: Color)
     }
     /** An OpenXR composition layer that is rendered as an internal slice of a cylinder.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrcompositionlayercylinder.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrcompositionlayercylinder.html  
      */
-    class OpenXRCompositionLayerCylinder<Map extends Record<string, Node> = Record<string, Node>> extends OpenXRCompositionLayer<Map> {
+    class OpenXRCompositionLayerCylinder<Map extends Record<string, Node> = {}> extends OpenXRCompositionLayer<Map> {
         constructor(identifier?: any)
         /** The radius of the cylinder. */
         get radius(): float64
@@ -8576,9 +8295,9 @@ declare module "godot" {
     }
     /** An OpenXR composition layer that is rendered as an internal slice of a sphere.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrcompositionlayerequirect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrcompositionlayerequirect.html  
      */
-    class OpenXRCompositionLayerEquirect<Map extends Record<string, Node> = Record<string, Node>> extends OpenXRCompositionLayer<Map> {
+    class OpenXRCompositionLayerEquirect<Map extends Record<string, Node> = {}> extends OpenXRCompositionLayer<Map> {
         constructor(identifier?: any)
         /** The radius of the sphere. */
         get radius(): float64
@@ -8602,9 +8321,9 @@ declare module "godot" {
     }
     /** An OpenXR composition layer that is rendered as a quad.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrcompositionlayerquad.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrcompositionlayerquad.html  
      */
-    class OpenXRCompositionLayerQuad<Map extends Record<string, Node> = Record<string, Node>> extends OpenXRCompositionLayer<Map> {
+    class OpenXRCompositionLayerQuad<Map extends Record<string, Node> = {}> extends OpenXRCompositionLayer<Map> {
         constructor(identifier?: any)
         /** The dimensions of the quad. */
         get quad_size(): Vector2
@@ -8612,7 +8331,7 @@ declare module "godot" {
     }
     /** The DPad binding modifier converts an axis input to a dpad output.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrdpadbindingmodifier.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrdpadbindingmodifier.html  
      */
     class OpenXRDpadBindingModifier extends OpenXRIPBindingModifier {
         constructor(identifier?: any)
@@ -8654,11 +8373,11 @@ declare module "godot" {
         get off_haptic(): OpenXRHapticBase
         set off_haptic(value: OpenXRHapticBase)
     }
-    /** Allows clients to implement OpenXR extensions with GDExtension.  
+    /** Allows implementing OpenXR extensions with GDExtension.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrextensionwrapperextension.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrextensionwrapper.html  
      */
-    class OpenXRExtensionWrapperExtension extends Object {
+    class OpenXRExtensionWrapper extends Object {
         constructor(identifier?: any)
         /** Returns a [Dictionary] of OpenXR extensions related to this extension. The [Dictionary] should contain the name of the extension, mapped to a `bool *` cast to an integer:  
          *  - If the `bool *` is a `nullptr` this extension is mandatory.  
@@ -8683,6 +8402,24 @@ declare module "godot" {
         
         /** Adds additional data structures to the projection view of the given [param view_index]. */
         /* gdvirtual */ _set_projection_views_and_get_next_pointer(view_index: int64, next_pointer: int64): int64
+        
+        /** Adds additional data structures to `XrFrameWaitInfo`.  
+         *  This will only be called if the extension previously registered itself with [method OpenXRAPIExtension.register_frame_info_extension].  
+         */
+        /* gdvirtual */ _set_frame_wait_info_and_get_next_pointer(next_pointer: int64): int64
+        
+        /** Adds additional data structures to `XrFrameEndInfo`.  
+         *  This will only be called if the extension previously registered itself with [method OpenXRAPIExtension.register_frame_info_extension].  
+         */
+        /* gdvirtual */ _set_frame_end_info_and_get_next_pointer(next_pointer: int64): int64
+        
+        /** Adds additional data structures to `XrViewLocateInfo`.  
+         *  This will only be called if the extension previously registered itself with [method OpenXRAPIExtension.register_frame_info_extension].  
+         */
+        /* gdvirtual */ _set_view_locate_info_and_get_next_pointer(next_pointer: int64): int64
+        
+        /** Adds additional data structures to `XrReferenceSpaceCreateInfo`. */
+        /* gdvirtual */ _set_reference_space_create_info_and_get_next_pointer(reference_space_type: int64, next_pointer: int64): int64
         
         /** Returns the number of composition layers this extension wrapper provides via [method _get_composition_layer].  
          *  This will only be called if the extension previously registered itself with [method OpenXRAPIExtension.register_composition_layer_provider].  
@@ -8795,6 +8532,62 @@ declare module "godot" {
         /** Registers the extension. This should happen at core module initialization level. */
         register_extension_wrapper(): void
     }
+    /** Allows implementing OpenXR extensions with GDExtension.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrextensionwrapperextension.html  
+     */
+    class OpenXRExtensionWrapperExtension extends OpenXRExtensionWrapper {
+        constructor(identifier?: any)
+    }
+    /** The OpenXR Future extension allows for asynchronous APIs to be used.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrfutureextension.html  
+     */
+    class OpenXRFutureExtension extends OpenXRExtensionWrapper {
+        constructor(identifier?: any)
+        /** Returns `true` if futures are available in the OpenXR runtime used. This function will only return a usable result after OpenXR has been initialized. */
+        is_active(): boolean
+        
+        /** Register an OpenXR Future object so we monitor for completion. [param future] must be an `XrFutureEXT` value previously returned by an API that started an asynchronous function.  
+         *  You can optionally specify [param on_success], it will be invoked on successful completion of the future.  
+         *  Or you can use the returned [OpenXRFutureResult] object to `await` its [signal OpenXRFutureResult.completed] signal.  
+         *    
+         */
+        register_future(future: int64, on_success?: Callable /* = new Callable() */): OpenXRFutureResult
+        
+        /** Cancels an in-progress future. [param future] must be an `XrFutureEXT` value previously returned by an API that started an asynchronous function. */
+        cancel_future(future: int64): void
+    }
+    namespace OpenXRFutureResult {
+        enum ResultStatus {
+            /** The asynchronous function is running. */
+            RESULT_RUNNING = 0,
+            
+            /** The asynchronous function has finished. */
+            RESULT_FINISHED = 1,
+            
+            /** The asynchronous function has been cancelled. */
+            RESULT_CANCELLED = 2,
+        }
+    }
+    /** Result object tracking the asynchronous result of an OpenXR Future object.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrfutureresult.html  
+     */
+    class OpenXRFutureResult extends RefCounted {
+        constructor(identifier?: any)
+        /** Returns the status of this result. */
+        get_status(): OpenXRFutureResult.ResultStatus
+        
+        /** Return the `XrFutureEXT` value this result relates to. */
+        get_future(): int64
+        
+        /** Cancel this future, this will interrupt and stop the asynchronous function. */
+        cancel_future(): void
+        
+        /** Emitted when the asynchronous function is finished or has been cancelled. */
+        readonly completed: Signal<(result: OpenXRFutureResult) => void>
+    }
     namespace OpenXRHand {
         enum Hands {
             /** Tracking the player's left hand. */
@@ -8839,9 +8632,9 @@ declare module "godot" {
     }
     /** Node supporting hand and finger tracking in OpenXR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrhand.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrhand.html  
      */
-    class OpenXRHand<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class OpenXRHand<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Specifies whether this node tracks the left or right hand of the player. */
         get hand(): int64
@@ -8865,14 +8658,14 @@ declare module "godot" {
     }
     /** OpenXR Haptic feedback base class.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrhapticbase.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrhapticbase.html  
      */
     class OpenXRHapticBase extends Resource {
         constructor(identifier?: any)
     }
     /** Vibration haptic feedback.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrhapticvibration.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrhapticvibration.html  
      */
     class OpenXRHapticVibration extends OpenXRHapticBase {
         constructor(identifier?: any)
@@ -8890,7 +8683,7 @@ declare module "godot" {
     }
     /** Defines a binding between an [OpenXRAction] and an XR input or output.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxripbinding.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxripbinding.html  
      */
     class OpenXRIPBinding extends Resource {
         constructor(identifier?: any)
@@ -8933,14 +8726,14 @@ declare module "godot" {
     }
     /** Binding modifier that applies directly on an interaction profile.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxripbindingmodifier.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxripbindingmodifier.html  
      */
     class OpenXRIPBindingModifier extends OpenXRBindingModifier {
         constructor(identifier?: any)
     }
     /** Suggested bindings object for OpenXR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrinteractionprofile.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrinteractionprofile.html  
      */
     class OpenXRInteractionProfile extends Resource {
         constructor(identifier?: any)
@@ -8970,16 +8763,16 @@ declare module "godot" {
     }
     /** Default OpenXR interaction profile editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrinteractionprofileeditor.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrinteractionprofileeditor.html  
      */
-    class OpenXRInteractionProfileEditor<Map extends Record<string, Node> = Record<string, Node>> extends OpenXRInteractionProfileEditorBase<Map> {
+    class OpenXRInteractionProfileEditor<Map extends Record<string, Node> = {}> extends OpenXRInteractionProfileEditorBase<Map> {
         constructor(identifier?: any)
     }
     /** Base class for editing interaction profiles.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrinteractionprofileeditorbase.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrinteractionprofileeditorbase.html  
      */
-    class OpenXRInteractionProfileEditorBase<Map extends Record<string, Node> = Record<string, Node>> extends HBoxContainer<Map> {
+    class OpenXRInteractionProfileEditorBase<Map extends Record<string, Node> = {}> extends HBoxContainer<Map> {
         constructor(identifier?: any)
         /** Setup this editor for the provided [param action_map] and [param interaction_profile]. */
         setup(action_map: OpenXRActionMap, interaction_profile: OpenXRInteractionProfile): void
@@ -8988,7 +8781,7 @@ declare module "godot" {
     }
     /** Meta class registering supported devices in OpenXR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrinteractionprofilemetadata.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrinteractionprofilemetadata.html  
      */
     class OpenXRInteractionProfileMetadata extends Object {
         constructor(identifier?: any)
@@ -9040,7 +8833,7 @@ declare module "godot" {
             /** The source of hand tracking is a controller, bone positions are inferred from controller inputs. */
             HAND_TRACKED_SOURCE_CONTROLLER = 2,
             
-            /** Maximum value for the hand tracked source enum. */
+            /** Represents the size of the [enum HandTrackedSource] enum. */
             HAND_TRACKED_SOURCE_MAX = 3,
         }
         enum HandJoints {
@@ -9062,68 +8855,101 @@ declare module "godot" {
             /** Thumb tip joint. */
             HAND_JOINT_THUMB_TIP = 5,
             
-            /** Index metacarpal joint. */
+            /** Index finger metacarpal joint. */
             HAND_JOINT_INDEX_METACARPAL = 6,
             
-            /** Index proximal joint. */
+            /** Index finger phalanx proximal joint. */
             HAND_JOINT_INDEX_PROXIMAL = 7,
             
-            /** Index intermediate joint. */
+            /** Index finger phalanx intermediate joint. */
             HAND_JOINT_INDEX_INTERMEDIATE = 8,
             
-            /** Index distal joint. */
+            /** Index finger phalanx distal joint. */
             HAND_JOINT_INDEX_DISTAL = 9,
             
-            /** Index tip joint. */
+            /** Index finger tip joint. */
             HAND_JOINT_INDEX_TIP = 10,
             
-            /** Middle metacarpal joint. */
+            /** Middle finger metacarpal joint. */
             HAND_JOINT_MIDDLE_METACARPAL = 11,
             
-            /** Middle proximal joint. */
+            /** Middle finger phalanx proximal joint. */
             HAND_JOINT_MIDDLE_PROXIMAL = 12,
             
-            /** Middle intermediate joint. */
+            /** Middle finger phalanx intermediate joint. */
             HAND_JOINT_MIDDLE_INTERMEDIATE = 13,
             
-            /** Middle distal joint. */
+            /** Middle finger phalanx distal joint. */
             HAND_JOINT_MIDDLE_DISTAL = 14,
             
-            /** Middle tip joint. */
+            /** Middle finger tip joint. */
             HAND_JOINT_MIDDLE_TIP = 15,
             
-            /** Ring metacarpal joint. */
+            /** Ring finger metacarpal joint. */
             HAND_JOINT_RING_METACARPAL = 16,
             
-            /** Ring proximal joint. */
+            /** Ring finger phalanx proximal joint. */
             HAND_JOINT_RING_PROXIMAL = 17,
             
-            /** Ring intermediate joint. */
+            /** Ring finger phalanx intermediate joint. */
             HAND_JOINT_RING_INTERMEDIATE = 18,
             
-            /** Ring distal joint. */
+            /** Ring finger phalanx distal joint. */
             HAND_JOINT_RING_DISTAL = 19,
             
-            /** Ring tip joint. */
+            /** Ring finger tip joint. */
             HAND_JOINT_RING_TIP = 20,
             
-            /** Little metacarpal joint. */
+            /** Pinky finger metacarpal joint. */
             HAND_JOINT_LITTLE_METACARPAL = 21,
             
-            /** Little proximal joint. */
+            /** Pinky finger phalanx proximal joint. */
             HAND_JOINT_LITTLE_PROXIMAL = 22,
             
-            /** Little intermediate joint. */
+            /** Pinky finger phalanx intermediate joint. */
             HAND_JOINT_LITTLE_INTERMEDIATE = 23,
             
-            /** Little distal joint. */
+            /** Pinky finger phalanx distal joint. */
             HAND_JOINT_LITTLE_DISTAL = 24,
             
-            /** Little tip joint. */
+            /** Pinky finger tip joint. */
             HAND_JOINT_LITTLE_TIP = 25,
             
-            /** Maximum value for the hand joint enum. */
+            /** Represents the size of the [enum HandJoints] enum. */
             HAND_JOINT_MAX = 26,
+        }
+        enum PerfSettingsLevel {
+            /** The application has entered a non-XR section (head-locked / static screen), during which power savings are to be prioritized. */
+            PERF_SETTINGS_LEVEL_POWER_SAVINGS = 0,
+            
+            /** The application has entered a low and stable complexity section, during which reducing power is more important than occasional late rendering frames. */
+            PERF_SETTINGS_LEVEL_SUSTAINED_LOW = 1,
+            
+            /** The application has entered a high or dynamic complexity section, during which the XR Runtime strives for consistent XR compositing and frame rendering within a thermally sustainable range. */
+            PERF_SETTINGS_LEVEL_SUSTAINED_HIGH = 2,
+            
+            /** The application has entered a section with very high complexity, during which the XR Runtime is allowed to step up beyond the thermally sustainable range. */
+            PERF_SETTINGS_LEVEL_BOOST = 3,
+        }
+        enum PerfSettingsSubDomain {
+            /** The compositing performance within the runtime has reached a new level. */
+            PERF_SETTINGS_SUB_DOMAIN_COMPOSITING = 0,
+            
+            /** The application rendering performance has reached a new level. */
+            PERF_SETTINGS_SUB_DOMAIN_RENDERING = 1,
+            
+            /** The temperature of the device has reached a new level. */
+            PERF_SETTINGS_SUB_DOMAIN_THERMAL = 2,
+        }
+        enum PerfSettingsNotificationLevel {
+            /** The sub-domain has reached a level where no further actions other than currently applied are necessary. */
+            PERF_SETTINGS_NOTIF_LEVEL_NORMAL = 0,
+            
+            /** The sub-domain has reached an early warning level where the application should start proactive mitigation actions. */
+            PERF_SETTINGS_NOTIF_LEVEL_WARNING = 1,
+            
+            /** The sub-domain has reached a critical level where the application should start drastic mitigation actions. */
+            PERF_SETTINGS_NOTIF_LEVEL_IMPAIRED = 2,
         }
         enum HandJointFlags {
             /** No flags are set. */
@@ -9150,7 +8976,7 @@ declare module "godot" {
     }
     /** Our OpenXR interface.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_openxrinterface.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrinterface.html  
      */
     class OpenXRInterface extends XRInterface {
         constructor(identifier?: any)
@@ -9217,6 +9043,12 @@ declare module "godot" {
          */
         is_eye_gaze_interaction_supported(): boolean
         
+        /** Sets the CPU performance level of the OpenXR device. */
+        set_cpu_level(level: OpenXRInterface.PerfSettingsLevel): void
+        
+        /** Sets the GPU performance level of the OpenXR device. */
+        set_gpu_level(level: OpenXRInterface.PerfSettingsLevel): void
+        
         /** The display refresh rate for the current HMD. Only functional if this feature is supported by the OpenXR runtime and after the interface has been initialized. */
         get display_refresh_rate(): float64
         set display_refresh_rate(value: float64)
@@ -9254,30 +9086,185 @@ declare module "godot" {
         set vrs_strength(value: float64)
         
         /** Informs our OpenXR session has been started. */
-        readonly session_begun: Signal0
+        readonly session_begun: Signal<() => void>
         
         /** Informs our OpenXR session is stopping. */
-        readonly session_stopping: Signal0
+        readonly session_stopping: Signal<() => void>
         
         /** Informs our OpenXR session now has focus. */
-        readonly session_focussed: Signal0
+        readonly session_focussed: Signal<() => void>
         
         /** Informs our OpenXR session is now visible (output is being sent to the HMD). */
-        readonly session_visible: Signal0
+        readonly session_visible: Signal<() => void>
         
         /** Informs our OpenXR session is in the process of being lost. */
-        readonly session_loss_pending: Signal0
+        readonly session_loss_pending: Signal<() => void>
         
         /** Informs our OpenXR instance is exiting. */
-        readonly instance_exiting: Signal0
+        readonly instance_exiting: Signal<() => void>
         
         /** Informs the user queued a recenter of the player position. */
-        readonly pose_recentered: Signal0
+        readonly pose_recentered: Signal<() => void>
         
         /** Informs the user the HMD refresh rate has changed.  
          *      
          *  **Note:** Only emitted if XR runtime supports the refresh rate extension.  
          */
-        readonly refresh_rate_changed: Signal1<float64>
+        readonly refresh_rate_changed: Signal<(refresh_rate: float64) => void>
+        
+        /** Informs the device CPU performance level has changed in the specified subdomain. */
+        readonly cpu_level_changed: Signal<(sub_domain: int64, from_level: int64, to_level: int64) => void>
+        
+        /** Informs the device GPU performance level has changed in the specified subdomain. */
+        readonly gpu_level_changed: Signal<(sub_domain: int64, from_level: int64, to_level: int64) => void>
+    }
+    /** Draws a stereo correct visibility mask.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_openxrvisibilitymask.html  
+     */
+    class OpenXRVisibilityMask<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
+        constructor(identifier?: any)
+    }
+    /** An optimized translation, used by default for CSV Translations.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_optimizedtranslation.html  
+     */
+    class OptimizedTranslation extends Translation {
+        constructor(identifier?: any)
+        /** Generates and sets an optimized translation from the given [Translation] resource.  
+         *      
+         *  **Note:** This method is intended to be used in the editor. It does nothing when called from an exported project.  
+         */
+        generate(from: Translation): void
+    }
+    /** A button that brings up a dropdown with selectable options when pressed.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_optionbutton.html  
+     */
+    class OptionButton<Map extends Record<string, Node> = {}> extends Button<Map> {
+        constructor(identifier?: any)
+        /** Adds an item, with text [param label] and (optionally) [param id]. If no [param id] is passed, the item index will be used as the item's ID. New items are appended at the end. */
+        add_item(label: string, id?: int64 /* = -1 */): void
+        
+        /** Adds an item, with a [param texture] icon, text [param label] and (optionally) [param id]. If no [param id] is passed, the item index will be used as the item's ID. New items are appended at the end. */
+        add_icon_item(texture: Texture2D, label: string, id?: int64 /* = -1 */): void
+        
+        /** Sets the text of the item at index [param idx]. */
+        set_item_text(idx: int64, text: string): void
+        
+        /** Sets the icon of the item at index [param idx]. */
+        set_item_icon(idx: int64, texture: Texture2D): void
+        
+        /** Sets whether the item at index [param idx] is disabled.  
+         *  Disabled items are drawn differently in the dropdown and are not selectable by the user. If the current selected item is set as disabled, it will remain selected.  
+         */
+        set_item_disabled(idx: int64, disabled: boolean): void
+        
+        /** Sets the ID of the item at index [param idx]. */
+        set_item_id(idx: int64, id: int64): void
+        
+        /** Sets the metadata of an item. Metadata may be of any type and can be used to store extra information about an item, such as an external string ID. */
+        set_item_metadata(idx: int64, metadata: any): void
+        
+        /** Sets the tooltip of the item at index [param idx]. */
+        set_item_tooltip(idx: int64, tooltip: string): void
+        
+        /** Sets the auto translate mode of the item at index [param idx].  
+         *  Items use [constant Node.AUTO_TRANSLATE_MODE_INHERIT] by default, which uses the same auto translate mode as the [OptionButton] itself.  
+         */
+        set_item_auto_translate_mode(idx: int64, mode: Node.AutoTranslateMode): void
+        
+        /** Returns the text of the item at index [param idx]. */
+        get_item_text(idx: int64): string
+        
+        /** Returns the icon of the item at index [param idx]. */
+        get_item_icon(idx: int64): Texture2D
+        
+        /** Returns the ID of the item at index [param idx]. */
+        get_item_id(idx: int64): int64
+        
+        /** Returns the index of the item with the given [param id]. */
+        get_item_index(id: int64): int64
+        
+        /** Retrieves the metadata of an item. Metadata may be any type and can be used to store extra information about an item, such as an external string ID. */
+        get_item_metadata(idx: int64): any
+        
+        /** Returns the tooltip of the item at index [param idx]. */
+        get_item_tooltip(idx: int64): string
+        
+        /** Returns the auto translate mode of the item at index [param idx]. */
+        get_item_auto_translate_mode(idx: int64): Node.AutoTranslateMode
+        
+        /** Returns `true` if the item at index [param idx] is disabled. */
+        is_item_disabled(idx: int64): boolean
+        
+        /** Returns `true` if the item at index [param idx] is marked as a separator. */
+        is_item_separator(idx: int64): boolean
+        
+        /** Adds a separator to the list of items. Separators help to group items, and can optionally be given a [param text] header. A separator also gets an index assigned, and is appended at the end of the item list. */
+        add_separator(text?: string /* = '' */): void
+        
+        /** Clears all the items in the [OptionButton]. */
+        clear(): void
+        
+        /** Selects an item by index and makes it the current item. This will work even if the item is disabled.  
+         *  Passing `-1` as the index deselects any currently selected item.  
+         */
+        select(idx: int64): void
+        
+        /** Returns the ID of the selected item, or `-1` if no item is selected. */
+        get_selected_id(): int64
+        
+        /** Gets the metadata of the selected item. Metadata for items can be set using [method set_item_metadata]. */
+        get_selected_metadata(): any
+        
+        /** Removes the item at index [param idx]. */
+        remove_item(idx: int64): void
+        
+        /** Returns the [PopupMenu] contained in this button.  
+         *  **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their [member Window.visible] property.  
+         */
+        get_popup(): PopupMenu
+        
+        /** Adjusts popup position and sizing for the [OptionButton], then shows the [PopupMenu]. Prefer this over using `get_popup().popup()`. */
+        show_popup(): void
+        
+        /** Returns `true` if this button contains at least one item which is not disabled, or marked as a separator. */
+        has_selectable_items(): boolean
+        
+        /** Returns the index of the first item which is not disabled, or marked as a separator. If [param from_last] is `true`, the items will be searched in reverse order.  
+         *  Returns `-1` if no item is found.  
+         */
+        get_selectable_item(from_last?: boolean /* = false */): int64
+        
+        /** If `true`, shortcuts are disabled and cannot be used to trigger the button. */
+        set_disable_shortcuts(disabled: boolean): void
+        
+        /** The index of the currently selected item, or `-1` if no item is selected. */
+        get selected(): int64
+        set selected(value: int64)
+        
+        /** If `true`, minimum size will be determined by the longest item's text, instead of the currently selected one's.  
+         *      
+         *  **Note:** For performance reasons, the minimum size doesn't update immediately when adding, removing or modifying items.  
+         */
+        get fit_to_longest_item(): boolean
+        set fit_to_longest_item(value: boolean)
+        
+        /** If `true`, the currently selected item can be selected again. */
+        get allow_reselect(): boolean
+        set allow_reselect(value: boolean)
+        
+        /** The number of items to select from. */
+        get item_count(): any /*Items,popup/item_*/
+        set item_count(value: any /*Items,popup/item_*/)
+        
+        /** Emitted when the current item has been changed by the user. The index of the item selected is passed as argument.  
+         *  [member allow_reselect] must be enabled to reselect an item.  
+         */
+        readonly item_selected: Signal<(index: int64) => void>
+        
+        /** Emitted when the user navigates to an item using the [member ProjectSettings.input/ui_up] or [member ProjectSettings.input/ui_down] input actions. The index of the item selected is passed as argument. */
+        readonly item_focused: Signal<(index: int64) => void>
     }
 }

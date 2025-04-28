@@ -1,84 +1,9 @@
 // AUTO-GENERATED
 /// <reference no-default-lib="true"/>
 declare module "godot" {
-    /** Base class for all texture types.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture.html  
-     */
-    class Texture extends Resource {
-        constructor(identifier?: any)
-    }
-    /** Texture for 2D and 3D.  
-     *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture2d.html  
-     */
-    class Texture2D extends Texture {
-        constructor(identifier?: any)
-        /** Called when the [Texture2D]'s width is queried. */
-        /* gdvirtual */ _get_width(): int64
-        
-        /** Called when the [Texture2D]'s height is queried. */
-        /* gdvirtual */ _get_height(): int64
-        
-        /** Called when a pixel's opaque state in the [Texture2D] is queried at the specified `(x, y)` position. */
-        /* gdvirtual */ _is_pixel_opaque(x: int64, y: int64): boolean
-        
-        /** Called when the presence of an alpha channel in the [Texture2D] is queried. */
-        /* gdvirtual */ _has_alpha(): boolean
-        
-        /** Called when the entire [Texture2D] is requested to be drawn over a [CanvasItem], with the top-left offset specified in [param pos]. [param modulate] specifies a multiplier for the colors being drawn, while [param transpose] specifies whether drawing should be performed in column-major order instead of row-major order (resulting in 90-degree clockwise rotation).  
-         *      
-         *  **Note:** This is only used in 2D rendering, not 3D.  
-         */
-        /* gdvirtual */ _draw(to_canvas_item: RID, pos: Vector2, modulate: Color, transpose: boolean): void
-        
-        /** Called when the [Texture2D] is requested to be drawn onto [CanvasItem]'s specified [param rect]. [param modulate] specifies a multiplier for the colors being drawn, while [param transpose] specifies whether drawing should be performed in column-major order instead of row-major order (resulting in 90-degree clockwise rotation).  
-         *      
-         *  **Note:** This is only used in 2D rendering, not 3D.  
-         */
-        /* gdvirtual */ _draw_rect(to_canvas_item: RID, rect: Rect2, tile: boolean, modulate: Color, transpose: boolean): void
-        
-        /** Called when a part of the [Texture2D] specified by [param src_rect]'s coordinates is requested to be drawn onto [CanvasItem]'s specified [param rect]. [param modulate] specifies a multiplier for the colors being drawn, while [param transpose] specifies whether drawing should be performed in column-major order instead of row-major order (resulting in 90-degree clockwise rotation).  
-         *      
-         *  **Note:** This is only used in 2D rendering, not 3D.  
-         */
-        /* gdvirtual */ _draw_rect_region(to_canvas_item: RID, rect: Rect2, src_rect: Rect2, modulate: Color, transpose: boolean, clip_uv: boolean): void
-        
-        /** Returns the texture width in pixels. */
-        get_width(): int64
-        
-        /** Returns the texture height in pixels. */
-        get_height(): int64
-        
-        /** Returns the texture size in pixels. */
-        get_size(): Vector2
-        
-        /** Returns `true` if this [Texture2D] has an alpha channel. */
-        has_alpha(): boolean
-        
-        /** Draws the texture using a [CanvasItem] with the [RenderingServer] API at the specified [param position]. */
-        draw(canvas_item: RID, position: Vector2, modulate: Color = new Color(1, 1, 1, 1), transpose: boolean = false): void
-        
-        /** Draws the texture using a [CanvasItem] with the [RenderingServer] API. */
-        draw_rect(canvas_item: RID, rect: Rect2, tile: boolean, modulate: Color = new Color(1, 1, 1, 1), transpose: boolean = false): void
-        
-        /** Draws a part of the texture using a [CanvasItem] with the [RenderingServer] API. */
-        draw_rect_region(canvas_item: RID, rect: Rect2, src_rect: Rect2, modulate: Color = new Color(1, 1, 1, 1), transpose: boolean = false, clip_uv: boolean = true): void
-        
-        /** Returns an [Image] that is a copy of data from this [Texture2D] (a new [Image] is created each time). [Image]s can be accessed and manipulated directly.  
-         *      
-         *  **Note:** This will return `null` if this [Texture2D] is invalid.  
-         *      
-         *  **Note:** This will fetch the texture data from the GPU, which might cause performance problems when overused. Avoid calling [method get_image] every frame, especially on large textures.  
-         */
-        get_image(): Image
-        
-        /** Creates a placeholder version of this resource ([PlaceholderTexture2D]). */
-        create_placeholder(): Resource
-    }
     /** A single texture resource which consists of multiple, separate images. Each image has the same dimensions and number of mipmap levels.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture2darray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture2darray.html  
      */
     class Texture2DArray extends ImageTextureLayered {
         constructor(identifier?: any)
@@ -87,14 +12,14 @@ declare module "godot" {
     }
     /** Texture Array for 2D that is bound to a texture created on the [RenderingDevice].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture2darrayrd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture2darrayrd.html  
      */
     class Texture2DArrayRD extends TextureLayeredRD {
         constructor(identifier?: any)
     }
     /** Texture for 2D that is bound to a texture created on the [RenderingDevice].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture2drd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture2drd.html  
      */
     class Texture2DRD extends Texture2D {
         constructor(identifier?: any)
@@ -104,7 +29,7 @@ declare module "godot" {
     }
     /** Base class for 3-dimensional textures.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture3d.html  
      */
     class Texture3D extends Texture {
         constructor(identifier?: any)
@@ -147,12 +72,9 @@ declare module "godot" {
         /** Creates a placeholder version of this resource ([PlaceholderTexture3D]). */
         create_placeholder(): Resource
     }
-    class Texture3DEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Texture for 3D that is bound to a texture created on the [RenderingDevice].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texture3drd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texture3drd.html  
      */
     class Texture3DRD extends Texture3D {
         constructor(identifier?: any)
@@ -186,9 +108,9 @@ declare module "godot" {
     }
     /** Texture-based button. Supports Pressed, Hover, Disabled and Focused states.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texturebutton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texturebutton.html  
      */
-    class TextureButton<Map extends Record<string, Node> = Record<string, Node>> extends BaseButton<Map> {
+    class TextureButton<Map extends Record<string, Node> = {}> extends BaseButton<Map> {
         constructor(identifier?: any)
         /** Texture to display by default, when the node is **not** in the disabled, hover or pressed state. This texture is still displayed in the focused state, with [member texture_focused] drawn on top. */
         get texture_normal(): Texture2D
@@ -232,19 +154,16 @@ declare module "godot" {
     }
     /** Texture Array for Cubemaps that is bound to a texture created on the [RenderingDevice].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texturecubemaparrayrd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texturecubemaparrayrd.html  
      */
     class TextureCubemapArrayRD extends TextureLayeredRD {
         constructor(identifier?: any)
     }
     /** Texture for Cubemap that is bound to a texture created on the [RenderingDevice].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texturecubemaprd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texturecubemaprd.html  
      */
     class TextureCubemapRD extends TextureLayeredRD {
-        constructor(identifier?: any)
-    }
-    class TextureEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
         constructor(identifier?: any)
     }
     namespace TextureLayered {
@@ -261,7 +180,7 @@ declare module "godot" {
     }
     /** Base class for texture types which contain the data of multiple [Image]s. Each image is of the same size and format.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texturelayered.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texturelayered.html  
      */
     class TextureLayered extends Texture {
         constructor(identifier?: any)
@@ -307,12 +226,9 @@ declare module "godot" {
         /** Returns an [Image] resource with the data from specified [param layer]. */
         get_layer_data(layer: int64): Image
     }
-    class TextureLayeredEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Abstract base class for layered texture RD types.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texturelayeredrd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texturelayeredrd.html  
      */
     class TextureLayeredRD extends TextureLayered {
         constructor(identifier?: any)
@@ -352,9 +268,9 @@ declare module "godot" {
     }
     /** Texture-based progress bar. Useful for loading screens and life or stamina bars.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_textureprogressbar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_textureprogressbar.html  
      */
-    class TextureProgressBar<Map extends Record<string, Node> = Record<string, Node>> extends Range<Map> {
+    class TextureProgressBar<Map extends Record<string, Node> = {}> extends Range<Map> {
         constructor(identifier?: any)
         /** Sets the stretch margin with the specified index. See [member stretch_margin_bottom] and related properties. */
         set_stretch_margin(margin: Side, value: int64): void
@@ -481,9 +397,9 @@ declare module "godot" {
     }
     /** A control that displays a texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_texturerect.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_texturerect.html  
      */
-    class TextureRect<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class TextureRect<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** The node's [Texture2D] resource. */
         get texture(): Texture2D
@@ -504,13 +420,6 @@ declare module "godot" {
         /** If `true`, texture is flipped vertically. */
         get flip_v(): boolean
         set flip_v(value: boolean)
-    }
-    class TextureRegionEditor<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-        _update_rect(): void
-    }
-    class TextureRegionEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
     }
     namespace Theme {
         enum DataType {
@@ -538,7 +447,7 @@ declare module "godot" {
     }
     /** A resource used for styling/skinning [Control]s and [Window]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_theme.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_theme.html  
      */
     class Theme extends Resource {
         constructor(identifier?: any)
@@ -839,47 +748,9 @@ declare module "godot" {
         get default_font_size(): int64
         set default_font_size(value: int64)
     }
-    class ThemeContext extends Object {
-        constructor(identifier?: any)
-        readonly changed: Signal0
-    }
-    class ThemeEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-    }
-    class ThemeEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class ThemeEditorPreview<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        readonly control_picked: Signal1<string>
-    }
-    class ThemeItemEditorDialog<Map extends Record<string, Node> = Record<string, Node>> extends AcceptDialog<Map> {
-        constructor(identifier?: any)
-        _update_edit_types(): void
-        _update_edit_item_tree(_unnamed_arg0: string): void
-    }
-    class ThemeItemImportTree<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-        readonly items_imported: Signal0
-    }
-    class ThemeTypeDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        readonly type_selected: Signal1<string>
-    }
-    class ThemeTypeEditor<Map extends Record<string, Node> = Record<string, Node>> extends MarginContainer<Map> {
-        constructor(identifier?: any)
-        _update_type_items(): void
-        _pin_leading_stylebox(_unnamed_arg0: string, _unnamed_arg1: StyleBox): void
-        _unpin_leading_stylebox(): void
-        _change_pinned_stylebox(): void
-    }
-    class TileAtlasView<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-        readonly transform_changed: Signal2<float64, Vector2>
-    }
     /** Settings for a single tile in a [TileSet].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tiledata.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tiledata.html  
      */
     class TileData extends Object {
         constructor(identifier?: any)
@@ -901,7 +772,7 @@ declare module "godot" {
         /** Returns the occluder polygon at index [param polygon_index] from the TileSet occlusion layer with index [param layer_id].  
          *  The [param flip_h], [param flip_v], and [param transpose] parameters can be `true` to transform the returned polygon.  
          */
-        get_occluder_polygon(layer_id: int64, polygon_index: int64, flip_h: boolean = false, flip_v: boolean = false, transpose: boolean = false): OccluderPolygon2D
+        get_occluder_polygon(layer_id: int64, polygon_index: int64, flip_h?: boolean /* = false */, flip_v?: boolean /* = false */, transpose?: boolean /* = false */): OccluderPolygon2D
         
         /** Sets the occluder for the TileSet occlusion layer with index [param layer_id]. */
         set_occluder(layer_id: int64, occluder_polygon: OccluderPolygon2D): void
@@ -909,7 +780,7 @@ declare module "godot" {
         /** Returns the occluder polygon of the tile for the TileSet occlusion layer with index [param layer_id].  
          *  [param flip_h], [param flip_v], and [param transpose] allow transforming the returned polygon.  
          */
-        get_occluder(layer_id: int64, flip_h: boolean = false, flip_v: boolean = false, transpose: boolean = false): OccluderPolygon2D
+        get_occluder(layer_id: int64, flip_h?: boolean /* = false */, flip_v?: boolean /* = false */, transpose?: boolean /* = false */): OccluderPolygon2D
         
         /** Sets the constant linear velocity. This does not move the tile. This linear velocity is applied to objects colliding with this tile. This is useful to create conveyor belts. */
         set_constant_linear_velocity(layer_id: int64, velocity: Vector2): void
@@ -968,7 +839,7 @@ declare module "godot" {
         /** Returns the navigation polygon of the tile for the TileSet navigation layer with index [param layer_id].  
          *  [param flip_h], [param flip_v], and [param transpose] allow transforming the returned polygon.  
          */
-        get_navigation_polygon(layer_id: int64, flip_h: boolean = false, flip_v: boolean = false, transpose: boolean = false): NavigationPolygon
+        get_navigation_polygon(layer_id: int64, flip_h?: boolean /* = false */, flip_v?: boolean /* = false */, transpose?: boolean /* = false */): NavigationPolygon
         
         /** Sets the tile's custom data value for the TileSet custom data layer with name [param layer_name]. */
         set_custom_data(layer_name: string, value: any): void
@@ -1009,7 +880,7 @@ declare module "godot" {
         get material(): CanvasItemMaterial | ShaderMaterial
         set material(value: CanvasItemMaterial | ShaderMaterial)
         
-        /** Ordering index of this tile, relative to [TileMap]. */
+        /** Ordering index of this tile, relative to [TileMapLayer]. */
         get z_index(): int64
         set z_index(value: int64)
         
@@ -1030,7 +901,7 @@ declare module "godot" {
         set probability(value: float64)
         
         /** Emitted when any of the properties are changed. */
-        readonly changed: Signal0
+        readonly changed: Signal<() => void>
     }
     namespace TileMap {
         enum VisibilityMode {
@@ -1046,9 +917,9 @@ declare module "godot" {
     }
     /** Node for 2D tile-based maps.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tilemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tilemap.html  
      */
-    class TileMap<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class TileMap<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Should return `true` if the tile at coordinates [param coords] on layer [param layer] requires a runtime update.  
          *  **Warning:** Make sure this function only return `true` when needed. Any tile processed at runtime without a need for it will imply a significant performance penalty.  
@@ -1072,7 +943,7 @@ declare module "godot" {
         get_navigation_map(layer: int64): RID
         
         /** Forces the TileMap and the layer [param layer] to update. */
-        force_update(layer: int64 = -1): void
+        force_update(layer?: int64 /* = -1 */): void
         
         /** Returns the number of layers in the TileMap. */
         get_layers_count(): int64
@@ -1175,7 +1046,7 @@ declare module "godot" {
          *  If [param source_id] is set to `-1`, [param atlas_coords] to `Vector2i(-1, -1)` or [param alternative_tile] to `-1`, the cell will be erased. An erased cell gets **all** its identifiers automatically set to their respective invalid values, namely `-1`, `Vector2i(-1, -1)` and `-1`.  
          *  If [param layer] is negative, the layers are accessed from the last one.  
          */
-        set_cell(layer: int64, coords: Vector2i, source_id: int64 = -1, atlas_coords: Vector2i = new Vector2i(-1, -1), alternative_tile: int64 = 0): void
+        set_cell(layer: int64, coords: Vector2i, source_id?: int64 /* = -1 */, atlas_coords?: Vector2i /* = new Vector2i(-1, -1) */, alternative_tile?: int64 /* = 0 */): void
         
         /** Erases the cell on layer [param layer] at coordinates [param coords].  
          *  If [param layer] is negative, the layers are accessed from the last one.  
@@ -1186,35 +1057,35 @@ declare module "godot" {
          *  If [param use_proxies] is `false`, ignores the [TileSet]'s tile proxies, returning the raw source identifier. See [method TileSet.map_tile_proxy].  
          *  If [param layer] is negative, the layers are accessed from the last one.  
          */
-        get_cell_source_id(layer: int64, coords: Vector2i, use_proxies: boolean = false): int64
+        get_cell_source_id(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): int64
         
         /** Returns the tile atlas coordinates ID of the cell on layer [param layer] at coordinates [param coords]. Returns `Vector2i(-1, -1)` if the cell does not exist.  
          *  If [param use_proxies] is `false`, ignores the [TileSet]'s tile proxies, returning the raw atlas coordinate identifier. See [method TileSet.map_tile_proxy].  
          *  If [param layer] is negative, the layers are accessed from the last one.  
          */
-        get_cell_atlas_coords(layer: int64, coords: Vector2i, use_proxies: boolean = false): Vector2i
+        get_cell_atlas_coords(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): Vector2i
         
         /** Returns the tile alternative ID of the cell on layer [param layer] at [param coords].  
          *  If [param use_proxies] is `false`, ignores the [TileSet]'s tile proxies, returning the raw alternative identifier. See [method TileSet.map_tile_proxy].  
          *  If [param layer] is negative, the layers are accessed from the last one.  
          */
-        get_cell_alternative_tile(layer: int64, coords: Vector2i, use_proxies: boolean = false): int64
+        get_cell_alternative_tile(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): int64
         
         /** Returns the [TileData] object associated with the given cell, or `null` if the cell does not exist or is not a [TileSetAtlasSource].  
          *  If [param layer] is negative, the layers are accessed from the last one.  
          *    
          *  If [param use_proxies] is `false`, ignores the [TileSet]'s tile proxies. See [method TileSet.map_tile_proxy].  
          */
-        get_cell_tile_data(layer: int64, coords: Vector2i, use_proxies: boolean = false): TileData
+        get_cell_tile_data(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): TileData
         
         /** Returns `true` if the cell on layer [param layer] at coordinates [param coords] is flipped horizontally. The result is valid only for atlas sources. */
-        is_cell_flipped_h(layer: int64, coords: Vector2i, use_proxies: boolean = false): boolean
+        is_cell_flipped_h(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): boolean
         
         /** Returns `true` if the cell on layer [param layer] at coordinates [param coords] is flipped vertically. The result is valid only for atlas sources. */
-        is_cell_flipped_v(layer: int64, coords: Vector2i, use_proxies: boolean = false): boolean
+        is_cell_flipped_v(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): boolean
         
         /** Returns `true` if the cell on layer [param layer] at coordinates [param coords] is transposed. The result is valid only for atlas sources. */
-        is_cell_transposed(layer: int64, coords: Vector2i, use_proxies: boolean = false): boolean
+        is_cell_transposed(layer: int64, coords: Vector2i, use_proxies?: boolean /* = false */): boolean
         
         /** Returns the coordinates of the tile for given physics body RID. Such RID can be retrieved from [method KinematicCollision2D.get_collider_rid], when colliding with a tile. */
         get_coords_for_body_rid(body: RID): Vector2i
@@ -1241,7 +1112,7 @@ declare module "godot" {
          *      
          *  **Note:** To work correctly, this method requires the TileMap's TileSet to have terrains set up with all required terrain combinations. Otherwise, it may produce unexpected results.  
          */
-        set_cells_terrain_connect(layer: int64, cells: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains: boolean = true): void
+        set_cells_terrain_connect(layer: int64, cells: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains?: boolean /* = true */): void
         
         /** Update all the cells in the [param path] coordinates array so that they use the given [param terrain] for the given [param terrain_set]. The function will also connect two successive cell in the path with the same terrain. This function might update neighboring tiles if needed to create correct terrain transitions.  
          *  If [param ignore_empty_terrains] is `true`, empty terrains will be ignored when trying to find the best fitting tile for the given terrain constraints.  
@@ -1249,7 +1120,7 @@ declare module "godot" {
          *      
          *  **Note:** To work correctly, this method requires the TileMap's TileSet to have terrains set up with all required terrain combinations. Otherwise, it may produce unexpected results.  
          */
-        set_cells_terrain_path(layer: int64, path: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains: boolean = true): void
+        set_cells_terrain_path(layer: int64, path: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains?: boolean /* = true */): void
         
         /** Clears cells that do not exist in the tileset. */
         fix_invalid_tiles(): void
@@ -1274,7 +1145,7 @@ declare module "godot" {
          *      
          *  **Note:** This does not trigger a direct update of the TileMap, the update will be done at the end of the frame as usual (unless you call [method update_internals]).  
          */
-        notify_runtime_tile_data_update(layer: int64 = -1): void
+        notify_runtime_tile_data_update(layer?: int64 /* = -1 */): void
         
         /** Returns the list of all neighbourings cells to the one at [param coords]. */
         get_surrounding_cells(coords: Vector2i): GArray
@@ -1289,7 +1160,7 @@ declare module "godot" {
          *  A cell is considered empty if its source identifier equals -1, its atlas coordinates identifiers is `Vector2(-1, -1)` and its alternative identifier is -1.  
          *  If [param layer] is negative, the layers are accessed from the last one.  
          */
-        get_used_cells_by_id(layer: int64, source_id: int64 = -1, atlas_coords: Vector2i = new Vector2i(-1, -1), alternative_tile: int64 = -1): GArray
+        get_used_cells_by_id(layer: int64, source_id?: int64 /* = -1 */, atlas_coords?: Vector2i /* = new Vector2i(-1, -1) */, alternative_tile?: int64 /* = -1 */): GArray
         
         /** Returns a rectangle enclosing the used (non-empty) tiles of the map, including all layers. */
         get_used_rect(): Rect2i
@@ -1334,10 +1205,7 @@ declare module "godot" {
         set navigation_visibility_mode(value: int64)
         
         /** Emitted when the [TileSet] of this TileMap changes. */
-        readonly changed: Signal0
-    }
-    class TileMapEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly changed: Signal<() => void>
     }
     namespace TileMapLayer {
         enum DebugVisibilityMode {
@@ -1353,9 +1221,9 @@ declare module "godot" {
     }
     /** Node for 2D tile-based maps.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tilemaplayer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tilemaplayer.html  
      */
-    class TileMapLayer<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class TileMapLayer<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Should return `true` if the tile at coordinates [param coords] requires a runtime update.  
          *  **Warning:** Make sure this function only returns `true` when needed. Any tile processed at runtime without a need for it will imply a significant performance penalty.  
@@ -1389,7 +1257,7 @@ declare module "godot" {
          *  - The alternative tile identifier [param alternative_tile] identifies a tile alternative in the atlas (if the source is a [TileSetAtlasSource]), and the scene for a [TileSetScenesCollectionSource].  
          *  If [param source_id] is set to `-1`, [param atlas_coords] to `Vector2i(-1, -1)`, or [param alternative_tile] to `-1`, the cell will be erased. An erased cell gets **all** its identifiers automatically set to their respective invalid values, namely `-1`, `Vector2i(-1, -1)` and `-1`.  
          */
-        set_cell(coords: Vector2i, source_id: int64 = -1, atlas_coords: Vector2i = new Vector2i(-1, -1), alternative_tile: int64 = 0): void
+        set_cell(coords: Vector2i, source_id?: int64 /* = -1 */, atlas_coords?: Vector2i /* = new Vector2i(-1, -1) */, alternative_tile?: int64 /* = 0 */): void
         
         /** Erases the cell at coordinates [param coords]. */
         erase_cell(coords: Vector2i): void
@@ -1430,7 +1298,7 @@ declare module "godot" {
          *  If a parameter has its value set to the default one, this parameter is not used to filter a cell. Thus, if all parameters have their respective default values, this method returns the same result as [method get_used_cells].  
          *  A cell is considered empty if its source identifier equals `-1`, its atlas coordinate identifier is `Vector2(-1, -1)` and its alternative identifier is `-1`.  
          */
-        get_used_cells_by_id(source_id: int64 = -1, atlas_coords: Vector2i = new Vector2i(-1, -1), alternative_tile: int64 = -1): GArray
+        get_used_cells_by_id(source_id?: int64 /* = -1 */, atlas_coords?: Vector2i /* = new Vector2i(-1, -1) */, alternative_tile?: int64 /* = -1 */): GArray
         
         /** Returns a rectangle enclosing the used (non-empty) tiles of the map. */
         get_used_rect(): Rect2i
@@ -1446,19 +1314,19 @@ declare module "godot" {
          *      
          *  **Note:** To work correctly, this method requires the [TileMapLayer]'s TileSet to have terrains set up with all required terrain combinations. Otherwise, it may produce unexpected results.  
          */
-        set_cells_terrain_connect(cells: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains: boolean = true): void
+        set_cells_terrain_connect(cells: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains?: boolean /* = true */): void
         
         /** Update all the cells in the [param path] coordinates array so that they use the given [param terrain] for the given [param terrain_set]. The function will also connect two successive cell in the path with the same terrain. This function might update neighboring tiles if needed to create correct terrain transitions.  
          *  If [param ignore_empty_terrains] is `true`, empty terrains will be ignored when trying to find the best fitting tile for the given terrain constraints.  
          *      
          *  **Note:** To work correctly, this method requires the [TileMapLayer]'s TileSet to have terrains set up with all required terrain combinations. Otherwise, it may produce unexpected results.  
          */
-        set_cells_terrain_path(path: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains: boolean = true): void
+        set_cells_terrain_path(path: GArray, terrain_set: int64, terrain: int64, ignore_empty_terrains?: boolean /* = true */): void
         
         /** Returns whether the provided [param body] [RID] belongs to one of this [TileMapLayer]'s cells. */
         has_body_rid(body: RID): boolean
         
-        /** Returns the coordinates of the tile for given physics body [RID]. Such an [RID] can be retrieved from [method KinematicCollision2D.get_collider_rid], when colliding with a tile. */
+        /** Returns the coordinates of the physics quadrant (see [member physics_quadrant_size]) for given physics body [RID]. Such an [RID] can be retrieved from [method KinematicCollision2D.get_collider_rid], when colliding with a tile. */
         get_coords_for_body_rid(body: RID): Vector2i
         
         /** Triggers a direct update of the [TileMapLayer]. Usually, calling this function is not needed, as [TileMapLayer] node updates automatically when one of its properties or cells is modified.  
@@ -1524,7 +1392,7 @@ declare module "godot" {
         get x_draw_order_reversed(): boolean
         set x_draw_order_reversed(value: boolean)
         
-        /** The [TileMapLayer]'s quadrant size. A quadrant is a group of tiles to be drawn together on a single canvas item, for optimization purposes. [member rendering_quadrant_size] defines the length of a square's side, in the map's coordinate system, that forms the quadrant. Thus, the default quadrant size groups together `16 * 16 = 256` tiles.  
+        /** The [TileMapLayer]'s rendering quadrant size. A quadrant is a group of tiles to be drawn together on a single canvas item, for optimization purposes. [member rendering_quadrant_size] defines the length of a square's side, in the map's coordinate system, that forms the quadrant. Thus, the default quadrant size groups together `16 * 16 = 256` tiles.  
          *  The quadrant size does not apply on a Y-sorted [TileMapLayer], as tiles are grouped by Y position instead in that case.  
          *      
          *  **Note:** As quadrants are created according to the map's coordinate system, the quadrant's "square shape" might not look like square in the [TileMapLayer]'s local coordinate system.  
@@ -1544,6 +1412,15 @@ declare module "godot" {
         get collision_visibility_mode(): int64
         set collision_visibility_mode(value: int64)
         
+        /** The [TileMapLayer]'s physics quadrant size. Within a physics quadrant, cells with similar physics properties are grouped together and their collision shapes get merged. [member physics_quadrant_size] defines the length of a square's side, in the map's coordinate system, that forms the quadrant. Thus, the default quadrant size groups together `16 * 16 = 256` tiles.  
+         *      
+         *  **Note:** As quadrants are created according to the map's coordinate system, the quadrant's "square shape" might not look like square in the [TileMapLayer]'s local coordinate system.  
+         *      
+         *  **Note:** This impacts the value returned by [method get_coords_for_body_rid].  
+         */
+        get physics_quadrant_size(): int64
+        set physics_quadrant_size(value: int64)
+        
         /** If `true`, navigation regions are enabled. */
         get navigation_enabled(): boolean
         set navigation_enabled(value: boolean)
@@ -1556,28 +1433,16 @@ declare module "godot" {
          *      
          *  **Note:** This signal may be emitted very often when batch-modifying a [TileMapLayer]. Avoid executing complex processing in a connected function, and consider delaying it to the end of the frame instead (i.e. calling [method Object.call_deferred]).  
          */
-        readonly changed: Signal0
-    }
-    class TileMapLayerEditor<Map extends Record<string, Node> = Record<string, Node>> extends VBoxContainer<Map> {
-        constructor(identifier?: any)
-    }
-    class TileMapLayerEditorTerrainsPlugin extends Object {
-        constructor(identifier?: any)
-    }
-    class TileMapLayerEditorTilesPlugin extends Object {
-        constructor(identifier?: any)
-        _scene_thumbnail_done(_unnamed_arg0: string, _unnamed_arg1: Texture2D, _unnamed_arg2: Texture2D, _unnamed_arg3: any): void
-        _set_tile_map_selection(selection: GArray): void
-        _get_tile_map_selection(): GArray
+        readonly changed: Signal<() => void>
     }
     /** Holds a pattern to be copied from or pasted into [TileMap]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tilemappattern.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tilemappattern.html  
      */
     class TileMapPattern extends Resource {
         constructor(identifier?: any)
         /** Sets the tile identifiers for the cell at coordinates [param coords]. See [method TileMap.set_cell]. */
-        set_cell(coords: Vector2i, source_id: int64 = -1, atlas_coords: Vector2i = new Vector2i(-1, -1), alternative_tile: int64 = -1): void
+        set_cell(coords: Vector2i, source_id?: int64 /* = -1 */, atlas_coords?: Vector2i /* = new Vector2i(-1, -1) */, alternative_tile?: int64 /* = -1 */): void
         
         /** Returns whether the pattern has a tile at the given coordinates. */
         has_cell(coords: Vector2i): boolean
@@ -1606,11 +1471,6 @@ declare module "godot" {
         /** Returns whether the pattern is empty or not. */
         is_empty(): boolean
     }
-    class TileProxiesManagerDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-        _update_lists(): void
-        _unhandled_key_input(_unnamed_arg0: InputEvent): void
-    }
     namespace TileSet {
         enum TileShape {
             /** Rectangular tile shape. */
@@ -1618,7 +1478,7 @@ declare module "godot" {
             
             /** Diamond tile shape (for isometric look).  
              *      
-             *  **Note:** Isometric [TileSet] works best if [TileMap] and all its layers have Y-sort enabled.  
+             *  **Note:** Isometric [TileSet] works best if all sibling [TileMapLayer]s and their parent inheriting from [Node2D] have Y-sort enabled.  
              */
             TILE_SHAPE_ISOMETRIC = 1,
             
@@ -1716,7 +1576,7 @@ declare module "godot" {
     }
     /** Tile library for tilemaps.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tileset.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tileset.html  
      */
     class TileSet extends Resource {
         constructor(identifier?: any)
@@ -1727,7 +1587,7 @@ declare module "godot" {
          *  The function returns the added source ID or -1 if the source could not be added.  
          *  **Warning:** A source cannot belong to two TileSets at the same time. If the added source was attached to another [TileSet], it will be removed from that one.  
          */
-        add_source(source: TileSetSource, atlas_source_id_override: int64 = -1): int64
+        add_source(source: TileSetSource, atlas_source_id_override?: int64 /* = -1 */): int64
         
         /** Removes the source with the given source ID. */
         remove_source(source_id: int64): void
@@ -1753,7 +1613,7 @@ declare module "godot" {
         /** Adds an occlusion layer to the TileSet at the given position [param to_position] in the array. If [param to_position] is -1, adds it at the end of the array.  
          *  Occlusion layers allow assigning occlusion polygons to atlas tiles.  
          */
-        add_occlusion_layer(to_position: int64 = -1): void
+        add_occlusion_layer(to_position?: int64 /* = -1 */): void
         
         /** Moves the occlusion layer at index [param layer_index] to the given position [param to_position] in the array. Also updates the atlas tiles accordingly. */
         move_occlusion_layer(layer_index: int64, to_position: int64): void
@@ -1779,7 +1639,7 @@ declare module "godot" {
         /** Adds a physics layer to the TileSet at the given position [param to_position] in the array. If [param to_position] is -1, adds it at the end of the array.  
          *  Physics layers allow assigning collision polygons to atlas tiles.  
          */
-        add_physics_layer(to_position: int64 = -1): void
+        add_physics_layer(to_position?: int64 /* = -1 */): void
         
         /** Moves the physics layer at index [param layer_index] to the given position [param to_position] in the array. Also updates the atlas tiles accordingly. */
         move_physics_layer(layer_index: int64, to_position: int64): void
@@ -1815,7 +1675,7 @@ declare module "godot" {
         get_terrain_sets_count(): int64
         
         /** Adds a new terrain set at the given position [param to_position] in the array. If [param to_position] is -1, adds it at the end of the array. */
-        add_terrain_set(to_position: int64 = -1): void
+        add_terrain_set(to_position?: int64 /* = -1 */): void
         
         /** Moves the terrain set at index [param terrain_set] to the given position [param to_position] in the array. Also updates the atlas tiles accordingly. */
         move_terrain_set(terrain_set: int64, to_position: int64): void
@@ -1833,7 +1693,7 @@ declare module "godot" {
         get_terrains_count(terrain_set: int64): int64
         
         /** Adds a new terrain to the given terrain set [param terrain_set] at the given position [param to_position] in the array. If [param to_position] is -1, adds it at the end of the array. */
-        add_terrain(terrain_set: int64, to_position: int64 = -1): void
+        add_terrain(terrain_set: int64, to_position?: int64 /* = -1 */): void
         
         /** Moves the terrain at index [param terrain_index] for terrain set [param terrain_set] to the given position [param to_position] in the array. Also updates the atlas tiles accordingly. */
         move_terrain(terrain_set: int64, terrain_index: int64, to_position: int64): void
@@ -1859,7 +1719,7 @@ declare module "godot" {
         /** Adds a navigation layer to the TileSet at the given position [param to_position] in the array. If [param to_position] is -1, adds it at the end of the array.  
          *  Navigation layers allow assigning a navigable area to atlas tiles.  
          */
-        add_navigation_layer(to_position: int64 = -1): void
+        add_navigation_layer(to_position?: int64 /* = -1 */): void
         
         /** Moves the navigation layer at index [param layer_index] to the given position [param to_position] in the array. Also updates the atlas tiles accordingly. */
         move_navigation_layer(layer_index: int64, to_position: int64): void
@@ -1885,7 +1745,7 @@ declare module "godot" {
         /** Adds a custom data layer to the TileSet at the given position [param to_position] in the array. If [param to_position] is -1, adds it at the end of the array.  
          *  Custom data layers allow assigning custom properties to atlas tiles.  
          */
-        add_custom_data_layer(to_position: int64 = -1): void
+        add_custom_data_layer(to_position?: int64 /* = -1 */): void
         
         /** Moves the custom data layer at index [param layer_index] to the given position [param to_position] in the array. Also updates the atlas tiles accordingly. */
         move_custom_data_layer(layer_index: int64, to_position: int64): void
@@ -1912,8 +1772,7 @@ declare module "godot" {
         get_custom_data_layer_type(layer_index: int64): Variant.Type
         
         /** Creates a source-level proxy for the given source ID. A proxy will map set of tile identifiers to another set of identifiers. Both the atlas coordinates ID and the alternative tile ID are kept the same when using source-level proxies.  
-         *  This can be used to replace a source in all TileMaps using this TileSet, as TileMap nodes will find and use the proxy's target source when one is available.  
-         *  Proxied tiles can be automatically replaced in TileMap nodes using the editor.  
+         *  Proxied tiles can be automatically replaced in TileMapLayer nodes using the editor.  
          */
         set_source_level_tile_proxy(source_from: int64, source_to: int64): void
         
@@ -1929,8 +1788,7 @@ declare module "godot" {
         remove_source_level_tile_proxy(source_from: int64): void
         
         /** Creates a coordinates-level proxy for the given identifiers. A proxy will map set of tile identifiers to another set of identifiers. The alternative tile ID is kept the same when using coordinates-level proxies.  
-         *  This can be used to replace a tile in all TileMaps using this TileSet, as TileMap nodes will find and use the proxy's target tile when one is available.  
-         *  Proxied tiles can be automatically replaced in TileMap nodes using the editor.  
+         *  Proxied tiles can be automatically replaced in TileMapLayer nodes using the editor.  
          */
         set_coords_level_tile_proxy(p_source_from: int64, coords_from: Vector2i, source_to: int64, coords_to: Vector2i): void
         
@@ -1946,8 +1804,7 @@ declare module "godot" {
         remove_coords_level_tile_proxy(source_from: int64, coords_from: Vector2i): void
         
         /** Create an alternative-level proxy for the given identifiers. A proxy will map set of tile identifiers to another set of identifiers.  
-         *  This can be used to replace a tile in all TileMaps using this TileSet, as TileMap nodes will find and use the proxy's target tile when one is available.  
-         *  Proxied tiles can be automatically replaced in TileMap nodes using the editor.  
+         *  Proxied tiles can be automatically replaced in TileMapLayer nodes using the editor.  
          */
         set_alternative_level_tile_proxy(source_from: int64, coords_from: Vector2i, alternative_from: int64, source_to: int64, coords_to: Vector2i, alternative_to: int64): void
         
@@ -1975,10 +1832,10 @@ declare module "godot" {
         clear_tile_proxies(): void
         
         /** Adds a [TileMapPattern] to be stored in the TileSet resource. If provided, insert it at the given [param index]. */
-        add_pattern(pattern: TileMapPattern, index: int64 = -1): int64
+        add_pattern(pattern: TileMapPattern, index?: int64 /* = -1 */): int64
         
         /** Returns the [TileMapPattern] at the given [param index]. */
-        get_pattern(index: int64 = -1): TileMapPattern
+        get_pattern(index?: int64 /* = -1 */): TileMapPattern
         
         /** Remove the [TileMapPattern] at the given index. */
         remove_pattern(index: int64): void
@@ -1990,7 +1847,7 @@ declare module "godot" {
         get tile_shape(): int64
         set tile_shape(value: int64)
         
-        /** For all half-offset shapes (Isometric, Hexagonal and Half-Offset square), changes the way tiles are indexed in the TileMap grid. */
+        /** For all half-offset shapes (Isometric, Hexagonal and Half-Offset square), changes the way tiles are indexed in the [TileMapLayer] grid. */
         get tile_layout(): int64
         set tile_layout(value: int64)
         
@@ -2020,10 +1877,10 @@ declare module "godot" {
     }
     /** Exposes a 2D atlas texture as a set of tiles for a [TileSet] resource.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tilesetatlassource.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tilesetatlassource.html  
      */
     class TileSetAtlasSource extends TileSetSource {
-        /** Represents cell's horizontal flip flag. Should be used directly with [TileMap] to flip placed tiles by altering their alternative IDs.  
+        /** Represents cell's horizontal flip flag. Should be used directly with [TileMapLayer] to flip placed tiles by altering their alternative IDs.  
          *    
          *      
          *  **Note:** These transformations can be combined to do the equivalent of 0, 90, 180, and 270 degree rotations, as shown below:  
@@ -2039,7 +1896,7 @@ declare module "godot" {
         constructor(identifier?: any)
         
         /** Creates a new tile at coordinates [param atlas_coords] with the given [param size]. */
-        create_tile(atlas_coords: Vector2i, size: Vector2i = Vector2i.ONE): void
+        create_tile(atlas_coords: Vector2i, size?: Vector2i /* = Vector2i.ONE */): void
         
         /** Remove a tile and its alternative at coordinates [param atlas_coords]. */
         remove_tile(atlas_coords: Vector2i): void
@@ -2048,13 +1905,13 @@ declare module "godot" {
          *  If [param new_atlas_coords] is `Vector2i(-1, -1)`, keeps the tile's coordinates. If [param new_size] is `Vector2i(-1, -1)`, keeps the tile's size.  
          *  To avoid an error, first check if a move is possible using [method has_room_for_tile].  
          */
-        move_tile_in_atlas(atlas_coords: Vector2i, new_atlas_coords: Vector2i = new Vector2i(-1, -1), new_size: Vector2i = new Vector2i(-1, -1)): void
+        move_tile_in_atlas(atlas_coords: Vector2i, new_atlas_coords?: Vector2i /* = new Vector2i(-1, -1) */, new_size?: Vector2i /* = new Vector2i(-1, -1) */): void
         
         /** Returns the size of the tile (in the grid coordinates system) at coordinates [param atlas_coords]. */
         get_tile_size_in_atlas(atlas_coords: Vector2i): Vector2i
         
         /** Returns whether there is enough room in an atlas to create/modify a tile with the given properties. If [param ignored_tile] is provided, act as is the given tile was not present in the atlas. This may be used when you want to modify a tile's properties. */
-        has_room_for_tile(atlas_coords: Vector2i, size: Vector2i, animation_columns: int64, animation_separation: Vector2i, frames_count: int64, ignored_tile: Vector2i = new Vector2i(-1, -1)): boolean
+        has_room_for_tile(atlas_coords: Vector2i, size: Vector2i, animation_columns: int64, animation_separation: Vector2i, frames_count: int64, ignored_tile?: Vector2i /* = new Vector2i(-1, -1) */): boolean
         
         /** Returns an array of tiles coordinates ID that will be automatically removed when modifying one or several of those properties: [param texture], [param margins], [param separation] or [param texture_region_size]. This can be used to undo changes that would have caused tiles data loss. */
         get_tiles_to_be_removed_on_change(texture: Texture2D, margins: Vector2i, separation: Vector2i, texture_region_size: Vector2i): PackedVector2Array
@@ -2110,7 +1967,7 @@ declare module "godot" {
         /** Creates an alternative tile for the tile at coordinates [param atlas_coords]. If [param alternative_id_override] is -1, give it an automatically generated unique ID, or assigns it the given ID otherwise.  
          *  Returns the new alternative identifier, or -1 if the alternative could not be created with a provided [param alternative_id_override].  
          */
-        create_alternative_tile(atlas_coords: Vector2i, alternative_id_override: int64 = -1): int64
+        create_alternative_tile(atlas_coords: Vector2i, alternative_id_override?: int64 /* = -1 */): int64
         
         /** Remove a tile's alternative with alternative ID [param alternative_tile].  
          *  Calling this function with [param alternative_tile] equals to 0 will fail, as the base tile alternative cannot be removed.  
@@ -2132,7 +1989,7 @@ declare module "godot" {
         get_atlas_grid_size(): Vector2i
         
         /** Returns a tile's texture region in the atlas texture. For animated tiles, a [param frame] argument might be provided for the different frames of the animation. */
-        get_tile_texture_region(atlas_coords: Vector2i, frame: int64 = 0): Rect2i
+        get_tile_texture_region(atlas_coords: Vector2i, frame?: int64 /* = 0 */): Rect2i
         
         /** If [member use_texture_padding] is `false`, returns [member texture]. Otherwise, returns and internal [ImageTexture] created that includes the padding. */
         get_runtime_texture(): Texture2D
@@ -2165,31 +2022,9 @@ declare module "godot" {
         get use_texture_padding(): boolean
         set use_texture_padding(value: boolean)
     }
-    class TileSetAtlasSourceEditor<Map extends Record<string, Node> = Record<string, Node>> extends HSplitContainer<Map> {
-        constructor(identifier?: any)
-        _set_selection_from_array(_unnamed_arg0: GArray): void
-        _check_outside_tiles(): void
-        readonly source_id_changed: Signal1<int64>
-    }
-    class TileSetAtlasSourceProxyObject extends Object {
-        constructor(identifier?: any)
-        readonly changed: Signal1<string>
-    }
-    class TileSetEditor<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class TileSetEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class TileSetScenesCollectionProxyObject extends Object {
-        constructor(identifier?: any)
-        get id(): int64
-        set id(value: int64)
-        readonly changed: Signal1<string>
-    }
     /** Exposes a set of scenes as tiles for a [TileSet] resource.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tilesetscenescollectionsource.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tilesetscenescollectionsource.html  
      */
     class TileSetScenesCollectionSource extends TileSetSource {
         constructor(identifier?: any)
@@ -2205,12 +2040,12 @@ declare module "godot" {
         /** Creates a scene-based tile out of the given scene.  
          *  Returns a newly generated unique ID.  
          */
-        create_scene_tile(packed_scene: PackedScene, id_override: int64 = -1): int64
+        create_scene_tile(packed_scene: PackedScene, id_override?: int64 /* = -1 */): int64
         
         /** Changes a scene tile's ID from [param id] to [param new_id]. This will fail if there is already a tile with an ID equal to [param new_id]. */
         set_scene_tile_id(id: int64, new_id: int64): void
         
-        /** Assigns a [PackedScene] resource to the scene tile with [param id]. This will fail if the scene does not extend CanvasItem, as positioning properties are needed to place the scene on the TileMap. */
+        /** Assigns a [PackedScene] resource to the scene tile with [param id]. This will fail if the scene does not extend [CanvasItem], as positioning properties are needed to place the scene on the [TileMapLayer]. */
         set_scene_tile_scene(id: int64, packed_scene: PackedScene): void
         
         /** Returns the [PackedScene] resource of scene tile with [param id]. */
@@ -2228,14 +2063,9 @@ declare module "godot" {
         /** Returns the scene ID a following call to [method create_scene_tile] would return. */
         get_next_scene_tile_id(): int64
     }
-    class TileSetScenesCollectionSourceEditor<Map extends Record<string, Node> = Record<string, Node>> extends HBoxContainer<Map> {
-        constructor(identifier?: any)
-        _scene_thumbnail_done(_unnamed_arg0: string, _unnamed_arg1: Texture2D, _unnamed_arg2: Texture2D, _unnamed_arg3: any): void
-        readonly source_id_changed: Signal1<int64>
-    }
     /** Exposes a set of tiles for a [TileSet] resource.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tilesetsource.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tilesetsource.html  
      */
     class TileSetSource extends Resource {
         constructor(identifier?: any)
@@ -2260,12 +2090,6 @@ declare module "godot" {
         /** Returns if the base tile at coordinates [param atlas_coords] has an alternative with ID [param alternative_tile]. */
         has_alternative_tile(atlas_coords: Vector2i, alternative_tile: int64): boolean
     }
-    class TileSourceInspectorPlugin extends EditorInspectorPlugin {
-        constructor(identifier?: any)
-    }
-    class TilesEditorUtils extends Object {
-        constructor(identifier?: any)
-    }
     namespace Timer {
         enum TimerProcessCallback {
             /** Update the timer every physics process frame (see [constant Node.NOTIFICATION_INTERNAL_PHYSICS_PROCESS]). */
@@ -2277,15 +2101,15 @@ declare module "godot" {
     }
     /** A countdown timer.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_timer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_timer.html  
      */
-    class Timer<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class Timer<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Starts the timer, or resets the timer if it was started already. Fails if the timer is not inside the tree. If [param time_sec] is greater than `0`, this value is used for the [member wait_time].  
          *      
          *  **Note:** This method does not resume a paused timer. See [member paused].  
          */
-        start(time_sec: float64 = -1): void
+        start(time_sec?: float64 /* = -1 */): void
         
         /** Stops the timer. */
         stop(): void
@@ -2332,14 +2156,11 @@ declare module "godot" {
         get time_left(): float64
         
         /** Emitted when the timer reaches the end. */
-        readonly timeout: Signal0
-    }
-    class ToolButtonEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
+        readonly timeout: Signal<() => void>
     }
     /** Class representing a torus [PrimitiveMesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_torusmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_torusmesh.html  
      */
     class TorusMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -2370,9 +2191,9 @@ declare module "godot" {
     }
     /** Button for touch screen devices for gameplay use.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_touchscreenbutton.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_touchscreenbutton.html  
      */
-    class TouchScreenButton<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class TouchScreenButton<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** Returns `true` if this button is currently pressed. */
         is_pressed(): boolean
@@ -2417,14 +2238,14 @@ declare module "godot" {
         set visibility_mode(value: int64)
         
         /** Emitted when the button is pressed (down). */
-        readonly pressed: Signal0
+        readonly pressed: Signal<() => void>
         
         /** Emitted when the button is released (up). */
-        readonly released: Signal0
+        readonly released: Signal<() => void>
     }
     /** A language translation that maps a collection of strings to their individual translations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_translation.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_translation.html  
      */
     class Translation extends Resource {
         constructor(identifier?: any)
@@ -2437,23 +2258,23 @@ declare module "godot" {
         /** Adds a message if nonexistent, followed by its translation.  
          *  An additional context could be used to specify the translation context or differentiate polysemic words.  
          */
-        add_message(src_message: StringName, xlated_message: StringName, context: StringName = ''): void
+        add_message(src_message: StringName, xlated_message: StringName, context?: StringName /* = '' */): void
         
         /** Adds a message involving plural translation if nonexistent, followed by its translation.  
          *  An additional context could be used to specify the translation context or differentiate polysemic words.  
          */
-        add_plural_message(src_message: StringName, xlated_messages: PackedStringArray | string[], context: StringName = ''): void
+        add_plural_message(src_message: StringName, xlated_messages: PackedStringArray | string[], context?: StringName /* = '' */): void
         
         /** Returns a message's translation. */
-        get_message(src_message: StringName, context: StringName = ''): StringName
+        get_message(src_message: StringName, context?: StringName /* = '' */): StringName
         
         /** Returns a message's translation involving plurals.  
          *  The number [param n] is the number or quantity of the plural object. It will be used to guide the translation system to fetch the correct plural form for the selected language.  
          */
-        get_plural_message(src_message: StringName, src_plural_message: StringName, n: int64, context: StringName = ''): StringName
+        get_plural_message(src_message: StringName, src_plural_message: StringName, n: int64, context?: StringName /* = '' */): StringName
         
         /** Erases a message. */
-        erase_message(src_message: StringName, context: StringName = ''): void
+        erase_message(src_message: StringName, context?: StringName /* = '' */): void
         
         /** Returns all the messages (keys). */
         get_message_list(): PackedStringArray
@@ -2472,7 +2293,7 @@ declare module "godot" {
     }
     /** A self-contained collection of [Translation] resources.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_translationdomain.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_translationdomain.html  
      */
     class TranslationDomain extends RefCounted {
         constructor(identifier?: any)
@@ -2489,12 +2310,12 @@ declare module "godot" {
         clear(): void
         
         /** Returns the current locale's translation for the given message and context. */
-        translate(message: StringName, context: StringName = ''): StringName
+        translate(message: StringName, context?: StringName /* = '' */): StringName
         
         /** Returns the current locale's translation for the given message, plural message and context.  
          *  The number [param n] is the number or quantity of the plural object. It will be used to guide the translation system to fetch the correct plural form for the selected language.  
          */
-        translate_plural(message: StringName, message_plural: StringName, n: int64, context: StringName = ''): StringName
+        translate_plural(message: StringName, message_plural: StringName, n: int64, context?: StringName /* = '' */): StringName
         
         /** Returns the pseudolocalized string based on the [param message] passed in. */
         pseudolocalize(message: StringName): StringName
@@ -2599,9 +2420,9 @@ declare module "godot" {
     }
     /** A control used to show a set of internal [TreeItem]s in a hierarchical structure.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tree.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tree.html  
      */
-    class Tree<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class Tree<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Clears the tree. This removes all items. */
         clear(): void
@@ -2610,7 +2431,7 @@ declare module "godot" {
          *  If [param parent] is `null`, the root item will be the parent, or the new item will be the root itself if the tree is empty.  
          *  The new item will be the [param index]-th child of parent, or it will be the last child if there are not enough siblings.  
          */
-        create_item(parent: TreeItem = undefined, index: int64 = -1): TreeItem
+        create_item(parent?: TreeItem /* = undefined */, index?: int64 /* = -1 */): TreeItem
         
         /** Returns the tree's root item, or `null` if the tree is empty. */
         get_root(): TreeItem
@@ -2677,13 +2498,13 @@ declare module "godot" {
          *  Either the item must be set editable with [method TreeItem.set_editable] or [param force_edit] must be `true`.  
          *  Returns `true` if the item could be edited. Fails if no item is selected.  
          */
-        edit_selected(force_edit: boolean = false): boolean
+        edit_selected(force_edit?: boolean /* = false */): boolean
         
         /** Returns the rectangle for custom popups. Helper to create custom cell controls that display a popup. See [method TreeItem.set_cell_mode]. */
         get_custom_popup_rect(): Rect2
         
         /** Returns the rectangle area for the specified [TreeItem]. If [param column] is specified, only get the position and size of that column, otherwise get the rectangle containing all columns. If a button index is specified, the rectangle of that button will be returned. */
-        get_item_area_rect(item: TreeItem, column: int64 = -1, button_index: int64 = -1): Rect2
+        get_item_area_rect(item: TreeItem, column?: int64 /* = -1 */, button_index?: int64 /* = -1 */): Rect2
         
         /** Returns the tree item at the specified position (relative to the tree origin position). */
         get_item_at_position(position: Vector2): TreeItem
@@ -2735,7 +2556,7 @@ declare module "godot" {
         get_scroll(): Vector2
         
         /** Causes the [Tree] to jump to the specified [TreeItem]. */
-        scroll_to_item(item: TreeItem, center_on_item: boolean = false): void
+        scroll_to_item(item: TreeItem, center_on_item?: boolean /* = false */): void
         
         /** The number of columns. */
         get columns(): int64
@@ -2792,49 +2613,49 @@ declare module "godot" {
         set auto_tooltip(value: boolean)
         
         /** Emitted when an item is selected. */
-        readonly item_selected: Signal0
+        readonly item_selected: Signal<() => void>
         
         /** Emitted when a cell is selected. */
-        readonly cell_selected: Signal0
+        readonly cell_selected: Signal<() => void>
         
         /** Emitted instead of [signal item_selected] if [member select_mode] is set to [constant SELECT_MULTI]. */
-        readonly multi_selected: Signal3<TreeItem, int64, boolean>
+        readonly multi_selected: Signal<(item: TreeItem, column: int64, selected: boolean) => void>
         
         /** Emitted when an item is selected with a mouse button. */
-        readonly item_mouse_selected: Signal2<Vector2, int64>
+        readonly item_mouse_selected: Signal<(mouse_position: Vector2, mouse_button_index: int64) => void>
         
         /** Emitted when a mouse button is clicked in the empty space of the tree. */
-        readonly empty_clicked: Signal2<Vector2, int64>
+        readonly empty_clicked: Signal<(click_position: Vector2, mouse_button_index: int64) => void>
         
         /** Emitted when an item is edited. */
-        readonly item_edited: Signal0
+        readonly item_edited: Signal<() => void>
         
         /** Emitted when an item with [constant TreeItem.CELL_MODE_CUSTOM] is clicked with a mouse button. */
-        readonly custom_item_clicked: Signal1<int64>
+        readonly custom_item_clicked: Signal<(mouse_button_index: int64) => void>
         
         /** Emitted when an item's icon is double-clicked. For a signal that emits when any part of the item is double-clicked, see [signal item_activated]. */
-        readonly item_icon_double_clicked: Signal0
+        readonly item_icon_double_clicked: Signal<() => void>
         
         /** Emitted when an item is collapsed by a click on the folding arrow. */
-        readonly item_collapsed: Signal1<TreeItem>
+        readonly item_collapsed: Signal<(item: TreeItem) => void>
         
         /** Emitted when [method TreeItem.propagate_check] is called. Connect to this signal to process the items that are affected when [method TreeItem.propagate_check] is invoked. The order that the items affected will be processed is as follows: the item that invoked the method, children of that item, and finally parents of that item. */
-        readonly check_propagated_to_item: Signal2<TreeItem, int64>
+        readonly check_propagated_to_item: Signal<(item: TreeItem, column: int64) => void>
         
         /** Emitted when a button on the tree was pressed (see [method TreeItem.add_button]). */
-        readonly button_clicked: Signal4<TreeItem, int64, int64, int64>
+        readonly button_clicked: Signal<(item: TreeItem, column: int64, id: int64, mouse_button_index: int64) => void>
         
         /** Emitted when a cell with the [constant TreeItem.CELL_MODE_CUSTOM] is clicked to be edited. */
-        readonly custom_popup_edited: Signal1<boolean>
+        readonly custom_popup_edited: Signal<(arrow_clicked: boolean) => void>
         
         /** Emitted when an item is double-clicked, or selected with a `ui_accept` input event (e.g. using [kbd]Enter[/kbd] or [kbd]Space[/kbd] on the keyboard). */
-        readonly item_activated: Signal0
+        readonly item_activated: Signal<() => void>
         
         /** Emitted when a column's title is clicked with either [constant MOUSE_BUTTON_LEFT] or [constant MOUSE_BUTTON_RIGHT]. */
-        readonly column_title_clicked: Signal2<int64, int64>
+        readonly column_title_clicked: Signal<(column: int64, mouse_button_index: int64) => void>
         
         /** Emitted when a left mouse button click does not select any item. */
-        readonly nothing_selected: Signal0
+        readonly nothing_selected: Signal<() => void>
     }
     namespace TreeItem {
         enum TreeCellMode {
@@ -2860,7 +2681,7 @@ declare module "godot" {
     }
     /** An internal control for a single item inside [Tree].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_treeitem.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_treeitem.html  
      */
     class TreeItem extends Object {
         constructor(identifier?: any)
@@ -2903,7 +2724,7 @@ declare module "godot" {
         is_indeterminate(column: int64): boolean
         
         /** Propagates this item's checked status to its children and parents for the given [param column]. It is possible to process the items affected by this method call by connecting to [signal Tree.check_propagated_to_item]. The order that the items affected will be processed is as follows: the item invoking this method, children of that item, and finally parents of that item. If [param emit_signal] is `false`, then [signal Tree.check_propagated_to_item] will not be emitted. */
-        propagate_check(column: int64, emit_signal: boolean = true): void
+        propagate_check(column: int64, emit_signal?: boolean /* = true */): void
         
         /** Sets the given column's text value. */
         set_text(column: int64, text: string): void
@@ -2992,7 +2813,7 @@ declare module "godot" {
         /** Sets the range of accepted values for a column. The column must be in the [constant CELL_MODE_RANGE] mode.  
          *  If [param expr] is `true`, the edit mode slider will use an exponential scale as with [member Range.exp_edit].  
          */
-        set_range_config(column: int64, min: float64, max: float64, step: float64, expr: boolean = false): void
+        set_range_config(column: int64, min: float64, max: float64, step: float64, expr?: boolean /* = false */): void
         
         /** Returns a dictionary containing the range parameters for a given column. The keys are "min", "max", "step", and "expr". */
         get_range_config(column: int64): GDictionary
@@ -3022,7 +2843,7 @@ declare module "godot" {
         /** Returns `true` if this [TreeItem], or any of its descendants, is collapsed.  
          *  If [param only_visible] is `true` it ignores non-visible [TreeItem]s.  
          */
-        is_any_collapsed(only_visible: boolean = false): boolean
+        is_any_collapsed(only_visible?: boolean /* = false */): boolean
         
         /** Returns `true` if [member visible] is `true` and all its ancestors are also visible. */
         is_visible_in_tree(): boolean
@@ -3073,7 +2894,7 @@ declare module "godot" {
         get_custom_font_size(column: int64): int64
         
         /** Sets the given column's custom background color and whether to just use it as an outline. */
-        set_custom_bg_color(column: int64, color: Color, just_outline: boolean = false): void
+        set_custom_bg_color(column: int64, color: Color, just_outline?: boolean /* = false */): void
         
         /** Resets the background color for the given column to default. */
         clear_custom_bg_color(column: int64): void
@@ -3091,7 +2912,7 @@ declare module "godot" {
         clear_buttons(): void
         
         /** Adds a button with [Texture2D] [param button] to the end of the cell at column [param column]. The [param id] is used to identify the button in the according [signal Tree.button_clicked] signal and can be different from the buttons index. If not specified, the next available index is used, which may be retrieved by calling [method get_button_count] immediately before this method. Optionally, the button can be [param disabled] and have a [param tooltip_text]. */
-        add_button(column: int64, button: Texture2D, id: int64 = -1, disabled: boolean = false, tooltip_text: string = ''): void
+        add_button(column: int64, button: Texture2D, id?: int64 /* = -1 */, disabled?: boolean /* = false */, tooltip_text?: string /* = '' */): void
         
         /** Returns the number of buttons in column [param column]. */
         get_button_count(column: int64): int64
@@ -3150,7 +2971,7 @@ declare module "godot" {
         /** Creates an item and adds it as a child.  
          *  The new item will be inserted as position [param index] (the default value `-1` means the last position), or it will be the last child if [param index] is higher than the child count.  
          */
-        create_child(index: int64 = -1): TreeItem
+        create_child(index?: int64 /* = -1 */): TreeItem
         
         /** Adds a previously unparented [TreeItem] as a direct child of this one. The [param child] item must not be a part of any [Tree] or parented to any [TreeItem]. See also [method remove_child]. */
         add_child(child: TreeItem): void
@@ -3179,22 +3000,22 @@ declare module "godot" {
         /** Returns the next TreeItem in the tree (in the context of a depth-first search) or a `null` object if there is none.  
          *  If [param wrap] is enabled, the method will wrap around to the first element in the tree when called on the last element, otherwise it returns `null`.  
          */
-        get_next_in_tree(wrap: boolean = false): TreeItem
+        get_next_in_tree(wrap?: boolean /* = false */): TreeItem
         
         /** Returns the previous TreeItem in the tree (in the context of a depth-first search) or a `null` object if there is none.  
          *  If [param wrap] is enabled, the method will wrap around to the last element in the tree when called on the first visible element, otherwise it returns `null`.  
          */
-        get_prev_in_tree(wrap: boolean = false): TreeItem
+        get_prev_in_tree(wrap?: boolean /* = false */): TreeItem
         
         /** Returns the next visible TreeItem in the tree (in the context of a depth-first search) or a `null` object if there is none.  
          *  If [param wrap] is enabled, the method will wrap around to the first visible element in the tree when called on the last visible element, otherwise it returns `null`.  
          */
-        get_next_visible(wrap: boolean = false): TreeItem
+        get_next_visible(wrap?: boolean /* = false */): TreeItem
         
         /** Returns the previous visible sibling TreeItem in the tree (in the context of a depth-first search) or a `null` object if there is none.  
          *  If [param wrap] is enabled, the method will wrap around to the last visible element in the tree when called on the first visible element, otherwise it returns `null`.  
          */
-        get_prev_visible(wrap: boolean = false): TreeItem
+        get_prev_visible(wrap?: boolean /* = false */): TreeItem
         
         /** Returns a child item by its [param index] (see [method get_child_count]). This method is often used for iterating all children of an item.  
          *  Negative indices access the children from the last one.  
@@ -3223,7 +3044,7 @@ declare module "godot" {
         move_after(item: TreeItem): void
         
         /** Calls the [param method] on the actual TreeItem and its children recursively. Pass parameters as a comma separated list. */
-        call_recursive(method: StringName, ...vargargs: any[]): void
+        call_recursive(method: StringName, ...varargs: any[]): void
         
         /** If `true`, the TreeItem is collapsed. */
         get collapsed(): boolean
@@ -3243,16 +3064,43 @@ declare module "godot" {
         get custom_minimum_height(): int64
         set custom_minimum_height(value: int64)
     }
-    /** Internal mesh type.  
+    /** Triangle geometry for efficient, physicsless intersection queries.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_trianglemesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_trianglemesh.html  
      */
     class TriangleMesh extends RefCounted {
         constructor(identifier?: any)
+        /** Creates the BVH tree from an array of faces. Each 3 vertices of the input [param faces] array represent one triangle (face).  
+         *  Returns `true` if the tree is successfully built, `false` otherwise.  
+         */
+        create_from_faces(faces: PackedVector3Array | Vector3[]): boolean
+        
+        /** Returns a copy of the geometry faces. Each 3 vertices of the array represent one triangle (face). */
+        get_faces(): PackedVector3Array
+        
+        /** Tests for intersection with a segment going from [param begin] to [param end].  
+         *  If an intersection with a triangle happens returns a [Dictionary] with the following fields:  
+         *  `position`: The position on the intersected triangle.  
+         *  `normal`: The normal of the intersected triangle.  
+         *  `face_index`: The index of the intersected triangle.  
+         *  Returns an empty [Dictionary] if no intersection happens.  
+         *  See also [method intersect_ray], which is similar but uses an infinite-length ray.  
+         */
+        intersect_segment(begin: Vector3, end: Vector3): GDictionary
+        
+        /** Tests for intersection with a ray starting at [param begin] and facing [param dir] and extending toward infinity.  
+         *  If an intersection with a triangle happens, returns a [Dictionary] with the following fields:  
+         *  `position`: The position on the intersected triangle.  
+         *  `normal`: The normal of the intersected triangle.  
+         *  `face_index`: The index of the intersected triangle.  
+         *  Returns an empty [Dictionary] if no intersection happens.  
+         *  See also [method intersect_segment], which is similar but uses a finite-length segment.  
+         */
+        intersect_ray(begin: Vector3, dir: Vector3): GDictionary
     }
     /** Represents a straight tube-shaped [PrimitiveMesh] with variable width.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tubetrailmesh.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tubetrailmesh.html  
      */
     class TubeTrailMesh extends PrimitiveMesh {
         constructor(identifier?: any)
@@ -3359,7 +3207,7 @@ declare module "godot" {
     }
     /** Lightweight object used for general-purpose animation via script, using [Tweener]s.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tween.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tween.html  
      */
     class Tween extends RefCounted {
         constructor(identifier?: any)
@@ -3460,20 +3308,20 @@ declare module "godot" {
         set_pause_mode(mode: Tween.TweenPauseMode): Tween
         
         /** If [param ignore] is `true`, the tween will ignore [member Engine.time_scale] and update with the real, elapsed time. This affects all [Tweener]s and their delays. Default value is `false`. */
-        set_ignore_time_scale(ignore: boolean = true): Tween
+        set_ignore_time_scale(ignore?: boolean /* = true */): Tween
         
         /** If [param parallel] is `true`, the [Tweener]s appended after this method will by default run simultaneously, as opposed to sequentially.  
          *      
          *  **Note:** Just like with [method parallel], the tweener added right before this method will also be part of the parallel step.  
          *    
          */
-        set_parallel(parallel: boolean = true): Tween
+        set_parallel(parallel?: boolean /* = true */): Tween
         
         /** Sets the number of times the tweening sequence will be repeated, i.e. `set_loops(2)` will run the animation twice.  
          *  Calling this method without arguments will make the [Tween] run infinitely, until either it is killed with [method kill], the [Tween]'s bound node is freed, or all the animated objects have been freed (which makes further animation impossible).  
          *  **Warning:** Make sure to always add some duration/delay when using infinite loops. To prevent the game freezing, 0-duration looped animations (e.g. a single [CallbackTweener] with no delay) are stopped after a small number of loops, which may produce unexpected results. If a [Tween]'s lifetime depends on some node, always use [method bind_node].  
          */
-        set_loops(loops: int64 = 0): Tween
+        set_loops(loops?: int64 /* = 0 */): Tween
         
         /** Returns the number of remaining loops for this [Tween] (see [method set_loops]). A return value of `-1` indicates an infinitely looping [Tween], and a return value of `0` indicates that the [Tween] has already finished. */
         get_loops_left(): int64
@@ -3516,34 +3364,34 @@ declare module "godot" {
         static interpolate_value(initial_value: any, delta_value: any, elapsed_time: float64, duration: float64, trans_type: Tween.TransitionType, ease_type: Tween.EaseType): any
         
         /** Emitted when one step of the [Tween] is complete, providing the step index. One step is either a single [Tweener] or a group of [Tweener]s running in parallel. */
-        readonly step_finished: Signal1<int64>
+        readonly step_finished: Signal<(idx: int64) => void>
         
         /** Emitted when a full loop is complete (see [method set_loops]), providing the loop index. This signal is not emitted after the final loop, use [signal finished] instead for this case. */
-        readonly loop_finished: Signal1<int64>
+        readonly loop_finished: Signal<(loop_count: int64) => void>
         
         /** Emitted when the [Tween] has finished all tweening. Never emitted when the [Tween] is set to infinite looping (see [method set_loops]). */
-        readonly finished: Signal0
+        readonly finished: Signal<() => void>
     }
     /** Abstract class for all Tweeners used by [Tween].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_tweener.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_tweener.html  
      */
     class Tweener extends RefCounted {
         constructor(identifier?: any)
         /** Emitted when the [Tweener] has just finished its job or became invalid (e.g. due to a freed object). */
-        readonly finished: Signal0
+        readonly finished: Signal<() => void>
     }
     /** Helper class to implement a UDP server.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_udpserver.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_udpserver.html  
      */
     class UDPServer extends RefCounted {
         constructor(identifier?: any)
         /** Starts the server by opening a UDP socket listening on the given [param port]. You can optionally specify a [param bind_address] to only listen for packets sent to that address. See also [method PacketPeerUDP.bind]. */
-        listen(port: int64, bind_address: string = '*'): GError
+        listen(port: int64, bind_address?: string /* = '*' */): Error
         
         /** Call this method at regular intervals (e.g. inside [method Node._process]) to process new packets. And packet from known address/port pair will be delivered to the appropriate [PacketPeerUDP], any packet received from an unknown address/port pair will be added as a pending connection (see [method is_connection_available], [method take_connection]). The maximum number of pending connection is defined via [member max_pending_connections]. */
-        poll(): GError
+        poll(): Error
         
         /** Returns `true` if a packet with a new address/port combination was received on the socket. */
         is_connection_available(): boolean
@@ -3563,13 +3411,6 @@ declare module "godot" {
         /** Define the maximum number of pending connections, during [method poll], any new pending connection exceeding that value will be automatically dropped. Setting this value to `0` effectively prevents any new pending connection to be accepted (e.g. when all your players have connected). */
         get max_pending_connections(): int64
         set max_pending_connections(value: int64)
-    }
-    class UIDUpgradeDialog<Map extends Record<string, Node> = Record<string, Node>> extends ConfirmationDialog<Map> {
-        constructor(identifier?: any)
-    }
-    class UIDUpgradeTool extends Object {
-        constructor(identifier?: any)
-        readonly upgrade_finished: Signal0
     }
     namespace UPNP {
         enum UPNPResult {
@@ -3663,7 +3504,7 @@ declare module "godot" {
     }
     /** Universal Plug and Play (UPnP) functions for network device discovery, querying and port forwarding.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_upnp.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_upnp.html  
      */
     class UPNP extends RefCounted {
         constructor(identifier?: any)
@@ -3692,7 +3533,7 @@ declare module "godot" {
          *  Filters for IGD (InternetGatewayDevice) type devices by default, as those manage port forwarding. [param timeout] is the time to wait for responses in milliseconds. [param ttl] is the time-to-live; only touch this if you know what you're doing.  
          *  See [enum UPNPResult] for possible return values.  
          */
-        discover(timeout: int64 = 2000, ttl: int64 = 2, device_filter: string = 'InternetGatewayDevice'): int64
+        discover(timeout?: int64 /* = 2000 */, ttl?: int64 /* = 2 */, device_filter?: string /* = 'InternetGatewayDevice' */): int64
         
         /** Returns the external [IP] address of the default gateway (see [method get_gateway]) as string. Returns an empty string on error. */
         query_external_address(): string
@@ -3704,10 +3545,10 @@ declare module "godot" {
          *  The mapping's lease [param duration] can be limited by specifying a duration in seconds. The default of `0` means no duration, i.e. a permanent lease and notably some devices only support these permanent leases. Note that whether permanent or not, this is only a request and the gateway may still decide at any point to remove the mapping (which usually happens on a reboot of the gateway, when its external IP address changes, or on some models when it detects a port mapping has become inactive, i.e. had no traffic for multiple minutes). If not `0` (permanent), the allowed range according to spec is between `120` (2 minutes) and `86400` seconds (24 hours).  
          *  See [enum UPNPResult] for possible return values.  
          */
-        add_port_mapping(port: int64, port_internal: int64 = 0, desc: string = '', proto: string = 'UDP', duration: int64 = 0): int64
+        add_port_mapping(port: int64, port_internal?: int64 /* = 0 */, desc?: string /* = '' */, proto?: string /* = 'UDP' */, duration?: int64 /* = 0 */): int64
         
         /** Deletes the port mapping for the given port and protocol combination on the default gateway (see [method get_gateway]) if one exists. [param port] must be a valid port between 1 and 65535, [param proto] can be either `"TCP"` or `"UDP"`. May be refused for mappings pointing to addresses other than this one, for well-known ports (below 1024), or for mappings not added via UPnP. See [enum UPNPResult] for possible return values. */
-        delete_port_mapping(port: int64, proto: string = 'UDP'): int64
+        delete_port_mapping(port: int64, proto?: string /* = 'UDP' */): int64
         
         /** Multicast interface to use for discovery. Uses the default multicast interface if empty. */
         get discover_multicast_if(): string
@@ -3756,7 +3597,7 @@ declare module "godot" {
     }
     /** Universal Plug and Play (UPnP) device.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_upnpdevice.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_upnpdevice.html  
      */
     class UPNPDevice extends RefCounted {
         constructor(identifier?: any)
@@ -3767,10 +3608,10 @@ declare module "godot" {
         query_external_address(): string
         
         /** Adds a port mapping to forward the given external port on this [UPNPDevice] for the given protocol to the local machine. See [method UPNP.add_port_mapping]. */
-        add_port_mapping(port: int64, port_internal: int64 = 0, desc: string = '', proto: string = 'UDP', duration: int64 = 0): int64
+        add_port_mapping(port: int64, port_internal?: int64 /* = 0 */, desc?: string /* = '' */, proto?: string /* = 'UDP' */, duration?: int64 /* = 0 */): int64
         
         /** Deletes the port mapping identified by the given port and protocol combination on this device. See [method UPNP.delete_port_mapping]. */
-        delete_port_mapping(port: int64, proto: string = 'UDP'): int64
+        delete_port_mapping(port: int64, proto?: string /* = 'UDP' */): int64
         
         /** URL to the device description. */
         get description_url(): string
@@ -3810,7 +3651,7 @@ declare module "godot" {
     }
     /** Provides a high-level interface for implementing undo and redo operations.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_undoredo.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_undoredo.html  
      */
     class UndoRedo extends Object {
         constructor(identifier?: any)
@@ -3818,10 +3659,10 @@ declare module "godot" {
          *  The way actions are merged is dictated by [param merge_mode]. See [enum MergeMode] for details.  
          *  The way undo operation are ordered in actions is dictated by [param backward_undo_ops]. When [param backward_undo_ops] is `false` undo option are ordered in the same order they were added. Which means the first operation to be added will be the first to be undone.  
          */
-        create_action(name: string, merge_mode: UndoRedo.MergeMode = 0, backward_undo_ops: boolean = false): void
+        create_action(name: string, merge_mode?: UndoRedo.MergeMode /* = 0 */, backward_undo_ops?: boolean /* = false */): void
         
         /** Commit the action. If [param execute] is `true` (which it is by default), all "do" methods/properties are called/set when this function is called. */
-        commit_action(execute: boolean = true): void
+        commit_action(execute?: boolean /* = true */): void
         
         /** Returns `true` if the [UndoRedo] is currently committing the action, i.e. running its "do" method or property change (see [method commit_action]). */
         is_committing_action(): boolean
@@ -3868,7 +3709,7 @@ declare module "godot" {
         /** Clear the undo/redo history and associated references.  
          *  Passing `false` to [param increase_version] will prevent the version number from increasing when the history is cleared.  
          */
-        clear_history(increase_version: boolean = true): void
+        clear_history(increase_version?: boolean /* = true */): void
         
         /** Gets the name of the current action, equivalent to `get_action_name(get_current_action())`. */
         get_current_action_name(): string
@@ -3895,11 +3736,11 @@ declare module "godot" {
         set max_steps(value: int64)
         
         /** Called when [method undo] or [method redo] was called. */
-        readonly version_changed: Signal0
+        readonly version_changed: Signal<() => void>
     }
     /** Uniform set cache manager for Rendering Device based renderers.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_uniformsetcacherd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_uniformsetcacherd.html  
      */
     class UniformSetCacheRD extends Object {
         constructor(identifier?: any)
@@ -3908,51 +3749,51 @@ declare module "godot" {
     }
     /** A container that arranges its child controls vertically.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vboxcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vboxcontainer.html  
      */
-    class VBoxContainer<Map extends Record<string, Node> = Record<string, Node>> extends BoxContainer<Map> {
+    class VBoxContainer<Map extends Record<string, Node> = {}> extends BoxContainer<Map> {
         constructor(identifier?: any)
     }
     /** A container that arranges its child controls vertically and wraps them around at the borders.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vflowcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vflowcontainer.html  
      */
-    class VFlowContainer<Map extends Record<string, Node> = Record<string, Node>> extends FlowContainer<Map> {
+    class VFlowContainer<Map extends Record<string, Node> = {}> extends FlowContainer<Map> {
         constructor(identifier?: any)
     }
     /** A vertical scrollbar that goes from top (min) to bottom (max).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vscrollbar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vscrollbar.html  
      */
-    class VScrollBar<Map extends Record<string, Node> = Record<string, Node>> extends ScrollBar<Map> {
+    class VScrollBar<Map extends Record<string, Node> = {}> extends ScrollBar<Map> {
         constructor(identifier?: any)
     }
     /** A vertical line used for separating other controls.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vseparator.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vseparator.html  
      */
-    class VSeparator<Map extends Record<string, Node> = Record<string, Node>> extends Separator<Map> {
+    class VSeparator<Map extends Record<string, Node> = {}> extends Separator<Map> {
         constructor(identifier?: any)
     }
     /** A vertical slider that goes from bottom (min) to top (max).  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vslider.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vslider.html  
      */
-    class VSlider<Map extends Record<string, Node> = Record<string, Node>> extends Slider<Map> {
+    class VSlider<Map extends Record<string, Node> = {}> extends Slider<Map> {
         constructor(identifier?: any)
     }
     /** A container that splits two child controls vertically and provides a grabber for adjusting the split ratio.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vsplitcontainer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vsplitcontainer.html  
      */
-    class VSplitContainer<Map extends Record<string, Node> = Record<string, Node>> extends SplitContainer<Map> {
+    class VSplitContainer<Map extends Record<string, Node> = {}> extends SplitContainer<Map> {
         constructor(identifier?: any)
     }
     /** A 3D physics body that simulates the behavior of a car.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vehiclebody3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vehiclebody3d.html  
      */
-    class VehicleBody3D<Map extends Record<string, Node> = Record<string, Node>> extends RigidBody3D<Map> {
+    class VehicleBody3D<Map extends Record<string, Node> = {}> extends RigidBody3D<Map> {
         constructor(identifier?: any)
         /** Accelerates the vehicle by applying an engine force. The vehicle is only sped up if the wheels that have [member VehicleWheel3D.use_as_traction] set to `true` and are in contact with a surface. The [member RigidBody3D.mass] of the vehicle has an effect on the acceleration of the vehicle. For a vehicle with a mass set to 1000, try a value in the 25 - 50 range for acceleration.  
          *      
@@ -3975,9 +3816,9 @@ declare module "godot" {
     }
     /** A 3D physics body for a [VehicleBody3D] that simulates the behavior of a wheel.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_vehiclewheel3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_vehiclewheel3d.html  
      */
-    class VehicleWheel3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class VehicleWheel3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /** Returns `true` if this wheel is in contact with a surface. */
         is_in_contact(): boolean
@@ -4061,15 +3902,9 @@ declare module "godot" {
         get damping_relaxation(): float64
         set damping_relaxation(value: float64)
     }
-    class VehicleWheel3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
-    class VersionControlEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
     /** Base resource for video streams.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_videostream.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_videostream.html  
      */
     class VideoStream extends Resource {
         constructor(identifier?: any)
@@ -4084,7 +3919,7 @@ declare module "godot" {
     }
     /** Internal class used by [VideoStream] to manage playback state when played from a [VideoStreamPlayer].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_videostreamplayback.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_videostreamplayback.html  
      */
     class VideoStreamPlayback extends Resource {
         constructor(identifier?: any)
@@ -4128,13 +3963,13 @@ declare module "godot" {
         /* gdvirtual */ _get_mix_rate(): int64
         
         /** Render [param num_frames] audio frames (of [method _get_channels] floats each) from [param buffer], starting from index [param offset] in the array. Returns the number of audio frames rendered, or -1 on error. */
-        mix_audio(num_frames: int64, buffer: PackedFloat32Array | float32[] = [], offset: int64 = 0): int64
+        mix_audio(num_frames: int64, buffer?: PackedFloat32Array | float32[] /* = [] */, offset?: int64 /* = 0 */): int64
     }
     /** A control used for video playback.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_videostreamplayer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_videostreamplayer.html  
      */
-    class VideoStreamPlayer<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
+    class VideoStreamPlayer<Map extends Record<string, Node> = {}> extends Control<Map> {
         constructor(identifier?: any)
         /** Starts the video playback from the beginning. If the video is paused, this will not unpause the video. */
         play(): void
@@ -4211,16 +4046,13 @@ declare module "godot" {
         set bus(value: StringName)
         
         /** Emitted when playback is finished. */
-        readonly finished: Signal0
+        readonly finished: Signal<() => void>
     }
     /** [VideoStream] resource for Ogg Theora videos.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_videostreamtheora.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_videostreamtheora.html  
      */
     class VideoStreamTheora extends VideoStream {
-        constructor(identifier?: any)
-    }
-    class ViewPanner extends RefCounted {
         constructor(identifier?: any)
     }
     namespace Viewport {
@@ -4358,10 +4190,16 @@ declare module "godot" {
             /** Objects are displayed without light information. */
             DEBUG_DRAW_UNSHADED = 1,
             
-            /** Objects are displayed without textures and only with lighting information. */
+            /** Objects are displayed without textures and only with lighting information.  
+             *      
+             *  **Note:** When using this debug draw mode, custom shaders are ignored since all materials in the scene temporarily use a debug material. This means the result from custom shader functions (such as vertex displacement) won't be visible anymore when using this debug draw mode.  
+             */
             DEBUG_DRAW_LIGHTING = 2,
             
-            /** Objects are displayed semi-transparent with additive blending so you can see where they are drawing over top of one another. A higher overdraw means you are wasting performance on drawing pixels that are being hidden behind others. */
+            /** Objects are displayed semi-transparent with additive blending so you can see where they are drawing over top of one another. A higher overdraw means you are wasting performance on drawing pixels that are being hidden behind others.  
+             *      
+             *  **Note:** When using this debug draw mode, custom shaders are ignored since all materials in the scene temporarily use a debug material. This means the result from custom shader functions (such as vertex displacement) won't be visible anymore when using this debug draw mode.  
+             */
             DEBUG_DRAW_OVERDRAW = 3,
             
             /** Objects are displayed as wireframe models.  
@@ -4370,16 +4208,28 @@ declare module "godot" {
              */
             DEBUG_DRAW_WIREFRAME = 4,
             
-            /** Objects are displayed without lighting information and their textures replaced by normal mapping. */
+            /** Objects are displayed without lighting information and their textures replaced by normal mapping.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_NORMAL_BUFFER = 5,
             
-            /** Objects are displayed with only the albedo value from [VoxelGI]s. */
+            /** Objects are displayed with only the albedo value from [VoxelGI]s. Requires at least one visible [VoxelGI] node that has been baked to have a visible effect.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_VOXEL_GI_ALBEDO = 6,
             
-            /** Objects are displayed with only the lighting value from [VoxelGI]s. */
+            /** Objects are displayed with only the lighting value from [VoxelGI]s. Requires at least one visible [VoxelGI] node that has been baked to have a visible effect.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_VOXEL_GI_LIGHTING = 7,
             
-            /** Objects are displayed with only the emission color from [VoxelGI]s. */
+            /** Objects are displayed with only the emission color from [VoxelGI]s. Requires at least one visible [VoxelGI] node that has been baked to have a visible effect.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_VOXEL_GI_EMISSION = 8,
             
             /** Draws the shadow atlas that stores shadows from [OmniLight3D]s and [SpotLight3D]s in the upper left quadrant of the [Viewport]. */
@@ -4388,56 +4238,101 @@ declare module "godot" {
             /** Draws the shadow atlas that stores shadows from [DirectionalLight3D]s in the upper left quadrant of the [Viewport]. */
             DEBUG_DRAW_DIRECTIONAL_SHADOW_ATLAS = 10,
             
-            /** Draws the scene luminance buffer (if available) in the upper left quadrant of the [Viewport]. */
+            /** Draws the scene luminance buffer (if available) in the upper left quadrant of the [Viewport].  
+             *      
+             *  **Note:** Only supported when using the Forward+ or Mobile rendering methods.  
+             */
             DEBUG_DRAW_SCENE_LUMINANCE = 11,
             
-            /** Draws the screen-space ambient occlusion texture instead of the scene so that you can clearly see how it is affecting objects. In order for this display mode to work, you must have [member Environment.ssao_enabled] set in your [WorldEnvironment]. */
+            /** Draws the screen-space ambient occlusion texture instead of the scene so that you can clearly see how it is affecting objects. In order for this display mode to work, you must have [member Environment.ssao_enabled] set in your [WorldEnvironment].  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_SSAO = 12,
             
-            /** Draws the screen-space indirect lighting texture instead of the scene so that you can clearly see how it is affecting objects. In order for this display mode to work, you must have [member Environment.ssil_enabled] set in your [WorldEnvironment]. */
+            /** Draws the screen-space indirect lighting texture instead of the scene so that you can clearly see how it is affecting objects. In order for this display mode to work, you must have [member Environment.ssil_enabled] set in your [WorldEnvironment].  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_SSIL = 13,
             
-            /** Colors each PSSM split for the [DirectionalLight3D]s in the scene a different color so you can see where the splits are. In order, they will be colored red, green, blue, and yellow. */
+            /** Colors each PSSM split for the [DirectionalLight3D]s in the scene a different color so you can see where the splits are. In order (from closest to furthest from the camera), they are colored red, green, blue, and yellow.  
+             *      
+             *  **Note:** When using this debug draw mode, custom shaders are ignored since all materials in the scene temporarily use a debug material. This means the result from custom shader functions (such as vertex displacement) won't be visible anymore when using this debug draw mode.  
+             *      
+             *  **Note:** Only supported when using the Forward+ or Mobile rendering methods.  
+             */
             DEBUG_DRAW_PSSM_SPLITS = 14,
             
-            /** Draws the decal atlas used by [Decal]s and light projector textures in the upper left quadrant of the [Viewport]. */
+            /** Draws the decal atlas used by [Decal]s and light projector textures in the upper left quadrant of the [Viewport].  
+             *      
+             *  **Note:** Only supported when using the Forward+ or Mobile rendering methods.  
+             */
             DEBUG_DRAW_DECAL_ATLAS = 15,
             
             /** Draws the cascades used to render signed distance field global illumination (SDFGI).  
-             *  Does nothing if the current environment's [member Environment.sdfgi_enabled] is `false` or SDFGI is not supported on the platform.  
+             *  Does nothing if the current environment's [member Environment.sdfgi_enabled] is `false`.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
              */
             DEBUG_DRAW_SDFGI = 16,
             
             /** Draws the probes used for signed distance field global illumination (SDFGI).  
-             *  Does nothing if the current environment's [member Environment.sdfgi_enabled] is `false` or SDFGI is not supported on the platform.  
+             *  Does nothing if the current environment's [member Environment.sdfgi_enabled] is `false`.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
              */
             DEBUG_DRAW_SDFGI_PROBES = 17,
             
-            /** Draws the buffer used for global illumination (GI). */
+            /** Draws the buffer used for global illumination from [VoxelGI] or SDFGI. Requires [VoxelGI] (at least one visible baked VoxelGI node) or SDFGI ([member Environment.sdfgi_enabled]) to be enabled to have a visible effect.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_GI_BUFFER = 18,
             
-            /** Draws all of the objects at their highest polycount, without low level of detail (LOD). */
+            /** Draws all of the objects at their highest polycount regardless of their distance from the camera. No low level of detail (LOD) is applied. */
             DEBUG_DRAW_DISABLE_LOD = 19,
             
-            /** Draws the cluster used by [OmniLight3D] nodes to optimize light rendering. */
+            /** Draws the cluster used by [OmniLight3D] nodes to optimize light rendering.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_CLUSTER_OMNI_LIGHTS = 20,
             
-            /** Draws the cluster used by [SpotLight3D] nodes to optimize light rendering. */
+            /** Draws the cluster used by [SpotLight3D] nodes to optimize light rendering.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_CLUSTER_SPOT_LIGHTS = 21,
             
-            /** Draws the cluster used by [Decal] nodes to optimize decal rendering. */
+            /** Draws the cluster used by [Decal] nodes to optimize decal rendering.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_CLUSTER_DECALS = 22,
             
-            /** Draws the cluster used by [ReflectionProbe] nodes to optimize decal rendering. */
+            /** Draws the cluster used by [ReflectionProbe] nodes to optimize decal rendering.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_CLUSTER_REFLECTION_PROBES = 23,
             
-            /** Draws the buffer used for occlusion culling. */
+            /** Draws the buffer used for occlusion culling.  
+             *      
+             *  **Note:** Only supported when using the Forward+ or Mobile rendering methods.  
+             */
             DEBUG_DRAW_OCCLUDERS = 24,
             
-            /** Draws vector lines over the viewport to indicate the movement of pixels between frames. */
+            /** Draws vector lines over the viewport to indicate the movement of pixels between frames.  
+             *      
+             *  **Note:** Only supported when using the Forward+ rendering method.  
+             */
             DEBUG_DRAW_MOTION_VECTORS = 25,
             
-            /** Draws the internal resolution buffer of the scene before post-processing is applied. */
+            /** Draws the internal resolution buffer of the scene in linear colorspace before tonemapping or post-processing is applied.  
+             *      
+             *  **Note:** Only supported when using the Forward+ or Mobile rendering methods.  
+             */
             DEBUG_DRAW_INTERNAL_BUFFER = 26,
         }
         enum DefaultCanvasItemTextureFilter {
@@ -4531,9 +4426,9 @@ declare module "godot" {
     }
     /** Abstract base class for viewports. Encapsulates drawing and interaction with a game world.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_viewport.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_viewport.html  
      */
-    class Viewport<Map extends Record<string, Node> = Record<string, Node>> extends Node<Map> {
+    class Viewport<Map extends Record<string, Node> = {}> extends Node<Map> {
         constructor(identifier?: any)
         /** Returns the first valid [World2D] for this viewport, searching the [member world_2d] property of itself and any Viewport ancestor. */
         find_world_2d(): World2D
@@ -4583,7 +4478,7 @@ declare module "godot" {
          *  If an earlier method marks the input as handled via [method set_input_as_handled], any later method in this list will not be called.  
          *  If none of the methods handle the event and [member physics_object_picking] is `true`, the event is used for physics object picking.  
          */
-        push_input(event: InputEvent, in_local_coords: boolean = false): void
+        push_input(event: InputEvent, in_local_coords?: boolean /* = false */): void
         
         /** Triggers the given [param event] in this [Viewport]. This can be used to pass an [InputEvent] between viewports, or to locally apply inputs that were sent over the network or saved to a file.  
          *  If [param in_local_coords] is `false`, the event's position is in the embedder's coordinates and will be converted to viewport coordinates. If [param in_local_coords] is `true`, the event's position is in viewport coordinates.  
@@ -4596,7 +4491,7 @@ declare module "godot" {
          *      
          *  **Note:** This method doesn't propagate input events to embedded [Window]s or [SubViewport]s.  
          */
-        push_unhandled_input(event: InputEvent, in_local_coords: boolean = false): void
+        push_unhandled_input(event: InputEvent, in_local_coords?: boolean /* = false */): void
         
         /** Inform the Viewport that the mouse has entered its area. Use this function before sending an [InputEventMouseButton] or [InputEventMouseMotion] to the [Viewport] with [method Viewport.push_input]. See also [method notify_mouse_exited].  
          *      
@@ -4959,23 +4854,17 @@ declare module "godot" {
         set canvas_cull_mask(value: int64)
         
         /** Emitted when the size of the viewport is changed, whether by resizing of window, or some other means. */
-        readonly size_changed: Signal0
+        readonly size_changed: Signal<() => void>
         
         /** Emitted when a Control node grabs keyboard focus.  
          *      
          *  **Note:** A Control node losing focus doesn't cause this signal to be emitted.  
          */
-        readonly gui_focus_changed: Signal1<Control>
-    }
-    class ViewportNavigationControl<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
-    }
-    class ViewportRotationControl<Map extends Record<string, Node> = Record<string, Node>> extends Control<Map> {
-        constructor(identifier?: any)
+        readonly gui_focus_changed: Signal<(node: Control) => void>
     }
     /** Provides the content of a [Viewport] as a dynamic texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_viewporttexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_viewporttexture.html  
      */
     class ViewportTexture extends Texture2D {
         constructor(identifier?: any)
@@ -5000,9 +4889,9 @@ declare module "godot" {
     }
     /** A rectangular region of 2D space that, when visible on screen, enables a target node.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visibleonscreenenabler2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visibleonscreenenabler2d.html  
      */
-    class VisibleOnScreenEnabler2D<Map extends Record<string, Node> = Record<string, Node>> extends VisibleOnScreenNotifier2D<Map> {
+    class VisibleOnScreenEnabler2D<Map extends Record<string, Node> = {}> extends VisibleOnScreenNotifier2D<Map> {
         constructor(identifier?: any)
         /** Determines how the target node is enabled. Corresponds to [enum Node.ProcessMode]. When the node is disabled, it always uses [constant Node.PROCESS_MODE_DISABLED]. */
         get enable_mode(): int64
@@ -5026,9 +4915,9 @@ declare module "godot" {
     }
     /** A box-shaped region of 3D space that, when visible on screen, enables a target node.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visibleonscreenenabler3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visibleonscreenenabler3d.html  
      */
-    class VisibleOnScreenEnabler3D<Map extends Record<string, Node> = Record<string, Node>> extends VisibleOnScreenNotifier3D<Map> {
+    class VisibleOnScreenEnabler3D<Map extends Record<string, Node> = {}> extends VisibleOnScreenNotifier3D<Map> {
         constructor(identifier?: any)
         /** Determines how the target node is enabled. Corresponds to [enum Node.ProcessMode]. When the node is disabled, it always uses [constant Node.PROCESS_MODE_DISABLED]. */
         get enable_mode(): int64
@@ -5040,9 +4929,9 @@ declare module "godot" {
     }
     /** A rectangular region of 2D space that detects whether it is visible on screen.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visibleonscreennotifier2d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visibleonscreennotifier2d.html  
      */
-    class VisibleOnScreenNotifier2D<Map extends Record<string, Node> = Record<string, Node>> extends Node2D<Map> {
+    class VisibleOnScreenNotifier2D<Map extends Record<string, Node> = {}> extends Node2D<Map> {
         constructor(identifier?: any)
         /** If `true`, the bounding rectangle is on the screen.  
          *      
@@ -5054,17 +4943,21 @@ declare module "godot" {
         get rect(): Rect2
         set rect(value: Rect2)
         
+        /** If `true`, shows the rectangle area of [member rect] in the editor with a translucent magenta fill. Unlike changing the visibility of the VisibleOnScreenNotifier2D, this does not affect the screen culling detection. */
+        get show_rect(): boolean
+        set show_rect(value: boolean)
+        
         /** Emitted when the VisibleOnScreenNotifier2D enters the screen. */
-        readonly screen_entered: Signal0
+        readonly screen_entered: Signal<() => void>
         
         /** Emitted when the VisibleOnScreenNotifier2D exits the screen. */
-        readonly screen_exited: Signal0
+        readonly screen_exited: Signal<() => void>
     }
     /** A box-shaped region of 3D space that detects whether it is visible on screen.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visibleonscreennotifier3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visibleonscreennotifier3d.html  
      */
-    class VisibleOnScreenNotifier3D<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class VisibleOnScreenNotifier3D<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Returns `true` if the bounding box is on the screen.  
          *      
@@ -5077,19 +4970,16 @@ declare module "godot" {
         set aabb(value: AABB)
         
         /** Emitted when the [VisibleOnScreenNotifier3D] enters the screen. */
-        readonly screen_entered: Signal0
+        readonly screen_entered: Signal<() => void>
         
         /** Emitted when the [VisibleOnScreenNotifier3D] exits the screen. */
-        readonly screen_exited: Signal0
-    }
-    class VisibleOnScreenNotifier3DGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
+        readonly screen_exited: Signal<() => void>
     }
     /** Parent of all visual 3D nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualinstance3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualinstance3d.html  
      */
-    class VisualInstance3D<Map extends Record<string, Node> = Record<string, Node>> extends Node3D<Map> {
+    class VisualInstance3D<Map extends Record<string, Node> = {}> extends Node3D<Map> {
         constructor(identifier?: any)
         /* gdvirtual */ _get_aabb(): AABB
         
@@ -5207,7 +5097,7 @@ declare module "godot" {
     }
     /** A custom shader program with a visual editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshader.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshader.html  
      */
     class VisualShader extends Shader {
         /** Indicates an invalid [VisualShader] node. */
@@ -5251,7 +5141,7 @@ declare module "godot" {
         can_connect_nodes(type: VisualShader.Type, from_node: int64, from_port: int64, to_node: int64, to_port: int64): boolean
         
         /** Connects the specified nodes and ports. */
-        connect_nodes(type: VisualShader.Type, from_node: int64, from_port: int64, to_node: int64, to_port: int64): GError
+        connect_nodes(type: VisualShader.Type, from_node: int64, from_port: int64, to_node: int64, to_port: int64): Error
         
         /** Connects the specified nodes and ports. */
         disconnect_nodes(type: VisualShader.Type, from_node: int64, from_port: int64, to_node: int64, to_port: int64): void
@@ -5284,9 +5174,6 @@ declare module "godot" {
         /** The offset vector of the whole graph. */
         get graph_offset(): Vector2
         set graph_offset(value: Vector2)
-    }
-    class VisualShaderConversionPlugin extends EditorResourceConversionPlugin {
-        constructor(identifier?: any)
     }
     namespace VisualShaderNode {
         enum PortType {
@@ -5323,7 +5210,7 @@ declare module "godot" {
     }
     /** Base class for [VisualShader] nodes. Not related to scene nodes.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernode.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernode.html  
      */
     class VisualShaderNode extends Resource {
         constructor(identifier?: any)
@@ -5333,7 +5220,7 @@ declare module "godot" {
         _is_output_port_expanded(_unnamed_arg0: int64): boolean
         
         /** Sets the default [param value] for the selected input [param port]. */
-        set_input_port_default_value(port: int64, value: any, prev_value: any = <any> {}): void
+        set_input_port_default_value(port: int64, value: any, prev_value?: any /* = <any> {} */): void
         
         /** Returns the default value of the input [param port]. */
         get_input_port_default_value(port: int64): any
@@ -5376,7 +5263,7 @@ declare module "godot" {
     }
     /** A node that controls how the object faces the camera to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodebillboard.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodebillboard.html  
      */
     class VisualShaderNodeBillboard extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5390,7 +5277,7 @@ declare module "godot" {
     }
     /** A boolean constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodebooleanconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodebooleanconstant.html  
      */
     class VisualShaderNodeBooleanConstant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -5400,7 +5287,7 @@ declare module "godot" {
     }
     /** A boolean parameter to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodebooleanparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodebooleanparameter.html  
      */
     class VisualShaderNodeBooleanParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -5438,7 +5325,7 @@ declare module "godot" {
     }
     /** Clamps a value within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeclamp.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeclamp.html  
      */
     class VisualShaderNodeClamp extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5448,7 +5335,7 @@ declare module "godot" {
     }
     /** A [Color] constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecolorconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecolorconstant.html  
      */
     class VisualShaderNodeColorConstant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -5494,13 +5381,13 @@ declare module "godot" {
     }
     /** A [Color] function to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecolorfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecolorfunc.html  
      */
     class VisualShaderNodeColorFunc extends VisualShaderNode {
         constructor(identifier?: any)
         /** A function to be applied to the input color. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     namespace VisualShaderNodeColorOp {
         enum Operator {
@@ -5555,7 +5442,7 @@ declare module "godot" {
     }
     /** A [Color] operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecolorop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecolorop.html  
      */
     class VisualShaderNodeColorOp extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5565,7 +5452,7 @@ declare module "godot" {
     }
     /** A [Color] parameter to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecolorparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecolorparameter.html  
      */
     class VisualShaderNodeColorParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -5579,7 +5466,7 @@ declare module "godot" {
     }
     /** Only exists for compatibility. Use [VisualShaderNodeFrame] as a replacement.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecomment.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecomment.html  
      */
     class VisualShaderNodeComment extends VisualShaderNodeFrame {
         constructor(identifier?: any)
@@ -5651,7 +5538,7 @@ declare module "godot" {
     }
     /** A comparison function for common types within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecompare.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecompare.html  
      */
     class VisualShaderNodeCompare extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5660,8 +5547,8 @@ declare module "godot" {
         set type(value: int64)
         
         /** A comparison function. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
         
         /** Extra condition which is applied if [member type] is set to [constant CTYPE_VECTOR_3D]. */
         get condition(): int64
@@ -5669,7 +5556,7 @@ declare module "godot" {
     }
     /** A base type for the constants within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeconstant.html  
      */
     class VisualShaderNodeConstant extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5701,7 +5588,7 @@ declare module "godot" {
     }
     /** A [Cubemap] sampling node to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecubemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecubemap.html  
      */
     class VisualShaderNodeCubemap extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5719,14 +5606,14 @@ declare module "godot" {
     }
     /** A [Cubemap] parameter node to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecubemapparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecubemapparameter.html  
      */
     class VisualShaderNodeCubemapParameter extends VisualShaderNodeTextureParameter {
         constructor(identifier?: any)
     }
     /** Performs a [CurveTexture] lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecurvetexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecurvetexture.html  
      */
     class VisualShaderNodeCurveTexture extends VisualShaderNodeResizableBase {
         constructor(identifier?: any)
@@ -5736,7 +5623,7 @@ declare module "godot" {
     }
     /** Performs a [CurveXYZTexture] lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecurvexyztexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecurvexyztexture.html  
      */
     class VisualShaderNodeCurveXYZTexture extends VisualShaderNodeResizableBase {
         constructor(identifier?: any)
@@ -5746,7 +5633,7 @@ declare module "godot" {
     }
     /** Virtual class to define custom [VisualShaderNode]s for use in the Visual Shader Editor.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodecustom.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodecustom.html  
      */
     class VisualShaderNodeCustom extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5917,7 +5804,7 @@ declare module "godot" {
     }
     /** Calculates a derivative within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodederivativefunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodederivativefunc.html  
      */
     class VisualShaderNodeDerivativeFunc extends VisualShaderNode {
         constructor(identifier?: any)
@@ -5926,8 +5813,8 @@ declare module "godot" {
         set op_type(value: int64)
         
         /** A derivative function type. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
         
         /** Sets the level of precision to use for the derivative function. See [enum Precision] for options. When using the Compatibility renderer, this setting has no effect. */
         get precision(): int64
@@ -5935,28 +5822,28 @@ declare module "godot" {
     }
     /** Calculates the determinant of a [Transform3D] within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodedeterminant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodedeterminant.html  
      */
     class VisualShaderNodeDeterminant extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A visual shader node representing distance fade effect.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodedistancefade.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodedistancefade.html  
      */
     class VisualShaderNodeDistanceFade extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** Calculates a dot product of two vectors within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodedotproduct.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodedotproduct.html  
      */
     class VisualShaderNodeDotProduct extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A custom visual shader graph expression written in Godot Shading Language.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeexpression.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeexpression.html  
      */
     class VisualShaderNodeExpression extends VisualShaderNodeGroupBase {
         constructor(identifier?: any)
@@ -5966,14 +5853,14 @@ declare module "godot" {
     }
     /** Returns the vector that points in the same direction as a reference vector within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodefaceforward.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodefaceforward.html  
      */
     class VisualShaderNodeFaceForward extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
     }
     /** A scalar floating-point constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodefloatconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodefloatconstant.html  
      */
     class VisualShaderNodeFloatConstant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -6085,13 +5972,13 @@ declare module "godot" {
     }
     /** A scalar floating-point function to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodefloatfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodefloatfunc.html  
      */
     class VisualShaderNodeFloatFunc extends VisualShaderNode {
         constructor(identifier?: any)
         /** A function to be applied to the scalar. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     namespace VisualShaderNodeFloatOp {
         enum Operator {
@@ -6131,7 +6018,7 @@ declare module "godot" {
     }
     /** A floating-point scalar operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodefloatop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodefloatop.html  
      */
     class VisualShaderNodeFloatOp extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6156,7 +6043,7 @@ declare module "godot" {
     }
     /** A scalar float parameter to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodefloatparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodefloatparameter.html  
      */
     class VisualShaderNodeFloatParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -6186,7 +6073,7 @@ declare module "godot" {
     }
     /** A frame other visual shader nodes can be attached to for better organization.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeframe.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeframe.html  
      */
     class VisualShaderNodeFrame extends VisualShaderNodeResizableBase {
         constructor(identifier?: any)
@@ -6218,21 +6105,21 @@ declare module "godot" {
     }
     /** A Fresnel effect to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodefresnel.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodefresnel.html  
      */
     class VisualShaderNodeFresnel extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A custom global visual shader graph expression written in Godot Shading Language.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeglobalexpression.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeglobalexpression.html  
      */
     class VisualShaderNodeGlobalExpression extends VisualShaderNodeExpression {
         constructor(identifier?: any)
     }
     /** Base class for a family of nodes with variable number of input and output ports within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodegroupbase.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodegroupbase.html  
      */
     class VisualShaderNodeGroupBase extends VisualShaderNodeResizableBase {
         constructor(identifier?: any)
@@ -6301,14 +6188,14 @@ declare module "godot" {
     }
     /** Outputs a 3D vector based on the result of a floating-point comparison within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeif.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeif.html  
      */
     class VisualShaderNodeIf extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** Represents the input shader parameter within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeinput.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeinput.html  
      */
     class VisualShaderNodeInput extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6320,11 +6207,11 @@ declare module "godot" {
         set input_name(value: StringName)
         
         /** Emitted when input is changed via [member input_name]. */
-        readonly input_type_changed: Signal0
+        readonly input_type_changed: Signal<() => void>
     }
     /** A scalar integer constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeintconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeintconstant.html  
      */
     class VisualShaderNodeIntConstant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -6352,13 +6239,13 @@ declare module "godot" {
     }
     /** A scalar integer function to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeintfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeintfunc.html  
      */
     class VisualShaderNodeIntFunc extends VisualShaderNode {
         constructor(identifier?: any)
         /** A function to be applied to the scalar. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     namespace VisualShaderNodeIntOp {
         enum Operator {
@@ -6404,7 +6291,7 @@ declare module "godot" {
     }
     /** An integer scalar operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeintop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeintop.html  
      */
     class VisualShaderNodeIntOp extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6432,7 +6319,7 @@ declare module "godot" {
     }
     /** A visual shader node for shader parameter (uniform) of type [int].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeintparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeintparameter.html  
      */
     class VisualShaderNodeIntParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -6478,17 +6365,17 @@ declare module "godot" {
     }
     /** A boolean comparison operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeis.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeis.html  
      */
     class VisualShaderNodeIs extends VisualShaderNode {
         constructor(identifier?: any)
         /** The comparison function. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     /** A visual shader node that returns the depth value of the DEPTH_TEXTURE node in a linear space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodelinearscenedepth.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodelinearscenedepth.html  
      */
     class VisualShaderNodeLinearSceneDepth extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6522,7 +6409,7 @@ declare module "godot" {
     }
     /** Linearly interpolates between two values within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodemix.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodemix.html  
      */
     class VisualShaderNodeMix extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6550,7 +6437,7 @@ declare module "godot" {
     }
     /** Performs a fused multiply-add operation within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodemultiplyadd.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodemultiplyadd.html  
      */
     class VisualShaderNodeMultiplyAdd extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6560,14 +6447,14 @@ declare module "godot" {
     }
     /** Calculates an outer product of two vectors within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeouterproduct.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeouterproduct.html  
      */
     class VisualShaderNodeOuterProduct extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** Represents the output shader parameters within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeoutput.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeoutput.html  
      */
     class VisualShaderNodeOutput extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6589,7 +6476,7 @@ declare module "godot" {
     }
     /** A base type for the parameters within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparameter.html  
      */
     class VisualShaderNodeParameter extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6603,7 +6490,7 @@ declare module "godot" {
     }
     /** A reference to an existing [VisualShaderNodeParameter].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparameterref.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparameterref.html  
      */
     class VisualShaderNodeParameterRef extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6630,7 +6517,7 @@ declare module "godot" {
     }
     /** A visual shader node that accelerates particles.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleaccelerator.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleaccelerator.html  
      */
     class VisualShaderNodeParticleAccelerator extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6640,14 +6527,14 @@ declare module "godot" {
     }
     /** A visual shader node that makes particles emitted in a box shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleboxemitter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleboxemitter.html  
      */
     class VisualShaderNodeParticleBoxEmitter extends VisualShaderNodeParticleEmitter {
         constructor(identifier?: any)
     }
     /** A visual shader node that makes particles move in a cone shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleconevelocity.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleconevelocity.html  
      */
     class VisualShaderNodeParticleConeVelocity extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6672,7 +6559,7 @@ declare module "godot" {
     }
     /** A visual shader node that forces to emit a particle from a sub-emitter.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleemit.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleemit.html  
      */
     class VisualShaderNodeParticleEmit extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6682,7 +6569,7 @@ declare module "godot" {
     }
     /** A base class for particle emitters.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleemitter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleemitter.html  
      */
     class VisualShaderNodeParticleEmitter extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6692,7 +6579,7 @@ declare module "godot" {
     }
     /** A visual shader node that makes particles emitted in a shape defined by a [Mesh].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticlemeshemitter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticlemeshemitter.html  
      */
     class VisualShaderNodeParticleMeshEmitter extends VisualShaderNodeParticleEmitter {
         constructor(identifier?: any)
@@ -6710,7 +6597,7 @@ declare module "godot" {
     }
     /** A visual shader helper node for multiplying position and rotation of particles.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticlemultiplybyaxisangle.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticlemultiplybyaxisangle.html  
      */
     class VisualShaderNodeParticleMultiplyByAxisAngle extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6720,7 +6607,7 @@ declare module "godot" {
     }
     /** Visual shader node that defines output values for particle emitting.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleoutput.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleoutput.html  
      */
     class VisualShaderNodeParticleOutput extends VisualShaderNodeOutput {
         constructor(identifier?: any)
@@ -6745,7 +6632,7 @@ declare module "godot" {
     }
     /** Visual shader node for randomizing particle values.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticlerandomness.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticlerandomness.html  
      */
     class VisualShaderNodeParticleRandomness extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6755,28 +6642,28 @@ declare module "godot" {
     }
     /** A visual shader node that makes particles emitted in a ring shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticleringemitter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticleringemitter.html  
      */
     class VisualShaderNodeParticleRingEmitter extends VisualShaderNodeParticleEmitter {
         constructor(identifier?: any)
     }
     /** A visual shader node that makes particles emitted in a sphere shape.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeparticlesphereemitter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeparticlesphereemitter.html  
      */
     class VisualShaderNodeParticleSphereEmitter extends VisualShaderNodeParticleEmitter {
         constructor(identifier?: any)
     }
     /** A visual shader node representing proximity fade effect.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeproximityfade.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeproximityfade.html  
      */
     class VisualShaderNodeProximityFade extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A visual shader node that generates a pseudo-random scalar.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernoderandomrange.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernoderandomrange.html  
      */
     class VisualShaderNodeRandomRange extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6810,7 +6697,7 @@ declare module "godot" {
     }
     /** A visual shader node for remap function.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernoderemap.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernoderemap.html  
      */
     class VisualShaderNodeRemap extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6819,7 +6706,7 @@ declare module "godot" {
     }
     /** A node that allows rerouting a connection within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodereroute.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodereroute.html  
      */
     class VisualShaderNodeReroute extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6828,7 +6715,7 @@ declare module "godot" {
     }
     /** Base class for resizable nodes in a visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernoderesizablebase.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernoderesizablebase.html  
      */
     class VisualShaderNodeResizableBase extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6838,21 +6725,21 @@ declare module "godot" {
     }
     /** A visual shader node that modifies the rotation of the object using a rotation matrix.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernoderotationbyaxis.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernoderotationbyaxis.html  
      */
     class VisualShaderNodeRotationByAxis extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** SDF raymarching algorithm to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodesdfraymarch.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodesdfraymarch.html  
      */
     class VisualShaderNodeSDFRaymarch extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A function to convert an SDF (signed-distance field) to screen UV, to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodesdftoscreenuv.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodesdftoscreenuv.html  
      */
     class VisualShaderNodeSDFToScreenUV extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6871,7 +6758,7 @@ declare module "godot" {
     }
     /** A base node for nodes which samples 3D textures in the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodesample3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodesample3d.html  
      */
     class VisualShaderNodeSample3D extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6881,14 +6768,14 @@ declare module "godot" {
     }
     /** A visual shader node that unpacks the screen normal texture in World Space.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodescreennormalworldspace.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodescreennormalworldspace.html  
      */
     class VisualShaderNodeScreenNormalWorldSpace extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A function to convert screen UV to an SDF (signed-distance field), to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodescreenuvtosdf.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodescreenuvtosdf.html  
      */
     class VisualShaderNodeScreenUVToSDF extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6922,7 +6809,7 @@ declare module "godot" {
     }
     /** Calculates a SmoothStep function within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodesmoothstep.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodesmoothstep.html  
      */
     class VisualShaderNodeSmoothStep extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6959,7 +6846,7 @@ declare module "godot" {
     }
     /** Calculates a Step function within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodestep.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodestep.html  
      */
     class VisualShaderNodeStep extends VisualShaderNode {
         constructor(identifier?: any)
@@ -6999,7 +6886,7 @@ declare module "godot" {
     }
     /** A selector function for use within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeswitch.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeswitch.html  
      */
     class VisualShaderNodeSwitch extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7052,7 +6939,7 @@ declare module "godot" {
     }
     /** Performs a 2D texture lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexture.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexture.html  
      */
     class VisualShaderNodeTexture extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7070,7 +6957,7 @@ declare module "godot" {
     }
     /** A 2D texture uniform array to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexture2darray.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexture2darray.html  
      */
     class VisualShaderNodeTexture2DArray extends VisualShaderNodeSample3D {
         constructor(identifier?: any)
@@ -7080,21 +6967,21 @@ declare module "godot" {
     }
     /** A visual shader node for shader parameter (uniform) of type [Texture2DArray].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexture2darrayparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexture2darrayparameter.html  
      */
     class VisualShaderNodeTexture2DArrayParameter extends VisualShaderNodeTextureParameter {
         constructor(identifier?: any)
     }
     /** Provides a 2D texture parameter within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexture2dparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexture2dparameter.html  
      */
     class VisualShaderNodeTexture2DParameter extends VisualShaderNodeTextureParameter {
         constructor(identifier?: any)
     }
     /** Performs a 3D texture lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexture3d.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexture3d.html  
      */
     class VisualShaderNodeTexture3D extends VisualShaderNodeSample3D {
         constructor(identifier?: any)
@@ -7104,7 +6991,7 @@ declare module "godot" {
     }
     /** Provides a 3D texture parameter within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexture3dparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexture3dparameter.html  
      */
     class VisualShaderNodeTexture3DParameter extends VisualShaderNodeTextureParameter {
         constructor(identifier?: any)
@@ -7206,7 +7093,7 @@ declare module "godot" {
     }
     /** Performs a uniform texture lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetextureparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetextureparameter.html  
      */
     class VisualShaderNodeTextureParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -7232,35 +7119,35 @@ declare module "godot" {
     }
     /** Performs a uniform texture lookup with triplanar within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetextureparametertriplanar.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetextureparametertriplanar.html  
      */
     class VisualShaderNodeTextureParameterTriplanar extends VisualShaderNodeTextureParameter {
         constructor(identifier?: any)
     }
     /** Performs an SDF (signed-distance field) texture lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexturesdf.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexturesdf.html  
      */
     class VisualShaderNodeTextureSDF extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** Performs an SDF (signed-distance field) normal texture lookup within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetexturesdfnormal.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetexturesdfnormal.html  
      */
     class VisualShaderNodeTextureSDFNormal extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** Composes a [Transform3D] from four [Vector3]s within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformcompose.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformcompose.html  
      */
     class VisualShaderNodeTransformCompose extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A [Transform3D] constant for use within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformconstant.html  
      */
     class VisualShaderNodeTransformConstant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -7270,7 +7157,7 @@ declare module "godot" {
     }
     /** Decomposes a [Transform3D] into four [Vector3]s within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformdecompose.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformdecompose.html  
      */
     class VisualShaderNodeTransformDecompose extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7289,13 +7176,13 @@ declare module "godot" {
     }
     /** Computes a [Transform3D] function within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformfunc.html  
      */
     class VisualShaderNodeTransformFunc extends VisualShaderNode {
         constructor(identifier?: any)
         /** The function to be computed. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     namespace VisualShaderNodeTransformOp {
         enum Operator {
@@ -7332,7 +7219,7 @@ declare module "godot" {
     }
     /** A [Transform3D] operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformop.html  
      */
     class VisualShaderNodeTransformOp extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7342,7 +7229,7 @@ declare module "godot" {
     }
     /** A [Transform3D] parameter for use within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformparameter.html  
      */
     class VisualShaderNodeTransformParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -7374,7 +7261,7 @@ declare module "godot" {
     }
     /** Multiplies a [Transform3D] and a [Vector3] within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodetransformvecmult.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodetransformvecmult.html  
      */
     class VisualShaderNodeTransformVecMult extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7384,7 +7271,7 @@ declare module "godot" {
     }
     /** An unsigned scalar integer constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeuintconstant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeuintconstant.html  
      */
     class VisualShaderNodeUIntConstant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -7406,13 +7293,13 @@ declare module "godot" {
     }
     /** An unsigned scalar integer function to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeuintfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeuintfunc.html  
      */
     class VisualShaderNodeUIntFunc extends VisualShaderNode {
         constructor(identifier?: any)
         /** A function to be applied to the scalar. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     namespace VisualShaderNodeUIntOp {
         enum Operator {
@@ -7458,7 +7345,7 @@ declare module "godot" {
     }
     /** An unsigned integer scalar operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeuintop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeuintop.html  
      */
     class VisualShaderNodeUIntOp extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7468,7 +7355,7 @@ declare module "godot" {
     }
     /** A visual shader node for shader parameter (uniform) of type unsigned [int].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeuintparameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeuintparameter.html  
      */
     class VisualShaderNodeUIntParameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -7494,24 +7381,24 @@ declare module "godot" {
     }
     /** Contains functions to modify texture coordinates (`uv`) to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeuvfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeuvfunc.html  
      */
     class VisualShaderNodeUVFunc extends VisualShaderNode {
         constructor(identifier?: any)
         /** A function to be applied to the texture coordinates. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     /** A visual shader node that modifies the texture UV using polar coordinates.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeuvpolarcoord.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeuvpolarcoord.html  
      */
     class VisualShaderNodeUVPolarCoord extends VisualShaderNode {
         constructor(identifier?: any)
     }
     /** A visual shader node that represents a "varying" shader value.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevarying.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevarying.html  
      */
     class VisualShaderNodeVarying extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7525,21 +7412,21 @@ declare module "godot" {
     }
     /** A visual shader node that gets a value of a varying.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevaryinggetter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevaryinggetter.html  
      */
     class VisualShaderNodeVaryingGetter extends VisualShaderNodeVarying {
         constructor(identifier?: any)
     }
     /** A visual shader node that sets a value of a varying.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevaryingsetter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevaryingsetter.html  
      */
     class VisualShaderNodeVaryingSetter extends VisualShaderNodeVarying {
         constructor(identifier?: any)
     }
     /** A [Vector2] constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevec2constant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevec2constant.html  
      */
     class VisualShaderNodeVec2Constant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -7549,7 +7436,7 @@ declare module "godot" {
     }
     /** A [Vector2] parameter to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevec2parameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevec2parameter.html  
      */
     class VisualShaderNodeVec2Parameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -7563,7 +7450,7 @@ declare module "godot" {
     }
     /** A [Vector3] constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevec3constant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevec3constant.html  
      */
     class VisualShaderNodeVec3Constant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -7573,7 +7460,7 @@ declare module "godot" {
     }
     /** A [Vector3] parameter to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevec3parameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevec3parameter.html  
      */
     class VisualShaderNodeVec3Parameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -7587,7 +7474,7 @@ declare module "godot" {
     }
     /** A 4D vector constant to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevec4constant.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevec4constant.html  
      */
     class VisualShaderNodeVec4Constant extends VisualShaderNodeConstant {
         constructor(identifier?: any)
@@ -7599,7 +7486,7 @@ declare module "godot" {
     }
     /** A 4D vector parameter to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevec4parameter.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevec4parameter.html  
      */
     class VisualShaderNodeVec4Parameter extends VisualShaderNodeParameter {
         constructor(identifier?: any)
@@ -7628,7 +7515,7 @@ declare module "godot" {
     }
     /** A base type for the nodes that perform vector operations within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectorbase.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectorbase.html  
      */
     class VisualShaderNodeVectorBase extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7638,21 +7525,21 @@ declare module "godot" {
     }
     /** Composes a [Vector2], [Vector3] or 4D vector (represented as a [Quaternion]) from scalars within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectorcompose.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectorcompose.html  
      */
     class VisualShaderNodeVectorCompose extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
     }
     /** Decomposes a [Vector2], [Vector3] or 4D vector (represented as a [Quaternion]) into scalars within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectordecompose.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectordecompose.html  
      */
     class VisualShaderNodeVectorDecompose extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
     }
     /** Returns the distance between two points. To be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectordistance.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectordistance.html  
      */
     class VisualShaderNodeVectorDistance extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
@@ -7764,17 +7651,17 @@ declare module "godot" {
     }
     /** A vector function to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectorfunc.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectorfunc.html  
      */
     class VisualShaderNodeVectorFunc extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
         /** The function to be performed. See [enum Function] for options. */
-        get function(): int64
-        set function(value: int64)
+        get "function"(): int64
+        set "function"(value: int64)
     }
     /** Returns the length of a [Vector3] within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectorlen.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectorlen.html  
      */
     class VisualShaderNodeVectorLen extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
@@ -7823,7 +7710,7 @@ declare module "godot" {
     }
     /** A vector operator to be used within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectorop.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectorop.html  
      */
     class VisualShaderNodeVectorOp extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
@@ -7833,14 +7720,14 @@ declare module "godot" {
     }
     /** Returns the vector that points in the direction of refraction. For use within the visual shader graph.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodevectorrefract.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodevectorrefract.html  
      */
     class VisualShaderNodeVectorRefract extends VisualShaderNodeVectorBase {
         constructor(identifier?: any)
     }
     /** A visual shader node that calculates the position of the pixel in world space using the depth texture.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_visualshadernodeworldpositionfromdepth.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_visualshadernodeworldpositionfromdepth.html  
      */
     class VisualShaderNodeWorldPositionFromDepth extends VisualShaderNode {
         constructor(identifier?: any)
@@ -7865,9 +7752,9 @@ declare module "godot" {
     }
     /** Real-time global illumination (GI) probe.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_voxelgi.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_voxelgi.html  
      */
-    class VoxelGI<Map extends Record<string, Node> = Record<string, Node>> extends VisualInstance3D<Map> {
+    class VoxelGI<Map extends Record<string, Node> = {}> extends VisualInstance3D<Map> {
         constructor(identifier?: any)
         /** Bakes the effect from all [GeometryInstance3D]s marked with [constant GeometryInstance3D.GI_MODE_STATIC] and [Light3D]s marked with either [constant Light3D.BAKE_STATIC] or [constant Light3D.BAKE_DYNAMIC]. If [param create_visual_debug] is `true`, after baking the light, this will generate a [MultiMesh] that has a cube representing each solid cell with each cube colored to the cell's albedo color. This can be used to visualize the [VoxelGI]'s data and debug any issues that may be occurring.  
          *      
@@ -7875,7 +7762,7 @@ declare module "godot" {
          *      
          *  **Note:** [GeometryInstance3D]s and [Light3D]s must be fully ready before [method bake] is called. If you are procedurally creating those and some meshes or lights are missing from your baked [VoxelGI], use `call_deferred("bake")` instead of calling [method bake] directly.  
          */
-        bake(from_node: Node = undefined, create_visual_debug: boolean = false): void
+        bake(from_node?: Node /* = undefined */, create_visual_debug?: boolean /* = false */): void
         
         /** Calls [method bake] with `create_visual_debug` enabled. */
         debug_bake(): void
@@ -7901,7 +7788,7 @@ declare module "godot" {
     }
     /** Contains baked voxel global illumination data for use in a [VoxelGI] node.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_voxelgidata.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_voxelgidata.html  
      */
     class VoxelGIData extends Resource {
         constructor(identifier?: any)
@@ -7948,15 +7835,9 @@ declare module "godot" {
         get interior(): boolean
         set interior(value: boolean)
     }
-    class VoxelGIEditorPlugin<Map extends Record<string, Node> = Record<string, Node>> extends EditorPlugin<Map> {
-        constructor(identifier?: any)
-    }
-    class VoxelGIGizmoPlugin extends EditorNode3DGizmoPlugin {
-        constructor(identifier?: any)
-    }
     /** Holds an [Object]. If the object is [RefCounted], it doesn't update the reference count.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_weakref.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_weakref.html  
      */
     class WeakRef extends RefCounted {
         constructor(identifier?: any)
@@ -7985,11 +7866,11 @@ declare module "godot" {
             STATE_CLOSED = 3,
         }
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_webrtcdatachannel.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_webrtcdatachannel.html */
     class WebRTCDataChannel extends PacketPeer {
         constructor(identifier?: any)
         /** Reserved, but not used for now. */
-        poll(): GError
+        poll(): Error
         
         /** Closes this data channel, notifying the other peer. */
         close(): void
@@ -8034,14 +7915,14 @@ declare module "godot" {
         get write_mode(): int64
         set write_mode(value: int64)
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_webrtcdatachannelextension.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_webrtcdatachannelextension.html */
     class WebRTCDataChannelExtension extends WebRTCDataChannel {
         constructor(identifier?: any)
-        /* gdvirtual */ _get_packet(r_buffer: int64, r_buffer_size: int64): GError
-        /* gdvirtual */ _put_packet(p_buffer: int64, p_buffer_size: int64): GError
+        /* gdvirtual */ _get_packet(r_buffer: int64, r_buffer_size: int64): Error
+        /* gdvirtual */ _put_packet(p_buffer: int64, p_buffer_size: int64): Error
         /* gdvirtual */ _get_available_packet_count(): int64
         /* gdvirtual */ _get_max_packet_size(): int64
-        /* gdvirtual */ _poll(): GError
+        /* gdvirtual */ _poll(): Error
         /* gdvirtual */ _close(): void
         /* gdvirtual */ _set_write_mode(p_write_mode: WebRTCDataChannel.WriteMode): void
         /* gdvirtual */ _get_write_mode(): WebRTCDataChannel.WriteMode
@@ -8058,27 +7939,27 @@ declare module "godot" {
     }
     /** A simple interface to create a peer-to-peer mesh network composed of [WebRTCPeerConnection] that is compatible with the [MultiplayerAPI].  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_webrtcmultiplayerpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_webrtcmultiplayerpeer.html  
      */
     class WebRTCMultiplayerPeer extends MultiplayerPeer {
         constructor(identifier?: any)
         /** Initialize the multiplayer peer as a server (with unique ID of `1`). This mode enables [method MultiplayerPeer.is_server_relay_supported], allowing the upper [MultiplayerAPI] layer to perform peer exchange and packet relaying.  
          *  You can optionally specify a [param channels_config] array of [enum MultiplayerPeer.TransferMode] which will be used to create extra channels (WebRTC only supports one transfer mode per channel).  
          */
-        create_server(channels_config: GArray = []): GError
+        create_server(channels_config?: GArray /* = [] */): Error
         
         /** Initialize the multiplayer peer as a client with the given [param peer_id] (must be between 2 and 2147483647). In this mode, you should only call [method add_peer] once and with [param peer_id] of `1`. This mode enables [method MultiplayerPeer.is_server_relay_supported], allowing the upper [MultiplayerAPI] layer to perform peer exchange and packet relaying.  
          *  You can optionally specify a [param channels_config] array of [enum MultiplayerPeer.TransferMode] which will be used to create extra channels (WebRTC only supports one transfer mode per channel).  
          */
-        create_client(peer_id: int64, channels_config: GArray = []): GError
+        create_client(peer_id: int64, channels_config?: GArray /* = [] */): Error
         
         /** Initialize the multiplayer peer as a mesh (i.e. all peers connect to each other) with the given [param peer_id] (must be between 1 and 2147483647). */
-        create_mesh(peer_id: int64, channels_config: GArray = []): GError
+        create_mesh(peer_id: int64, channels_config?: GArray /* = [] */): Error
         
         /** Add a new peer to the mesh with the given [param peer_id]. The [WebRTCPeerConnection] must be in state [constant WebRTCPeerConnection.STATE_NEW].  
          *  Three channels will be created for reliable, unreliable, and ordered transport. The value of [param unreliable_lifetime] will be passed to the `"maxPacketLifetime"` option when creating unreliable and ordered channels (see [method WebRTCPeerConnection.create_data_channel]).  
          */
-        add_peer(peer: WebRTCPeerConnection, peer_id: int64, unreliable_lifetime: int64 = 1): GError
+        add_peer(peer: WebRTCPeerConnection, peer_id: int64, unreliable_lifetime?: int64 /* = 1 */): Error
         
         /** Remove the peer with given [param peer_id] from the mesh. If the peer was connected, and [signal MultiplayerPeer.peer_connected] was emitted for it, then [signal MultiplayerPeer.peer_disconnected] will be emitted. */
         remove_peer(peer_id: int64): void
@@ -8144,7 +8025,7 @@ declare module "godot" {
     }
     /** Interface to a WebRTC peer connection.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_webrtcpeerconnection.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_webrtcpeerconnection.html  
      */
     class WebRTCPeerConnection extends RefCounted {
         constructor(identifier?: any)
@@ -8155,7 +8036,7 @@ declare module "godot" {
          *  Valid [param configuration] options are:  
          *    
          */
-        initialize(configuration: GDictionary = new GDictionary()): GError
+        initialize(configuration?: GDictionary /* = new GDictionary() */): Error
         
         /** Returns a new [WebRTCDataChannel] (or `null` on failure) with given [param label] and optionally configured via the [param options] dictionary. This method can only be called when the connection is in state [constant STATE_NEW].  
          *  There are two ways to create a working data channel: either call [method create_data_channel] on only one of the peer and listen to [signal data_channel_received] on the other, or call [method create_data_channel] on both peers, with the same values, and the `"negotiated"` option set to `true`.  
@@ -8164,29 +8045,29 @@ declare module "godot" {
          *      
          *  **Note:** You must keep a reference to channels created this way, or it will be closed.  
          */
-        create_data_channel(label: string, options: GDictionary = new GDictionary()): WebRTCDataChannel
+        create_data_channel(label: string, options?: GDictionary /* = new GDictionary() */): WebRTCDataChannel
         
         /** Creates a new SDP offer to start a WebRTC connection with a remote peer. At least one [WebRTCDataChannel] must have been created before calling this method.  
          *  If this functions returns [constant OK], [signal session_description_created] will be called when the session is ready to be sent.  
          */
-        create_offer(): GError
+        create_offer(): Error
         
         /** Sets the SDP description of the local peer. This should be called in response to [signal session_description_created].  
          *  After calling this function the peer will start emitting [signal ice_candidate_created] (unless an [enum Error] different from [constant OK] is returned).  
          */
-        set_local_description(type: string, sdp: string): GError
+        set_local_description(type: string, sdp: string): Error
         
         /** Sets the SDP description of the remote peer. This should be called with the values generated by a remote peer and received over the signaling server.  
          *  If [param type] is `"offer"` the peer will emit [signal session_description_created] with the appropriate answer.  
          *  If [param type] is `"answer"` the peer will start emitting [signal ice_candidate_created].  
          */
-        set_remote_description(type: string, sdp: string): GError
+        set_remote_description(type: string, sdp: string): Error
         
         /** Add an ice candidate generated by a remote peer (and received over the signaling server). See [signal ice_candidate_created]. */
-        add_ice_candidate(media: string, index: int64, name: string): GError
+        add_ice_candidate(media: string, index: int64, name: string): Error
         
         /** Call this method frequently (e.g. in [method Node._process] or [method Node._physics_process]) to properly receive signals. */
-        poll(): GError
+        poll(): Error
         
         /** Close the peer connection and all data channels associated with it.  
          *      
@@ -8204,34 +8085,34 @@ declare module "godot" {
         get_signaling_state(): WebRTCPeerConnection.SignalingState
         
         /** Emitted after a successful call to [method create_offer] or [method set_remote_description] (when it generates an answer). The parameters are meant to be passed to [method set_local_description] on this object, and sent to the remote peer over the signaling server. */
-        readonly session_description_created: Signal2<string, string>
+        readonly session_description_created: Signal<(type: string, sdp: string) => void>
         
         /** Emitted when a new ICE candidate has been created. The three parameters are meant to be passed to the remote peer over the signaling server. */
-        readonly ice_candidate_created: Signal3<string, int64, string>
+        readonly ice_candidate_created: Signal<(media: string, index: int64, name: string) => void>
         
         /** Emitted when a new in-band channel is received, i.e. when the channel was created with `negotiated: false` (default).  
          *  The object will be an instance of [WebRTCDataChannel]. You must keep a reference of it or it will be closed automatically. See [method create_data_channel].  
          */
-        readonly data_channel_received: Signal1<WebRTCDataChannel>
+        readonly data_channel_received: Signal<(channel: WebRTCDataChannel) => void>
     }
-    /** @link https://docs.godotengine.org/en/4.4/classes/class_webrtcpeerconnectionextension.html */
+    /** @link https://docs.godotengine.org/en/latest/classes/class_webrtcpeerconnectionextension.html */
     class WebRTCPeerConnectionExtension extends WebRTCPeerConnection {
         constructor(identifier?: any)
         /* gdvirtual */ _get_connection_state(): WebRTCPeerConnection.ConnectionState
         /* gdvirtual */ _get_gathering_state(): WebRTCPeerConnection.GatheringState
         /* gdvirtual */ _get_signaling_state(): WebRTCPeerConnection.SignalingState
-        /* gdvirtual */ _initialize(p_config: GDictionary): GError
+        /* gdvirtual */ _initialize(p_config: GDictionary): Error
         /* gdvirtual */ _create_data_channel(p_label: string, p_config: GDictionary): WebRTCDataChannel
-        /* gdvirtual */ _create_offer(): GError
-        /* gdvirtual */ _set_remote_description(p_type: string, p_sdp: string): GError
-        /* gdvirtual */ _set_local_description(p_type: string, p_sdp: string): GError
-        /* gdvirtual */ _add_ice_candidate(p_sdp_mid_name: string, p_sdp_mline_index: int64, p_sdp_name: string): GError
-        /* gdvirtual */ _poll(): GError
+        /* gdvirtual */ _create_offer(): Error
+        /* gdvirtual */ _set_remote_description(p_type: string, p_sdp: string): Error
+        /* gdvirtual */ _set_local_description(p_type: string, p_sdp: string): Error
+        /* gdvirtual */ _add_ice_candidate(p_sdp_mid_name: string, p_sdp_mline_index: int64, p_sdp_name: string): Error
+        /* gdvirtual */ _poll(): Error
         /* gdvirtual */ _close(): void
     }
     /** Base class for WebSocket server and client.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_websocketmultiplayerpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_websocketmultiplayerpeer.html  
      */
     class WebSocketMultiplayerPeer extends MultiplayerPeer {
         constructor(identifier?: any)
@@ -8239,10 +8120,10 @@ declare module "godot" {
          *      
          *  **Note:** It is recommended to specify the scheme part of the URL, i.e. the [param url] should start with either `ws://` or `wss://`.  
          */
-        create_client(url: string, tls_client_options: TLSOptions = undefined): GError
+        create_client(url: string, tls_client_options?: TLSOptions /* = undefined */): Error
         
         /** Starts a new multiplayer server listening on the given [param port]. You can optionally specify a [param bind_address], and provide valid [param tls_server_options] to use TLS. See [method TLSOptions.server]. */
-        create_server(port: int64, bind_address: string = '*', tls_server_options: TLSOptions = undefined): GError
+        create_server(port: int64, bind_address?: string /* = '*' */, tls_server_options?: TLSOptions /* = undefined */): Error
         
         /** Returns the [WebSocketPeer] associated to the given [param peer_id]. */
         get_peer(peer_id: int64): WebSocketPeer
@@ -8301,7 +8182,7 @@ declare module "godot" {
     }
     /** A WebSocket connection.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_websocketpeer.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_websocketpeer.html  
      */
     class WebSocketPeer extends PacketPeer {
         constructor(identifier?: any)
@@ -8311,19 +8192,19 @@ declare module "godot" {
          *      
          *  **Note:** To avoid mixed content warnings or errors in Web, you may have to use a [param url] that starts with `wss://` (secure) instead of `ws://`. When doing so, make sure to use the fully qualified domain name that matches the one defined in the server's TLS certificate. Do not connect directly via the IP address for `wss://` connections, as it won't match with the TLS certificate.  
          */
-        connect_to_url(url: string, tls_client_options: TLSOptions = undefined): GError
+        connect_to_url(url: string, tls_client_options?: TLSOptions /* = undefined */): Error
         
         /** Accepts a peer connection performing the HTTP handshake as a WebSocket server. The [param stream] must be a valid TCP stream retrieved via [method TCPServer.take_connection], or a TLS stream accepted via [method StreamPeerTLS.accept_stream].  
          *      
          *  **Note:** Not supported in Web exports due to browsers' restrictions.  
          */
-        accept_stream(stream: StreamPeer): GError
+        accept_stream(stream: StreamPeer): Error
         
         /** Sends the given [param message] using the desired [param write_mode]. When sending a [String], prefer using [method send_text]. */
-        send(message: PackedByteArray | byte[] | ArrayBuffer, write_mode: WebSocketPeer.WriteMode = 1): GError
+        send(message: PackedByteArray | byte[] | ArrayBuffer, write_mode?: WebSocketPeer.WriteMode /* = 1 */): Error
         
         /** Sends the given [param message] using WebSocket text mode. Prefer this method over [method PacketPeer.put_packet] when interacting with third-party text-based API (e.g. when using [JSON] formatted messages). */
-        send_text(message: string): GError
+        send_text(message: string): Error
         
         /** Returns `true` if the last received packet was sent as a text payload. See [enum WriteMode]. */
         was_string_packet(): boolean
@@ -8337,7 +8218,7 @@ declare module "godot" {
          *      
          *  **Note:** The Web export might not support all status codes. Please refer to browser-specific documentation for more details.  
          */
-        close(code: int64 = 1000, reason: string = ''): void
+        close(code?: int64 /* = 1000 */, reason?: string /* = '' */): void
         
         /** Returns the IP address of the connected peer.  
          *      
@@ -8424,7 +8305,7 @@ declare module "godot" {
     }
     /** XR interface using WebXR.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_webxrinterface.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_webxrinterface.html  
      */
     class WebXRInterface extends XRInterface {
         constructor(identifier?: any)
@@ -8512,64 +8393,64 @@ declare module "godot" {
         get visibility_state(): string
         
         /** Emitted by [method is_session_supported] to indicate if the given [param session_mode] is supported or not. */
-        readonly session_supported: Signal2<string, boolean>
+        readonly session_supported: Signal<(session_mode: string, supported: boolean) => void>
         
         /** Emitted by [method XRInterface.initialize] if the session is successfully started.  
          *  At this point, it's safe to do `get_viewport().use_xr = true` to instruct Godot to start rendering to the XR device.  
          */
-        readonly session_started: Signal0
+        readonly session_started: Signal<() => void>
         
         /** Emitted when the user ends the WebXR session (which can be done using UI from the browser or device).  
          *  At this point, you should do `get_viewport().use_xr = false` to instruct Godot to resume rendering to the screen.  
          */
-        readonly session_ended: Signal0
+        readonly session_ended: Signal<() => void>
         
         /** Emitted by [method XRInterface.initialize] if the session fails to start.  
          *  [param message] may optionally contain an error message from WebXR, or an empty string if no message is available.  
          */
-        readonly session_failed: Signal1<string>
+        readonly session_failed: Signal<(message: string) => void>
         
         /** Emitted when one of the input source has started its "primary action".  
          *  Use [method get_input_source_tracker] and [method get_input_source_target_ray_mode] to get more information about the input source.  
          */
-        readonly selectstart: Signal1<int64>
+        readonly selectstart: Signal<(input_source_id: int64) => void>
         
         /** Emitted after one of the input sources has finished its "primary action".  
          *  Use [method get_input_source_tracker] and [method get_input_source_target_ray_mode] to get more information about the input source.  
          */
-        readonly select: Signal1<int64>
+        readonly select: Signal<(input_source_id: int64) => void>
         
         /** Emitted when one of the input sources has finished its "primary action".  
          *  Use [method get_input_source_tracker] and [method get_input_source_target_ray_mode] to get more information about the input source.  
          */
-        readonly selectend: Signal1<int64>
+        readonly selectend: Signal<(input_source_id: int64) => void>
         
         /** Emitted when one of the input sources has started its "primary squeeze action".  
          *  Use [method get_input_source_tracker] and [method get_input_source_target_ray_mode] to get more information about the input source.  
          */
-        readonly squeezestart: Signal1<int64>
+        readonly squeezestart: Signal<(input_source_id: int64) => void>
         
         /** Emitted after one of the input sources has finished its "primary squeeze action".  
          *  Use [method get_input_source_tracker] and [method get_input_source_target_ray_mode] to get more information about the input source.  
          */
-        readonly squeeze: Signal1<int64>
+        readonly squeeze: Signal<(input_source_id: int64) => void>
         
         /** Emitted when one of the input sources has finished its "primary squeeze action".  
          *  Use [method get_input_source_tracker] and [method get_input_source_target_ray_mode] to get more information about the input source.  
          */
-        readonly squeezeend: Signal1<int64>
+        readonly squeezeend: Signal<(input_source_id: int64) => void>
         
         /** Emitted when [member visibility_state] has changed. */
-        readonly visibility_state_changed: Signal0
+        readonly visibility_state_changed: Signal<() => void>
         
         /** Emitted to indicate that the reference space has been reset or reconfigured.  
          *  When (or whether) this is emitted depends on the user's browser or device, but may include when the user has changed the dimensions of their play space (which you may be able to access via [method XRInterface.get_play_area]) or pressed/held a button to recenter their position.  
          *  See [url=https://developer.mozilla.org/en-US/docs/Web/API/XRReferenceSpace/reset_event]WebXR's XRReferenceSpace reset event[/url] for more information.  
          */
-        readonly reference_space_reset: Signal0
+        readonly reference_space_reset: Signal<() => void>
         
         /** Emitted after the display's refresh rate has changed. */
-        readonly display_refresh_rate_changed: Signal0
+        readonly display_refresh_rate_changed: Signal<() => void>
     }
     namespace Window {
         enum Mode {
@@ -8588,7 +8469,7 @@ declare module "godot" {
              *  **On Windows:** Multi-window full-screen mode has a 1px border of the [member ProjectSettings.rendering/environment/defaults/default_clear_color] color.  
              *  **On macOS:** A new desktop is used to display the running project.  
              *      
-             *  **Note:** Regardless of the platform, enabling full screen will change the window size to match the monitor's size. Therefore, make sure your project supports [url=https://docs.godotengine.org/en/4.4/tutorials/rendering/multiple_resolutions.html]multiple resolutions[/url] when enabling full screen mode.  
+             *  **Note:** Regardless of the platform, enabling full screen will change the window size to match the monitor's size. Therefore, make sure your project supports [url=https://docs.godotengine.org/en/latest/tutorials/rendering/multiple_resolutions.html]multiple resolutions[/url] when enabling full screen mode.  
              */
             MODE_FULLSCREEN = 3,
             
@@ -8599,7 +8480,7 @@ declare module "godot" {
              *  **On macOS:** A new desktop is used to display the running project. Exclusive full screen mode prevents Dock and Menu from showing up when the mouse pointer is hovering the edge of the screen.  
              *  **On Linux (X11):** Exclusive full screen mode bypasses compositor.  
              *      
-             *  **Note:** Regardless of the platform, enabling full screen will change the window size to match the monitor's size. Therefore, make sure your project supports [url=https://docs.godotengine.org/en/4.4/tutorials/rendering/multiple_resolutions.html]multiple resolutions[/url] when enabling full screen mode.  
+             *  **Note:** Regardless of the platform, enabling full screen will change the window size to match the monitor's size. Therefore, make sure your project supports [url=https://docs.godotengine.org/en/latest/tutorials/rendering/multiple_resolutions.html]multiple resolutions[/url] when enabling full screen mode.  
              */
             MODE_EXCLUSIVE_FULLSCREEN = 4,
         }
@@ -8658,8 +8539,11 @@ declare module "godot" {
              */
             FLAG_EXCLUDE_FROM_CAPTURE = 9,
             
+            /** Signals the window manager that this window is supposed to be an implementation-defined "popup" (usually a floating, borderless, untileable and immovable child window). */
+            FLAG_POPUP_WM_HINT = 10,
+            
             /** Max value of the [enum Flags]. */
-            FLAG_MAX = 10,
+            FLAG_MAX = 11,
         }
         enum ContentScaleMode {
             /** The content will not be scaled to match the [Window]'s size. */
@@ -8736,9 +8620,9 @@ declare module "godot" {
     }
     /** Base class for all windows, dialogs, and popups.  
      *  	  
-     *  @link https://docs.godotengine.org/en/4.4/classes/class_window.html  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_window.html  
      */
-    class Window<Map extends Record<string, Node> = Record<string, Node>> extends Viewport<Map> {
+    class Window<Map extends Record<string, Node> = {}> extends Viewport<Map> {
         /** Emitted when [Window]'s visibility changes, right before [signal visibility_changed]. */
         static readonly NOTIFICATION_VISIBILITY_CHANGED = 30
         
@@ -8898,32 +8782,32 @@ declare module "godot" {
         /** Returns an icon from the first matching [Theme] in the tree if that [Theme] has an icon item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        get_theme_icon(name: StringName, theme_type: StringName = ''): Texture2D
+        get_theme_icon(name: StringName, theme_type?: StringName /* = '' */): Texture2D
         
         /** Returns a [StyleBox] from the first matching [Theme] in the tree if that [Theme] has a stylebox item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        get_theme_stylebox(name: StringName, theme_type: StringName = ''): StyleBox
+        get_theme_stylebox(name: StringName, theme_type?: StringName /* = '' */): StyleBox
         
         /** Returns a [Font] from the first matching [Theme] in the tree if that [Theme] has a font item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        get_theme_font(name: StringName, theme_type: StringName = ''): Font
+        get_theme_font(name: StringName, theme_type?: StringName /* = '' */): Font
         
         /** Returns a font size from the first matching [Theme] in the tree if that [Theme] has a font size item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        get_theme_font_size(name: StringName, theme_type: StringName = ''): int64
+        get_theme_font_size(name: StringName, theme_type?: StringName /* = '' */): int64
         
         /** Returns a [Color] from the first matching [Theme] in the tree if that [Theme] has a color item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for more details.  
          */
-        get_theme_color(name: StringName, theme_type: StringName = ''): Color
+        get_theme_color(name: StringName, theme_type?: StringName /* = '' */): Color
         
         /** Returns a constant from the first matching [Theme] in the tree if that [Theme] has a constant item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for more details.  
          */
-        get_theme_constant(name: StringName, theme_type: StringName = ''): int64
+        get_theme_constant(name: StringName, theme_type?: StringName /* = '' */): int64
         
         /** Returns `true` if there is a local override for a theme icon with the specified [param name] in this [Control] node.  
          *  See [method add_theme_icon_override].  
@@ -8958,32 +8842,32 @@ declare module "godot" {
         /** Returns `true` if there is a matching [Theme] in the tree that has an icon item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        has_theme_icon(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_icon(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a stylebox item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        has_theme_stylebox(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_stylebox(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a font item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        has_theme_font(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_font(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a font size item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        has_theme_font_size(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_font_size(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a color item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        has_theme_color(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_color(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns `true` if there is a matching [Theme] in the tree that has a constant item with the specified [param name] and [param theme_type].  
          *  See [method Control.get_theme_color] for details.  
          */
-        has_theme_constant(name: StringName, theme_type: StringName = ''): boolean
+        has_theme_constant(name: StringName, theme_type?: StringName /* = '' */): boolean
         
         /** Returns the default base scale value from the first matching [Theme] in the tree if that [Theme] has a valid [member Theme.default_base_scale] value.  
          *  See [method Control.get_theme_color] for details.  
@@ -9015,7 +8899,7 @@ declare module "godot" {
          *      
          *  **Note:** [param rect] must be in global coordinates if specified.  
          */
-        popup(rect: Rect2i = new Rect2i(0, 0, 0, 0)): void
+        popup(rect?: Rect2i /* = new Rect2i(0, 0, 0, 0) */): void
         
         /** Popups the [Window] with a position shifted by parent [Window]'s position. If the [Window] is embedded, has the same effect as [method popup]. */
         popup_on_parent(parent_rect: Rect2i): void
@@ -9024,23 +8908,23 @@ declare module "godot" {
          *      
          *  **Note:** Calling it with the default value of [param minsize] is equivalent to calling it with [member size].  
          */
-        popup_centered(minsize: Vector2i = Vector2i.ZERO): void
+        popup_centered(minsize?: Vector2i /* = Vector2i.ZERO */): void
         
         /** If [Window] is embedded, popups the [Window] centered inside its embedder and sets its size as a [param ratio] of embedder's size.  
          *  If [Window] is a native window, popups the [Window] centered inside the screen of its parent [Window] and sets its size as a [param ratio] of the screen size.  
          */
-        popup_centered_ratio(ratio: float64 = 0.8): void
+        popup_centered_ratio(ratio?: float64 /* = 0.8 */): void
         
         /** Popups the [Window] centered inside its parent [Window]. [param fallback_ratio] determines the maximum size of the [Window], in relation to its parent.  
          *      
          *  **Note:** Calling it with the default value of [param minsize] is equivalent to calling it with [member size].  
          */
-        popup_centered_clamped(minsize: Vector2i = Vector2i.ZERO, fallback_ratio: float64 = 0.75): void
+        popup_centered_clamped(minsize?: Vector2i /* = Vector2i.ZERO */, fallback_ratio?: float64 /* = 0.75 */): void
         
         /** Attempts to parent this dialog to the last exclusive window relative to [param from_node], and then calls [method Window.popup] on it. The dialog must have no current parent, otherwise the method fails.  
          *  See also [method set_unparent_when_invisible] and [method Node.get_last_exclusive_window].  
          */
-        popup_exclusive(from_node: Node, rect: Rect2i = new Rect2i(0, 0, 0, 0)): void
+        popup_exclusive(from_node: Node, rect?: Rect2i /* = new Rect2i(0, 0, 0, 0) */): void
         
         /** Attempts to parent this dialog to the last exclusive window relative to [param from_node], and then calls [method Window.popup_on_parent] on it. The dialog must have no current parent, otherwise the method fails.  
          *  See also [method set_unparent_when_invisible] and [method Node.get_last_exclusive_window].  
@@ -9050,17 +8934,17 @@ declare module "godot" {
         /** Attempts to parent this dialog to the last exclusive window relative to [param from_node], and then calls [method Window.popup_centered] on it. The dialog must have no current parent, otherwise the method fails.  
          *  See also [method set_unparent_when_invisible] and [method Node.get_last_exclusive_window].  
          */
-        popup_exclusive_centered(from_node: Node, minsize: Vector2i = Vector2i.ZERO): void
+        popup_exclusive_centered(from_node: Node, minsize?: Vector2i /* = Vector2i.ZERO */): void
         
         /** Attempts to parent this dialog to the last exclusive window relative to [param from_node], and then calls [method Window.popup_centered_ratio] on it. The dialog must have no current parent, otherwise the method fails.  
          *  See also [method set_unparent_when_invisible] and [method Node.get_last_exclusive_window].  
          */
-        popup_exclusive_centered_ratio(from_node: Node, ratio: float64 = 0.8): void
+        popup_exclusive_centered_ratio(from_node: Node, ratio?: float64 /* = 0.8 */): void
         
         /** Attempts to parent this dialog to the last exclusive window relative to [param from_node], and then calls [method Window.popup_centered_clamped] on it. The dialog must have no current parent, otherwise the method fails.  
          *  See also [method set_unparent_when_invisible] and [method Node.get_last_exclusive_window].  
          */
-        popup_exclusive_centered_clamped(from_node: Node, minsize: Vector2i = Vector2i.ZERO, fallback_ratio: float64 = 0.75): void
+        popup_exclusive_centered_clamped(from_node: Node, minsize?: Vector2i /* = Vector2i.ZERO */, fallback_ratio?: float64 /* = 0.75 */): void
         
         /** Set's the window's current mode.  
          *      
@@ -9190,9 +9074,18 @@ declare module "godot" {
         get sharp_corners(): boolean
         set sharp_corners(value: boolean)
         
-        /** Windows is excluded from screenshots taken by [method DisplayServer.screen_get_image], [method DisplayServer.screen_get_image_rect], and [method DisplayServer.screen_get_pixel]. */
+        /** If `true`, the [Window] is excluded from screenshots taken by [method DisplayServer.screen_get_image], [method DisplayServer.screen_get_image_rect], and [method DisplayServer.screen_get_pixel].  
+         *      
+         *  **Note:** This property is implemented on macOS and Windows.  
+         *      
+         *  **Note:** Enabling this setting does **NOT** prevent other apps from capturing an image. It should not be used as a security measure.  
+         */
         get exclude_from_capture(): boolean
         set exclude_from_capture(value: boolean)
+        
+        /** If `true`, the [Window] will signal to the window manager that it is supposed to be an implementation-defined "popup" (usually a floating, borderless, untileable and immovable child window). */
+        get popup_wm_hint(): boolean
+        set popup_wm_hint(value: boolean)
         
         /** If `true`, native window will be used regardless of parent viewport and project settings. */
         get force_native(): boolean
@@ -9252,54 +9145,72 @@ declare module "godot" {
         set theme_type_variation(value: string)
         
         /** Emitted when the [Window] is currently focused and receives any input, passing the received event as an argument. The event's position, if present, is in the embedder's coordinate system. */
-        readonly window_input: Signal1<InputEvent>
+        readonly window_input: Signal<(event: InputEvent) => void>
         
         /** Emitted when files are dragged from the OS file manager and dropped in the game window. The argument is a list of file paths.  
          *    
          *      
          *  **Note:** This signal only works with native windows, i.e. the main window and [Window]-derived nodes when [member Viewport.gui_embed_subwindows] is disabled in the main viewport.  
          */
-        readonly files_dropped: Signal1<PackedStringArray | string[]>
+        readonly files_dropped: Signal<(files: PackedStringArray | string[]) => void>
         
         /** Emitted when the mouse cursor enters the [Window]'s visible area, that is not occluded behind other [Control]s or windows, provided its [member Viewport.gui_disable_input] is `false` and regardless if it's currently focused or not. */
-        readonly mouse_entered: Signal0
+        readonly mouse_entered: Signal<() => void>
         
         /** Emitted when the mouse cursor leaves the [Window]'s visible area, that is not occluded behind other [Control]s or windows, provided its [member Viewport.gui_disable_input] is `false` and regardless if it's currently focused or not. */
-        readonly mouse_exited: Signal0
+        readonly mouse_exited: Signal<() => void>
         
         /** Emitted when the [Window] gains focus. */
-        readonly focus_entered: Signal0
+        readonly focus_entered: Signal<() => void>
         
         /** Emitted when the [Window] loses its focus. */
-        readonly focus_exited: Signal0
+        readonly focus_exited: Signal<() => void>
         
         /** Emitted when the [Window]'s close button is pressed or when [member popup_window] is enabled and user clicks outside the window.  
          *  This signal can be used to handle window closing, e.g. by connecting it to [method hide].  
          */
-        readonly close_requested: Signal0
+        readonly close_requested: Signal<() => void>
         
         /** Emitted when a go back request is sent (e.g. pressing the "Back" button on Android), right after [constant Node.NOTIFICATION_WM_GO_BACK_REQUEST]. */
-        readonly go_back_requested: Signal0
+        readonly go_back_requested: Signal<() => void>
         
         /** Emitted when [Window] is made visible or disappears. */
-        readonly visibility_changed: Signal0
+        readonly visibility_changed: Signal<() => void>
         
         /** Emitted right after [method popup] call, before the [Window] appears or does anything. */
-        readonly about_to_popup: Signal0
+        readonly about_to_popup: Signal<() => void>
         
         /** Emitted when the [constant NOTIFICATION_THEME_CHANGED] notification is sent. */
-        readonly theme_changed: Signal0
+        readonly theme_changed: Signal<() => void>
         
         /** Emitted when the [Window]'s DPI changes as a result of OS-level changes (e.g. moving the window from a Retina display to a lower resolution one).  
          *      
-         *  **Note:** Only implemented on macOS.  
+         *  **Note:** Only implemented on macOS and Linux (Wayland).  
          */
-        readonly dpi_changed: Signal0
+        readonly dpi_changed: Signal<() => void>
         
         /** Emitted when window title bar decorations are changed, e.g. macOS window enter/exit full screen mode, or extend-to-title flag is changed. */
-        readonly titlebar_changed: Signal0
+        readonly titlebar_changed: Signal<() => void>
         
         /** Emitted when window title bar text is changed. */
-        readonly title_changed: Signal0
+        readonly title_changed: Signal<() => void>
+    }
+    /** A resource that holds all components of a 2D world, such as a canvas and a physics space.  
+     *  	  
+     *  @link https://docs.godotengine.org/en/latest/classes/class_world2d.html  
+     */
+    class World2D extends Resource {
+        constructor(identifier?: any)
+        /** The [RID] of this world's canvas resource. Used by the [RenderingServer] for 2D drawing. */
+        get canvas(): RID
+        
+        /** The [RID] of this world's navigation map. Used by the [NavigationServer2D]. */
+        get navigation_map(): RID
+        
+        /** The [RID] of this world's physics space resource. Used by the [PhysicsServer2D] for 2D physics, treating it as both a space and an area. */
+        get space(): RID
+        
+        /** Direct access to the world's physics 2D space state. Used for querying current and potential collisions. When using multi-threaded physics, access is limited to [method Node._physics_process] in the main thread. */
+        get direct_space_state(): PhysicsDirectSpaceState2D
     }
 }

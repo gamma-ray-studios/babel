@@ -1,6 +1,17 @@
-
 declare module "godot-jsb" {
-    import { Object as GDObject, PackedByteArray, PropertyUsageFlags, PropertyHint, MethodFlags, Variant, Callable0, Callable1, Callable2, Callable3, Callable4, Callable5, StringName, MultiplayerAPI, MultiplayerPeer } from "godot";
+    import {
+        Callable,
+        MethodFlags,
+        MultiplayerAPI,
+        MultiplayerPeer,
+        Object as GObject,
+        PackedByteArray,
+        PropertyInfo,
+        StringName,
+        Variant,
+    } from "godot";
+
+    const CAMEL_CASE_BINDINGS_ENABLED: boolean;
 
     const DEV_ENABLED: boolean;
     const TOOLS_ENABLED: boolean;
@@ -12,72 +23,65 @@ declare module "godot-jsb" {
     const impl: string;
 
     /**
-     * Create godot Callable with a bound object `self`. 
+     * Create godot Callable without a bound object.
      * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
      */
-    function callable<R = void>(self: GDObject, fn: () => R): Callable0<R>;
-    /**
-     * Create godot Callable with a bound object `self`. 
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, R = void>(self: GDObject, fn: (v1: T1) => R): Callable1<T1, R>;
-    /**
-     * Create godot Callable with a bound object `self`. 
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, R = void>(self: GDObject, fn: (v1: T1, v2: T2) => R): Callable2<T1, T2, R>;
-    /**
-     * Create godot Callable with a bound object `self`. 
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, T3, R = void>(self: GDObject, fn: (v1: T1, v2: T2, v3: T3) => R): Callable3<T1, T2, T3, R>;
-    /**
-     * Create godot Callable with a bound object `self`. 
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, T3, T4, R = void>(self: GDObject, fn: (v1: T1, v2: T2, v3: T3, v4: T4) => R): Callable4<T1, T2, T3, T4, R>;
-    /**
-     * Create godot Callable with a bound object `self`. 
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, T3, T4, T5, R = void>(self: GDObject, fn: (v1: T1, v2: T2, v3: T3, v4: T4, v5: T5) => R): Callable5<T1, T2, T3, T4, T5, R>;
+    function callable<F extends Function>(fn: F): Callable<F>;
 
     /**
-     * Create godot Callable without a bound object.
+     * Create godot Callable with a bound object `self`.
      * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
      */
-    function callable<R = void>(fn: () => R): Callable0<R>;
-    /**
-     * Create godot Callable without a bound object.
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, R = void>(fn: (v1: T1) => R): Callable1<T1, R>;
-    /**
-     * Create godot Callable without a bound object.
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, R = void>(fn: (v1: T1, v2: T2) => R): Callable2<T1, T2, R>;
-    /**
-     * Create godot Callable without a bound object.
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, T3, R = void>(fn: (v1: T1, v2: T2, v3: T3) => R): Callable3<T1, T2, T3, R>;
-    /**
-     * Create godot Callable without a bound object.
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, T3, T4, R = void>(fn: (v1: T1, v2: T2, v3: T3, v4: T4) => R): Callable4<T1, T2, T3, T4, R>;
-    /**
-     * Create godot Callable without a bound object.
-     * @deprecated [WARNING] avoid using this function directly, use `Callable.create` instead.
-     */
-    function callable<T1, T2, T3, T4, T5, R = void>(fn: (v1: T1, v2: T2, v3: T3, v4: T4, v5: T5) => R): Callable5<T1, T2, T3, T4, T5, R>;
+    function callable<S extends GObject, F extends (this: S, ...args: any[]) => any>(self: S, fn: F): Callable<F>;
 
     /**
-     * Explicitly convert a `PackedByteArray`(aka `Vector<uint8_t>`) into a javascript `ArrayBuffer` 
-     * @deprecated [WARNING] This free function '_to_array_buffer' is deprecated and will be removed in a future version, use 'PackedByteArray.to_array_buffer()' instead. 
+     * Explicitly convert a `PackedByteArray`(aka `Vector<uint8_t>`) into a javascript `ArrayBuffer`
+     * @deprecated [WARNING] This free function '_to_array_buffer' is deprecated and will be removed in a future version, use 'PackedByteArray.to_array_buffer()' instead.
      */
     function to_array_buffer(packed: PackedByteArray): ArrayBuffer;
+
+    type AsyncModuleSourceLoaderResolveFunc = (source: string) => void;
+    type AsyncModuleSourceLoaderRejectFunc = (error: string) => void;
+
+    /**
+     * Set a callback function to handle the load of source code of asynchronous modules.
+     * Only use this function if it's not set in C++.
+     */
+    function set_async_module_loader(fn: (module_id: string, resolve: AsyncModuleSourceLoaderResolveFunc, reject: AsyncModuleSourceLoaderRejectFunc) => void): void;
+
+    interface MinimalCommonJSModule { 
+        exports: any;
+        loaded: boolean;
+        id: string;
+    }
+
+    /**
+     * Import a CommonJS module asynchronously.
+     * 
+     * NOTE: Only the source code is loaded asynchronously, the module is still evaluated on the script thread.  
+     * NOTE: Calling the $import() function without a async module loader set in advance will return undefined.  
+     * @param module_id the module id to import
+     * @example
+     * ```js
+     *   // [init.js]
+     *   import * as jsb from "godot-jsb";
+     *   jsb.set_async_module_loader((id, resolve, reject) => {
+     *       console.log("[test] async module loader start", id);
+     *       // here should be the actual async loading of the module, HTTP request, etc.
+     *       // we just simulate it with a timeout
+     *       setTimeout(() => {
+     *           console.log("[test] async module loader resolve", id);
+     *           resolve("exports.foo = function () { console.log('hello, module imported'); }");
+     *       }, 3000);
+     *   });
+     *   // [somescript.js]
+     *   jsb.$import("http://localhost/async_loaded.js").then(mod => {
+     *       console.log("[test] async module loader", mod);
+     *       mod.exports.foo();
+     *   });
+     * ```
+     */
+    function $import(module_id: string): Promise<MinimalCommonJSModule>;
 
     interface ScriptPropertyInfo {
         name: string;
@@ -92,10 +96,10 @@ declare module "godot-jsb" {
         type OnReadyEvaluatorFunc = (self: any) => any;
 
         interface RPCConfig {
-            mode?: MultiplayerAPI.RPCMode, 
-            sync?: boolean, 
-            transfer_mode?: MultiplayerPeer.TransferMode, 
-            transfer_channel?: number, 
+            mode?: MultiplayerAPI.RPCMode,
+            sync?: boolean,
+            transfer_mode?: MultiplayerPeer.TransferMode,
+            transfer_channel?: number,
         }
 
         function add_script_signal(target: any, name: string): void;
@@ -103,19 +107,45 @@ declare module "godot-jsb" {
         function add_script_ready(target: any, details: { name: string, evaluator: string | OnReadyEvaluatorFunc }): void;
         function add_script_tool(target: any): void;
         function add_script_icon(target: any, path: string): void;
-        function add_script_rpc(target: any, propertyKey: string, config: RPCConfig): void;
+        function add_script_rpc(target: any, property_key: string, config: RPCConfig): void;
 
         // 0: deprecated, 1: experimental, 2: help
-        function set_script_doc(target: any, propertyKey?: string, field: 0 | 1 | 2, message: string): void;
+        function set_script_doc(target: any, property_key: undefined | string, field: 0 | 1 | 2, message: string): void;
 
         function add_module(id: string, obj: any): void;
         function find_module(id: string): any;
         function notify_microtasks_run(): void;
 
-        /**
-         * Get the transformed type name of a Variant.Type
-         */
-        function get_type_name(type: Variant.Type): StringName;
+        namespace names {
+            /**
+             * Get the transformed name of a Godot class
+             */
+            function get_class<T extends string>(godot_class: T): T;
+            /**
+             * Get the transformed name of a Godot enum
+             */
+            function get_enum<T extends string>(godot_enum: T): T;
+            /**
+             * Get the transformed name of a Godot enum
+             */
+            function get_enum_value<T extends string>(godot_enum_value: T): T;
+            /**
+             * Get the transformed name of a Godot class member
+             */
+            function get_member<T extends string>(godot_member: T): T;
+            /**
+             * Get the internal Godot name/identifier from a transformed name i.e. the inverse of the other accessors.
+             */
+            function get_internal_mapping(name: string): string;
+            /**
+             * Get the transformed name of a Godot function parameter
+             */
+            function get_parameter<T extends string>(parameter: T): T;
+            /**
+             * Get the transformed type name of a Variant.Type
+             */
+            function get_variant_type<T extends string>(type: Variant.Type): StringName;
+        }
     }
 
     namespace editor {
@@ -132,8 +162,7 @@ declare module "godot-jsb" {
 
         interface EnumInfo {
             name: string;
-
-            literals: Array<string>;
+            literals: Record<string, number>;
             is_bitfield: boolean;
         }
 
@@ -157,15 +186,6 @@ declare module "godot-jsb" {
             args_: Array<PropertyInfo>;
             default_arguments?: Array<DefaultArgumentInfo>;
             return_: PropertyInfo | undefined;
-        }
-
-        interface PropertyInfo {
-            name: string;
-            type: Variant.Type;
-            class_name: string;
-            hint: PropertyHint;
-            hint_string: string;
-            usage: PropertyUsageFlags;
         }
 
         interface PropertySetGetInfo {
@@ -213,6 +233,7 @@ declare module "godot-jsb" {
 
         // godot class
         interface ClassInfo extends BasicClassInfo {
+            internal_name: string;
             super: string;
 
             properties: Array<PropertySetGetInfo>;
@@ -279,4 +300,3 @@ declare module "godot-jsb" {
         const VERSION_DOCS_URL: string;
     }
 }
-
