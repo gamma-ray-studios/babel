@@ -2,7 +2,6 @@ module main
 
 import gd
 import log
-
 import mods
 
 pub fn init_gd(v voidptr, l gd.GDExtensionInitializationLevel) {

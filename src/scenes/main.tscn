@@ -37,6 +37,9 @@ metadata/_custom_type_script = "uid://2kf18oc0lstw"
 
 [node name="child" type="ChildV" parent="v"]
 
+[node name="polygon" type="Polygon2D" parent="v"]
+polygon = PackedVector2Array(256, 320, 288, 256, 320, 320)
+
 [node name="ts" type="Node2D" parent="."]
 script = ExtResource("4_5dlwx")
 metadata/_custom_type_script = "uid://csfatppfdptqk"
