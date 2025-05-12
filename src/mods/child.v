@@ -11,6 +11,6 @@ pub struct ChildV {
 	gd.Node2D
 }
 
-fn (mut self ChildV) setup(idk Idk) {
-	log.info('\t${self.get_parent().get_name()}/${self.get_name()}: ${idk.wat}')
+fn (mut s ChildV) setup(idk Idk) {
+	log.info('\t${s.get_parent().get_name()}/${s.get_name()}: ${idk.wat}')
 }
